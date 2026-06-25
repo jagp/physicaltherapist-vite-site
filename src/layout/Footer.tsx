@@ -24,7 +24,7 @@ export function Footer() {
       >
         <div>
           <div style={{ marginBottom: '16px' }}>
-            <img src={logo} alt="Stephenson Physical Therapy" style={{ height: '60px', display: 'block' }} />
+            <img src={logo} alt="Stephenson Physical Therapy" style={{ height: '75px', display: 'block' }} />
           </div>
           <p style={{ color: 'rgba(255,255,255,.62)', margin: '0 0 6px', fontSize: '0.9rem' }}>
             8 Pleasant St, Unit 8E
