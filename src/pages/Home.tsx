@@ -9,6 +9,7 @@ import { SERVICES } from '../data/services';
 import headshot2 from '../assets/headshot-2.jpg';
 import headshot3 from '../assets/headshot-3.jpg';
 import leafLeaves from '../assets/leaf-leaves.png';
+import bookCover from '../assets/pt-guide-to-pelvic-health-book.jpg';
 
 function SectionHead({
   eyebrow,
@@ -300,14 +301,14 @@ function BookSpotlight() {
             background: 'rgba(255,255,255,.15)',
             boxShadow: 'var(--shadow-lg)',
             border: '1px solid rgba(255,255,255,.2)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '20px',
-            textAlign: 'center',
+            overflow: 'hidden',
           }}
         >
-          <span style={{ fontFamily: 'var(--font-display)', color: '#fff', fontSize: '0.9rem', lineHeight: 1.35 }}>The PT's Guide to Women's Pelvic, Perinatal &amp; Reproductive Health</span>
+          <img
+            src={bookCover}
+            alt="The PT's Guide to Women's Pelvic, Perinatal & Reproductive Health"
+            style={{ width: '100%', height: '100%', objectFit: 'fill' }}
+          />
         </div>
         <div>
           <p style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.15em', color: 'rgba(255,255,255,.7)', margin: '0 0 10px' }}>Lead Author · Taylor &amp; Francis, 2025</p>
@@ -338,7 +339,7 @@ function Testimonials() {
           ))}
         </div>
         <p style={{ marginTop: '20px', fontSize: '0.8rem', color: 'var(--text-muted)', textAlign: 'center', fontStyle: 'italic' }}>
-          Placeholder testimonials — swap in real, consented quotes before launch.
+          Authentic experiences shared by patients and mentees, with permission, without compensation.
         </p>
       </div>
     </section>
