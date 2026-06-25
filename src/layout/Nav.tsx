@@ -1,6 +1,6 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { Button } from '../components/core/Button';
-import leafMark from '../assets/leaf-mark.png';
+import logo from '../assets/logo_white_text_transparent_v2.png';
 
 const links: Array<[string, string]> = [
   ['/', 'Home'],
@@ -30,18 +30,11 @@ export function Nav() {
           gap: '24px',
           maxWidth: 'var(--maxw)',
           margin: '0 auto',
-          padding: '14px 40px',
+          padding: '4px 40px',
         }}
       >
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
-          <img src={leafMark} alt="" style={{ height: '40px', filter: 'brightness(0) invert(1)' }} />
-          <span style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '1.12rem', lineHeight: 1, color: '#fff' }}>
-            Stephenson
-            <br />
-            <span style={{ fontSize: '0.78rem', fontWeight: 500, color: 'rgba(255,255,255,.55)', letterSpacing: '.04em' }}>
-              Physical Therapy
-            </span>
-          </span>
+        <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+          <img src={logo} alt="Stephenson Physical Therapy" style={{ height: '80px', display: 'block' }} />
         </Link>
         <nav style={{ display: 'flex', gap: '26px', alignItems: 'center', marginLeft: 'auto' }}>
           {links.map(([to, label]) => (
