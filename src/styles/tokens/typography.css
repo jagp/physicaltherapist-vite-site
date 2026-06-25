@@ -1,0 +1,42 @@
+/* ============================================================
+   Stephenson Physical Therapy — Typography tokens
+   Fraunces (display serif) + Work Sans (body/UI sans).
+   Headings: Fraunces 600, warm and optical.
+   Eyebrows / labels: Work Sans 700, uppercase, wide tracking.
+   ============================================================ */
+:root {
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body:    'Work Sans', system-ui, -apple-system, Segoe UI, sans-serif;
+  --font-ui:      'Work Sans', system-ui, -apple-system, Segoe UI, sans-serif;
+
+  /* Type scale (1.250 major-third-ish, tuned) */
+  --fs-eyebrow: 0.78rem;   /* 12.5px */
+  --fs-caption: 0.82rem;   /* 13px   */
+  --fs-small:   0.9rem;    /* 14.5px */
+  --fs-body:    1.0625rem; /* 17px — base reading size */
+  --fs-lead:    1.2rem;    /* 19px — lede paragraphs */
+  --fs-h6:      1.1rem;
+  --fs-h5:      1.3rem;
+  --fs-h4:      1.6rem;
+  --fs-h3:      2.0rem;
+  --fs-h2:      2.6rem;
+  --fs-h1:      3.4rem;
+  --fs-display: 4.4rem;
+
+  /* Weights */
+  --fw-regular: 400; /* @kind other */
+  --fw-medium:  500; /* @kind other */
+  --fw-semibold:600; /* @kind other */
+  --fw-bold:    700; /* @kind other */
+
+  /* Line heights */
+  --lh-tight:   1.08; /* @kind other */
+  --lh-snug:    1.25; /* @kind other */
+  --lh-normal:  1.6; /* @kind other */
+  --lh-relaxed: 1.7; /* @kind other */
+
+  /* Letter spacing */
+  --ls-eyebrow: 0.16em; /* @kind other */
+  --ls-tight:   -0.01em; /* @kind other */
+  --ls-normal:  0; /* @kind other */
+}

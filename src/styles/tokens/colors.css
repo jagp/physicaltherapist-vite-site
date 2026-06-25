@@ -1,0 +1,144 @@
+/* ============================================================
+   Stephenson Physical Therapy — Color system
+   ------------------------------------------------------------
+   A small, closed palette built from a handful of base inputs.
+
+   PURPLES are a family: each one auto-generates lighter / darker /
+   desaturated / oversaturated shades FROM its base via relative-color
+   syntax — change the base hex and every shade follows.
+
+   ACCENT, ATTENTION and CREAM are single fixed colors — no ramp.
+
+     PRIMARY (main) ...... purple      --brand        #663399  (+ family)
+     ........ contrast on brand        --brand-offset #6A4C93  (+ family)
+     SECONDARY bg ........ deep purple --bg           #241546  (+ family)
+     ACCENT (prominent) .. blue        --accent       #3A6EA5
+     ATTENTION (rare) .... teal        --attention    #1FB6B6  (spicy gradient only)
+     PRIMARY bg .......... cream       --cream        #FAF7F2
+     text on light ....... --text-dark  #2A2340
+     text on dark ........ --text-light #EFEBFF
+   ============================================================ */
+:root {
+  /* ---- Base inputs ---- */
+  --brand:         #663399;   /* primary purple */
+  --brand-offset:  #6A4C93;   /* purple for contrast on brand */
+  --bg:            #241546;   /* deep purple — dark sections / footer / CTA bands */
+  --accent:        #3A6EA5;   /* blue — links, dots, hover edge */
+  --attention:     #1FB6B6;   /* teal — spicy gradient ONLY */
+  --cream:         #FAF7F2;   /* primary page background */
+  --text-dark:     #2A2340;   /* text on light surfaces */
+  --text-light:    #EFEBFF;   /* text on dark surfaces */
+
+  /* ---- Purple families — generated from the bases above ----
+     desat · dark · LIGHT · sat. These are the only swatch ramps. */
+  --brand-desat:        hsl(from var(--brand) h calc(s * 0.45) l);
+  --brand-dark:         hsl(from var(--brand) h s calc(l * 0.66));
+  --brand-light:        hsl(from var(--brand) h s calc(l * 1.5));
+  --brand-sat:          hsl(from var(--brand) h calc(s * 1.4) l);
+
+  --brand-offset-desat: hsl(from var(--brand-offset) h calc(s * 0.45) l);
+  --brand-offset-dark:  hsl(from var(--brand-offset) h s calc(l * 0.66));
+  --brand-offset-light: hsl(from var(--brand-offset) h s calc(l * 1.5));
+  --brand-offset-sat:   hsl(from var(--brand-offset) h calc(s * 1.4) l);
+
+  --bg-desat:           hsl(from var(--bg) h calc(s * 0.45) l);
+  --bg-dark:            hsl(from var(--bg) h s calc(l * 0.66));
+  --bg-light:           hsl(from var(--bg) h s calc(l * 1.7));
+  --bg-sat:             hsl(from var(--bg) h calc(s * 1.4) l);
+
+  /* ============================================================
+     Semantic layer — reference THESE in components & pages.
+     Pale tints are mixes of a purple into cream, so the palette
+     stays closed (every value traces back to a base input).
+     ============================================================ */
+
+  /* Surfaces */
+  --surface:       #FFFFFF;                                   /* neutral card */
+  --surface-tint:  color-mix(in srgb, var(--brand) 9%, var(--cream));
+  --bg-alt:        var(--cream);
+
+  /* Primary brand — rebeccapurple */
+  --brand-hover:   var(--brand-dark);
+  --brand-active:  var(--bg);
+  --brand-soft:    color-mix(in srgb, var(--brand) 14%, var(--cream));
+  --brand-softer:  color-mix(in srgb, var(--brand) 7%, var(--cream));
+  --brand-ink:     var(--brand);
+
+  /* Accent — blue (single color + functional states) */
+  --accent-hover:  color-mix(in srgb, var(--accent) 84%, #000);
+  --accent-soft:   color-mix(in srgb, var(--accent) 14%, var(--cream));
+
+  /* Aubergine callout = the offset purple */
+  --accent-deep:   var(--brand-offset);
+
+  /* Hover system — 1px accent line on the left + tonal shift. */
+  --hover-edge:    var(--accent);
+
+  /* Gradients — every stop is a palette color. Spicy is the only
+     multi-color treatment and the only place --attention appears. */
+  --brand-gradient:       linear-gradient(135deg, var(--brand) 0%, var(--bg) 100%); /* @kind color */
+  --brand-gradient-soft:  linear-gradient(135deg, var(--brand-offset) 0%, var(--brand) 100%); /* @kind color */
+  --brand-gradient-spicy: linear-gradient(120deg, var(--brand) 0%, var(--accent) 52%, var(--attention) 100%); /* @kind color */
+  --accent-gradient:      linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%); /* @kind color */
+
+  /* Text */
+  --text-heading:  var(--text-dark);
+  --text-body:     var(--text-dark);
+  --text-muted:    color-mix(in srgb, var(--text-dark) 58%, var(--cream));
+  --text-faint:    color-mix(in srgb, var(--text-dark) 36%, var(--cream));
+  --text-on-brand: var(--text-light);
+  --text-on-brand-soft: color-mix(in srgb, var(--text-light) 80%, var(--brand));
+  --text-link:     var(--accent);
+
+  /* Lines & focus */
+  --border:        color-mix(in srgb, var(--text-dark) 12%, var(--cream));
+  --border-strong: color-mix(in srgb, var(--text-dark) 22%, var(--cream));
+  --focus-ring:    color-mix(in srgb, var(--accent) 55%, transparent);
+
+  /* Danger — functional only (form-field errors). Outside the brand palette. */
+  --danger:        #B43A4A;
+  --danger-tint:   color-mix(in srgb, #B43A4A 13%, var(--cream));
+
+  /* ============================================================
+     Legacy bridge — older component code references the previous
+     ramp names. They now resolve onto the new closed palette so
+     nothing breaks; new work should use the semantic tokens above.
+     ============================================================ */
+  --indigo-900: var(--bg-dark);
+  --indigo-800: var(--bg);
+  --indigo-700: var(--bg);
+  --indigo-600: var(--brand);
+  --indigo-500: var(--brand-offset);
+  --indigo-400: var(--brand-desat);
+  --indigo-300: var(--brand-light);
+  --indigo-200: color-mix(in srgb, var(--brand) 18%, var(--cream));
+  --indigo-100: var(--surface-tint);
+
+  --plum-700: var(--bg);
+  --plum-600: var(--brand-offset);
+  --plum-500: var(--brand-offset);
+  --plum-300: var(--brand-offset-light);
+  --plum-100: color-mix(in srgb, var(--brand-offset) 12%, var(--cream));
+
+  --iris-700: var(--accent-hover);
+  --iris-600: var(--accent);
+  --iris-500: var(--accent);
+  --iris-300: color-mix(in srgb, var(--accent) 55%, var(--cream));
+  --iris-100: var(--accent-soft);
+
+  --teal-700: var(--attention);
+  --teal-600: var(--attention);
+  --teal-500: var(--attention);
+  --teal-300: color-mix(in srgb, var(--attention) 55%, var(--cream));
+  --teal-100: color-mix(in srgb, var(--attention) 12%, var(--cream));
+
+  --ink-900: var(--text-dark);
+  --ink-700: var(--text-dark);
+  --ink-500: var(--text-muted);
+  --ink-300: var(--text-faint);
+
+  --white: var(--surface);
+  --linen: var(--cream);
+  --line: var(--border);
+  --line-strong: var(--border-strong);
+}
