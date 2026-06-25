@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import leafMark from '../assets/leaf-mark.png';
+import logo from '../assets/logo_white_text_transparent_v2.png';
 
 const exploreLinks: Array<[string, string]> = [
   ['/', 'Home'],
@@ -23,9 +23,8 @@ export function Footer() {
         }}
       >
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-            <img src={leafMark} alt="" style={{ height: '38px', filter: 'brightness(0) invert(1)', opacity: 0.85 }} />
-            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '1.1rem', color: '#fff' }}>Stephenson Physical Therapy</span>
+          <div style={{ marginBottom: '16px' }}>
+            <img src={logo} alt="Stephenson Physical Therapy" style={{ height: '75px', display: 'block' }} />
           </div>
           <p style={{ color: 'rgba(255,255,255,.62)', margin: '0 0 6px', fontSize: '0.9rem' }}>
             8 Pleasant St, Unit 8E
