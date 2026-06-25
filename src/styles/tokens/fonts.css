@@ -1,0 +1,7 @@
+/* Stephenson Physical Therapy — Webfonts
+   Display serif: Fraunces (warm, optical, carried over from the brand mockup)
+   Body sans:    Work Sans (clean, friendly, professional)
+   Loaded from Google Fonts CDN. If self-hosting is required later, swap these
+   @import lines for local @font-face rules pointing at hosted .woff2 files. */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap');
