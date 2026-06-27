@@ -1,0 +1,133 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap');
+
+.ptm{
+  --cream:#FAF7F2; --brand:#663399; --brand-dark:#4a2570; --bg:#241546;
+  --accent:#3A6EA5; --attention:#1FB6B6; --text:#2A2340; --muted:#6d6780;
+  --border:#e7e2da; --tint:#efeaf3; --soft:#ebe3f2;
+  --ui:'Work Sans',system-ui,sans-serif; --display:'Fraunces',Georgia,serif;
+}
+.ptm *{ box-sizing:border-box; }
+.ptm-help{ font-family:var(--ui); font-size:.92rem; color:#555; margin:-6px 0 22px; }
+
+.options .option.ptm-pick{ display:block; background:none; border:none; padding:0;
+  margin:0 0 30px; cursor:pointer; border-radius:16px; transition:transform .12s ease; }
+.options .option.ptm-pick:hover{ transform:translateY(-2px); }
+.ptm-pick.selected .ptm-frame{ outline:3px solid var(--accent); outline-offset:3px; }
+
+.ptm-cap{ font-family:var(--ui); font-size:.95rem; font-weight:600; color:var(--text);
+  margin:0 0 9px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.ptm-badge{ display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px;
+  border-radius:7px; background:var(--brand); color:#fff; font-family:var(--ui); font-weight:700; font-size:.8rem; }
+.ptm-tag{ font-family:var(--ui); font-weight:600; font-size:.66rem; text-transform:uppercase; letter-spacing:.1em;
+  color:var(--muted); background:#fff; border:1px solid var(--border); padding:3px 8px; border-radius:999px; }
+.ptm-tag.now{ color:var(--accent); border-color:var(--accent); }
+.ptm-note{ font-family:var(--ui); font-weight:400; color:var(--muted); font-size:.85rem; }
+
+.ptm-frame{ border-radius:14px; overflow:hidden; box-shadow:0 14px 40px rgba(36,21,70,.16);
+  border:1px solid var(--border); background:#fff; }
+.ptm-bar{ height:30px; background:#efeae3; display:flex; align-items:center; gap:7px; padding:0 13px; border-bottom:1px solid var(--border); }
+.ptm-bar span{ width:11px; height:11px; border-radius:50%; background:#cfc8d3; }
+
+.attr{ font-family:var(--ui); font-weight:600; font-size:.84rem; letter-spacing:.02em; color:var(--muted); margin:18px 0 0; }
+.qmark{ font-family:Georgia,serif; line-height:.8; color:var(--brand); display:block; }
+
+/* ---------- A · current Philosophy block ---------- */
+.q-A{ background:var(--tint); padding:46px 48px; display:flex; align-items:center; gap:46px; }
+.q-A .leaf{ width:170px; flex-shrink:0; opacity:.22; filter:grayscale(1) brightness(0); }
+.q-A .qmark{ font-size:2.6rem; opacity:.35; margin-bottom:4px; }
+.q-A .quote{ font-family:var(--display); font-weight:500; font-size:clamp(18px,2.1vw,25px); line-height:1.5; color:var(--text); margin:0; }
+
+/* ---------- B · portrait split ---------- */
+.q-B{ background:var(--cream); display:grid; grid-template-columns:.82fr 1.18fr; gap:46px; align-items:center; padding:44px 48px; }
+.q-B .photo{ aspect-ratio:4/4.6; border-radius:999px 999px 20px 20px; overflow:hidden; box-shadow:0 18px 40px rgba(36,21,70,.24); }
+.q-B .photo img{ width:100%; height:100%; object-fit:cover; object-position:50% 18%; }
+.q-B .qmark{ font-size:3rem; opacity:.32; margin-bottom:2px; }
+.q-B .quote{ font-family:var(--display); font-weight:500; font-size:clamp(20px,2.5vw,30px); line-height:1.42; color:var(--text); margin:0; }
+.q-B .rule{ width:54px; height:4px; border-radius:4px; margin-top:18px;
+  background:linear-gradient(120deg,var(--brand),var(--accent) 52%,var(--attention)); }
+
+/* ---------- C · gradient split (pairs with hero C) ---------- */
+.q-C{ display:grid; grid-template-columns:.4fr .6fr; min-height:300px; }
+.q-C .gfx{ background:linear-gradient(135deg,var(--brand) 0%,var(--bg) 100%); position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+.q-C .gfx img{ width:62%; filter:brightness(0) invert(1); opacity:.22; }
+.q-C .body{ background:var(--cream); padding:46px 44px; display:flex; flex-direction:column; justify-content:center; }
+.q-C .qmark{ font-size:2.8rem; opacity:.32; margin-bottom:2px; }
+.q-C .quote{ font-family:var(--display); font-weight:500; font-size:clamp(19px,2.3vw,28px); line-height:1.45; color:var(--text); margin:0; }
+
+/* ---------- D · oversized editorial pull-quote ---------- */
+.q-D{ background:var(--cream); position:relative; overflow:hidden; padding:58px 56px 52px; }
+.q-D .leaf{ position:absolute; bottom:-50px; right:-40px; height:230px; opacity:.09; filter:grayscale(1) brightness(0); transform:rotate(10deg); }
+.q-D .giant{ font-family:var(--display); font-weight:700; font-size:7rem; line-height:.7; color:var(--brand); opacity:.16; position:absolute; top:30px; left:46px; }
+.q-D .quote{ font-family:var(--display); font-weight:600; font-size:clamp(26px,3.6vw,46px); line-height:1.22; letter-spacing:-.01em; color:var(--text); margin:0; max-width:20ch; position:relative; padding-top:30px; }
+.q-D .attr{ position:relative; }
+</style>
+
+<div class="ptm">
+<h2>Split graphic / large-format quote — pick a direction</h2>
+<p class="subtitle">The homepage already has a "Philosophy" block (leaf + quote). Here it is as the baseline, plus three larger, more deliberate treatments. Real quote, fonts, palette.</p>
+<p class="ptm-help">Click what resonates (or tell me in the terminal). B and C are true "split graphic" layouts; D is the pure large-format type statement.</p>
+
+<div class="options">
+
+  <div class="option ptm-pick" data-choice="A" onclick="toggleSelect(this)">
+    <div class="ptm-cap"><span class="ptm-badge">A</span> Leaf + quote <span class="ptm-tag now">current</span>
+      <span class="ptm-note">— the homepage Philosophy block today</span></div>
+    <div class="ptm-frame"><div class="ptm-bar"><span></span><span></span><span></span></div>
+      <div class="q-A">
+        <img class="leaf" src="/files/leaf-leaves.png" alt="">
+        <div>
+          <span class="qmark">&#8220;</span>
+          <p class="quote">My philosophy of care is the personal touch that is fundamental to overall well-being. Whether working one-on-one with a patient, teaching, or mentoring, my goal is evidence-based, compassionate care that empowers individuals to reclaim their quality of life.</p>
+          <p class="attr">— Dr. Rebecca G. Stephenson, PT, DPT</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option ptm-pick" data-choice="B" onclick="toggleSelect(this)">
+    <div class="ptm-cap"><span class="ptm-badge">B</span> Portrait split
+      <span class="ptm-note">— photo + larger quote; warm, personal, magazine pull-quote</span></div>
+    <div class="ptm-frame"><div class="ptm-bar"><span></span><span></span><span></span></div>
+      <div class="q-B">
+        <div class="photo"><img src="/files/headshot-3.jpg" alt=""></div>
+        <div>
+          <span class="qmark">&#8220;</span>
+          <p class="quote">My philosophy of care is the personal touch that is fundamental to overall well-being — evidence-based, compassionate care that empowers people to reclaim their quality of life.</p>
+          <p class="attr">— Dr. Rebecca G. Stephenson, PT, DPT</p>
+          <div class="rule"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option ptm-pick" data-choice="C" onclick="toggleSelect(this)">
+    <div class="ptm-cap"><span class="ptm-badge">C</span> Gradient split
+      <span class="ptm-note">— graphic panel on the brand gradient + quote; pairs with hero C</span></div>
+    <div class="ptm-frame"><div class="ptm-bar"><span></span><span></span><span></span></div>
+      <div class="q-C">
+        <div class="gfx"><img src="/files/leaf-mark.png" alt=""></div>
+        <div class="body">
+          <span class="qmark">&#8220;</span>
+          <p class="quote">My philosophy of care is the personal touch that is fundamental to overall well-being. My goal is evidence-based, compassionate care that empowers individuals to reclaim their quality of life.</p>
+          <p class="attr">— Dr. Rebecca G. Stephenson, PT, DPT</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option ptm-pick" data-choice="D" onclick="toggleSelect(this)">
+    <div class="ptm-cap"><span class="ptm-badge">D</span> Oversized editorial
+      <span class="ptm-note">— giant Fraunces quote, decorative glyph + leaf bleed; pure type statement</span></div>
+    <div class="ptm-frame"><div class="ptm-bar"><span></span><span></span><span></span></div>
+      <div class="q-D">
+        <img class="leaf" src="/files/leaf-leaves.png" alt="">
+        <span class="giant">&#8220;</span>
+        <p class="quote">Compassionate care that empowers people to reclaim their quality of life.</p>
+        <p class="attr">— Dr. Rebecca G. Stephenson, PT, DPT</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
