@@ -53,6 +53,7 @@ starting point.
 - External authority link: Inova Health — pelvic floor PT overview (URL TBD)
 
 **Specialized treatments:**
+
 - **Prenatal Care:** Pelvic girdle pain (PGP), pubic symphysis dysfunction, and lower back pain during pregnancy.
 - **Postpartum Rehabilitation:** Recovery from vaginal or C-section deliveries, including scar tissue management.
 - **Diastasis Recti (DRA):** Separation of the abdominal muscles after pregnancy.
@@ -63,5 +64,6 @@ complexity, so the two of you can focus on what matters — a healthy recovery a
 healthy family.
 
 **Service-related CTA:**
+
 - Phrase: You don't have to white-knuckle your way through this.
 - Button: Schedule Your Evaluation

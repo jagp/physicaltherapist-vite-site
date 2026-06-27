@@ -6,20 +6,16 @@
 
 ## 1. Goal
 
-Give the service detail pages an "X factor" through **form, not decoration**. A
-visitor should feel the core message — *connecting with Rebecca will make your life
-better* — even if they click in and bounce. The site voice stays **clean, simple, not
-fancy, informative**, oriented toward community connection.
+Give the service detail pages an "X factor" through **form, not decoration**. A visitor should feel the core message — _connecting with Rebecca will make your life better_ — even if they click in and bounce. The site voice stays **clean, simple, not fancy, informative**, oriented toward community connection.
 
-Priority order behind the work (from the client): **spotlight content > visual variety
-> elevate inner pages.**
+Priority order behind the work (from the client): \*\*spotlight content > visual variety
+
+> elevate inner pages.\*\*
 
 ## 2. Background / current state
 
-- `src/pages/ServiceDetail.tsx` is a **stub**: it renders the generic `PageHeader` plus
-  a "Detailed page coming soon" card.
-- `src/data/services.ts` exposes a minimal `ServiceInfo` (`slug`, `icon`, `title`,
-  `desc`) for the 6 services.
+- `src/pages/ServiceDetail.tsx` is a **stub**: it renders the generic `PageHeader` plus a "Detailed page coming soon" card.
+- `src/data/services.ts` exposes a minimal `ServiceInfo` (`slug`, `icon`, `title`, `desc`) for the 6 services.
 - The client supplied a **content template** plus full copy for one service
   (Pregnancy & Postpartum). The two original layout notes — "hero section inner pages"
   and "split graphic / larger-format quote" — **merge into one element**: a service
@@ -27,13 +23,11 @@ Priority order behind the work (from the client): **spotlight content > visual v
 
 ## 3. Scope
 
-**In scope**
+### In scope
+
 - A reusable service-page template (components + content model).
 - Build it **end-to-end for `pregnancy-postpartum`** as the reference page.
 
-**Out of scope (deferred)**
-- The other 5 services keep the current "coming soon" fallback until their copy exists.
-  `ServiceDetail` renders the full template only when rich content is present.
 - The earlier Home-`Philosophy` / About "signature quote" work (explicitly deferred when
   scope refocused on service pages).
 - Sourcing/writing copy or final imagery for the other 5 services.
@@ -47,10 +41,12 @@ Priority order behind the work (from the client): **spotlight content > visual v
 ## 5. Components
 
 ### 5.1 `<ServiceHero>` (new)
+
 Replaces the generic `PageHeader` **on service pages only**. `PageHeader` is left
 untouched for About/Contact/FAQ/Services.
 
-**Props**
+#### Props
+
 - `imageSide?: 'left' | 'right'` — default `'left'`. The placement **toggle**; flip it
   per service so consecutive pages don't feel identical.
 - `image: { src: string; alt: string }`
@@ -58,7 +54,8 @@ untouched for About/Contact/FAQ/Services.
 - `claim: ReactNode` — the punchy claim.
 - `eyebrow?: ReactNode` — optional small label (e.g. the service title).
 
-**Visual**
+#### Visual
+
 - Landscape image occupies one side; the **quote occupies the opposite side**.
 - The image **fades into the cream page background** (`--cream`) via a horizontal
   `linear-gradient(to right, transparent, var(--cream))` overlay (mirrored when
@@ -70,6 +67,7 @@ untouched for About/Contact/FAQ/Services.
   the fade can soften to a bottom fade when stacked.
 
 ### 5.2 `<ServiceArticle>` (new — editorial body)
+
 A centered reading column (~700px max) holding the prose sections with generous
 vertical rhythm ("one idea per scroll"). Sections, in order:
 
@@ -84,6 +82,7 @@ vertical rhythm ("one idea per scroll"). Sections, in order:
 5. **Closer** — "land the pitch" paragraph.
 
 ### 5.3 Closing CTA
+
 Reuse the existing **`CTABand`** with `tone="gradient"` (the page's single dramatic
 moment, bookending the calm body). Content: the service's CTA phrase + button.
 
@@ -97,24 +96,24 @@ existing lightweight fields (used by the Services grid / cards) and add an optio
 interface ExternalLink {
   /** Linked label, e.g. "Inova Health's overview". */
   label: string;
-  url: string;            // may be a placeholder until finalized
+  url: string; // may be a placeholder until finalized
   /** Sentence framing the link's relevance; the label renders as the <a>. */
   relevance: string;
 }
 
 interface SpecializedTreatment {
-  label: string;          // e.g. "Diastasis Recti (DRA)"
+  label: string; // e.g. "Diastasis Recti (DRA)"
   desc: string;
 }
 
 interface ServiceContent {
-  headline: string;       // first-person, Rebecca's voice
-  claim: string;          // punchy claim
+  headline: string; // first-person, Rebecca's voice
+  claim: string; // punchy claim
   heroImage: { src: string; alt: string };
-  heroImageSide?: 'left' | 'right';
-  intro: string;          // pitch paragraph
+  heroImageSide?: "left" | "right";
+  intro: string; // pitch paragraph
   insetImage?: { src: string; alt: string };
-  mainBody: string;       // authority / SEO paragraph
+  mainBody: string; // authority / SEO paragraph
   externalLink?: ExternalLink;
   specializedTreatments?: SpecializedTreatment[];
   closer: string;
@@ -126,7 +125,7 @@ interface ServiceInfo {
   icon: string;
   title: string;
   desc: string;
-  content?: ServiceContent;   // present => full template; absent => "coming soon"
+  content?: ServiceContent; // present => full template; absent => "coming soon"
 }
 ```
 
@@ -166,6 +165,7 @@ Map the source copy to `content` fields (full text in the source-content file):
 ## 9. Design tokens to use
 
 Compose from the existing closed palette only — no new colors:
+
 - Backgrounds: `--cream` (hero fade + page), `--surface-tint` (treatments panel),
   gradient (`--brand-gradient-spicy` or brand) for the CTA band.
 - Type: `--font-display` for hero quote + headings, `--font-ui` for labels/eyebrows.
@@ -175,6 +175,7 @@ Compose from the existing closed palette only — no new colors:
 ## 10. Fallback behavior
 
 `ServiceDetail` checks `service.content`:
+
 - present → render `<ServiceHero>` + `<ServiceArticle>` + `CTABand`.
 - absent → render the existing "Detailed page coming soon" card (unchanged), so the 5
   unwritten services degrade gracefully.
