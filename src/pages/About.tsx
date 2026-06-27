@@ -2,6 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { PageHeader } from '../components/PageHeader';
 import { Card } from '../components/core/Card';
 import { Button } from '../components/core/Button';
+import { CredentialBand } from '../components/marketing/CredentialBand';
+import { stephensonTrustItems } from '../components/marketing/CredentialBand.data';
 import { CTABand } from '../components/marketing/CTABand';
 import headshot2 from '../assets/headshot-2.jpg';
 import leafLeaves from '../assets/leaf-leaves.png';
@@ -55,7 +57,12 @@ export function About() {
           </div>
         </div>
       </section>
-      <section style={{ padding: '0 0 104px' }}>
+      <CredentialBand
+        variant="tint"
+        items={stephensonTrustItems}
+        title="Credentials & Recognition"
+      />
+      <section style={{ padding: '72px 0 104px' }}>
         <div style={{ maxWidth: 'var(--maxw)', margin: '0 auto', padding: '0 40px' }}>
           <CTABand
             eyebrow="Work with Rebecca"
