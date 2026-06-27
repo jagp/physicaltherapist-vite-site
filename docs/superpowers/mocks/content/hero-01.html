@@ -1,0 +1,155 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap');
+
+.ptm{
+  --cream:#FAF7F2; --brand:#663399; --brand-dark:#4a2570; --bg:#241546;
+  --accent:#3A6EA5; --attention:#1FB6B6; --text:#2A2340; --muted:#6d6780;
+  --border:#e7e2da; --tint:#f1ecf4; --soft:#ebe3f2;
+  --ui:'Work Sans',system-ui,sans-serif; --display:'Fraunces',Georgia,serif;
+}
+.ptm *{ box-sizing:border-box; }
+.ptm-help{ font-family:var(--ui); color:var(--text-secondary,#555); font-size:.92rem; margin:-6px 0 22px; }
+
+/* selectable wrapper — neutralize the frame's default .option styling */
+.options .option.ptm-pick{
+  display:block; background:none; border:none; padding:0; margin:0 0 30px;
+  cursor:pointer; border-radius:16px; transition:transform .12s ease;
+}
+.options .option.ptm-pick:hover{ transform:translateY(-2px); }
+.ptm-pick.selected .ptm-frame{ outline:3px solid var(--accent); outline-offset:3px; }
+
+.ptm-cap{ font-family:var(--ui); font-size:.95rem; font-weight:600; color:var(--text);
+  margin:0 0 9px; display:flex; align-items:center; gap:10px; }
+.ptm-badge{ display:inline-flex; align-items:center; justify-content:center;
+  width:24px; height:24px; border-radius:7px; background:var(--brand); color:#fff;
+  font-family:var(--ui); font-weight:700; font-size:.8rem; }
+.ptm-tag{ font-family:var(--ui); font-weight:600; font-size:.66rem; text-transform:uppercase;
+  letter-spacing:.1em; color:var(--muted); background:#fff; border:1px solid var(--border);
+  padding:3px 8px; border-radius:999px; }
+.ptm-tag.now{ color:var(--accent); border-color:var(--accent); }
+.ptm-note{ font-family:var(--ui); font-weight:400; color:var(--muted); font-size:.85rem; }
+
+/* faux browser frame */
+.ptm-frame{ border-radius:14px; overflow:hidden; box-shadow:0 14px 40px rgba(36,21,70,.16);
+  border:1px solid var(--border); background:#fff; }
+.ptm-bar{ height:30px; background:#efeae3; display:flex; align-items:center; gap:7px;
+  padding:0 13px; border-bottom:1px solid var(--border); }
+.ptm-bar span{ width:11px; height:11px; border-radius:50%; background:#cfc8d3; }
+
+.ptm-eyebrow{ font-family:var(--ui); font-weight:700; text-transform:uppercase;
+  letter-spacing:.16em; font-size:.72rem; color:var(--brand); margin:0 0 14px; }
+.ptm-title{ font-family:var(--display); font-weight:600; line-height:1.07;
+  letter-spacing:-.01em; color:var(--text); margin:0; }
+.ptm-lede{ font-family:var(--ui); color:var(--muted); margin:16px 0 0; line-height:1.55; }
+
+/* ---------- A · current ---------- */
+.ptm-A{ position:relative; background:var(--cream); border-bottom:1px solid var(--border);
+  padding:52px 48px; overflow:hidden; }
+.ptm-A .ptm-leaf{ position:absolute; top:-14px; right:34px; height:118px;
+  opacity:.08; filter:grayscale(1) brightness(0); }
+.ptm-A .ptm-title{ font-size:clamp(26px,3.3vw,40px); max-width:17ch; position:relative; }
+
+/* ---------- B · split copy + image ---------- */
+.ptm-B{ background:var(--cream); padding:46px 48px; }
+.ptm-B .row{ display:grid; grid-template-columns:1.12fr .88fr; gap:42px; align-items:center; }
+.ptm-B .ptm-title{ font-size:clamp(24px,2.9vw,36px); }
+.ptm-B .meta{ display:flex; gap:9px; flex-wrap:wrap; margin-top:22px; }
+.ptm-B .chip{ font-family:var(--ui); font-weight:600; font-size:.72rem; color:var(--brand);
+  background:var(--soft); padding:6px 12px; border-radius:999px; }
+.ptm-B .photo{ aspect-ratio:4/3.4; border-radius:16px; overflow:hidden; box-shadow:0 16px 36px rgba(36,21,70,.22); }
+.ptm-B .photo img{ width:100%; height:100%; object-fit:cover; object-position:50% 18%; }
+
+/* ---------- C · gradient band ---------- */
+.ptm-C{ position:relative; overflow:hidden; padding:54px 48px;
+  background:linear-gradient(135deg,var(--brand) 0%,var(--bg) 100%); }
+.ptm-C .ptm-leaf{ position:absolute; top:-20px; right:24px; height:150px;
+  filter:brightness(0) invert(1); opacity:.10; }
+.ptm-C .ptm-eyebrow{ color:rgba(255,255,255,.62); position:relative; }
+.ptm-C .ptm-title{ color:#fff; font-size:clamp(26px,3.3vw,40px); max-width:18ch; position:relative; }
+.ptm-C .ptm-lede{ color:rgba(255,255,255,.74); max-width:54ch; position:relative; }
+.ptm-C .rule{ width:60px; height:4px; border-radius:4px; margin-top:22px; position:relative;
+  background:linear-gradient(120deg,var(--brand) 0%,var(--accent) 52%,var(--attention) 100%); }
+
+/* ---------- D · editorial oversized ---------- */
+.ptm-D{ position:relative; overflow:hidden; padding:58px 48px;
+  background:radial-gradient(120% 140% at 100% 0%,var(--tint) 0%,var(--cream) 55%); }
+.ptm-D .ptm-leaf{ position:absolute; top:-30px; right:-40px; height:230px;
+  opacity:.10; filter:grayscale(1) brightness(0); transform:rotate(8deg); }
+.ptm-D .eb{ display:flex; align-items:center; gap:9px; margin-bottom:16px; position:relative; }
+.ptm-D .eb img{ height:18px; opacity:.7; }
+.ptm-D .eb .ptm-eyebrow{ margin:0; }
+.ptm-D .ptm-title{ font-size:clamp(30px,4.4vw,54px); max-width:15ch; position:relative;
+  border-left:4px solid var(--brand); padding-left:22px; }
+.ptm-D .ptm-lede{ max-width:52ch; position:relative; padding-left:22px; border-left:4px solid transparent; }
+</style>
+
+<div class="ptm">
+<h2>Inner-page hero — pick a direction</h2>
+<p class="subtitle">Today every inner page (About, Services, Service detail, Contact, FAQ) shares one flat <code>PageHeader</code>. Here it is as the baseline, plus three richer treatments. Real fonts, palette, leaf motif, and copy.</p>
+<p class="ptm-help">Click the one that feels right (or tell me in the terminal). Multiple reactions are fine — we'll refine the winner.</p>
+
+<div class="options">
+
+  <div class="option ptm-pick selected" data-choice="A" onclick="toggleSelect(this)">
+    <div class="ptm-cap"><span class="ptm-badge">A</span> Flat linen band <span class="ptm-tag now">current</span>
+      <span class="ptm-note">— what's live today</span></div>
+    <div class="ptm-frame">
+      <div class="ptm-bar"><span></span><span></span><span></span></div>
+      <div class="ptm-A">
+        <img class="ptm-leaf" src="/files/leaf-leaves.png" alt="">
+        <p class="ptm-eyebrow">About</p>
+        <h1 class="ptm-title">Four decades of compassionate, expert care</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="option ptm-pick" data-choice="B" onclick="toggleSelect(this)">
+    <div class="ptm-cap"><span class="ptm-badge">B</span> Split — copy + image
+      <span class="ptm-note">— echoes the homepage hero; warm and human</span></div>
+    <div class="ptm-frame">
+      <div class="ptm-bar"><span></span><span></span><span></span></div>
+      <div class="ptm-B">
+        <div class="row">
+          <div>
+            <p class="ptm-eyebrow">About</p>
+            <h1 class="ptm-title">Four decades of compassionate, expert care</h1>
+            <p class="ptm-lede">Board-certified, evidence-based pelvic and women's health care — for all genders, at every stage of life.</p>
+            <div class="meta"><span class="chip">PT, DPT, MS</span><span class="chip">Board-Certified WCS</span><span class="chip">South Natick, MA</span></div>
+          </div>
+          <div class="photo"><img src="/files/headshot-2.jpg" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option ptm-pick" data-choice="C" onclick="toggleSelect(this)">
+    <div class="ptm-cap"><span class="ptm-badge">C</span> Gradient band
+      <span class="ptm-note">— bold, fully branded; light text on deep purple</span></div>
+    <div class="ptm-frame">
+      <div class="ptm-bar"><span></span><span></span><span></span></div>
+      <div class="ptm-C">
+        <img class="ptm-leaf" src="/files/leaf-leaves.png" alt="">
+        <p class="ptm-eyebrow">About</p>
+        <h1 class="ptm-title">Four decades of compassionate, expert care</h1>
+        <p class="ptm-lede">Board-certified, evidence-based pelvic and women's health care — for all genders, at every stage of life.</p>
+        <div class="rule"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option ptm-pick" data-choice="D" onclick="toggleSelect(this)">
+    <div class="ptm-cap"><span class="ptm-badge">D</span> Editorial — oversized serif
+      <span class="ptm-note">— refined hierarchy, big Fraunces title, leaf bleed</span></div>
+    <div class="ptm-frame">
+      <div class="ptm-bar"><span></span><span></span><span></span></div>
+      <div class="ptm-D">
+        <img class="ptm-leaf" src="/files/leaf-leaves.png" alt="">
+        <div class="eb"><img src="/files/leaf-mark.png" alt=""><p class="ptm-eyebrow">About</p></div>
+        <h1 class="ptm-title">Four decades of compassionate, expert care</h1>
+        <p class="ptm-lede">Board-certified, evidence-based pelvic and women's health care — for all genders, at every stage of life.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
