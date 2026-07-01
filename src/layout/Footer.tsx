@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useBreakpoint } from '../hooks/useMediaQuery';
 import logo from '../assets/logo_white_text_transparent_v2.png';
 
 const exploreLinks: Array<[string, string]> = [
@@ -10,16 +11,17 @@ const exploreLinks: Array<[string, string]> = [
 ];
 
 export function Footer() {
+  const { isMobile } = useBreakpoint();
   return (
     <footer style={{ background: 'var(--bg)', color: 'var(--text-light)', padding: '64px 0 26px', marginTop: '0', borderTop: '1px solid rgba(255,255,255,.1)' }}>
       <div
         style={{
           maxWidth: 'var(--maxw)',
           margin: '0 auto',
-          padding: '0 40px',
+          padding: '0 var(--gutter)',
           display: 'grid',
-          gridTemplateColumns: '1.5fr 1fr 1fr',
-          gap: '40px',
+          gridTemplateColumns: isMobile ? '1fr' : '1.5fr 1fr 1fr',
+          gap: isMobile ? '32px' : '40px',
         }}
       >
         <div>
@@ -61,7 +63,7 @@ export function Footer() {
         style={{
           maxWidth: 'var(--maxw)',
           margin: '34px auto 0',
-          padding: '18px 40px 0',
+          padding: '18px var(--gutter) 0',
           borderTop: '1px solid rgba(255,255,255,.1)',
           display: 'flex',
           justifyContent: 'space-between',

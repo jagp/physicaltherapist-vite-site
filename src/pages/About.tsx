@@ -2,7 +2,10 @@ import { useNavigate } from 'react-router-dom';
 import { PageHeader } from '../components/PageHeader';
 import { Card } from '../components/core/Card';
 import { Button } from '../components/core/Button';
+import { CredentialBand } from '../components/marketing/CredentialBand';
+import { stephensonTrustItems } from '../components/marketing/CredentialBand.data';
 import { CTABand } from '../components/marketing/CTABand';
+import { useBreakpoint } from '../hooks/useMediaQuery';
 import headshot2 from '../assets/headshot-2.jpg';
 import leafLeaves from '../assets/leaf-leaves.png';
 
@@ -16,11 +19,12 @@ const experience: Array<[string, string]> = [
 
 export function About() {
   const navigate = useNavigate();
+  const { isMobile, isTablet } = useBreakpoint();
   return (
     <div>
       <PageHeader eyebrow="About" title="Four decades of compassionate, expert care" />
       <section style={{ padding: '72px 0' }}>
-        <div style={{ maxWidth: 'var(--maxw)', margin: '0 auto', padding: '0 40px', display: 'grid', gridTemplateColumns: '.8fr 1.2fr', gap: '50px', alignItems: 'start' }}>
+        <div style={{ maxWidth: 'var(--maxw)', margin: '0 auto', padding: '0 var(--gutter)', display: 'grid', gridTemplateColumns: isTablet ? '1fr' : '.8fr 1.2fr', gap: isTablet ? '32px' : '50px', alignItems: 'start' }}>
           <div style={{ position: 'relative', aspectRatio: '4/5', borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
             <img src={headshot2} alt="Dr. Rebecca Stephenson" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
@@ -40,8 +44,8 @@ export function About() {
                   key={when}
                   style={{
                     display: 'grid',
-                    gridTemplateColumns: '220px 1fr',
-                    gap: '24px',
+                    gridTemplateColumns: isMobile ? '1fr' : '220px 1fr',
+                    gap: isMobile ? '4px' : '24px',
                     padding: '18px 0',
                     borderTop: '1px solid var(--border)',
                     borderBottom: i === experience.length - 1 ? '1px solid var(--border)' : 'none',
@@ -55,8 +59,13 @@ export function About() {
           </div>
         </div>
       </section>
-      <section style={{ padding: '0 0 104px' }}>
-        <div style={{ maxWidth: 'var(--maxw)', margin: '0 auto', padding: '0 40px' }}>
+      <CredentialBand
+        variant="tint"
+        items={stephensonTrustItems}
+        title="Credentials & Recognition"
+      />
+      <section style={{ padding: '72px 0 104px' }}>
+        <div style={{ maxWidth: 'var(--maxw)', margin: '0 auto', padding: '0 var(--gutter)' }}>
           <CTABand
             eyebrow="Work with Rebecca"
             title="Compassionate care, built around you"

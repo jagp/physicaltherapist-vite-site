@@ -59,7 +59,7 @@ export function Faq() {
     <div>
       <PageHeader eyebrow="Before your first visit" title="Frequently asked questions" lede="Honest answers about what to expect — consent-forward, never rushed." />
       <section style={{ padding: '72px 0 104px' }}>
-        <div style={{ maxWidth: '820px', margin: '0 auto', padding: '0 40px' }}>
+        <div style={{ maxWidth: '820px', margin: '0 auto', padding: '0 var(--gutter)' }}>
           {faqs.map(([q, a], i) => (
             <FAQItem key={q} q={q} a={a} open={open === i} onToggle={() => setOpen(open === i ? -1 : i)} />
           ))}

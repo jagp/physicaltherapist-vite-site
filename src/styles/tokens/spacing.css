@@ -53,3 +53,24 @@
   --dur: 0.7s; /* @kind other */
   --dur-slow: 1.0s; /* @kind other */
 }
+
+/* ============================================================
+   Responsive layout scale — the page gutter and section rhythm
+   tighten on small screens. Components reference these via
+   var(--gutter) / var(--section-pad) so a single override here
+   reflows spacing site-wide. (Inline styles can't hold @media,
+   so the variables are the seam.)
+   ============================================================ */
+@media (max-width: 900px) {
+  :root {
+    --section-pad: 80px;
+    --section-pad-sm: 56px;
+  }
+}
+@media (max-width: 640px) {
+  :root {
+    --gutter: 22px;
+    --section-pad: 60px;
+    --section-pad-sm: 44px;
+  }
+}

@@ -3,10 +3,12 @@ import { PageHeader } from '../components/PageHeader';
 import { Card } from '../components/core/Card';
 import { Input } from '../components/core/Input';
 import { Button } from '../components/core/Button';
+import { useBreakpoint } from '../hooks/useMediaQuery';
 import leafLeaves from '../assets/leaf-leaves.png';
 
 export function Contact() {
   const [sent, setSent] = useState(false);
+  const { isMobile, isTablet } = useBreakpoint();
   return (
     <div>
       <PageHeader
@@ -15,7 +17,7 @@ export function Contact() {
         lede="Schedule an initial evaluation — a private, 60-minute visit where we listen, assess, and build a plan together."
       />
       <section style={{ padding: '72px 0 104px' }}>
-        <div style={{ maxWidth: 'var(--maxw)', margin: '0 auto', padding: '0 40px', display: 'grid', gridTemplateColumns: '1.1fr .9fr', gap: '50px', alignItems: 'start' }}>
+        <div style={{ maxWidth: 'var(--maxw)', margin: '0 auto', padding: '0 var(--gutter)', display: 'grid', gridTemplateColumns: isTablet ? '1fr' : '1.1fr .9fr', gap: isTablet ? '28px' : '50px', alignItems: 'start' }}>
           <Card tone="surface" padding="36px">
             {sent ? (
               <div style={{ textAlign: 'center', padding: '40px 0' }}>
@@ -31,7 +33,7 @@ export function Contact() {
                 }}
                 style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}
               >
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '16px' }}>
                   <Input label="Full name" placeholder="Jane Doe" required />
                   <Input label="Phone" placeholder="(508) 000-0000" />
                 </div>
