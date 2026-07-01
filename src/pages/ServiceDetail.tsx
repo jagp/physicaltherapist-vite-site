@@ -2,12 +2,12 @@ import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { PageHeader } from '../components/PageHeader';
 import { Button } from '../components/core/Button';
 import { Card } from '../components/core/Card';
-import { SERVICES } from '../data/services';
+import { services } from '../data/services';
 
 export function ServiceDetail() {
   const { slug } = useParams();
   const navigate = useNavigate();
-  const service = SERVICES.find((s) => s.slug === slug);
+  const service = services.find((s) => s.slug === slug);
 
   if (!service) return <Navigate to="/services" replace />;
 
