@@ -1,4 +1,4 @@
-import type { CSSProperties, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../components/core/Button";
 import { ServiceCard } from "../components/marketing/ServiceCard";

@@ -12,7 +12,7 @@ export interface ServiceInfo {
   desc: string;
 }
 
-export const SERVICES: ServiceInfo[] = [
+export const services: ServiceInfo[] = [
   {
     slug: 'pelvic-floor-bladder-health',
     icon: iconPelvicFloor,
