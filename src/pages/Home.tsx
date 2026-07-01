@@ -1,14 +1,16 @@
-import type { CSSProperties, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/core/Button';
 import { ServiceCard } from '../components/marketing/ServiceCard';
 import { Testimonial } from '../components/marketing/Testimonial';
 import { CTABand } from '../components/marketing/CTABand';
 import { CredentialBand } from '../components/marketing/CredentialBand';
-import { SERVICES } from '../data/services';
+import { stephensonTrustItems } from '../components/marketing/CredentialBand.data';
+import { services } from '../data/services';
 import headshot2 from '../assets/headshot-2.jpg';
 import headshot3 from '../assets/headshot-3.jpg';
 import leafLeaves from '../assets/leaf-leaves.png';
+import leafMark from '../assets/leaf-mark.png';
 import bookCover from '../assets/pt-guide-to-pelvic-health-book.jpg';
 
 function SectionHead({
@@ -64,22 +66,12 @@ function Hero() {
 }
 
 function TrustBar() {
-  return (
-    <CredentialBand
-      variant="tint"
-      items={[
-        { label: '40+ Years', detail: 'Evidence-based pelvic health' },
-        { label: 'Board-Certified', detail: 'WCS Specialist' },
-        { label: 'Private Practice', detail: 'South Natick, MA' },
-        { label: 'All Genders', detail: 'Inclusive, affirming care' },
-      ]}
-    />
-  );
+  return <CredentialBand variant="plum" items={stephensonTrustItems} />;
 }
 
 const svcDarkCSS = `
   .svc-dark .spt-svc { background: color-mix(in srgb, var(--bg) 58%, var(--brand)) !important; border-color: rgba(255,255,255,.1) !important; box-shadow: none !important; }
-  .svc-dark .spt-svc > div:first-child { background: rgba(255,255,255,.09) !important; }
+  .svc-dark .spt-svc > div:first-child { background: var(--surface-tint) !important; }
   .svc-dark .spt-svc h3 { color: rgba(255,255,255,.94) !important; }
   .svc-dark .spt-svc p  { color: rgba(255,255,255,.62) !important; }
   .svc-dark .spt-svc a  { color: rgba(255,255,255,.55) !important; }
@@ -109,7 +101,7 @@ function Services() {
           light
         />
         <div className="svc-dark" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '22px' }}>
-          {SERVICES.map((s) => (
+          {services.map((s) => (
             <ServiceCard
               key={s.slug}
               icon={s.icon}
@@ -129,31 +121,7 @@ function Services() {
   );
 }
 
-function FactCard({ value, label }: { value: ReactNode; label: ReactNode }) {
-  return (
-    <div
-      className="spt-fact"
-      style={
-        {
-          '--_factbg': 'rgba(255,255,255,.08)',
-          background: 'rgba(255,255,255,.08)',
-          border: '1px solid rgba(255,255,255,.12)',
-          borderRadius: 'var(--radius-md)',
-          padding: '28px 20px',
-          textAlign: 'center',
-          cursor: 'default',
-        } as CSSProperties
-      }
-    >
-      <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.9rem,3.8vw,2.6rem)', fontWeight: 600, color: 'rgba(255,255,255,.82)', lineHeight: 1 }}>{value}</div>
-      <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.82rem', color: 'rgba(255,255,255,.52)', marginTop: '8px', lineHeight: 1.35 }}>{label}</div>
-    </div>
-  );
-}
-
 const factCSS = `
-  .spt-fact{ transition:background var(--dur) var(--ease-soft), box-shadow var(--dur) var(--ease-soft), transform var(--dur) var(--ease-out) }
-  .spt-fact:hover{ background:var(--brand) !important; transform:translateY(-3px); box-shadow:inset 1px 0 0 0 var(--hover-edge), var(--shadow-lg) }
   .spt-chip:hover{ background:var(--accent) !important; color:#fff !important; border-color:var(--accent) !important; }
 `;
 
@@ -208,13 +176,6 @@ function Bio() {
             </div>
             <Button variant="onBand" size="md" iconRight={<span>→</span>} onClick={() => navigate('/about')}>Read the full bio</Button>
           </div>
-        </div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '16px', marginTop: '56px' }}>
-          <FactCard value="40+" label="Years in practice" />
-          <FactCard value="WCS" label="Board-certified specialist" />
-          <FactCard value="DPT" label="MGH Institute of Health Professions" />
-          <FactCard value="2025" label="Lead textbook author" />
         </div>
       </div>
     </section>
@@ -272,10 +233,10 @@ function Philosophy() {
     <section style={{ padding: '104px 0', background: 'var(--surface-tint)' }}>
       <div style={{ maxWidth: '960px', margin: '0 auto', padding: '0 40px', display: 'flex', alignItems: 'center', gap: '56px' }}>
         <img
-          src={leafLeaves}
+          src={leafMark}
           alt=""
           aria-hidden="true"
-          style={{ width: '200px', flexShrink: 0, opacity: 0.22, filter: 'grayscale(1) brightness(0)' }}
+          style={{ width: '200px', flexShrink: 0, opacity: 0.9 }}
         />
         <div>
           <span style={{ fontSize: '3rem', lineHeight: 1, color: 'var(--brand)', opacity: 0.35, fontFamily: 'Georgia,serif', display: 'block', marginBottom: '8px' }}>"</span>
@@ -325,7 +286,7 @@ function BookSpotlight() {
 
 function Testimonials() {
   const t = [
-    { quote: 'After two births I finally feel like myself again. Rebecca’s expertise is simply unmatched.', name: 'Postpartum patient', category: 'Postpartum recovery' },
+    { quote: 'After two births I finally feel like myself again. Rebecca's expertise is simply unmatched.', name: 'Postpartum patient', category: 'Postpartum recovery' },
     { quote: 'She explained every step and never once rushed me. I felt safe and respected the entire time.', name: 'Pelvic-pain patient', category: 'Chronic pelvic pain' },
     { quote: 'Mentoring with Rebecca reshaped how I practice. She truly is a teacher of teachers.', name: 'PT mentee', category: 'Clinical mentorship' },
   ];
@@ -351,11 +312,11 @@ export function Home() {
   return (
     <div>
       <Hero />
-      <TrustBar />
-      <Services />
       <Bio />
+      <TrustBar />
       <WCSCallout />
       <Philosophy />
+      <Services />
       <BookSpotlight />
       <Testimonials />
       <section style={{ padding: '80px 0', background: 'var(--cream)' }}>
