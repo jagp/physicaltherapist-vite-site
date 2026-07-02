@@ -1,4 +1,4 @@
-import type { CSSProperties, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../components/core/Button";
 import { ServiceCard } from "../components/marketing/ServiceCard";
@@ -177,7 +177,7 @@ function TrustBar() {
 
 const svcDarkCSS = `
   .svc-dark .spt-svc { background: color-mix(in srgb, var(--bg) 58%, var(--brand)) !important; border-color: rgba(255,255,255,.1) !important; box-shadow: none !important; }
-  .svc-dark .spt-svc > div:first-child { background: rgba(255,255,255,.09) !important; }
+  .svc-dark .spt-svc > div:first-child { background: var(--cream) !important; }
   .svc-dark .spt-svc h3 { color: rgba(255,255,255,.94) !important; }
   .svc-dark .spt-svc p  { color: rgba(255,255,255,.62) !important; }
   .svc-dark .spt-svc a  { color: rgba(255,255,255,.55) !important; }
@@ -219,7 +219,7 @@ function Services() {
           {services.map((s) => (
             <ServiceCard
               key={s.slug}
-              icon={s.iconDark}
+              icon={s.icon}
               title={s.title}
               description={s.desc}
               dark

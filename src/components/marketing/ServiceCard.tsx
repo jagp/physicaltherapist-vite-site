@@ -48,7 +48,7 @@ export function ServiceCard({
   ensureHoverCSS();
 
   const cardBg = dark ? 'color-mix(in srgb, var(--bg) 58%, var(--brand))' : 'var(--surface)';
-  const iconBg = dark ? 'rgba(255,255,255,.09)' : 'var(--surface-tint)';
+  const iconBg = dark ? 'var(--cream)' : 'var(--surface-tint)';
   const headColor = dark ? 'rgba(255,255,255,.94)' : 'var(--text-heading)';
   const descColor = dark ? 'rgba(255,255,255,.62)' : 'var(--text-muted)';
   const linkColor = dark ? 'rgba(255,255,255,.55)' : 'var(--text-link)';

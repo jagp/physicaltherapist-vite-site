@@ -5,7 +5,7 @@ import { Card } from '../components/core/Card';
 import { Badge } from '../components/core/Badge';
 import { Button } from '../components/core/Button';
 import { CTABand } from '../components/marketing/CTABand';
-import { SERVICES } from '../data/services';
+import { services } from '../data/services';
 import leafLeaves from '../assets/leaf-leaves.png';
 
 const diagnoses = [
@@ -32,7 +32,7 @@ export function Services() {
       <section style={{ padding: '88px 0' }}>
         <div style={{ maxWidth: 'var(--maxw)', margin: '0 auto', padding: '0 40px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '22px' }}>
-            {SERVICES.map((s) => (
+            {services.map((s) => (
               <ServiceCard
                 key={s.slug}
                 icon={s.icon}
