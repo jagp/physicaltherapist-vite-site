@@ -1,0 +1,282 @@
+/* ============================================================
+   CareerTimeline — "One career, four strands"
+   A braided vertical timeline: each strand is one dimension of
+   the career (clinic, advocacy, teaching, authorship). A strand
+   appears at the milestone where that work began and runs to
+   "Today", so concurrency is drawn, not narrated.
+
+   Strand colors trace back to the closed palette:
+     clinic   → --brand          advocate → --accent
+     educator → --bg             author   → spicy gradient
+   (--attention appears only inside the spicy gradient, per the
+   color-system rule.)
+   ============================================================ */
+
+.ctl {
+  /* lane geometry — the only numbers the breakpoints need to touch */
+  --ctl-lane-w: 12px;
+  --ctl-lane-gap: 12px;
+  --ctl-body-indent: 44px;
+  --ctl-node: 14px;
+  --ctl-node-top: 20px;
+
+  /* strand tints — deep enough to read on cream, quiet enough to layer */
+  --ctl-clinic: var(--brand);
+  --ctl-advocate: var(--accent);
+  --ctl-educator: var(--bg);
+  --ctl-clinic-lane: color-mix(in srgb, var(--brand) 20%, var(--cream));
+  --ctl-advocate-lane: color-mix(in srgb, var(--accent) 20%, var(--cream));
+  --ctl-educator-lane: color-mix(in srgb, var(--bg) 16%, var(--cream));
+  --ctl-author-lane: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--brand) 22%, var(--cream)) 0%,
+    color-mix(in srgb, var(--accent) 22%, var(--cream)) 55%,
+    color-mix(in srgb, var(--attention) 24%, var(--cream)) 100%
+  );
+}
+
+.ctl-head {
+  max-width: var(--maxw-narrow);
+  margin: 0 auto var(--space-12);
+  text-align: center;
+}
+
+.ctl-head h2 {
+  margin-bottom: var(--space-3);
+}
+
+.ctl-lede {
+  color: var(--text-muted);
+  font-size: var(--fs-lead);
+  max-width: 54ch;
+  margin: 0 auto;
+}
+
+/* ---- Legend — names the four strands and when each began ---- */
+.ctl-legend {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3) var(--space-8);
+  margin: var(--space-8) 0 0;
+  padding: 0;
+}
+
+.ctl-legend li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-ui);
+  font-size: var(--fs-caption);
+  color: var(--text-muted);
+}
+
+.ctl-legend strong {
+  color: var(--text-body);
+  font-weight: var(--fw-semibold);
+}
+
+.ctl-swatch {
+  width: 20px;
+  height: 7px;
+  border-radius: var(--radius-pill);
+  flex: none;
+}
+
+.ctl-swatch[data-track='clinic'] { background: var(--ctl-clinic); }
+.ctl-swatch[data-track='advocate'] { background: var(--ctl-advocate); }
+.ctl-swatch[data-track='educator'] { background: var(--ctl-educator); }
+.ctl-swatch[data-track='author'] { background: var(--brand-gradient-spicy); }
+
+/* ---- The braid ---- */
+.ctl-track {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 860px;
+}
+
+.ctl-row {
+  display: grid;
+  grid-template-columns: repeat(4, var(--ctl-lane-w)) minmax(0, 1fr);
+  column-gap: var(--ctl-lane-gap);
+}
+
+/* Lane cells stack row over row with no vertical gap, so an active
+   strand reads as one continuous band down the page. */
+.ctl-lane {
+  position: relative;
+  height: 100%;
+}
+
+.ctl-lane.is-active[data-track='clinic'] { background: var(--ctl-clinic-lane); }
+.ctl-lane.is-active[data-track='advocate'] { background: var(--ctl-advocate-lane); }
+.ctl-lane.is-active[data-track='educator'] { background: var(--ctl-educator-lane); }
+.ctl-lane.is-active[data-track='author'] { background: var(--ctl-author-lane); }
+
+.ctl-lane.is-start {
+  border-top-left-radius: var(--radius-pill);
+  border-top-right-radius: var(--radius-pill);
+}
+
+.ctl-row:last-child .ctl-lane.is-active {
+  border-bottom-left-radius: var(--radius-pill);
+  border-bottom-right-radius: var(--radius-pill);
+}
+
+/* Node — the milestone sits ON its strand */
+.ctl-lane.has-node::after {
+  content: '';
+  position: absolute;
+  top: var(--ctl-node-top);
+  left: 50%;
+  width: var(--ctl-node);
+  height: var(--ctl-node);
+  transform: translateX(-50%);
+  border-radius: 50%;
+  border: 2.5px solid var(--cream);
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.ctl-lane.has-node[data-track='clinic']::after { background: var(--ctl-clinic); }
+.ctl-lane.has-node[data-track='advocate']::after { background: var(--ctl-advocate); }
+.ctl-lane.has-node[data-track='educator']::after { background: var(--ctl-educator); }
+.ctl-lane.has-node[data-track='author']::after { background: var(--brand-gradient-spicy); }
+
+.ctl-row:hover .ctl-lane.has-node::after {
+  transform: translateX(-50%) scale(1.35);
+}
+
+/* ---- Milestone content ---- */
+.ctl-body {
+  padding: 0 0 var(--space-16) var(--ctl-body-indent);
+}
+
+.ctl-row:last-child .ctl-body {
+  padding-bottom: var(--space-6);
+}
+
+.ctl-year {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: clamp(2rem, 4.5vw, 2.9rem);
+  line-height: 1;
+  letter-spacing: var(--ls-tight);
+  margin-bottom: var(--space-3);
+}
+
+.ctl-row[data-track='clinic'] .ctl-year { color: var(--ctl-clinic); }
+.ctl-row[data-track='advocate'] .ctl-year { color: var(--ctl-advocate); }
+.ctl-row[data-track='educator'] .ctl-year { color: var(--ctl-educator); }
+.ctl-row[data-track='author'] .ctl-year {
+  background: var(--brand-gradient-spicy);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ctl-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-3);
+}
+
+.ctl-chip {
+  font-family: var(--font-ui);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.ctl-chip[data-track='clinic'] {
+  color: var(--ctl-clinic);
+  background: color-mix(in srgb, var(--brand) 10%, var(--cream));
+}
+.ctl-chip[data-track='advocate'] {
+  color: var(--ctl-advocate);
+  background: color-mix(in srgb, var(--accent) 10%, var(--cream));
+}
+.ctl-chip[data-track='educator'] {
+  color: var(--ctl-educator);
+  background: color-mix(in srgb, var(--bg) 8%, var(--cream));
+}
+.ctl-chip[data-track='author'] {
+  color: var(--surface);
+  background: var(--brand-gradient-spicy);
+}
+
+.ctl-body h3 {
+  font-size: var(--fs-h5);
+  margin: 0 0 var(--space-2);
+}
+
+.ctl-row.is-capstone .ctl-body h3 {
+  font-size: var(--fs-h4);
+  font-style: italic;
+}
+
+.ctl-body p {
+  margin: 0;
+  color: var(--text-muted);
+  max-width: 52ch;
+}
+
+/* ---- Motion — additive; no-JS and reduced-motion see everything ---- */
+.ctl-motion .ctl-row {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity var(--dur) var(--ease-out),
+    transform var(--dur) var(--ease-out);
+}
+
+.ctl-motion .ctl-row.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ctl-motion .ctl-row {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .ctl-row:hover .ctl-lane.has-node::after {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---- Breakpoints (per docs/key-facts.md) ---- */
+@media (max-width: 767px) {
+  .ctl {
+    --ctl-lane-w: 8px;
+    --ctl-lane-gap: 8px;
+    --ctl-body-indent: 24px;
+    --ctl-node: 12px;
+    --ctl-node-top: 14px;
+  }
+  .ctl-body {
+    padding-bottom: var(--space-12);
+  }
+  .ctl-legend {
+    gap: var(--space-2) var(--space-5);
+  }
+}
+
+@media (max-width: 599px) {
+  .ctl {
+    --ctl-lane-w: 6px;
+    --ctl-lane-gap: 6px;
+    --ctl-body-indent: 18px;
+  }
+  .ctl-lede {
+    font-size: var(--fs-body);
+  }
+}
