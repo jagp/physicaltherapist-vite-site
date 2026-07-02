@@ -3,11 +3,8 @@ import type { CSSProperties, HTMLAttributes, ReactNode } from "react";
 export type CredentialBandVariant = "tint" | "linen" | "plum";
 
 export interface CredentialItem {
-  icon?: ReactNode;
-  year?: string;
   label: string;
   detail?: string;
-  href?: string;
 }
 
 export interface CredentialBandProps extends Omit<
@@ -28,24 +25,6 @@ const backgrounds: Record<CredentialBandVariant, CSSProperties> = {
   plum: { background: "var(--plum-600)", color: "rgba(255,255,255,.88)" },
 };
 
-const ribbonCSS = `
-  .spt-ribbon-link { text-decoration:none; color:inherit; outline:none; }
-  .spt-ribbon-link:focus-visible { outline:2px solid currentColor; outline-offset:4px; border-radius:4px; }
-  .spt-ribbon-badge { transition:all var(--dur) var(--ease-out); cursor:pointer; }
-  .spt-ribbon-badge:hover { transform:translateY(-2px); }
-  .spt-ribbon-badge:hover .spt-ribbon-bg { filter:brightness(1.1); }
-`;
-
-let injected = false;
-function ensureRibbonCSS() {
-  if (injected || typeof document === "undefined") return;
-  const style = document.createElement("style");
-  style.setAttribute("data-spt", "credential-band");
-  style.textContent = ribbonCSS;
-  document.head.appendChild(style);
-  injected = true;
-}
-
 export function CredentialBand({
   items = [],
   variant = "tint",
@@ -55,14 +34,13 @@ export function CredentialBand({
   style,
   ...rest
 }: CredentialBandProps) {
-  ensureRibbonCSS();
   const dark = variant === "plum";
 
   return (
     <div
       style={{
         width: "100%",
-        padding: "clamp(36px, 5vw, 60px) 0",
+        padding: "clamp(28px, 4vw, 40px) 0",
         ...backgrounds[variant],
         ...style,
       }}
@@ -88,140 +66,59 @@ export function CredentialBand({
         {children ? (
           children
         ) : (
-          <div
+          <ul
             style={{
+              listStyle: "none",
+              margin: 0,
+              padding: 0,
               display: "flex",
               flexWrap: "wrap",
               justifyContent: "center",
-              gap: "20px",
-              alignItems: "stretch",
+              alignItems: "baseline",
+              rowGap: "10px",
             }}
           >
-            {items.map((item, i) => {
-              const bgColor = dark
-                ? "rgba(255,255,255,.14)"
-                : "rgba(147,51,234,.12)";
-
-              const ribbonContent = (
-                <div
+            {items.map((item, i) => (
+              <li
+                key={item.label}
+                style={{
+                  display: "flex",
+                  alignItems: "baseline",
+                  gap: "10px",
+                }}
+              >
+                {i > 0 && (
+                  <span aria-hidden="true" style={{ opacity: 0.4 }}>
+                    ·
+                  </span>
+                )}
+                <span
                   style={{
-                    display: "flex",
-                    gap: "14px",
-                    alignItems: "center",
-                    padding: "16px 18px",
-                    flex: "0 0 auto",
-                    minWidth: 0,
+                    fontFamily: "var(--font-ui)",
+                    fontSize: "0.92rem",
+                    fontWeight: 700,
+                    color: dark ? "rgba(255,255,255,.94)" : "var(--ink-900)",
+                    whiteSpace: "nowrap",
                   }}
                 >
-                  {/* Year accent — small prominent label */}
-                  {item.year && (
-                    <div
+                  {item.label}
+                  {item.detail && (
+                    <span
                       style={{
-                        flexShrink: 0,
-                        fontFamily: "var(--font-display)",
-                        fontSize: "1rem",
-                        fontWeight: 700,
+                        fontWeight: 500,
                         color: dark
-                          ? "rgba(255,255,255,.92)"
-                          : "var(--brand)",
-                        lineHeight: 1,
-                        letterSpacing: "-0.01em",
-                        minWidth: "40px",
-                        textAlign: "center",
+                          ? "rgba(255,255,255,.62)"
+                          : "var(--text-muted)",
                       }}
                     >
-                      {item.year}
-                    </div>
+                      {" "}
+                      · {item.detail}
+                    </span>
                   )}
-
-                  {/* Text content */}
-                  <div style={{ flexGrow: 1, minWidth: 0 }}>
-                    <p
-                      style={{
-                        margin: 0,
-                        fontWeight: 700,
-                        fontSize: "0.9rem",
-                        color: dark
-                          ? "rgba(255,255,255,.94)"
-                          : "var(--ink-900)",
-                        lineHeight: 1.2,
-                      }}
-                    >
-                      {item.label}
-                    </p>
-                    {item.detail && (
-                      <p
-                        style={{
-                          margin: "3px 0 0",
-                          fontSize: "0.75rem",
-                          color: dark
-                            ? "rgba(255,255,255,.64)"
-                            : "var(--text-muted)",
-                          lineHeight: 1.3,
-                        }}
-                      >
-                        {item.detail}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              );
-
-              return item.href ? (
-                <a
-                  key={i}
-                  className="spt-ribbon-link spt-ribbon-badge"
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "flex",
-                    borderRadius: "4px",
-                    border: dark
-                      ? "1px solid rgba(255,255,255,.16)"
-                      : "1px solid var(--border)",
-                    textDecoration: "none",
-                  }}
-                >
-                  <div
-                    className="spt-ribbon-bg"
-                    style={{
-                      width: "100%",
-                      background: bgColor,
-                      backdropFilter: "blur(4px)",
-                      display: "flex",
-                    }}
-                  >
-                    {ribbonContent}
-                  </div>
-                </a>
-              ) : (
-                <div
-                  key={i}
-                  className="spt-ribbon-badge"
-                  style={{
-                    display: "flex",
-                    borderRadius: "4px",
-                    border: dark
-                      ? "1px solid rgba(255,255,255,.16)"
-                      : "1px solid var(--border)",
-                  }}
-                >
-                  <div
-                    className="spt-ribbon-bg"
-                    style={{
-                      width: "100%",
-                      background: bgColor,
-                      backdropFilter: "blur(4px)",
-                      display: "flex",
-                    }}
-                  >
-                    {ribbonContent}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+                </span>
+              </li>
+            ))}
+          </ul>
         )}
       </div>
     </div>
