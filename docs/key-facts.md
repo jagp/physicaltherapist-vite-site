@@ -57,8 +57,8 @@ Common elements: Header (nav, brand, optional booking), subfooters (CTA, testimo
 
 ## Site Goals
 
-KPIs: Bio knowledge, booking funnel via services,Mentorship
-Audiences: Potential clients, currents clients, aspirational colleagues
+KPIs: Bio knowledge, booking funnel via services, Mentorship
+Audiences: Potential clients, current clients, aspirational colleagues
 
 Breakpoints:
 1200'
