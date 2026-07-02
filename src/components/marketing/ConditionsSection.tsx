@@ -20,11 +20,11 @@ export function ConditionsSection({ title = 'Conditions I treat', groups }: Cond
       <div className="svc-wrap">
         <Card tone="tint" padding="clamp(32px, 4vw, 56px)" radius="lg" leaf leafSrc={leafLeaves}>
           <SectionEyebrow>What I treat</SectionEyebrow>
-          <h2 style={{ margin: '0 0 var(--space-8)', fontSize: 'var(--fs-h3)', maxWidth: '20ch' }}>{title}</h2>
+          <h2 className="svc-h2">{title}</h2>
           <div className="svc-cond-groups">
             {groups.map((group, gi) => (
               <div key={group.heading ?? gi}>
-                {group.heading && <p className="svc-cond-group__heading">{group.heading}</p>}
+                {group.heading && <h3 className="svc-cond-group__heading">{group.heading}</h3>}
                 <ul className="svc-cond-list">
                   {group.items.map((item) => (
                     <li key={item.label} className="svc-cond-item">

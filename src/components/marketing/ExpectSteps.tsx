@@ -17,8 +17,12 @@ export function ExpectSteps({ title, steps }: ExpectStepsProps) {
     <section className="svc-section--tight">
       <div className="svc-wrap--narrow">
         <SectionEyebrow>What to expect</SectionEyebrow>
-        <h2 style={{ margin: '0 0 var(--space-8)', fontSize: 'var(--fs-h3)', maxWidth: '20ch' }}>{title}</h2>
-        <ol style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
+        <h2 className="svc-h2">{title}</h2>
+        {/* role="list" restores list semantics that Safari/VoiceOver drops with list-style:none */}
+        <ol
+          role="list"
+          style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}
+        >
           {steps.map((step, i) => (
             <li key={step.label}>
               <Card tone="surface" padding="24px 28px" radius="md">

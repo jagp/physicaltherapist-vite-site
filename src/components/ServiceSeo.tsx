@@ -1,5 +1,5 @@
 import type { ServiceInfo } from '../data/services';
-import { buildServiceJsonLd, canonicalFor, descriptionFor, titleFor } from '../lib/serviceJsonLd';
+import { absoluteUrl, buildServiceJsonLd, canonicalFor, descriptionFor, jsonLdString, titleFor } from '../lib/serviceJsonLd';
 
 interface ServiceSeoProps {
   service: ServiceInfo;
@@ -27,10 +27,11 @@ export function ServiceSeo({ service }: ServiceSeoProps) {
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonical} />
-      {ogImage && <meta property="og:image" content={ogImage} />}
+      {ogImage && <meta property="og:image" content={absoluteUrl(ogImage)} />}
+      <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildServiceJsonLd(service)) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdString(buildServiceJsonLd(service)) }}
       />
     </>
   );

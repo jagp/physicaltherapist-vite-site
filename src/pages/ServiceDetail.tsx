@@ -44,7 +44,7 @@ function renderSection(section: ServiceSection, key: number) {
               padding="clamp(28px, 4vw, 44px)"
               radius="lg"
             >
-              <SectionEyebrow>{section.title}</SectionEyebrow>
+              <SectionEyebrow light={section.tone === 'brand'}>{section.title}</SectionEyebrow>
               <p style={{ margin: 0, lineHeight: 'var(--lh-relaxed)', maxWidth: '58ch' }}>{section.body}</p>
             </Card>
           </div>

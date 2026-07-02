@@ -5,6 +5,7 @@ export const SITE = {
   url: 'https://stephensonpt.com',
   name: 'Stephenson Physical Therapy',
   practitioner: 'Rebecca Stephenson',
+  telephone: '+1-508-740-0663',
   address: {
     streetAddress: '8 Pleasant St Unit 8E',
     addressLocality: 'South Natick',
@@ -16,6 +17,30 @@ export const SITE = {
 
 export function canonicalFor(slug: string): string {
   return `${SITE.url}/services/${slug}`;
+}
+
+/** Resolve a possibly root-relative asset path to an absolute URL (OG scrapers require full URLs). */
+export function absoluteUrl(path: string): string {
+  return path.startsWith('http') ? path : `${SITE.url}${path}`;
+}
+
+/** Serialize JSON-LD safely for inline <script> embedding. */
+export function jsonLdString(data: object): string {
+  return JSON.stringify(data).replace(/</g, '\\u003c');
+}
+
+/** The practice entity, shared by service pages and the home page. */
+export function buildBusinessJsonLd(): object {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalBusiness',
+    '@id': `${SITE.url}/#practice`,
+    name: SITE.name,
+    url: SITE.url,
+    telephone: SITE.telephone,
+    address: { '@type': 'PostalAddress', ...SITE.address },
+    founder: { '@type': 'Person', name: SITE.practitioner },
+  };
 }
 
 export function titleFor(service: ServiceInfo): string {
@@ -35,14 +60,7 @@ export function descriptionFor(service: ServiceInfo): string {
 export function buildServiceJsonLd(service: ServiceInfo): object {
   const canonical = service.content?.seo?.canonical ?? canonicalFor(service.slug);
 
-  const business = {
-    '@type': 'MedicalBusiness',
-    '@id': `${SITE.url}/#practice`,
-    name: SITE.name,
-    url: SITE.url,
-    address: { '@type': 'PostalAddress', ...SITE.address },
-    founder: { '@type': 'Person', name: SITE.practitioner },
-  };
+  const { '@context': _ctx, ...business } = buildBusinessJsonLd() as Record<string, unknown>;
 
   const webPage = {
     '@type': 'MedicalWebPage',

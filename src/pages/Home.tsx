@@ -315,6 +315,7 @@ export function Home() {
       <PageSeo
         description="Board-certified pelvic health physical therapy in South Natick, MA. One-on-one care for pregnancy, postpartum, pelvic pain, oncology rehab, and more."
         path="/"
+        businessJsonLd
       />
       <Hero />
       <Bio />

@@ -37,7 +37,7 @@ export function RelatedServices({ currentSlug, slugs }: RelatedServicesProps) {
                 <strong style={{ display: 'block', fontWeight: 'var(--fw-semibold)', marginBottom: '2px' }}>
                   {svc.title}
                 </strong>
-                <span style={{ fontSize: 'var(--fs-small)', color: 'var(--text-muted)' }}>{svc.desc}</span>
+                <span className="svc-small-ink" style={{ fontSize: 'var(--fs-small)' }}>{svc.desc}</span>
               </span>
             </Link>
           ))}

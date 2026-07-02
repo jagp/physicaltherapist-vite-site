@@ -24,18 +24,13 @@ export function ServiceFeature({ title, body, image, imageSide = 'right' }: Serv
             <div className="svc-feature__media" style={{ order: isLeft ? -1 : 1 }}>
               <img src={image.src} alt={image.alt} />
               <div
-                className="svc-feature__fade"
-                style={{
-                  background: isLeft
-                    ? 'linear-gradient(to right, transparent 55%, var(--cream) 100%)'
-                    : 'linear-gradient(to left, transparent 55%, var(--cream) 100%)',
-                }}
+                className={`svc-feature__fade ${isLeft ? 'svc-feature__fade--left' : 'svc-feature__fade--right'}`}
               />
             </div>
           )}
           <div style={{ order: isLeft ? 1 : -1 }}>
             <SectionEyebrow>Only here</SectionEyebrow>
-            <h2 style={{ margin: '0 0 var(--space-4)', fontSize: 'var(--fs-h3)', maxWidth: '18ch' }}>{title}</h2>
+            <h2 className="svc-h2" style={{ marginBottom: 'var(--space-4)' }}>{title}</h2>
             <p style={{ margin: 0, lineHeight: 'var(--lh-relaxed)', maxWidth: '52ch' }}>{body}</p>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { SITE } from '../lib/serviceJsonLd';
+import { SITE, buildBusinessJsonLd, jsonLdString } from '../lib/serviceJsonLd';
 
 interface PageSeoProps {
   /** Page-specific part of the title; site name is appended automatically. */
@@ -6,6 +6,8 @@ interface PageSeoProps {
   description: string;
   /** Path from the site root, e.g. "/about". Defaults to "/". */
   path?: string;
+  /** Emit the MedicalBusiness JSON-LD entity (enable on the home page). */
+  businessJsonLd?: boolean;
 }
 
 /**
@@ -13,9 +15,10 @@ interface PageSeoProps {
  * Contact). Service detail pages use the richer ServiceSeo instead. React 19
  * hoists these into <head>; under SSG they land in each page's static HTML.
  */
-export function PageSeo({ title, description, path = '/' }: PageSeoProps) {
+export function PageSeo({ title, description, path = '/', businessJsonLd = false }: PageSeoProps) {
   const fullTitle = title ? `${title} | ${SITE.name}` : SITE.name;
-  const canonical = `${SITE.url}${path === '/' ? '' : path}`;
+  // Root canonical keeps its trailing slash so it matches the sitemap entry.
+  const canonical = path === '/' ? `${SITE.url}/` : `${SITE.url}${path}`;
 
   return (
     <>
@@ -26,6 +29,13 @@ export function PageSeo({ title, description, path = '/' }: PageSeoProps) {
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonical} />
+      <meta name="twitter:card" content="summary" />
+      {businessJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: jsonLdString(buildBusinessJsonLd()) }}
+        />
+      )}
     </>
   );
 }
