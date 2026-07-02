@@ -11,7 +11,7 @@
 
 ## Project Mapping
 
-- Conmsult this table before choosing a powersearch of the local filesystem \*
+- Consult this table before choosing a powersearch of the local filesystem \*
 
 ```md
 physicaltherapist-vite-site/
@@ -32,7 +32,7 @@ physicaltherapist-vite-site/
 - src →
 - - assets → images, icons, service-page-images
 - - components → App, main
-- - - core → Badge, Button, Card, Inpiut
+- - - core → Badge, Button, Card, Input
 - - - marketing →
 - - - CTABand
 - - - ServiceCard

@@ -9,7 +9,7 @@
 - Honest > Artificial
 - Referrals > Clamoring
 - Speed > Exhaustive
-- SEO > arrtifice
+- SEO > artifice
 - Accessible > Stereotyped
 - Responsive > Opinionated
 
