@@ -1,3 +1,4 @@
+import { SERVICE_SLUGS } from './service-slugs';
 import iconPelvicFloor from '../assets/icons/icon-pelvic-floor.png';
 import iconPregnancy from '../assets/icons/icon-pregnancy.png';
 import iconPelvicSupport from '../assets/icons/icon-pelvic-support.png';
@@ -116,13 +117,13 @@ export interface ServiceInfo {
 
 export const services: ServiceInfo[] = [
   {
-    slug: 'pelvic-floor-bladder-health',
+    slug: SERVICE_SLUGS[0],
     icon: iconPelvicFloor,
     title: 'Pelvic Floor & Bladder Health',
     desc: 'Urinary leakage, urgency, frequency, and pelvic organ prolapse — for all genders.',
   },
   {
-    slug: 'pregnancy-postpartum',
+    slug: SERVICE_SLUGS[1],
     icon: iconPregnancy,
     title: 'Pregnancy & Postpartum',
     desc: 'Lumbopelvic pain, diastasis recti, and recovery from vaginal or cesarean birth.',
@@ -241,25 +242,25 @@ export const services: ServiceInfo[] = [
     },
   },
   {
-    slug: 'complex-pelvic-pain',
+    slug: SERVICE_SLUGS[2],
     icon: iconPelvicSupport,
     title: 'Complex Pelvic Pain',
     desc: 'Chronic pelvic pain, pudendal neuralgia, and painful intimacy, treated with compassion.',
   },
   {
-    slug: 'oncology-breast-care',
+    slug: SERVICE_SLUGS[3],
     icon: iconOncology,
     title: 'Oncology & Breast Care',
     desc: 'Breast-cancer rehabilitation, lymphedema management (CLT), and scar-tissue therapy.',
   },
   {
-    slug: 'orthopedics-bone-health',
+    slug: SERVICE_SLUGS[4],
     icon: iconSpine,
     title: 'Orthopedics & Bone Health',
     desc: 'Osteoporosis and musculoskeletal care through pelvic-health and Pilates-based rehab.',
   },
   {
-    slug: 'sports-medicine-active-recovery',
+    slug: SERVICE_SLUGS[5],
     icon: iconSports,
     title: 'Sports Medicine & Active Recovery',
     desc: 'Return-to-sport rehab, athletic pelvic floor care, and movement optimization.',

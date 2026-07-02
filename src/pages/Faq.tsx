@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { PageSeo } from '../components/PageSeo';
 import { useNavigate } from 'react-router-dom';
 import { PageHeader } from '../components/PageHeader';
 import { Button } from '../components/core/Button';
@@ -57,6 +58,11 @@ export function Faq() {
   const [open, setOpen] = useState(0);
   return (
     <div>
+      <PageSeo
+        title="FAQ"
+        description="Answers about your first visit, internal exams, what to wear, and how pelvic health physical therapy works."
+        path="/faq"
+      />
       <PageHeader eyebrow="Before your first visit" title="Frequently asked questions" lede="Honest answers about what to expect — consent-forward, never rushed." />
       <section style={{ padding: '72px 0 104px' }}>
         <div style={{ maxWidth: '820px', margin: '0 auto', padding: '0 40px' }}>

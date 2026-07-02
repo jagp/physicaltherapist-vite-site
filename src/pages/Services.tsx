@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { PageSeo } from '../components/PageSeo';
 import { PageHeader } from "../components/PageHeader";
 import { ServiceCard } from "../components/marketing/ServiceCard";
 import { Card } from "../components/core/Card";
@@ -24,6 +25,11 @@ export function Services() {
   const navigate = useNavigate();
   return (
     <div>
+      <PageSeo
+        title="Services"
+        description="Comprehensive pelvic and women's health physical therapy: bladder health, pregnancy and postpartum, pelvic pain, oncology rehab, orthopedics, and sports recovery."
+        path="/services"
+      />
       <PageHeader
         eyebrow="What we offer"
         title="Specialized care, grouped around you"

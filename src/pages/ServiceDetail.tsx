@@ -12,6 +12,7 @@ import { ServiceFeature } from '../components/marketing/ServiceFeature';
 import { ExpectSteps } from '../components/marketing/ExpectSteps';
 import { RelatedServices } from '../components/marketing/RelatedServices';
 import { SectionEyebrow } from '../components/marketing/SectionEyebrow';
+import { ServiceSeo } from '../components/ServiceSeo';
 import { services, type ServiceSection } from '../data/services';
 import leafLeaves from '../assets/leaf-leaves.png';
 
@@ -66,6 +67,7 @@ export function ServiceDetail() {
   if (c) {
     return (
       <div style={{ background: 'var(--cream)' }}>
+        <ServiceSeo service={service} />
         <div className="svc-wrap" style={{ paddingTop: 'var(--space-8)' }}>
           <Breadcrumb
             items={[
@@ -112,6 +114,7 @@ export function ServiceDetail() {
 
   return (
     <div>
+      <ServiceSeo service={service} />
       <PageHeader eyebrow="What we offer" title={service.title} lede={service.desc} />
       <section style={{ padding: '88px 0 104px' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto', padding: '0 40px', textAlign: 'center' }}>
