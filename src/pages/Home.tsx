@@ -177,7 +177,7 @@ function TrustBar() {
 
 const svcDarkCSS = `
   .svc-dark .spt-svc { background: color-mix(in srgb, var(--bg) 58%, var(--brand)) !important; border-color: rgba(255,255,255,.1) !important; box-shadow: none !important; }
-  .svc-dark .spt-svc > div:first-child { background: rgba(255,255,255,.09) !important; }
+  .svc-dark .spt-svc > div:first-child { background: var(--cream) !important; }
   .svc-dark .spt-svc h3 { color: rgba(255,255,255,.94) !important; }
   .svc-dark .spt-svc p  { color: rgba(255,255,255,.62) !important; }
   .svc-dark .spt-svc a  { color: rgba(255,255,255,.55) !important; }
