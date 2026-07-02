@@ -1,6 +1,51 @@
 # CLAUDE.md
 
-**Physical Therapist Vite Site** — the buildable Vite/TS implementation of the Stephenson Therapy website. Content, design lineage, and planning live upstream in the RGSPT project (see below); this repo is where the real site gets built.
+**Physical Therapist Vite Site** — the buildable implementation of the Stephenson Physical Therapy website.
+
+## Commands
+
+- `npm run dev` — start Vite dev server
+- `npm run build` — typecheck (`tsc -b`) then production build
+- `npm run lint` — lint with oxlint (not eslint)
+- `npm run preview` — preview the production build
+
+## Project Mapping
+
+- Conmsult this table before choosing a powersearch of the local filesystem \*
+
+```md
+- docs →
+- - design-philosophy.md
+- - key-facts.md
+- - content → service-pages-source
+- - scratch → working docs (e.g. project goals)
+- - superpowers →
+- - - mocks
+- - - specs
+- src →
+- - assets → images, icons, service-page-images
+- - components → App, main
+- - - core → Badge, Button, Card, Inpiut
+- - - marketing →
+- - - CTABand
+- - - ServiceCard
+- - - StatCard
+- - - Testimonial
+- - - PageHeader
+- - data → services.ts
+- - hooks {}
+- - layout → Layout, Footer, Nav
+- - pages →
+- - - About
+- - - Contact
+- - - FAQ
+- - - Home
+- - - ServiceDetail
+- - - Services
+- - styles →
+- - - tokens
+- - - global.css
+```
 
 ## Canonical project docs
 

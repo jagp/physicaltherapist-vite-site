@@ -219,7 +219,7 @@ function Services() {
           {services.map((s) => (
             <ServiceCard
               key={s.slug}
-              icon={s.icon}
+              icon={s.iconDark}
               title={s.title}
               description={s.desc}
               dark
