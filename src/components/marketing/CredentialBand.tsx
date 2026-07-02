@@ -6,10 +6,9 @@ import type { CSSProperties, HTMLAttributes, ReactNode } from "react";
 export type CredentialBandVariant = "tint" | "linen" | "plum";
 
 export interface CredentialItem {
-  icon?: ReactNode;
-  year?: string;
   label: string;
   detail?: string;
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   /** When set, the item becomes a link to a third-party authority page
    *  (opens in a new tab) — turning a self-described credential into one a
@@ -17,6 +16,8 @@ export interface CredentialItem {
 =======
 >>>>>>> Stashed changes
   href?: string;
+=======
+>>>>>>> Stashed changes
 }
 
 export interface CredentialBandProps extends Omit<
@@ -45,6 +46,7 @@ const backgrounds: Record<CredentialBandVariant, CSSProperties> = {
   plum: { background: "var(--plum-600)", color: "rgba(255,255,255,.88)" },
 };
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 // Pseudo-classes can't live in inline styles, so card and link hover/focus states are
 // injected once via a <style> tag.
@@ -83,6 +85,8 @@ function ensureRibbonCSS() {
   injected = true;
 }
 
+=======
+>>>>>>> Stashed changes
 export function CredentialBand({
   items = [],
   variant = "tint",
@@ -93,9 +97,12 @@ export function CredentialBand({
   ...rest
 }: CredentialBandProps) {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   ensureCardCSS();
 =======
   ensureRibbonCSS();
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   const dark = variant === "plum";
 
@@ -103,7 +110,7 @@ export function CredentialBand({
     <div
       style={{
         width: "100%",
-        padding: "clamp(36px, 5vw, 60px) 0",
+        padding: "clamp(28px, 4vw, 40px) 0",
         ...backgrounds[variant],
         ...style,
       }}
@@ -129,8 +136,9 @@ export function CredentialBand({
         {children ? (
           children
         ) : (
-          <div
+          <ul
             style={{
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
               display: "grid",
               gridTemplateColumns: "repeat(3, 1fr)",
@@ -209,49 +217,56 @@ export function CredentialBand({
                           : "var(--text-body)",
                         lineHeight: 1.35,
 =======
+=======
+              listStyle: "none",
+              margin: 0,
+              padding: 0,
+>>>>>>> Stashed changes
               display: "flex",
               flexWrap: "wrap",
               justifyContent: "center",
-              gap: "20px",
-              alignItems: "stretch",
+              alignItems: "baseline",
+              rowGap: "10px",
             }}
           >
-            {items.map((item, i) => {
-              const bgColor = dark
-                ? "rgba(255,255,255,.14)"
-                : "rgba(147,51,234,.12)";
-
-              const ribbonContent = (
-                <div
+            {items.map((item, i) => (
+              <li
+                key={item.label}
+                style={{
+                  display: "flex",
+                  alignItems: "baseline",
+                  gap: "10px",
+                }}
+              >
+                {i > 0 && (
+                  <span aria-hidden="true" style={{ opacity: 0.4 }}>
+                    ·
+                  </span>
+                )}
+                <span
                   style={{
-                    display: "flex",
-                    gap: "14px",
-                    alignItems: "center",
-                    padding: "16px 18px",
-                    flex: "0 0 auto",
-                    minWidth: 0,
+                    fontFamily: "var(--font-ui)",
+                    fontSize: "0.92rem",
+                    fontWeight: 700,
+                    color: dark ? "rgba(255,255,255,.94)" : "var(--ink-900)",
+                    whiteSpace: "nowrap",
                   }}
                 >
-                  {/* Year accent — small prominent label */}
-                  {item.year && (
-                    <div
+                  {item.label}
+                  {item.detail && (
+                    <span
                       style={{
-                        flexShrink: 0,
-                        fontFamily: "var(--font-display)",
-                        fontSize: "1rem",
-                        fontWeight: 700,
+                        fontWeight: 500,
                         color: dark
-                          ? "rgba(255,255,255,.92)"
-                          : "var(--brand)",
-                        lineHeight: 1,
-                        letterSpacing: "-0.01em",
-                        minWidth: "40px",
-                        textAlign: "center",
+                          ? "rgba(255,255,255,.62)"
+                          : "var(--text-muted)",
                       }}
                     >
-                      {item.year}
-                    </div>
+                      {" "}
+                      · {item.detail}
+                    </span>
                   )}
+<<<<<<< Updated upstream
 
                   {/* Text content */}
                   <div style={{ flexGrow: 1, minWidth: 0 }}>
@@ -369,6 +384,12 @@ export function CredentialBand({
               );
             })}
           </div>
+=======
+                </span>
+              </li>
+            ))}
+          </ul>
+>>>>>>> Stashed changes
         )}
       </div>
     </div>
