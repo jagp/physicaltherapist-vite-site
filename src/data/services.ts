@@ -10,6 +10,12 @@ import pregnancyInset from '../assets/service-page-images/pregnancy-inset.png';
 
 
 
+export interface ServiceImage {
+  src: string;
+  /** Descriptive alt text; theme-based, fallback "picture of ▲". */
+  alt: string;
+}
+
 export interface ExternalLink {
   url: string;
   /** Linked label text, rendered as the <a>. */
@@ -25,7 +31,54 @@ export interface SpecializedTreatment {
   desc: string;
 }
 
+/* ---- Optional, composable content blocks ("reach / double-reach") ----
+   Each service opts into any mix of these; array order is render order.
+   Boutique per-service blocks (e.g. a pregnancy-only "Home Visits" feature)
+   live here too, with no analog forced onto sibling pages. */
+
+export interface ConditionItem {
+  label: string;
+  /** Optional one-line description of the condition. */
+  desc?: string;
+}
+
+export interface ConditionGroup {
+  /** Optional sub-heading grouping related conditions. */
+  heading?: string;
+  items: ConditionItem[];
+}
+
+export interface FaqItem {
+  q: string;
+  a: string;
+}
+
+export interface ExpectStep {
+  label: string;
+  desc: string;
+}
+
+export type ServiceSection =
+  | { kind: 'conditions'; title?: string; groups: ConditionGroup[] }
+  | { kind: 'faq'; title?: string; items: FaqItem[] }
+  | { kind: 'feature'; title: string; body: string; image?: ServiceImage; imageSide?: 'left' | 'right' }
+  | { kind: 'expect'; title: string; steps: ExpectStep[] }
+  | { kind: 'callout'; title: string; body: string; tone?: 'tint' | 'brand' };
+
+export interface ServiceSeo {
+  /** <title>; defaults to `${title} | Stephenson Physical Therapy`. */
+  title?: string;
+  /** Meta description; defaults to `desc`. */
+  metaDescription?: string;
+  /** Canonical URL; defaults to the derived `/services/${slug}`. */
+  canonical?: string;
+  /** Open Graph image; defaults to `heroImage.src`. */
+  ogImage?: string;
+}
+
 export interface ServiceContent {
+  /** Small label above the headline (e.g. the service title). */
+  eyebrow?: string;
   /** First-person headline in Rebecca's voice. */
   headline: string;
   /** Punchy claim under the headline. */
@@ -44,6 +97,12 @@ export interface ServiceContent {
   /** Land-the-pitch closing paragraph. */
   closer: string;
   cta: { phrase: string; button: string };
+  /** Per-page SEO/head overrides; every field falls back to a sensible default. */
+  seo?: ServiceSeo;
+  /** Ordered, optional content blocks rendered between the article and the CTA. */
+  sections?: ServiceSection[];
+  /** Slugs of sibling services to cross-link; defaults to the other services. */
+  relatedSlugs?: string[];
 }
 
 export interface ServiceInfo {
@@ -110,6 +169,35 @@ export const services: ServiceInfo[] = [
         phrase: 'You don’t have to white-knuckle your way through this.',
         button: 'Schedule Your Evaluation',
       },
+      sections: [
+        {
+          kind: 'conditions',
+          title: 'Conditions I treat through pregnancy and beyond',
+          groups: [
+            {
+              heading: 'During pregnancy',
+              items: [
+                { label: 'Pelvic girdle pain (PGP)' },
+                { label: 'Pubic symphysis dysfunction' },
+                { label: 'Sacroiliac (SI) joint pain' },
+                { label: 'Lower back pain in pregnancy' },
+                { label: 'Rib pain in pregnancy' },
+              ],
+            },
+            {
+              heading: 'After birth',
+              items: [
+                { label: 'Diastasis recti (DRA)' },
+                { label: 'Postpartum pelvic floor dysfunction' },
+                { label: 'Urinary or fecal incontinence' },
+                { label: 'Painful scar tissue (perineal or cesarean)' },
+                { label: 'Return to running postpartum' },
+                { label: 'Pelvic instability postpartum' },
+              ],
+            },
+          ],
+        },
+      ],
     },
   },
   {

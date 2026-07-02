@@ -286,7 +286,7 @@ function BookSpotlight() {
 
 function Testimonials() {
   const t = [
-    { quote: 'After two births I finally feel like myself again. Rebecca's expertise is simply unmatched.', name: 'Postpartum patient', category: 'Postpartum recovery' },
+    { quote: 'After two births I finally feel like myself again. Rebecca’s expertise is simply unmatched.', name: 'Postpartum patient', category: 'Postpartum recovery' },
     { quote: 'She explained every step and never once rushed me. I felt safe and respected the entire time.', name: 'Pelvic-pain patient', category: 'Chronic pelvic pain' },
     { quote: 'Mentoring with Rebecca reshaped how I practice. She truly is a teacher of teachers.', name: 'PT mentee', category: 'Clinical mentorship' },
   ];
