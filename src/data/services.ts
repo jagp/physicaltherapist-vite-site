@@ -197,6 +197,46 @@ export const services: ServiceInfo[] = [
             },
           ],
         },
+        {
+          kind: 'expect',
+          title: 'Your first visit',
+          steps: [
+            {
+              label: 'The Conversation',
+              desc: 'We begin by getting to know you and understanding your history, goals, and concerns. This isn’t a rushed appointment — we take time to listen and ask clarifying questions.',
+            },
+            {
+              label: 'The Assessment',
+              desc: 'Depending on your condition and comfort level, we perform a physical assessment that may include posture evaluation, breathing assessment, movement screening, and pelvic floor muscle assessment (performed externally unless you choose internal evaluation).',
+            },
+            {
+              label: 'The Plan',
+              desc: 'We discuss our findings in clear, understandable language and collaboratively create a treatment plan tailored to your goals and timeline.',
+            },
+          ],
+        },
+        {
+          kind: 'faq',
+          title: 'Common questions',
+          items: [
+            {
+              q: 'What happens during the first visit?',
+              a: 'Your initial evaluation is a 60-minute session in a private, quiet room. We start with a thorough conversation about your medical history and goals. If appropriate, a physical assessment is performed to check your posture, breathing, and pelvic floor muscle function. We will always discuss every step before proceeding.',
+            },
+            {
+              q: 'Do I have to have an internal exam?',
+              a: 'An internal assessment (vaginal or rectal) is the "gold standard" for evaluating pelvic floor muscle strength, coordination, and tension. However, it is never mandatory. We can learn a great deal from external assessments, and we will only perform an internal exam if you feel comfortable and give your full consent.',
+            },
+            {
+              q: 'What should I wear to my appointment?',
+              a: 'Wear comfortable, loose-fitting clothing that you can easily move in. You do not need special athletic gear, but clothing like yoga pants or sweatpants is often the most practical.',
+            },
+            {
+              q: 'How many sessions will I need?',
+              a: 'Everybody is different. After your first evaluation, we will create a personalized plan. Some patients see significant improvement in 4–6 visits, while more complex or chronic conditions may require longer-term care.',
+            },
+          ],
+        },
       ],
     },
   },
