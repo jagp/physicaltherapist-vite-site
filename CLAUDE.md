@@ -17,12 +17,12 @@
 physicaltherapist-vite-site/
 - development.md 
 - CLAUDE.md
-- README. md
+- README.md
 - docs →
 - - scratch → X (IGNORE THIS & CONTENTS) 
 - - design-philosophy.md
 - - key-facts.md
-- - awards-and-more.md (awards accredidations and honors )
+- - awards-and-more.md (awards, accreditations, and honors)
 - - scholarship.md
 - - content → service-pages-source
 - - scratch → working docs (e.g. project goals)
@@ -52,7 +52,7 @@ physicaltherapist-vite-site/
 - - - ServiceDetail
 - - - Services
 - - styles →
-- - - tokens → colors, typographu, spacing, fonts, base
+- - - tokens → colors, typography, spacing, fonts, base
 - - - global.css
 ```
 
