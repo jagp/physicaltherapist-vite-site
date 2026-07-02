@@ -23,14 +23,16 @@
 - - - mocks
 - - - specs
 - src →
+- - App, main  (app bootstrap + route table, at src root)
 - - assets → images, icons, service-page-images
-- - components → App, main
+- - components →
 - - - core → Badge, Button, Card, Input
 - - - marketing →
-- - - CTABand
-- - - ServiceCard
-- - - StatCard
-- - - Testimonial
+- - - - CTABand
+- - - - CredentialBand
+- - - - ServiceCard
+- - - - StatCard
+- - - - Testimonial
 - - - PageHeader
 - - data → services.ts
 - - hooks {}
