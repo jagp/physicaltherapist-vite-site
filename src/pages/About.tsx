@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { PageSeo } from '../components/PageSeo';
 import { PageHeader } from '../components/PageHeader';
 import { Card } from '../components/core/Card';
 import { Button } from '../components/core/Button';
@@ -11,6 +12,11 @@ export function About() {
   const navigate = useNavigate();
   return (
     <div>
+      <PageSeo
+        title="About Rebecca Stephenson"
+        description="Board-Certified Women's Health Clinical Specialist with decades of experience in pelvic health, teaching, and published research."
+        path="/about"
+      />
       <PageHeader eyebrow="About" title="Four decades of compassionate, expert care" />
       <section style={{ padding: '72px 0' }}>
         <div style={{ maxWidth: 'var(--maxw)', margin: '0 auto', padding: '0 40px', display: 'grid', gridTemplateColumns: '.8fr 1.2fr', gap: '50px', alignItems: 'start' }}>

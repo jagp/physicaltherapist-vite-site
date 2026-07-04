@@ -5,9 +5,10 @@
 ## Commands
 
 - `npm run dev` — start Vite dev server
-- `npm run build` — typecheck (`tsc -b`) then production build
+- `npm run build` — typecheck (`tsc -b`) then **static-render** the site with `vite-react-ssg` (each route → flat `dist/*.html` + `sitemap.xml`)
 - `npm run lint` — lint with oxlint (not eslint)
 - `npm run preview` — preview the production build
+- **Install note:** deps require `npm install --legacy-peer-deps` (pinned in `.npmrc`) — `vite-react-ssg@0.9.1-beta.1` declares a `vite ≤7` peer range but is build-verified on Vite 8. See `docs/development.md`.
 
 ## Git workflow (critical)
 
@@ -39,7 +40,7 @@ physicaltherapist-vite-site/
 - - - mocks
 - - - specs
 - src →
-- - App, main  (app bootstrap + route table, at src root)
+- - App (route table as vite-react-ssg RouteRecord[]), main (ViteReactSSG bootstrap)
 - - assets → images, icons, service-page-images
 - - components →
 - - - core → Badge, Button, Card, Input
@@ -49,8 +50,14 @@ physicaltherapist-vite-site/
 - - - - ServiceCard
 - - - - StatCard
 - - - - Testimonial
+- - - - CareerTimeline
+- - - - ServiceHero, ServiceArticle (service-page hero + editorial body)
+- - - - ConditionsSection, ExpectSteps, ServiceFaq, ServiceFeature, RelatedServices (composable service sections)
+- - - - SectionEyebrow, Breadcrumb
 - - - PageHeader
-- - data → services.ts
+- - - PageSeo, ServiceSeo (per-page <head> tags + JSON-LD; React 19 head hoisting)
+- - data → services.ts (services + SEO content schema), service-slugs.ts (asset-free slug source, shared with vite.config)
+- - lib → serviceJsonLd.ts (structured-data builders)
 - - hooks {}
 - - layout → Layout, Footer, Nav
 - - pages →
@@ -58,11 +65,12 @@ physicaltherapist-vite-site/
 - - - Contact
 - - - FAQ
 - - - Home
-- - - ServiceDetail
+- - - ServiceDetail (full template when service.content present; else "coming soon")
 - - - Services
 - - styles →
 - - - tokens → colors, typography, spacing, fonts, base
 - - - global.css
+- - - service-page.css (service-page layout classes)
 ```
 
 ## Canonical project docs

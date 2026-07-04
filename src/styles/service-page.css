@@ -1,0 +1,97 @@
+/* ============================================================
+   Stephenson Physical Therapy — Service detail page section system.
+
+   Static styling stays inline in the components (repo convention);
+   this file holds what inline styles can't express cleanly: responsive
+   breakpoints, hover/focus states, accordion motion, and reduced-motion.
+   Signature motifs: the leaf-tick section spine + imagery dissolving
+   into the cream ground.
+   ============================================================ */
+
+/* ---- Section rhythm ---- */
+.svc-section { padding: var(--section-pad) 0; }
+.svc-section--tight { padding: var(--section-pad-sm) 0; }
+.svc-wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+.svc-wrap--narrow { max-width: var(--maxw-narrow); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* ---- Leaf-tick eyebrow (the signature spine) ---- */
+.svc-eyebrow { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 14px; }
+.svc-eyebrow__leaf { width: 16px; height: 16px; object-fit: contain; opacity: 0.7; flex-shrink: 0; }
+
+/* ---- Shared section heading (clamped so mobile h2 stays below the hero h1) ---- */
+.svc-h2 { margin: 0 0 var(--space-8); font-size: clamp(1.55rem, 2.6vw, 2rem); max-width: 22ch; }
+
+/* Small text on cream needs a darker mix than --text-muted (3.8:1) to clear WCAG AA 4.5:1. */
+.svc-small-ink { color: color-mix(in srgb, var(--text-dark) 70%, var(--cream)); }
+
+/* ---- Breadcrumb ---- */
+.svc-crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  font-family: var(--font-ui); font-size: var(--fs-small);
+  color: color-mix(in srgb, var(--text-dark) 70%, var(--cream)); }
+.svc-crumbs a { color: inherit; }
+.svc-crumbs a:hover { color: var(--brand); text-decoration: none; }
+.svc-crumbs__sep { opacity: 0.5; }
+.svc-crumbs__current { color: var(--text-body); }
+
+/* ---- Conditions: editorial index ---- */
+.svc-cond-groups { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-10) var(--space-12); }
+/* Real <h3>s restyled as eyebrow labels: visible hierarchy stays quiet,
+   screen-reader heading navigation still works. */
+.svc-cond-group__heading { font-family: var(--font-ui); text-transform: uppercase;
+  letter-spacing: var(--ls-eyebrow); font-size: var(--fs-eyebrow); font-weight: var(--fw-bold);
+  color: var(--brand); margin: 0 0 var(--space-4); line-height: var(--lh-normal); }
+.svc-cond-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-3); }
+.svc-cond-item { display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+.svc-cond-item__leaf { width: 15px; height: 15px; object-fit: contain; opacity: 0.6; margin-top: 4px; flex-shrink: 0; }
+@media (max-width: 768px) { .svc-cond-groups { grid-template-columns: 1fr; gap: var(--space-8); } }
+
+/* ---- FAQ accordion ---- */
+.svc-faq-item { border-top: 1px solid var(--border); }
+.svc-faq-item:last-child { border-bottom: 1px solid var(--border); }
+.svc-faq-h { margin: 0; font-size: inherit; line-height: inherit; }
+.svc-faq-q { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  background: none; border: none; cursor: pointer; text-align: left; padding: var(--space-5) 0;
+  font-family: var(--font-display); font-size: var(--fs-h5); font-weight: var(--fw-semibold);
+  color: var(--text-heading); }
+.svc-faq-icon { flex-shrink: 0; width: 20px; height: 20px; position: relative;
+  transition: transform var(--dur) var(--ease-out); color: var(--brand); }
+.svc-faq-icon::before, .svc-faq-icon::after { content: ''; position: absolute; background: currentColor;
+  border-radius: 2px; }
+.svc-faq-icon::before { top: 9px; left: 0; width: 20px; height: 2px; }
+.svc-faq-icon::after { left: 9px; top: 0; width: 2px; height: 20px; }
+/* visibility:hidden (delayed until the collapse ends) removes closed answers
+   from the accessibility tree, matching aria-expanded="false". */
+.svc-faq-a { overflow: hidden; max-height: 0; visibility: hidden;
+  transition: max-height var(--dur) var(--ease-out), visibility 0s var(--dur); }
+.svc-faq-a-inner { padding: 0 0 var(--space-5); color: var(--text-body); line-height: var(--lh-relaxed); max-width: 62ch; }
+.svc-faq-item[data-open="true"] .svc-faq-a { max-height: 40rem; visibility: visible; transition-delay: 0s, 0s; }
+.svc-faq-item[data-open="true"] .svc-faq-icon { transform: rotate(135deg); }
+
+/* ---- Feature (dissolve) block ---- */
+.svc-feature { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: center; }
+.svc-feature__media { position: relative; aspect-ratio: 5 / 4; overflow: hidden; border-radius: var(--radius-lg); }
+.svc-feature__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Fade direction lives in classes (not inline styles) so the mobile override can win. */
+.svc-feature__fade { position: absolute; inset: 0; pointer-events: none; }
+.svc-feature__fade--left { background: linear-gradient(to right, transparent 55%, var(--cream) 100%); }
+.svc-feature__fade--right { background: linear-gradient(to left, transparent 55%, var(--cream) 100%); }
+@media (max-width: 768px) { .svc-feature { grid-template-columns: 1fr; gap: var(--space-6); }
+  .svc-feature__media { aspect-ratio: 16 / 10; }
+  .svc-feature__fade--left, .svc-feature__fade--right {
+    background: linear-gradient(to bottom, transparent 55%, var(--cream) 100%); } }
+
+/* ---- Related services ---- */
+/* auto-fit keeps cards readable at every width — no 3-column crush band. */
+.svc-related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-5); }
+.svc-related-card { display: flex; align-items: center; gap: 14px; padding: var(--space-5);
+  border-radius: var(--radius-md); border: 1px solid var(--border); background: var(--surface);
+  color: var(--text-body); text-decoration: none;
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-soft), border-color var(--dur) var(--ease-soft); }
+.svc-related-card:hover { transform: translateY(-3px); text-decoration: none;
+  box-shadow: inset 1px 0 0 0 var(--hover-edge), var(--shadow-md); border-color: transparent; }
+.svc-related-card img { width: 40px; height: 40px; object-fit: contain; flex-shrink: 0; }
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .svc-faq-icon, .svc-faq-a, .svc-related-card { transition: none; }
+}
