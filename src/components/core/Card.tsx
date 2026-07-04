@@ -32,6 +32,7 @@ export function Card({
   padding = '28px',
   style,
   children,
+  className,
   ...rest
 }: CardProps) {
   const isDark = tone === 'plum' || tone === 'brand' || tone === 'gradient';
@@ -43,6 +44,7 @@ export function Card({
     radiusClass[radius],
     hover && s.hover,
     hover && (isGrad ? s.toneGrad : isDark ? s.toneDark : s.toneLight),
+    className, // caller classes merge, never clobber the tone classes
   ]
     .filter(Boolean)
     .join(' ');
