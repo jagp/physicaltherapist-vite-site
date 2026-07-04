@@ -1,4 +1,5 @@
 import { Card } from '../core/Card';
+import { ResponsiveImage } from '../core/ResponsiveImage';
 import type { ExternalLink, ServiceImage, SpecializedTreatment } from '../../data/services';
 import leafLeaves from '../../assets/leaf-leaves.png';
 import leafMark from '../../assets/leaf-mark.png';
@@ -50,11 +51,24 @@ export function ServiceArticle({
             boxShadow: 'var(--shadow-md)',
           }}
         >
-          <img
-            src={insetImage.src}
-            alt={insetImage.alt}
-            style={{ width: '100%', display: 'block', objectFit: 'cover' }}
-          />
+          {insetImage.avifSrcSet && insetImage.webpSrcSet ? (
+            <ResponsiveImage
+              avifSrcSet={insetImage.avifSrcSet}
+              webpSrcSet={insetImage.webpSrcSet}
+              src={insetImage.src}
+              sizes="(max-width: 767px) 100vw, 620px"
+              alt={insetImage.alt}
+              width={insetImage.width ?? 1240}
+              height={insetImage.height ?? 930}
+              className="svc-inset-img"
+            />
+          ) : (
+            <img
+              src={insetImage.src}
+              alt={insetImage.alt}
+              style={{ width: '100%', display: 'block', objectFit: 'cover' }}
+            />
+          )}
         </div>
       )}
 

@@ -8,10 +8,17 @@ import { CTABand } from "../components/marketing/CTABand";
 import { CredentialBand } from "../components/marketing/CredentialBand";
 import { stephensonTrustItems } from "../components/marketing/CredentialBand.data";
 import { services } from "../data/services";
-import headshot2 from "../assets/headshot-2.jpg";
-import headshot3 from "../assets/headshot-3.jpg";
+import { ResponsiveImage } from "../components/core/ResponsiveImage";
+import headshot2Avif from "../assets/headshot-2.jpg?w=448;672;896&format=avif&as=srcset";
+import headshot2Webp from "../assets/headshot-2.jpg?w=448;672;896&format=webp&as=srcset";
+import headshot2 from "../assets/headshot-2.jpg?w=896&format=jpeg";
+import headshot3Avif from "../assets/headshot-3.jpg?w=448;672;896&format=avif&as=srcset";
+import headshot3Webp from "../assets/headshot-3.jpg?w=448;672;896&format=webp&as=srcset";
+import headshot3 from "../assets/headshot-3.jpg?w=896&format=jpeg";
+import bookAvif from "../assets/pt-guide-to-pelvic-health-book.jpg?w=320;640&format=avif&as=srcset";
+import bookWebp from "../assets/pt-guide-to-pelvic-health-book.jpg?w=320;640&format=webp&as=srcset";
+import bookCover from "../assets/pt-guide-to-pelvic-health-book.jpg?w=640&format=jpeg";
 import leafLeaves from "../assets/leaf-leaves.png";
-import bookCover from "../assets/pt-guide-to-pelvic-health-book.jpg";
 import s from "./Home.module.css";
 
 function SectionHead({
@@ -75,13 +82,16 @@ function Hero() {
           </div>
         </div>
         <div className={s.heroMedia}>
-          {/* LCP image: real <img>, prioritized; ResponsiveImage swap in Task 8 */}
-          <img
+          {/* LCP image: AVIF/WebP/JPEG cascade, prioritized, never lazy */}
+          <ResponsiveImage
+            avifSrcSet={headshot2Avif}
+            webpSrcSet={headshot2Webp}
             src={headshot2}
+            sizes="(max-width: 767px) 100vw, (max-width: 1199px) 46vw, 540px"
             alt="Dr. Rebecca Stephenson"
             width={896}
             height={1152}
-            fetchPriority="high"
+            priority
           />
         </div>
       </div>
@@ -142,12 +152,14 @@ function Bio() {
       <div className={s.wrap}>
         <div className={s.bioGrid}>
           <div className={s.bioMedia}>
-            <img
+            <ResponsiveImage
+              avifSrcSet={headshot3Avif}
+              webpSrcSet={headshot3Webp}
               src={headshot3}
+              sizes="(max-width: 767px) 100vw, (max-width: 1199px) 40vw, 480px"
               alt="Dr. Rebecca Stephenson"
               width={896}
               height={1152}
-              loading="lazy"
             />
           </div>
           <div>
@@ -246,12 +258,14 @@ function BookSpotlight() {
     <section className={s.bookSection}>
       <div className={s.bookWrap}>
         <div className={s.bookCover}>
-          <img
+          <ResponsiveImage
+            avifSrcSet={bookAvif}
+            webpSrcSet={bookWebp}
             src={bookCover}
+            sizes="(max-width: 599px) 40vw, 160px"
             alt="The PT's Guide to Women's Pelvic, Perinatal & Reproductive Health"
-            width={1000}
-            height={1429}
-            loading="lazy"
+            width={640}
+            height={914}
           />
         </div>
         <div>

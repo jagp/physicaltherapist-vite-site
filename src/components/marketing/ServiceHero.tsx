@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import type { ServiceImage } from '../../data/services';
+import { ResponsiveImage } from '../core/ResponsiveImage';
 import s from './ServiceHero.module.css';
 
 interface ServiceHeroProps {
@@ -21,8 +22,20 @@ export function ServiceHero({
     <section className={s.hero}>
       <div className={`${s.grid} ${imageSide === 'left' ? s.imgLeft : s.imgRight}`}>
         <div className={s.media}>
-          {/* intrinsic 1448x1086 (5:4-ish); srcset pipeline lands in Task 8 */}
-          <img src={image.src} alt={image.alt} width={1448} height={1086} fetchPriority="high" />
+          {image.avifSrcSet && image.webpSrcSet ? (
+            <ResponsiveImage
+              avifSrcSet={image.avifSrcSet}
+              webpSrcSet={image.webpSrcSet}
+              src={image.src}
+              sizes="(max-width: 767px) 100vw, 50vw"
+              alt={image.alt}
+              width={image.width ?? 1448}
+              height={image.height ?? 1086}
+              priority
+            />
+          ) : (
+            <img src={image.src} alt={image.alt} width={image.width} height={image.height} fetchPriority="high" />
+          )}
           <div className={s.fade} aria-hidden="true" />
         </div>
         <div className={s.txt}>
