@@ -1,5 +1,5 @@
 
-### Official clarification of Awards/Accrediudations:
+### Official clarification of Awards/Accreditations:
 #### PWCS
 The correct form of the certification provided by the The American Board of Physical Therapist Specialties (ABPTS) 
 is PWCS

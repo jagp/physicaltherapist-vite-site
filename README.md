@@ -21,7 +21,7 @@ practice by editing data and styles rather than rewriting components.
 
 ### Prerequisites
 
-- **Node.js 18+** (Vite 8 requires a current LTS)
+- **Node.js 20.19+ or 22.12+** (Vite 8's minimum; Node 18 is end-of-life and unsupported)
 - **npm** (the repo tracks a lockfile; other package managers work but aren't tracked)
 
 ### Install
@@ -79,7 +79,6 @@ src/
 │                       #   Testimonial, CTABand, StatCard)
 ├── data/
 │   └── services.ts     # Source of truth for the services section (see below)
-├── hooks/              # Custom React hooks (e.g. useMediaQuery)
 ├── styles/
 │   ├── global.css      # Entry stylesheet: @imports the token layers in order
 │   └── tokens/         # fonts → colors → typography → spacing → base
@@ -112,8 +111,9 @@ exports a single array, `services: ServiceInfo[]`, where each entry is:
 
 ```ts
 interface ServiceInfo {
-  slug: string;   // URL segment, e.g. "/services/<slug>"
-  icon: string;   // imported image asset
+  slug: string;     // URL segment, e.g. "/services/<slug>"
+  icon: string;     // imported image asset (default, for light surfaces)
+  iconDark: string; // cream variant for dark (--bg) surfaces
   title: string;
   desc: string;
 }
