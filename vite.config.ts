@@ -30,9 +30,10 @@ function sitemapPlugin(): Plugin {
 export default defineConfig({
   plugins: [react(), sitemapPlugin()],
   ssgOptions: {
-    // services/<slug>/index.html instead of services/<slug>.html, so the
-    // extensionless canonical URLs resolve on any static host.
-    dirStyle: 'nested',
+    // Flat output (services/<slug>.html): Cloudflare Pages serves these at
+    // the extensionless URL with NO redirect, exactly matching our
+    // no-trailing-slash canonicals. (Nested index.html dirs made CF 308
+    // /foo -> /foo/, so every canonical pointed at a redirect.)
     // Dynamic routes (services/:slug) are skipped by default — enumerate
     // every service page explicitly so each emits static HTML.
     includedRoutes(paths: string[]) {
