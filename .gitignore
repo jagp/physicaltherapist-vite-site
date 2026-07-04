@@ -25,3 +25,7 @@ docs/superpowers/mocks/state/
 *.njsproj
 *.sln
 *.sw?
+
+# Local git worktrees + scratch archives (never commit)
+.claude/worktrees/
+archive.zip

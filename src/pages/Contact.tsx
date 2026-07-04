@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { PageSeo } from '../components/PageSeo';
 import { PageHeader } from '../components/PageHeader';
 import { Card } from '../components/core/Card';
 import { Input } from '../components/core/Input';
@@ -9,6 +10,11 @@ export function Contact() {
   const [sent, setSent] = useState(false);
   return (
     <div>
+      <PageSeo
+        title="Contact"
+        description="Schedule your pelvic health evaluation with Stephenson Physical Therapy in South Natick, MA."
+        path="/contact"
+      />
       <PageHeader
         eyebrow="Contact"
         title="Start your journey to better health"

@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
+import { PageSeo } from "../components/PageSeo";
 import { Button } from "../components/core/Button";
 import { ServiceCard } from "../components/marketing/ServiceCard";
 import { Testimonial } from "../components/marketing/Testimonial";
@@ -674,6 +675,11 @@ export function Home() {
   const navigate = useNavigate();
   return (
     <div>
+      <PageSeo
+        description="Board-certified pelvic health physical therapy in South Natick, MA. One-on-one care for pregnancy, postpartum, pelvic pain, oncology rehab, and more."
+        path="/"
+        businessJsonLd
+      />
       <Hero />
       <Services />
       <Bio />
