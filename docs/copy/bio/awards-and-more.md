@@ -10,7 +10,7 @@ Brigham and Women’s Hospital 2012.
 • Barbara Adams Fellow Award from the Mass General Hospital Institute of Health Professions for leadership, service to the profession and potential to contribute significantly as a clinical scholar, May 2002.
 • The Elizabeth Noble Award for outstanding vision and service to the Section on Women’s Health of the American PTA
 
-### Official clarification of Awards/Accrediudations
+### Official clarification of Awards/Accreditations:
 
 #### PWCS
 
