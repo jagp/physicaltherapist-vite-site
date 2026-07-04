@@ -1,125 +1,158 @@
 import { useEffect, useRef } from 'react';
 import './CareerTimeline.css';
 
-type TrackId = 'clinic' | 'advocate' | 'educator' | 'author';
+type TrackId = 'clinic' | 'author' | 'advocate' | 'educator';
+/** Circle diameter tier — encodes overall impact on women's health
+    internationally (broadly, the product of all four strands). */
+type Impact = 'sm' | 'md' | 'lg' | 'xl';
 
 interface Track {
   id: TrackId;
   name: string;
   since: string;
-  /** Era index (into ERAS) where this strand begins. */
-  start: number;
-}
-
-interface Era {
-  label: string;
-  /** Hide this tick on the smallest screens to prevent label collisions. */
-  minor?: boolean;
 }
 
 interface Milestone {
-  era: number;
-  track: TrackId;
   year: string;
+  track: TrackId;
+  impact: Impact;
+  /** Short label shown on the chart callout. */
+  short: string;
+  /** Full title shown in the facts list. */
   title: string;
   body: string;
   capstone?: boolean;
+  cluster?: boolean;
 }
 
-/* The time axis is a schematic sequence of eras, evenly spaced and
-   labeled with the real years. Even spacing keeps every strand
-   readable — true linear time would crush the 2025 strand to a sliver
-   — while the labels keep it honest. */
-const ERAS: Era[] = [
-  { label: '1980s' },
-  { label: '1998', minor: true },
-  { label: '2002', minor: true },
-  { label: '2012–13' },
-  { label: '2017–18', minor: true },
-  { label: '2025' },
-  { label: 'Today' },
-];
-const LAST = ERAS.length - 1;
-
-/* Ordered by when each strand began, so the bars stair-step inward
-   from the top-left — the shape itself reads as "expertise
-   accumulating over four decades." */
+/* One shared timeline. Every distinction in Rebecca's career is a circle on
+   the same line, coloured by which strand it belongs to and SIZED by its
+   overall impact on women's health internationally. Because the circles are
+   large and placed in career order, neighbouring circles OVERLAP — and where
+   different-coloured circles overlap, you are seeing two distinctions held at
+   once. Concurrency is drawn, not stated; the line visibly swells where her
+   international impact concentrates (the textbooks and research). */
 const TRACKS: Track[] = [
-  { id: 'clinic', name: 'Clinician', since: 'since the 1980s', start: 0 },
-  { id: 'advocate', name: 'Advocate', since: 'since 1998', start: 1 },
-  { id: 'educator', name: 'Educator', since: 'since 2002', start: 2 },
-  { id: 'author', name: 'Author', since: '2025', start: 5 },
-];
-
-const MILESTONES: Milestone[] = [
-  {
-    era: 0,
-    track: 'clinic',
-    year: '1980s',
-    title: 'The clinical foundation',
-    body: 'Doctorate at the MGH Institute of Health Professions, then Urogynecology Coordinator at Brigham & Women’s and clinical specialist in pelvic health at Mass General.',
-  },
-  {
-    era: 1,
-    track: 'advocate',
-    year: '1998',
-    title: 'The Elizabeth Noble Award',
-    body: 'Honored by the APTA Section on Women’s Health for outstanding vision and service — advocacy for the field itself begins.',
-  },
-  {
-    era: 2,
-    track: 'educator',
-    year: '2002',
-    title: 'Barbara Adams Fellow',
-    body: 'Recognized by the MGH Institute of Health Professions for leadership and the potential to contribute as a clinical scholar.',
-  },
-  {
-    era: 3,
-    track: 'clinic',
-    year: '2012',
-    title: 'Partners in Excellence — twice in one year',
-    body: 'At Brigham & Women’s: for building and leading the breast-oncology care team, and for a high-risk pregnancy education video used on the inpatient unit.',
-  },
-  {
-    era: 3,
-    track: 'advocate',
-    year: '2013',
-    title: 'Lucy Blair Service Award',
-    body: 'One of the American Physical Therapy Association’s most distinguished honors, for sustained, exceptional service to the profession.',
-  },
-  {
-    era: 4,
-    track: 'advocate',
-    year: '2017',
-    title: 'Section on Women’s Health Service Award',
-    body: 'For ongoing commitment and years of volunteer service to the Section on Women’s Health.',
-  },
-  {
-    era: 4,
-    track: 'educator',
-    year: '2018',
-    title: 'Distinguished Alumni Award',
-    body: 'Named a distinguished graduate of the MGH Institute of Health Professions — where she now teaches as adjunct faculty.',
-  },
-  {
-    era: 5,
-    track: 'author',
-    year: '2025',
-    title: 'The Physical Therapy Guide to Women’s, Pelvic, Reproductive & Perinatal Health',
-    body: 'Lead author and editor of the field’s comprehensive clinical text (Routledge) — the newest strand, and the distillation of the other three.',
-    capstone: true,
-  },
+  { id: 'clinic', name: 'Clinician', since: 'since the 1980s' },
+  { id: 'author', name: 'Author & Scholar', since: 'since 1990' },
+  { id: 'advocate', name: 'Advocate', since: 'since 1998' },
+  { id: 'educator', name: 'Educator', since: 'since 2002' },
 ];
 
 const TRACK_NAME: Record<TrackId, string> = {
   clinic: 'Clinician',
+  author: 'Author & Scholar',
   advocate: 'Advocate',
   educator: 'Educator',
-  author: 'Author',
 };
 
-/** Map an era index to its horizontal position on the shared 0–100% axis. */
-const pct = (era: number) => (era / LAST) * 100;
+/* Chronological — this is also left-to-right order along the timeline. */
+const MILESTONES: Milestone[] = [
+  {
+    year: '1980s',
+    track: 'clinic',
+    impact: 'lg',
+    short: 'The clinical foundation',
+    title: 'The clinical foundation',
+    body: 'Doctorate at the MGH Institute of Health Professions, then Urogynecology Coordinator at Brigham & Women’s and clinical specialist in pelvic health at Mass General — building women’s-health PT programs at two world-class hospitals.',
+  },
+  {
+    year: '1990',
+    track: 'author',
+    impact: 'lg',
+    short: 'First textbook',
+    title: 'First textbook — Obstetric & Gynecological Care in Physical Therapy',
+    body: 'Co-authored with Linda J. O’Connor (SLACK Inc.), with a second edition in 2000. An early text that helped define the field, and where her published scholarship begins.',
+  },
+  {
+    year: '1998',
+    track: 'advocate',
+    impact: 'md',
+    short: 'Elizabeth Noble Award',
+    title: 'The Elizabeth Noble Award',
+    body: 'Honored by the APTA Section on Women’s Health for outstanding vision and service — advocacy for the field itself begins.',
+  },
+  {
+    year: '2002',
+    track: 'educator',
+    impact: 'sm',
+    short: 'Barbara Adams Fellow',
+    title: 'Barbara Adams Fellow',
+    body: 'Recognized by the MGH Institute of Health Professions for leadership and the potential to contribute as a clinical scholar.',
+  },
+  {
+    year: '2012',
+    track: 'clinic',
+    impact: 'md',
+    short: 'Partners in Excellence ×2',
+    title: 'Partners in Excellence — twice in one year',
+    body: 'At Brigham & Women’s: for building and leading the breast-oncology care team, and for a high-risk pregnancy education video used on the inpatient unit.',
+  },
+  {
+    year: '2013',
+    track: 'advocate',
+    impact: 'lg',
+    short: 'Lucy Blair Service Award',
+    title: 'Lucy Blair Service Award',
+    body: 'One of the American Physical Therapy Association’s most distinguished honors, for sustained, exceptional service to the profession.',
+  },
+  {
+    year: '2013',
+    track: 'author',
+    impact: 'sm',
+    short: 'IOPTWH conference',
+    title: 'Conference scholarship — IOPTWH & IPTOP, Boston',
+    body: 'Proceedings published in GeriNotes; a marker of her international women’s-health leadership.',
+  },
+  {
+    year: '2015',
+    track: 'author',
+    impact: 'md',
+    short: 'Cancer-survivorship study',
+    title: 'Cancer-survivorship research',
+    body: 'Co-author of a study on physical impairments and PT utilization among cancer survivors of Puerto Rican descent (Journal of Oncology Navigation & Survivorship).',
+  },
+  {
+    year: '2017',
+    track: 'advocate',
+    impact: 'md',
+    short: 'Section Service Award',
+    title: 'Section on Women’s Health Service Award',
+    body: 'For ongoing commitment and years of volunteer service to the Section on Women’s Health.',
+  },
+  {
+    year: '2018',
+    track: 'educator',
+    impact: 'sm',
+    short: 'Distinguished Alumni',
+    title: 'Distinguished Alumni Award',
+    body: 'Named a distinguished graduate of the MGH Institute of Health Professions — where she now teaches as adjunct faculty.',
+  },
+  {
+    year: '2020–22',
+    track: 'author',
+    impact: 'lg',
+    short: 'Peer-reviewed research ×4',
+    title: 'A burst of peer-reviewed research',
+    body: 'Four journal publications in three years: the international Women’s & Pelvic Health PT practice survey (JWHPT, 2020); the Advanced Topics in Pregnancy & Postpartum PT lab manual (2020); online-EdD pedagogy (Impacting Education, 2021); and allied-health roles in rural Australia (J. Multidisciplinary Healthcare, 2022) — alongside ongoing service as a JWHPT/JWPHPT peer reviewer.',
+    cluster: true,
+  },
+  {
+    year: '2025',
+    track: 'author',
+    impact: 'xl',
+    short: 'Routledge textbook',
+    title: 'The Physical Therapists’ Guide to Pelvic, Perinatal & Reproductive Health',
+    body: 'Lead author and editor (Routledge) — the field’s comprehensive clinical text, distilling a career of practice, advocacy, and teaching.',
+    capstone: true,
+  },
+];
+
+/* Evenly spaced along the shared line (schematic order, real-year labels) —
+   even spacing keeps every circle and callout readable while the year labels
+   keep the chronology honest. */
+const N = MILESTONES.length;
+const xOf = (i: number) => 5 + (i / (N - 1)) * 83;
 
 export function CareerTimeline() {
   const chartRef = useRef<HTMLDivElement>(null);
@@ -130,7 +163,7 @@ export function CareerTimeline() {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!('IntersectionObserver' in window)) return;
 
-    chart.classList.add('cg-motion');
+    chart.classList.add('rm-motion');
     if (reduce) {
       chart.classList.add('is-in');
       return;
@@ -144,29 +177,30 @@ export function CareerTimeline() {
           }
         }
       },
-      { threshold: 0.3 },
+      { threshold: 0.25 },
     );
     io.observe(chart);
     return () => io.disconnect();
   }, []);
 
   const chartSummary =
-    'Career timeline: four overlapping strands of expertise. Clinician from the 1980s, advocate from 1998, educator from 2002, and author from 2025 — all continuing today.';
+    'A single career timeline of overlapping distinctions, coloured by strand and sized by international impact: clinician (from the 1980s), author & scholar (from 1990), advocate (from 1998), and educator (from 2002) — the circles overlap because the strands run at the same time, all the way to today, and swell where her impact on women’s health is greatest.';
 
   return (
-    <section className="cg" aria-labelledby="cg-h">
-      <div className="cg-head">
+    <section className="rm" aria-labelledby="rm-h">
+      <div className="rm-head">
         <p className="ds-eyebrow">Professional Timeline</p>
-        <h2 id="cg-h">Four distinctions, one career</h2>
-        <p className="cg-lede">
-          Clinician, advocate, educator, author — each strand began in a
-          different decade, and none has ended. Follow any color across: it runs
-          to today.
+        <h2 id="rm-h">Four distinctions, one career</h2>
+        <p className="rm-lede">
+          Clinician, author, advocate, educator — four strands of a single
+          career, each a colour on one shared timeline. Each circle is sized by
+          its impact on women’s health worldwide; where they overlap, two
+          distinctions are being held at once.
         </p>
-        <ul className="cg-legend">
+        <ul className="rm-legend">
           {TRACKS.map((track) => (
             <li key={track.id}>
-              <span className="cg-swatch" data-track={track.id} aria-hidden="true" />
+              <span className="rm-swatch" data-track={track.id} aria-hidden="true" />
               <strong>{track.name}</strong>
               <span>{track.since}</span>
             </li>
@@ -175,67 +209,57 @@ export function CareerTimeline() {
       </div>
 
       {/* The chart is a visual summary; the list below carries the facts. */}
-      <div className="cg-chart" ref={chartRef} role="img" aria-label={chartSummary}>
-        <div className="cg-axis cg-lane" aria-hidden="true">
-          {ERAS.map((era, i) => {
-            const cls =
-              i === 0 ? 'cg-tick is-first' : i === LAST ? 'cg-tick is-now' : 'cg-tick';
-            return (
-              <span
-                key={era.label}
-                className={cls}
-                data-density={era.minor ? 'low' : undefined}
-                style={{ left: `${pct(i)}%` }}
-              >
-                {era.label}
-              </span>
-            );
-          })}
-        </div>
+      <div className="rm-scroll">
+        <div className="rm-stage" ref={chartRef} role="img" aria-label={chartSummary}>
+          <span className="rm-axis" aria-hidden="true" />
 
-        <div className="cg-tracks" aria-hidden="true">
-          {TRACKS.map((track) => {
-            const dots = MILESTONES.filter((m) => m.track === track.id);
+          {MILESTONES.map((m, i) => {
+            const circleCls = [
+              'rm-circle',
+              m.capstone && 'is-capstone',
+              m.cluster && 'is-cluster',
+            ]
+              .filter(Boolean)
+              .join(' ');
             return (
-              <div key={track.id} className="cg-track">
-                <div className="cg-lane" style={{ height: '100%' }}>
-                  <span
-                    className="cg-bar"
-                    data-track={track.id}
-                    style={{
-                      left: `${pct(track.start)}%`,
-                      right: 0,
-                    }}
-                  />
-                  {dots.map((m) => (
-                    <span
-                      key={m.year}
-                      className="cg-dot"
-                      data-track={track.id}
-                      style={{ left: `${pct(m.era)}%` }}
-                    />
-                  ))}
-                </div>
+              <div
+                key={m.year + m.track}
+                className="rm-node"
+                data-track={m.track}
+                data-pos={i % 2 === 0 ? 'above' : 'below'}
+                data-size={m.impact}
+                style={{ left: `${xOf(i)}%` }}
+                aria-hidden="true"
+              >
+                <span className={circleCls} />
+                <span className="rm-dot" />
+                <span className="rm-callout">
+                  <span className="rm-year">{m.year}</span>
+                  {m.short}
+                </span>
               </div>
             );
           })}
-        </div>
 
-        <span className="cg-today" aria-hidden="true" />
+          <div className="rm-today" aria-hidden="true">
+            <span className="rm-today-dot" />
+            <span className="rm-today-label">Today</span>
+          </div>
+        </div>
       </div>
 
-      <ol className="cg-list">
+      <ol className="rm-list">
         {MILESTONES.map((m) => (
           <li
             key={m.year + m.track}
-            className={m.capstone ? 'cg-item is-capstone' : 'cg-item'}
+            className={m.capstone ? 'rm-item is-capstone' : 'rm-item'}
             data-track={m.track}
           >
-            <span className="cg-item-year">{m.year}</span>
+            <span className="rm-item-year">{m.year}</span>
             <div>
               <h3>{m.title}</h3>
               <p>{m.body}</p>
-              <span className="cg-item-track">{TRACK_NAME[m.track]}</span>
+              <span className="rm-item-track">{TRACK_NAME[m.track]}</span>
             </div>
           </li>
         ))}
