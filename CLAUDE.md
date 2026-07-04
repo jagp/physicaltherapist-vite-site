@@ -30,10 +30,11 @@ physicaltherapist-vite-site/
 - - scratch → X (IGNORE THIS & CONTENTS) 
 - - design-philosophy.md
 - - key-facts.md
-- - awards-and-more.md (awards, accreditations, and honors)
-- - development.md
-- - scholarship.md
-- - content → service-pages-source
+- - development.md (internal dev conventions + gitflow)
+- - dalle-queue.md
+- - copy → (client-facing copy; formerly 'content')
+- - - bio → about-page, awards-and-more, scholarship
+- - - faq-copy, new-patients, service-pages-source, what-to-expect
 - - superpowers →
 - - - mocks
 - - - specs
