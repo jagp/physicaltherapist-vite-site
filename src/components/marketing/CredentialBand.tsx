@@ -1,13 +1,15 @@
 import type { CSSProperties, HTMLAttributes, ReactNode } from "react";
+import leafLeaves from "../../assets/leaf-leaves.png";
 
 export type CredentialBandVariant = "tint" | "linen" | "plum";
 
 export interface CredentialItem {
-  icon?: ReactNode;
-  year?: string;
+  /** Small uppercase kicker above the name (e.g. "National Honor"). */
+  category?: string;
+  /** The honor or credential name — the line that carries the weight. */
   label: string;
+  /** Supporting line: issuing body and year. */
   detail?: string;
-  href?: string;
 }
 
 export interface CredentialBandProps extends Omit<
@@ -15,9 +17,11 @@ export interface CredentialBandProps extends Omit<
   "style"
 > {
   items?: CredentialItem[];
+  /** Background treatment. @default "tint" */
   variant?: CredentialBandVariant;
   title?: string;
   description?: string;
+  /** Custom content (overrides the honors row). */
   children?: ReactNode;
   style?: CSSProperties;
 }
@@ -25,25 +29,40 @@ export interface CredentialBandProps extends Omit<
 const backgrounds: Record<CredentialBandVariant, CSSProperties> = {
   tint: { background: "var(--brand-soft)", color: "var(--text-body)" },
   linen: { background: "var(--linen)", color: "var(--text-body)" },
-  plum: { background: "var(--plum-600)", color: "rgba(255,255,255,.88)" },
+  plum: {
+    background: "var(--bg)",
+    // Faint top glow so the honors block reads as its own band even between
+    // two deep-plum sections.
+    backgroundImage:
+      "radial-gradient(130% 150% at 50% -30%, rgba(102,51,153,.5), transparent 60%)",
+    color: "var(--text-light)",
+  },
 };
 
-const ribbonCSS = `
-  .spt-ribbon-link { text-decoration:none; color:inherit; outline:none; }
-  .spt-ribbon-link:focus-visible { outline:2px solid currentColor; outline-offset:4px; border-radius:4px; }
-  .spt-ribbon-badge { transition:all var(--dur) var(--ease-out); cursor:pointer; }
-  .spt-ribbon-badge:hover { transform:translateY(-2px); }
-  .spt-ribbon-badge:hover .spt-ribbon-bg { filter:brightness(1.1); }
-`;
-
-let injected = false;
-function ensureRibbonCSS() {
-  if (injected || typeof document === "undefined") return;
-  const style = document.createElement("style");
-  style.setAttribute("data-spt", "credential-band");
-  style.textContent = ribbonCSS;
-  document.head.appendChild(style);
-  injected = true;
+// The brand leaf reused as a mask, not an <img>: the silhouette is filled by
+// whatever color sits behind it, so the motif can be tinted (white on plum,
+// brand-purple on light) without shipping recolored art.
+function LeafMark({ dark }: { dark: boolean }) {
+  return (
+    <span
+      aria-hidden="true"
+      style={{
+        flexShrink: 0,
+        width: "26px",
+        height: "56px",
+        background: dark ? "var(--text-light)" : "var(--brand)",
+        opacity: dark ? 0.7 : 0.55,
+        WebkitMaskImage: `url(${leafLeaves})`,
+        maskImage: `url(${leafLeaves})`,
+        WebkitMaskRepeat: "no-repeat",
+        maskRepeat: "no-repeat",
+        WebkitMaskPosition: "center",
+        maskPosition: "center",
+        WebkitMaskSize: "contain",
+        maskSize: "contain",
+      }}
+    />
+  );
 }
 
 export function CredentialBand({
@@ -55,14 +74,13 @@ export function CredentialBand({
   style,
   ...rest
 }: CredentialBandProps) {
-  ensureRibbonCSS();
   const dark = variant === "plum";
 
   return (
     <div
       style={{
         width: "100%",
-        padding: "clamp(36px, 5vw, 60px) 0",
+        padding: "clamp(40px, 5vw, 56px) 0",
         ...backgrounds[variant],
         ...style,
       }}
@@ -70,12 +88,7 @@ export function CredentialBand({
     >
       <div style={{ maxWidth: "1180px", margin: "0 auto", padding: "0 40px" }}>
         {title && (
-          <h2
-            style={{
-              margin: "0 0 10px",
-              fontSize: "clamp(1.4rem, 2.5vw, 2rem)",
-            }}
-          >
+          <h2 style={{ margin: "0 0 10px", fontSize: "clamp(1.4rem, 2.5vw, 2rem)" }}>
             {title}
           </h2>
         )}
@@ -88,140 +101,76 @@ export function CredentialBand({
         {children ? (
           children
         ) : (
-          <div
+          <ul
             style={{
+              listStyle: "none",
+              margin: 0,
+              padding: 0,
               display: "flex",
               flexWrap: "wrap",
-              justifyContent: "center",
-              gap: "20px",
-              alignItems: "stretch",
+              justifyContent: "space-between",
+              gap: "26px",
             }}
           >
-            {items.map((item, i) => {
-              const bgColor = dark
-                ? "rgba(255,255,255,.14)"
-                : "rgba(147,51,234,.12)";
-
-              const ribbonContent = (
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "14px",
-                    alignItems: "center",
-                    padding: "16px 18px",
-                    flex: "0 0 auto",
-                    minWidth: 0,
-                  }}
-                >
-                  {/* Year accent — small prominent label */}
-                  {item.year && (
-                    <div
+            {items.map((item) => (
+              <li
+                key={item.label}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "16px",
+                  flex: "1 1 260px",
+                  minWidth: 0,
+                }}
+              >
+                <LeafMark dark={dark} />
+                <div style={{ minWidth: 0 }}>
+                  {item.category && (
+                    <p
                       style={{
-                        flexShrink: 0,
-                        fontFamily: "var(--font-display)",
-                        fontSize: "1rem",
+                        margin: "0 0 6px",
+                        fontFamily: "var(--font-ui)",
+                        fontSize: "0.64rem",
                         fontWeight: 700,
-                        color: dark
-                          ? "rgba(255,255,255,.92)"
-                          : "var(--brand)",
-                        lineHeight: 1,
-                        letterSpacing: "-0.01em",
-                        minWidth: "40px",
-                        textAlign: "center",
+                        letterSpacing: "0.18em",
+                        textTransform: "uppercase",
+                        color: dark ? "var(--attention)" : "var(--brand)",
                       }}
                     >
-                      {item.year}
-                    </div>
+                      {item.category}
+                    </p>
                   )}
-
-                  {/* Text content */}
-                  <div style={{ flexGrow: 1, minWidth: 0 }}>
+                  <p
+                    style={{
+                      margin: "0 0 5px",
+                      fontFamily: "var(--font-display)",
+                      fontWeight: 600,
+                      fontSize: "1.14rem",
+                      lineHeight: 1.16,
+                      letterSpacing: "-0.01em",
+                      color: dark ? "#fff" : "var(--ink-900)",
+                    }}
+                  >
+                    {item.label}
+                  </p>
+                  {item.detail && (
                     <p
                       style={{
                         margin: 0,
-                        fontWeight: 700,
-                        fontSize: "0.9rem",
+                        fontSize: "0.78rem",
+                        lineHeight: 1.35,
                         color: dark
-                          ? "rgba(255,255,255,.94)"
-                          : "var(--ink-900)",
-                        lineHeight: 1.2,
+                          ? "rgba(239,235,255,.58)"
+                          : "var(--text-muted)",
                       }}
                     >
-                      {item.label}
+                      {item.detail}
                     </p>
-                    {item.detail && (
-                      <p
-                        style={{
-                          margin: "3px 0 0",
-                          fontSize: "0.75rem",
-                          color: dark
-                            ? "rgba(255,255,255,.64)"
-                            : "var(--text-muted)",
-                          lineHeight: 1.3,
-                        }}
-                      >
-                        {item.detail}
-                      </p>
-                    )}
-                  </div>
+                  )}
                 </div>
-              );
-
-              return item.href ? (
-                <a
-                  key={i}
-                  className="spt-ribbon-link spt-ribbon-badge"
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "flex",
-                    borderRadius: "4px",
-                    border: dark
-                      ? "1px solid rgba(255,255,255,.16)"
-                      : "1px solid var(--border)",
-                    textDecoration: "none",
-                  }}
-                >
-                  <div
-                    className="spt-ribbon-bg"
-                    style={{
-                      width: "100%",
-                      background: bgColor,
-                      backdropFilter: "blur(4px)",
-                      display: "flex",
-                    }}
-                  >
-                    {ribbonContent}
-                  </div>
-                </a>
-              ) : (
-                <div
-                  key={i}
-                  className="spt-ribbon-badge"
-                  style={{
-                    display: "flex",
-                    borderRadius: "4px",
-                    border: dark
-                      ? "1px solid rgba(255,255,255,.16)"
-                      : "1px solid var(--border)",
-                  }}
-                >
-                  <div
-                    className="spt-ribbon-bg"
-                    style={{
-                      width: "100%",
-                      background: bgColor,
-                      backdropFilter: "blur(4px)",
-                      display: "flex",
-                    }}
-                  >
-                    {ribbonContent}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+              </li>
+            ))}
+          </ul>
         )}
       </div>
     </div>
