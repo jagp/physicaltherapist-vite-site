@@ -15,7 +15,6 @@
 
 ```md
 physicaltherapist-vite-site/
-- development.md 
 - CLAUDE.md
 - README.md
 - docs →
@@ -23,9 +22,9 @@ physicaltherapist-vite-site/
 - - design-philosophy.md
 - - key-facts.md
 - - awards-and-more.md (awards, accreditations, and honors)
+- - development.md
 - - scholarship.md
 - - content → service-pages-source
-- - scratch → working docs (e.g. project goals)
 - - superpowers →
 - - - mocks
 - - - specs
