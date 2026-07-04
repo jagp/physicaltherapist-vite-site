@@ -1,0 +1,29 @@
+name: Merge Queue Tests
+run-name: Merge Queue Checks for ${{ github.ref_name }}
+
+# Trigger when Trunk Merge Queue tests a pull request
+on:
+  push:
+    branches:
+      - trunk-merge/**
+
+jobs:
+  unit_tests:
+    runs-on: ubuntu-latest
+    name: Unit Tests
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Run tests
+        run: npm test  # Your actual test commands
+
+  integration_tests:
+    runs-on: ubuntu-latest
+    name: Integration Tests
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Run integration tests
+        run: npm run test:integration  # Your actual test commands
