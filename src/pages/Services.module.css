@@ -1,0 +1,11 @@
+/* Services — token rhythm; card grid via shared container-query classes. */
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+
+.gridSection { padding: var(--section-pad-sm) 0; }
+.diagnosesSection { padding: 0 0 var(--section-pad-sm); }
+.ctaSection { padding: 0 0 var(--section-pad); }
+
+.diagEyebrow { margin: 0 0 12px; }
+.diagTitle { margin: 0 0 20px; font-size: var(--fs-h4); }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
