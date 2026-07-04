@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup — Responsive Nav · Stephenson PT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ real tokens (from src/styles/tokens) ============ */
+:root{
+  --brand:#663399; --brand-offset:#6A4C93; --bg:#241546; --accent:#3A6EA5;
+  --attention:#1FB6B6; --cream:#FAF7F2; --text-dark:#2A2340; --text-light:#EFEBFF;
+  --surface:#fff;
+  --surface-tint:color-mix(in srgb, var(--brand) 9%, var(--cream));
+  --text-muted:color-mix(in srgb, var(--text-dark) 58%, var(--cream));
+  --border:color-mix(in srgb, var(--text-dark) 12%, var(--cream));
+  --focus-ring:color-mix(in srgb, var(--accent) 55%, transparent);
+  --brand-gradient-spicy:linear-gradient(120deg,var(--brand) 0%,var(--accent) 52%,var(--attention) 100%);
+  --font-display:'Fraunces',Georgia,serif; --font-ui:'Work Sans',system-ui,sans-serif;
+  --radius-sm:9px; --radius-md:14px; --radius-pill:999px;
+  --shadow-md:0 14px 34px -18px rgba(40,30,70,.28);
+  --shadow-brand-strong:0 20px 44px -16px rgba(36,21,70,.55);
+  --dur:.35s; --ease-out:cubic-bezier(.2,.8,.2,1);
+  /* fluid, rem-anchored, ≤1.5× (WCAG 1.4.4-safe) */
+  --fs-body:clamp(1rem,.9583rem + .1852vw,1.0625rem);
+  --fs-h2:clamp(1.55rem,1.2rem + 1.55vw,2.1rem);
+  font-size:100%;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--text-dark);font-family:var(--font-ui);font-size:var(--fs-body);line-height:1.6}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.08;letter-spacing:-.01em;text-wrap:balance}
+:focus-visible{outline:3px solid var(--focus-ring);outline-offset:2px;border-radius:6px}
+
+/* ================= THE HEADER (the mockup) ================= */
+.hdr{background:var(--bg);position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.08)}
+.hdr-row{display:flex;align-items:center;gap:20px;max-width:1180px;margin:0 auto;
+  padding:6px clamp(16px,.5rem + 2.2vw,40px)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text-light);
+  font-family:var(--font-display);font-size:1.15rem;letter-spacing:.01em}
+.brand-mark{width:44px;height:44px;border-radius:50%;background:var(--brand-gradient-spicy);
+  display:grid;place-items:center;color:#fff;font-weight:700;font-size:.8rem;flex:none}
+/* desktop link row */
+.nav-links{display:flex;gap:26px;align-items:center;margin-left:auto}
+.nav-links a{font-size:.9rem;font-weight:500;text-decoration:none;color:rgba(255,255,255,.6);
+  border-bottom:2px solid transparent;padding-bottom:3px;transition:color var(--dur)}
+.nav-links a:hover{color:var(--text-light)}
+.nav-links a[aria-current="page"]{color:var(--text-light);border-bottom-color:var(--accent)}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;
+  font-weight:600;font-size:.875rem;padding:9px 16px;border-radius:var(--radius-sm);
+  border:1.5px solid transparent;cursor:pointer;color:var(--text-light);
+  background:var(--brand-gradient-spicy);background-size:160% 160%;box-shadow:var(--shadow-brand-strong);text-decoration:none}
+/* hamburger (hidden on desktop) — <details> = CSS-first disclosure, zero JS required */
+.mnav{display:none;margin-left:auto}
+.mnav summary{list-style:none;display:grid;place-items:center;width:44px;height:44px;/* 44px touch target */
+  border-radius:var(--radius-sm);cursor:pointer;color:var(--text-light)}
+.mnav summary::-webkit-details-marker{display:none}
+.burger,.burger::before,.burger::after{content:'';display:block;width:22px;height:2px;border-radius:2px;
+  background:currentColor;position:relative;transition:transform var(--dur) var(--ease-out),opacity var(--dur)}
+.burger::before{position:absolute;top:-7px}.burger::after{position:absolute;top:7px}
+.mnav[open] .burger{transform:rotate(45deg)}
+.mnav[open] .burger::before{transform:rotate(90deg);top:0}
+.mnav[open] .burger::after{opacity:0}
+.panel{position:absolute;left:0;right:0;top:100%;background:var(--bg);
+  border-top:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow-md);padding:10px 20px 22px;
+  display:flex;flex-direction:column;gap:2px}
+.panel a{padding:13px 10px;border-radius:var(--radius-sm);text-decoration:none;
+  color:rgba(255,255,255,.72);font-size:1.02rem;font-weight:500}
+.panel a:hover{background:rgba(255,255,255,.07);color:var(--text-light)}
+.panel a[aria-current="page"]{color:var(--text-light);box-shadow:inset 3px 0 0 var(--accent);background:rgba(255,255,255,.05)}
+.panel .cta{margin:12px 10px 0;justify-content:center}
+@media (prefers-reduced-motion:no-preference){
+  .panel{transform-origin:top;animation:drop .25s var(--ease-out)}
+  @keyframes drop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+}
+/* ---- the swap: one breakpoint, structural only (768 = canonical) ---- */
+@media (max-width:767px){
+  .nav-links,.hdr-row > .cta{display:none}
+  .mnav{display:block}
+  .brand-mark{width:38px;height:38px}
+}
+/* ================= demo scaffolding ================= */
+.demo{max-width:1180px;margin:0 auto;padding:40px clamp(16px,.5rem + 2.2vw,40px)}
+.badge{position:fixed;right:12px;bottom:12px;z-index:200;background:var(--bg);color:var(--text-light);
+  font-size:.75rem;padding:6px 12px;border-radius:var(--radius-pill);opacity:.85}
+.badge::after{content:'≥768px — desktop bar';}
+@media (max-width:767px){.badge::after{content:'<768px — hamburger';}}
+.note{background:var(--surface-tint);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:22px 26px;margin:18px 0}
+.note h3{margin:0 0 8px;font-size:1.06rem}
+.note p{margin:0;color:var(--text-muted);max-width:70ch}
+kbd{font-family:var(--font-ui);background:#fff;border:1px solid var(--border);border-bottom-width:2px;
+  border-radius:5px;padding:1px 6px;font-size:.8rem}
+</style>
+</head>
+<body>
+<!-- ======================= LIVE HEADER ======================= -->
+<header class="hdr">
+  <div class="hdr-row">
+    <a class="brand" href="#"><span class="brand-mark">SPT</span> Stephenson&nbsp;PT</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#" aria-current="page">Home</a><a href="#">About</a><a href="#">Services</a><a href="#">FAQ</a><a href="#">Contact</a>
+    </nav>
+    <a class="cta" href="#">Book a Consultation</a>
+    <details class="mnav" id="mnav">
+      <summary aria-label="Menu"><span class="burger"></span></summary>
+      <nav class="panel" aria-label="Primary mobile">
+        <a href="#" aria-current="page">Home</a><a href="#">About</a><a href="#">Services</a><a href="#">FAQ</a><a href="#">Contact</a>
+        <a class="cta" href="#">Book a Consultation</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<div class="demo">
+  <h2 style="font-size:var(--fs-h2)">Responsive nav — resize this window</h2>
+  <div class="note"><h3>What this demonstrates</h3>
+    <p>One structural breakpoint at <strong>768px</strong> (canonical). Desktop: logo + five links + gradient CTA, exactly today's look. Below 768: a 44px-target hamburger opens a full-width panel — built on <code>&lt;details&gt;</code>, so it's <strong>CSS-first, zero-JS</strong>, keyboard-operable out of the box, with the active page marked by the accent spine. <kbd>Esc</kbd>-close + click-outside are a 6-line progressive enhancement in the real build.</p></div>
+  <div class="note"><h3>Fluidity everywhere else</h3>
+    <p>Page gutters and the logo scale fluidly (<code>clamp()</code>), so nothing jumps between 768 and 1200 — the breakpoint handles <em>structure only</em>. Menu motion is wrapped in <code>prefers-reduced-motion: no-preference</code>.</p></div>
+  <p style="color:var(--text-muted)">Scroll — the header is sticky, panel overlays content.</p>
+  <div style="height:60vh"></div>
+</div>
+<div class="badge"></div>
+<script>/* demo-only sugar: Esc + outside-click close (the real build ships this same tiny enhancement) */
+const d=document.getElementById('mnav');
+addEventListener('keydown',e=>{if(e.key==='Escape')d.removeAttribute('open')});
+addEventListener('click',e=>{if(d.open&&!d.contains(e.target))d.removeAttribute('open')});
+</script>
+</body>
+</html>
