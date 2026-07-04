@@ -15,29 +15,30 @@
 
 ```md
 physicaltherapist-vite-site/
-- development.md 
 - CLAUDE.md
-- README. md
+- README.md
 - docs →
 - - scratch → X (IGNORE THIS & CONTENTS) 
 - - design-philosophy.md
 - - key-facts.md
-- - awards-and-more.md (awards accredidations and honors )
+- - awards-and-more.md (awards, accreditations, and honors)
+- - development.md
 - - scholarship.md
 - - content → service-pages-source
-- - scratch → working docs (e.g. project goals)
 - - superpowers →
 - - - mocks
 - - - specs
 - src →
+- - App, main  (app bootstrap + route table, at src root)
 - - assets → images, icons, service-page-images
-- - components → App, main
+- - components →
 - - - core → Badge, Button, Card, Input
 - - - marketing →
-- - - CTABand
-- - - ServiceCard
-- - - StatCard
-- - - Testimonial
+- - - - CTABand
+- - - - CredentialBand
+- - - - ServiceCard
+- - - - StatCard
+- - - - Testimonial
 - - - PageHeader
 - - data → services.ts
 - - hooks {}
@@ -50,7 +51,7 @@ physicaltherapist-vite-site/
 - - - ServiceDetail
 - - - Services
 - - styles →
-- - - tokens → colors, typographu, spacing, fonts, base
+- - - tokens → colors, typography, spacing, fonts, base
 - - - global.css
 ```
 
