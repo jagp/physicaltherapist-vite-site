@@ -1,0 +1,30 @@
+/* Badge — tone×variant matrix via per-tone custom props consumed by the
+   variant classes (replaces the inline palettes/variants maps). */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-ui);
+  font-weight: var(--fw-semibold);
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+
+/* sizes */
+.sm { padding: 3px 9px; font-size: 0.7rem; }
+.md { padding: 5px 12px; font-size: 0.78rem; }
+
+/* tones — set the three palette slots */
+.brand   { --_solid: var(--indigo-700); --_tint: var(--indigo-100); --_ink: var(--indigo-700); }
+.accent  { --_solid: var(--teal-500);   --_tint: var(--teal-100);   --_ink: var(--teal-700); }
+.plum    { --_solid: var(--plum-600);   --_tint: var(--plum-100);   --_ink: var(--plum-700); }
+.indigo  { --_solid: var(--indigo-600); --_tint: var(--indigo-100); --_ink: var(--indigo-700); }
+.neutral { --_solid: var(--ink-700);    --_tint: var(--linen);      --_ink: var(--ink-700); }
+
+/* variants — consume the slots */
+.soft    { background: var(--_tint); color: var(--_ink); border: 1px solid transparent; }
+.solid   { background: var(--_solid); color: #fff; border: 1px solid transparent; }
+.outline { background: transparent; color: var(--_ink); border: 1px solid var(--_solid); }
