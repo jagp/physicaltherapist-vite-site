@@ -1,0 +1,66 @@
+/* CTABand — module migration + container query: the band responds to the
+   width of the slot it's dropped into (page column, narrow rail, etc.),
+   not the viewport. In slots ≤600px the actions stack full-width and the
+   decorative leaf yields its space. */
+
+.band {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: clamp(1.75rem, 0.982rem + 3.415vw, 3.5rem); /* 28→56px, rem-anchored */
+  container: ctaband / inline-size;
+}
+.brand { background: var(--brand-gradient); }
+.plum { background: var(--plum-600); }
+.gradient { background: var(--brand-gradient-spicy); }
+
+.leaf {
+  position: absolute;
+  top: -30px;
+  right: 24px;
+  height: 180px;
+  width: auto;
+  opacity: 0.12;
+  filter: grayscale(1) brightness(8);
+  transform: rotate(8deg);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m-l);
+  flex-wrap: wrap;
+}
+
+.copy { max-width: 46ch; }
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-family: var(--font-ui);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-eyebrow);
+  font-size: var(--fs-eyebrow);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.title {
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: clamp(1.6rem, 1.2489rem + 1.5605vw, 2.4rem); /* ratio 1.5 ✓ */
+}
+
+.desc { margin: 0; color: rgba(255, 255, 255, 0.88); }
+
+.actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+@container ctaband (width <= 600px) {
+  .inner { justify-content: stretch; }
+  .actions { width: 100%; flex-direction: column; align-items: stretch; }
+  .leaf { height: 110px; right: 8px; opacity: 0.09; }
+}
