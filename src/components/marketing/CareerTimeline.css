@@ -1,0 +1,335 @@
+/* ============================================================
+   CareerTimeline — "Four distinctions, one career"
+   An editorial career Gantt: one shared time axis, four colored
+   tracks. Each track begins at the year that strand of the career
+   started and runs to Today, so the strands visibly OVERLAP —
+   clinician, advocate, educator, author, all still active.
+
+   Division of labor (per design review):
+     - the chart carries the SHAPE (bars + the Today convergence)
+     - the list beneath carries the FACTS (award names)
+   The chart is decorative (aria-hidden); the list is the real,
+   scrape-friendly, keyboard-reachable content.
+
+   Track colors trace to the closed palette. Teal (--attention)
+   appears only as a bar/gradient graphic, never as small text.
+   ============================================================ */
+
+.cg {
+  /* geometry — the breakpoints only touch these */
+  --cg-lane-h: 16px;        /* bar thickness */
+  --cg-row-gap: 22px;       /* vertical space between tracks */
+  --cg-pad-x: 12px;         /* room so end dots aren't clipped */
+  --cg-dot: 15px;
+
+  /* four distinct hues from the purple/blue/teal palette */
+  --cg-clinic: var(--brand);            /* rebeccapurple — her anchor */
+  --cg-advocate: var(--accent);         /* blue */
+  --cg-educator: var(--attention);      /* teal (bar graphic only) */
+  --cg-author: var(--brand-gradient-spicy); /* gradient capstone */
+}
+
+.cg-head {
+  max-width: var(--maxw-narrow);
+  margin: 0 0 var(--space-10);
+}
+
+.cg-head h2 {
+  margin-bottom: var(--space-3);
+}
+
+.cg-lede {
+  color: var(--text-muted);
+  font-size: var(--fs-lead);
+  max-width: 56ch;
+  margin: 0;
+}
+
+/* ---- Legend — the key. Doubles as the track labels (esp. mobile) ---- */
+.cg-legend {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-6);
+  margin: var(--space-8) 0 var(--space-10);
+  padding: 0;
+}
+
+.cg-legend li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  font-family: var(--font-ui);
+  font-size: var(--fs-small);
+}
+
+.cg-legend .cg-swatch {
+  width: 22px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  flex: none;
+  align-self: center;
+}
+
+.cg-legend strong {
+  color: var(--text-body);
+  font-weight: var(--fw-semibold);
+}
+
+.cg-legend span {
+  color: var(--text-muted);
+}
+
+.cg-swatch[data-track='clinic'] { background: var(--cg-clinic); }
+.cg-swatch[data-track='advocate'] { background: var(--cg-advocate); }
+.cg-swatch[data-track='educator'] { background: var(--cg-educator); }
+.cg-swatch[data-track='author'] { background: var(--cg-author); }
+
+/* ============================================================
+   THE CHART
+   Every positioned child (tick, bar, dot, Today line) maps its
+   horizontal position from the SAME 0–100% coordinate space
+   inside .cg-lane, so axis and tracks stay aligned at any width.
+   ============================================================ */
+.cg-chart {
+  position: relative;
+  margin-bottom: var(--space-12);
+}
+
+.cg-lane {
+  position: relative;
+  padding: 0 var(--cg-pad-x);
+}
+
+/* axis: tick labels across the top */
+.cg-axis {
+  position: relative;
+  height: 1.6em;
+  margin-bottom: var(--space-6);
+}
+
+.cg-tick {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  font-family: var(--font-ui);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-semibold);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* End ticks anchor inward so their labels never clip past the chart edge. */
+.cg-tick.is-first {
+  transform: none;
+}
+.cg-tick.is-now {
+  transform: translateX(-100%);
+  color: var(--brand);
+  font-weight: var(--fw-bold);
+}
+
+/* the four tracks */
+.cg-tracks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cg-row-gap);
+}
+
+.cg-track {
+  position: relative;
+  height: var(--cg-lane-h);
+}
+
+/* faint full-width rail behind every track — reads as "the timeline" */
+.cg-track::before {
+  content: '';
+  position: absolute;
+  inset-block: 50%;
+  inset-inline: var(--cg-pad-x);
+  height: 2px;
+  transform: translateY(-1px);
+  background: var(--border);
+  border-radius: var(--radius-pill);
+}
+
+/* the coloured bar — the years this strand has been active */
+.cg-bar {
+  position: absolute;
+  top: 0;
+  height: var(--cg-lane-h);
+  border-radius: var(--radius-pill);
+  transform-origin: left center;
+}
+
+.cg-bar[data-track='clinic'] { background: var(--cg-clinic); }
+.cg-bar[data-track='advocate'] { background: var(--cg-advocate); }
+.cg-bar[data-track='educator'] { background: var(--cg-educator); }
+.cg-bar[data-track='author'] { background: var(--cg-author); }
+
+/* milestone marker sitting on its bar */
+.cg-dot {
+  position: absolute;
+  top: 50%;
+  width: var(--cg-dot);
+  height: var(--cg-dot);
+  border-radius: 50%;
+  background: var(--surface);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 3px currentColor;
+  color: var(--cg-clinic);
+}
+
+.cg-dot[data-track='advocate'] { color: var(--cg-advocate); }
+.cg-dot[data-track='educator'] { color: var(--cg-educator); }
+.cg-dot[data-track='author'] { color: var(--brand); }
+
+/* ---- The signature: the Today line every strand converges on ---- */
+.cg-today {
+  position: absolute;
+  top: -0.2em;
+  bottom: -0.6em;
+  right: var(--cg-pad-x);
+  width: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--brand-gradient-spicy);
+  transform: translateX(1.5px);
+}
+
+/* ============================================================
+   MILESTONE LIST — the facts (real content, always legible)
+   ============================================================ */
+.cg-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6) var(--space-10);
+  max-width: var(--maxw-narrow);
+}
+
+.cg-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.cg-item-year {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-h5);
+  line-height: 1;
+  color: var(--brand);
+  padding-top: 2px;
+  border-left: 3px solid var(--cg-clinic);
+  padding-left: var(--space-3);
+}
+
+.cg-item[data-track='advocate'] .cg-item-year { border-color: var(--cg-advocate); }
+.cg-item[data-track='educator'] .cg-item-year { border-color: var(--cg-educator); }
+.cg-item[data-track='author'] .cg-item-year {
+  border-image: var(--brand-gradient-spicy) 1;
+}
+
+.cg-item h3 {
+  font-size: var(--fs-h6);
+  font-weight: var(--fw-semibold);
+  margin: 0 0 var(--space-1);
+  line-height: var(--lh-snug);
+}
+
+.cg-item.is-capstone h3 {
+  font-style: italic;
+}
+
+.cg-item p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+  line-height: var(--lh-normal);
+}
+
+.cg-item-track {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-muted); /* AA-safe on cream; --text-faint fails for small text */
+  margin-top: var(--space-2);
+}
+
+/* ============================================================
+   MOTION — additive; no-JS / reduced-motion shows everything
+   ============================================================ */
+.cg-motion .cg-bar {
+  transform: scaleX(0);
+}
+.cg-motion .cg-dot,
+.cg-motion .cg-today,
+.cg-motion .cg-tick {
+  opacity: 0;
+}
+
+.cg-motion.is-in .cg-bar {
+  transform: scaleX(1);
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+.cg-motion.is-in .cg-dot,
+.cg-motion.is-in .cg-today,
+.cg-motion.is-in .cg-tick {
+  opacity: 1;
+  transition: opacity var(--dur) var(--ease-out) 0.35s;
+}
+/* stagger the tracks so they arrive in career order */
+.cg-motion.is-in .cg-bar[data-track='advocate'] { transition-delay: 0.12s; }
+.cg-motion.is-in .cg-bar[data-track='educator'] { transition-delay: 0.24s; }
+.cg-motion.is-in .cg-bar[data-track='author'] { transition-delay: 0.36s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cg-motion .cg-bar { transform: none; }
+  .cg-motion .cg-dot,
+  .cg-motion .cg-today,
+  .cg-motion .cg-tick { opacity: 1; }
+  .cg-motion.is-in .cg-bar,
+  .cg-motion.is-in .cg-dot,
+  .cg-motion.is-in .cg-today,
+  .cg-motion.is-in .cg-tick { transition: none; }
+}
+
+/* ============================================================
+   RESPONSIVE (breakpoints per docs/key-facts.md)
+   The shared-axis concept is preserved at every width — only
+   density shrinks — so "four overlapping tracks" never breaks.
+   ============================================================ */
+@media (max-width: 767px) {
+  .cg {
+    --cg-lane-h: 13px;
+    --cg-row-gap: 18px;
+    --cg-dot: 13px;
+  }
+  .cg-list {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .cg-tick {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .cg {
+    --cg-lane-h: 11px;
+    --cg-pad-x: 8px;
+  }
+  .cg-lede {
+    font-size: var(--fs-body);
+  }
+  /* thin the axis to endpoints + spine so labels never collide */
+  .cg-tick[data-density='low'] {
+    display: none;
+  }
+}
