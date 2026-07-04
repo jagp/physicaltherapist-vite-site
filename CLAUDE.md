@@ -9,6 +9,15 @@
 - `npm run lint` — lint with oxlint (not eslint)
 - `npm run preview` — preview the production build
 
+## Git workflow (critical)
+
+This repo uses **gitflow** — full rules in `docs/development.md`. Non-negotiables:
+
+- **`develop` is the integration branch.** Branch features off `develop`; PR them back into `develop` (`gh pr create --base develop`).
+- **Never push or merge directly to `main`.** `main` changes *only* via a human-reviewed PR from `develop`. A `PreToolUse` hook enforces this.
+- **Commit all worktree work before exiting a worktree** — never strand uncommitted files in a `worktree-*` folder.
+- **Archive, don't delete:** superseded work → `archive/*` branch or tag.
+
 ## Project Mapping
 
 - Consult this table before choosing a powersearch of the local filesystem \*
