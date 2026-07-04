@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo_white_text_transparent_v2.png';
+import s from './Footer.module.css';
 
 const exploreLinks: Array<[string, string]> = [
   ['/', 'Home'],
@@ -11,66 +12,38 @@ const exploreLinks: Array<[string, string]> = [
 
 export function Footer() {
   return (
-    <footer style={{ background: 'var(--bg)', color: 'var(--text-light)', padding: '64px 0 26px', marginTop: '0', borderTop: '1px solid rgba(255,255,255,.1)' }}>
-      <div
-        style={{
-          maxWidth: 'var(--maxw)',
-          margin: '0 auto',
-          padding: '0 40px',
-          display: 'grid',
-          gridTemplateColumns: '1.5fr 1fr 1fr',
-          gap: '40px',
-        }}
-      >
+    <footer className={s.footer}>
+      <div className={s.grid}>
         <div>
-          <div style={{ marginBottom: '16px' }}>
-            <img src={logo} alt="Stephenson Physical Therapy" style={{ height: '75px', display: 'block' }} />
+          <div className={s.logo}>
+            <img src={logo} alt="Stephenson Physical Therapy" width={870} height={424} loading="lazy" />
           </div>
-          <p style={{ color: 'rgba(255,255,255,.62)', margin: '0 0 6px', fontSize: '0.9rem' }}>
+          <p className={s.line}>
             8 Pleasant St, Unit 8E
             <br />
             South Natick, MA 01760
           </p>
-          <p style={{ color: 'rgba(255,255,255,.62)', margin: '0 0 6px', fontSize: '0.9rem' }}>508-740-0663</p>
-          <p style={{ color: 'rgba(255,255,255,.62)', margin: 0, fontSize: '0.9rem' }}>rgspt1@gmail.com</p>
+          <p className={s.line}>508-740-0663</p>
+          <p className={`${s.line} ${s.lineLast}`}>rgspt1@gmail.com</p>
         </div>
         <div>
-          <h4 style={{ fontFamily: 'var(--font-ui)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '.12em', color: 'rgba(255,255,255,.4)', margin: '0 0 14px' }}>
-            Explore
-          </h4>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0, lineHeight: 2.1 }}>
+          <h4 className={s.colTitle}>Explore</h4>
+          <ul className={s.links}>
             {exploreLinks.map(([to, label]) => (
               <li key={to}>
-                <Link to={to} style={{ color: 'rgba(255,255,255,.65)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color var(--dur) var(--ease-soft)' }}>
-                  {label}
-                </Link>
+                <Link to={to}>{label}</Link>
               </li>
             ))}
           </ul>
         </div>
         <div>
-          <h4 style={{ fontFamily: 'var(--font-ui)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '.12em', color: 'rgba(255,255,255,.4)', margin: '0 0 14px' }}>
-            Visit
-          </h4>
-          <p style={{ color: 'rgba(255,255,255,.62)', margin: '0 0 6px', fontSize: '0.9rem' }}>By appointment</p>
-          <p style={{ color: 'rgba(255,255,255,.62)', margin: '0 0 12px', fontSize: '0.9rem' }}>South Natick, MA</p>
-          <p style={{ color: 'var(--attention)', fontWeight: 600, margin: 0, fontSize: '0.9rem' }}>New patients welcome</p>
+          <h4 className={s.colTitle}>Visit</h4>
+          <p className={s.line}>By appointment</p>
+          <p className={s.line}>South Natick, MA</p>
+          <p className={s.highlight}>New patients welcome</p>
         </div>
       </div>
-      <div
-        style={{
-          maxWidth: 'var(--maxw)',
-          margin: '34px auto 0',
-          padding: '18px 40px 0',
-          borderTop: '1px solid rgba(255,255,255,.1)',
-          display: 'flex',
-          justifyContent: 'space-between',
-          flexWrap: 'wrap',
-          gap: '10px',
-          fontSize: '0.78rem',
-          color: 'rgba(255,255,255,.38)',
-        }}
-      >
+      <div className={s.legal}>
         <span>© 2026 Stephenson Physical Therapy · Built with care in South Natick, MA</span>
         <span>Accessibility · Privacy · HIPAA Notice</span>
       </div>
