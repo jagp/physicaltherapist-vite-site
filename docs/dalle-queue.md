@@ -76,7 +76,7 @@ depth of field, authentic candid feel, no text, no logos, no medical machinery.
 
 Alt text: `Patient smiling with relief during a warm consultation about bladder health.`
 
-### Inset — Set A (1024×1024 → crop 4:3)
+### Inset — Set A (1 crop 4:3)
 
 ```
 Warm editorial photograph in a calm, upscale private physical-therapy studio with cream walls, soft
