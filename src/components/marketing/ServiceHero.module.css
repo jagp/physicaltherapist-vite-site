@@ -1,17 +1,17 @@
 /* ServiceHero — split hero (image | first-person quote), the image
-   dissolving into the cream ground toward the text side. Collapses at
-   767 to stacked with a bottom fade. Replaces the injected heroCSS
-   (!important overrides) with plain module rules. */
+   dissolving into the cream ground toward the text side. Full-bleed
+   layout with 33% text / 66% image; breadcrumbs float over image.
+   Collapses at 767 to stacked with a bottom fade. */
 
-.hero { background: var(--cream); padding: var(--section-pad-sm) 0; }
+.hero { background: var(--cream); padding: var(--section-pad-sm) 0; position: relative; }
 
 .grid {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 0 var(--gutter);
+  padding: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-m-l);
+  grid-template-columns: 1fr 1.5fr;
+  gap: 0;
   align-items: center;
 }
 

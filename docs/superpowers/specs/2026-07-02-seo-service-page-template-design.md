@@ -3,7 +3,7 @@
 **Date:** 2026-07-02
 **Status:** Approved (brainstorm + plan) — implementation pending
 **Supersedes:** [`2026-06-25-service-page-template-design.md`](./2026-06-25-service-page-template-design.md)
-**Source content:** [`docs/content/service-pages-source.md`](../../content/service-pages-source.md);
+**Source content:** [`docs/copy/service-pages-source.md`](../../copy/service-pages-source.md);
 upstream service copy in `rgspt-site/pages/services/*`
 **Design language:** `docs/design-philosophy.md` + rgspt `design/design-guidance.md`
 ("calm authority" / warm minimalism), executed in this repo's purple token system.
