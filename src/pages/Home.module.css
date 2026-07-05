@@ -100,9 +100,9 @@
   .bioMedia { max-width: 340px; margin: 0 auto; }
 }
 
-/* ---------- WCS callout ---------- */
-.wcsSection { background: var(--bg); padding: 0 0 var(--section-pad); }
-.wcsCard {
+/* ---------- PWCS callout ---------- */
+.pwcsSection { background: var(--bg); padding: 0 0 var(--section-pad); }
+.pscwCard {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-lg);
@@ -143,7 +143,7 @@
 .wcsBody { margin: 0; color: rgba(255, 255, 255, 0.65); line-height: 1.65; max-width: 68ch; font-size: 0.98rem; }
 
 @media (max-width: 599px) {
-  .wcsCard { grid-template-columns: 1fr; justify-items: start; }
+  .pscwCard { grid-template-columns: 1fr; justify-items: start; }
 }
 
 /* ---------- PHILOSOPHY quote ---------- */

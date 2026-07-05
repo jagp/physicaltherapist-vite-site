@@ -33,7 +33,7 @@ OLDER LANGUAGE STILL IN PUBLIC, BUT WRONG:
 PWCS · Awarded by ABPTS, 2025 is:
 WCS - Women's Health Clinical Specialist (its less specific than pelvic health)
 Uses:
-Professional Recognition: Achieving WCS Certification
+Professional Recognition: Achieving PWCS Certification
 As a certified Women's Health Specialist"
 
 #### The Lucy Blair Service Award
