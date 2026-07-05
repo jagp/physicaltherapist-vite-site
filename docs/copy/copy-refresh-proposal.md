@@ -1,8 +1,10 @@
-# Copy Refresh — Review Proposal
+# Copy Refresh — Review Proposal (v2)
 
-> **Status:** DRAFT for client-review readiness. Words only — no code has been changed.
-> Review this, mark it up, then I wire the approved copy into the components.
-> Date: 2026-07-05 · Branch: (hotfix/content-tweaks, off `main` per gitflow)
+> **Status:** DRAFT v2 — real testimonials received and folded in. Words only — no
+> code has been changed. Review this, mark it up, then I wire the approved copy
+> into the components.
+> Date: 2026-07-05 · Branch: `feature/new_site_copy_pass`
+> Companion doc: `testimonials.md` (verbatim source of record for real quotes)
 
 ---
 
@@ -34,19 +36,30 @@ everything that's working and rewrites for **warmth, calm authority, and trust**
   Specialist (WCS)"** phrasing is outdated — e.g. the Pregnancy intro currently
   says WCS. Fix all to PWCS. No "first-ever" claims.
 
-### ⚠️ Two open questions I need you to answer
+### ✅ Resolved since v1
 
-1. **Testimonials.** You mentioned Rebecca has fantastic real patient quotes we
-   should thread through the pages (Home + service pages). I searched **both this
-   repo and all of rgspt-site (including "floating copy")** — they aren't anywhere.
-   The current Home testimonials are **placeholders** ("Postpartum patient").
-   **Where do the real quotes live?** Paste them, point me to a file, or confirm
-   we ship the (attributed-but-generic) placeholders for now.
-2. **Canonical book title.** Her 2025 text appears in *three* different forms
+1. **Testimonials — RESOLVED.** Two real patient quotes arrived (by text) and are
+   preserved verbatim in **`docs/copy/testimonials.md`**:
+   - **Alexandra** — pregnancy & postpartum, C-section recovery, home visits
+   - **Ari** — long-term pelvic floor therapy, quality-of-life transformation
+   Both were flagged as too long to run in full, so `testimonials.md` includes a
+   **shortened pull-quote** for each — those shortened versions are what this
+   proposal slots into the pages below. Approve or tweak them there.
+
+### ⚠️ Remaining open questions
+
+1. **Canonical book title.** Her 2025 text appears in *three* different forms
    across the repo. I need the one exact published title + publisher. My proposed
    canonical (matches the career timeline):
    **_The Physical Therapists' Guide to Pelvic, Perinatal & Reproductive Health_**
    (Routledge, 2025). Confirm or correct.
+2. **The third testimonial card.** Home currently renders **three** cards
+   (postpartum / pelvic pain / *PT mentee*). Alexandra and Ari cover the first
+   two; there's no real mentee quote. Options: **(a)** run just the two real
+   quotes *(recommended — the section footer promises "authentic experiences…
+   with permission," so every card must be real)*, **(b)** get a third real quote
+   from Rebecca (a mentee quote would round it out beautifully), or **(c)** keep
+   the mentee placeholder for now (not recommended, same integrity reason).
 
 ---
 
@@ -151,6 +164,16 @@ This is the page with the flagged copy. Field-by-field, mapped to
 page are accurate and well-written — **keep as-is**, aside from "Board-Certified
 Women's Health Clinical Specialist" → PWCS if it recurs.)*
 
+### NEW (optional) — thread Alexandra's testimonial here
+Alexandra's quote is a pregnancy/postpartum story — it belongs on this page as
+much as on Home. If the service template gets (or has) a testimonial slot, run
+her shortened pull-quote here; a distinct fragment from Home would avoid
+repetition for anyone reading both pages, e.g.:
+> "At five weeks postpartum, Rebecca began coming to my home for visits, which
+> allowed me to get an early start on healing in a way that felt manageable and
+> supportive." — **Alexandra** · Pregnancy & postpartum
+*(Not blocking — can land as a follow-up if the template needs a new section.)*
+
 ---
 
 ## Page 3 — Home  *(targeted polish; keep third-person marketing voice)*
@@ -161,10 +184,18 @@ Home is the strongest page already. Proposed changes are surgical:
 - **Hero lede** — keep; it's accurate and warm ✅
 - **Book spotlight** — align the title/publisher to canonical (Routledge, 2025)
   and fix the alt text to match. Current body is good.
-- **Testimonials** — **blocked on open question #1.** If real quotes exist, swap
-  them in with first-name + context attribution (e.g. "— Maria, postpartum
-  recovery"). Placeholders read as invented; real quotes are the biggest single
-  credibility upgrade on the page.
+- **Testimonials — UNBLOCKED; swap in the real quotes.** Replace the current
+  placeholder cards with the shortened pull-quotes from `testimonials.md`:
+
+  | Card | Quote (shortened) | Attribution |
+  |---|---|---|
+  | 1 | "After my C-section, Rebecca's support made a meaningful difference in my recovery. She helped me rebuild strength and confidence, always with knowledge, patience, and care — I'm so grateful for her expertise and compassion." | **Alexandra** · Pregnancy & postpartum |
+  | 2 | "Rebecca goes so far beyond just treating pelvic floor issues — her whole approach is rooted in quality of life. She looks at the whole picture, not just the symptoms. I don't just feel like my problems are managed; I feel truly well." | **Ari** · Pelvic floor therapy |
+  | 3 | *Pending decision — see remaining open question #2 (drop to two cards / third real quote / keep mentee placeholder).* | — |
+
+  The section footer ("Authentic experiences shared … with permission, without
+  compensation") stays — with real quotes it finally becomes literally true, which
+  is the biggest single credibility upgrade on the page.
 - **Closing CTA title** — *"Start your journey to better health"* is a touch
   generic. Optional warmer alt: **"Take the first step, at your pace."**
   *(Low priority — flag only.)*
@@ -226,7 +257,8 @@ folded into the pages above:
   **Contact + FAQ**.
 - **`accredidation.md`** → uses outdated **"WCS"** → confirms the sitewide PWCS fix.
 - Everything else upstream (Areas of Expertise list, etc.) already exists in this repo's
-  `docs/copy/bio/`. No testimonials anywhere.
+  `docs/copy/bio/`. No testimonials were upstream — the real ones arrived directly
+  from the client and now live in `docs/copy/testimonials.md`.
 
 ---
 
@@ -235,8 +267,8 @@ folded into the pages above:
 | Page | Effort | Blocked? |
 |---|---|---|
 | About | **Full rewrite** (first person, +2 new sections) | needs book-title confirm |
-| Pregnancy service | Headline/claim/closer/CTA rewrite + WCS→PWCS | no |
-| Home | Testimonials swap + book-title align + 1 optional CTA | **needs real testimonials** |
+| Pregnancy service | Headline/claim/closer/CTA rewrite + WCS→PWCS (+optional Alexandra quote) | no |
+| Home | **Real testimonials swap (Alexandra + Ari)** + book-title align + 1 optional CTA | third-card decision; book-title confirm |
 | Services | Keep, minor | no |
 | FAQ | Keep (optional +2 Qs) | no |
 | Contact | 1 header line | no |
