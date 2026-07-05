@@ -185,7 +185,7 @@ function Bio() {
               ))}
             </div>
             <Button
-              variant="onBand"
+              variant="secondary"
               size="md"
               iconRight={<span>→</span>}
               onClick={() => navigate("/about")}
@@ -199,18 +199,18 @@ function Bio() {
   );
 }
 
-function WCSCallout() {
+function PointOfInterestCallout() {
   return (
-    <section className={s.pwcsSection}>
+    <section className={s.pointOfInterestSection}>
       <div className={s.wrap}>
-        <div className={s.wcsCard}>
-          <div className={s.wcsSeal}>
+        <div className={s.pointOfInterestCard}>
+          <div className={s.pointOfInterestSeal}>
             <span>PWCS</span>
           </div>
           <div>
-            <p className={s.wcsKicker}>Board Certification</p>
-            <h3 className={s.wcsTitle}>What is a Board-Certified PWCS?</h3>
-            <p className={s.wcsBody}>
+            <p className={s.pointOfInterestKicker}>Board Certification</p>
+            <h3 className={s.pointOfInterestTitle}>What is a Board-Certified PWCS?</h3>
+            <p className={s.pointOfInterestBody}>
               A Pelvic &amp; Women's Health Clinical Specialist (PWCS) holds the
               highest board certification in the field, awarded through the
               American Physical Therapy Association. Fewer than 1% of PTs hold
@@ -343,7 +343,7 @@ export function Home() {
       <Services />
       <Bio />
       <TrustBar />
-      <WCSCallout />
+      <PointOfInterestCallout />
       <Philosophy />
       <BookSpotlight />
       <Testimonials />

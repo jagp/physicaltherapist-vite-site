@@ -67,13 +67,8 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
 h1, h2, h3, h4 { text-wrap: balance; }
 p { text-wrap: pretty; }
 
-/* Reduced-motion kill-switch (0.01ms, not 0, so JS animationend still
-   fires). Component motion should ALSO opt in via no-preference blocks. */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
+/* NOTE: intentionally NO global prefers-reduced-motion kill-switch here.
+   It was removed on purpose so the site keeps its calm, long (0.6–1.0s)
+   transitions — that slow, eased motion IS the brand. Do not re-add a
+   blanket `transition-duration: …ms !important` override. Components that
+   need reduced-motion handling (e.g. CareerTimeline) opt in locally. */

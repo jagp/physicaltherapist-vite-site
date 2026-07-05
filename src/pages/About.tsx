@@ -28,9 +28,9 @@ export function About() {
             <p className={s.lede}>
               Rebecca G. Stephenson, PT, DPT, MS, CLT, PWCS, is a Board-Certified Pelvic &amp; Women's Health Clinical Specialist treating all genders. Her care blends deep clinical expertise with a personal, compassionate approach.
             </p>
-            <Card tone="tint" padding="26px" className={s.wcsCard}>
-              <h4 className={s.wcsTitle}>What is a Board-Certified PWCS?</h4>
-              <p className={s.wcsBody}>
+            <Card tone="tint" padding="26px" className={s.pointOfInterestCard}>
+              <h4 className={s.pointOfInterestTitle}>What is a Board-Certified PWCS?</h4>
+              <p className={s.pointOfInterestBody}>
                 A Pelvic &amp; Women's Health Clinical Specialist holds the highest board certification in pelvic and women's health — earned through thousands of supervised clinical hours and a rigorous national exam. Only a small percentage of physical therapists achieve it.
               </p>
             </Card>
