@@ -1,0 +1,124 @@
+/* Header/nav — desktop bar ≥768px, <details> hamburger below.
+   One structural breakpoint (767px, canonical); everything else fluid.
+   The <details> element IS the open/closed state — no useMediaQuery,
+   no isMobile flags, layout is 100% CSS. */
+
+.hdr {
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 4px var(--gutter);
+}
+
+.brand { display: flex; align-items: center; text-decoration: none; flex: none; }
+.brand img {
+  /* fluid logo: 56px tall on the smallest phones → 80px at desktop */
+  height: clamp(56px, 40px + 3.5vw, 80px);
+  width: auto;
+  display: block;
+}
+
+/* ---- desktop link row ---- */
+.links { display: flex; gap: 26px; align-items: center; margin-left: auto; }
+.link {
+  font-family: var(--font-ui);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.6);
+  border-bottom: 2px solid transparent;
+  padding-bottom: 3px;
+  transition: color var(--dur) var(--ease-soft);
+}
+.link:hover { color: var(--text-light); text-decoration: none; }
+.linkActive { color: var(--text-light); border-bottom-color: var(--accent); }
+
+/* ---- mobile disclosure (hidden ≥768) ---- */
+.mnav { display: none; margin-left: auto; }
+.mnav summary {
+  list-style: none;
+  display: grid;
+  place-items: center;
+  width: 44px;  /* WCAG touch target */
+  height: 44px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--text-light);
+  -webkit-tap-highlight-color: transparent;
+}
+.mnav summary::-webkit-details-marker { display: none; }
+
+.burger,
+.burger::before,
+.burger::after {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  position: relative;
+  transition: transform var(--dur-fast) var(--ease-out), opacity var(--dur-fast) var(--ease-soft);
+}
+.burger::before { position: absolute; top: -7px; }
+.burger::after { position: absolute; top: 7px; }
+.mnav[open] .burger { transform: rotate(45deg); }
+.mnav[open] .burger::before { transform: rotate(90deg); top: 0; }
+.mnav[open] .burger::after { opacity: 0; }
+
+.panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: var(--bg);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-md);
+  padding: 10px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.panelLink {
+  padding: 13px 10px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--font-ui);
+  font-size: 1.02rem;
+  font-weight: var(--fw-medium);
+}
+.panelLink:hover { background: rgba(255, 255, 255, 0.07); color: var(--text-light); text-decoration: none; }
+.panelLinkActive {
+  color: var(--text-light);
+  box-shadow: inset 3px 0 0 var(--accent);
+  background: rgba(255, 255, 255, 0.05);
+}
+.panelCta { margin: 12px 10px 0; display: block; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .panel { transform-origin: top; animation: navDrop 0.25s var(--ease-out); }
+  @keyframes navDrop {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: none; }
+  }
+}
+
+/* ---- the structural swap ---- */
+@media (max-width: 767px) {
+  .links,
+  .desktopCta { display: none; }
+  .mnav { display: block; }
+}
+/* .panel's absolute box resolves against .hdr (sticky = positioned), so the
+   dropdown hugs the header's bottom edge at any header height. */

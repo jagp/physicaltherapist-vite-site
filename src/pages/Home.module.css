@@ -1,0 +1,235 @@
+/* Home — page module. Structural responsive rules per the responsive spec:
+   hero collapses at 767 (image first, svh-capped), splits stack, decorative
+   elements yield. Type sizes come from the fluid tokens (no local clamps). */
+
+/* ---------- shared section scaffolding ---------- */
+.section { padding: var(--section-pad) 0; }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+
+.sectionHead { max-width: 680px; margin-bottom: var(--space-m-l); }
+.sectionHeadCenter { text-align: center; margin-left: auto; margin-right: auto; }
+.sectionHead .eyebrow { margin: 0 0 14px; }
+.sectionHead h2 { margin: 0; }
+.sectionHeadLight .eyebrow { color: rgba(255, 255, 255, 0.55); }
+.sectionHeadLight h2 { color: #fff; }
+.sectionLede { margin-top: 14px; font-size: var(--fs-lead); color: var(--text-muted); }
+.sectionHeadLight .sectionLede { color: rgba(255, 255, 255, 0.65); }
+
+/* ---------- HERO ---------- */
+.hero { position: relative; overflow: hidden; background: var(--cream); }
+.heroWrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: var(--space-l-xl) var(--gutter) var(--section-pad-sm);
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: var(--space-m-l);
+  align-items: center;
+  min-height: min(88svh, 860px);
+}
+.heroCopy { min-width: 0; }
+.heroCopy .eyebrow { margin: 0 0 14px; }
+.heroTitle { margin: 0 0 22px; } /* size = --fs-h1 via base h1 rule */
+.heroLede {
+  font-size: var(--fs-lead);
+  color: var(--text-muted);
+  max-width: 52ch;
+  margin: 0 0 32px;
+}
+.heroCtas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.heroMedia {
+  position: relative;
+  aspect-ratio: 4 / 4.4;
+  min-height: 380px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.heroMedia img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+
+@media (max-width: 767px) {
+  .heroWrap { grid-template-columns: 1fr; min-height: auto; gap: var(--space-s-m); }
+  .heroMedia { order: -1; aspect-ratio: 4 / 3; min-height: 0; max-height: 46svh; }
+  .heroCtas > * { flex: 1 1 100%; }
+}
+
+/* ---------- SERVICES (dark) ---------- */
+.svcSection { padding: var(--section-pad) 0; background: var(--bg); }
+
+/* ---------- BIO (dark split) ---------- */
+.bioSection { padding: var(--section-pad) 0 calc(var(--section-pad) * 0.6); background: var(--bg); }
+.bioGrid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: var(--space-m-l);
+  align-items: center;
+}
+.bioMedia {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 999px 999px var(--radius-lg) var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.bioMedia img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+.bioEyebrow { margin: 0 0 14px; color: rgba(255, 255, 255, 0.5); }
+.bioTitle { margin: 0 0 18px; color: #fff; }
+.bioBody {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.05rem;
+  margin: 0 0 22px;
+  line-height: 1.65;
+}
+.chips { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 28px; }
+.chip {
+  font-family: var(--font-ui);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-semibold);
+  color: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 5px 13px;
+  border-radius: var(--radius-pill);
+  transition: background var(--dur) var(--ease-soft), color var(--dur) var(--ease-soft);
+  cursor: default;
+}
+.chip:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+@media (max-width: 767px) {
+  .bioGrid { grid-template-columns: 1fr; }
+  .bioMedia { max-width: 340px; margin: 0 auto; }
+}
+
+/* ---------- PWCS callout ---------- */
+.pwcsSection { background: var(--bg); padding: 0 0 var(--section-pad); }
+.pscwCard {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 0.8rem + 3.2vw, 3rem);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-m-l);
+  align-items: center;
+}
+.wcsSeal {
+  width: 88px;
+  height: 88px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--brand-gradient-spicy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-accent);
+}
+.wcsSeal span {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: 1.5rem;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+.wcsKicker {
+  margin: 0 0 10px;
+  font-family: var(--font-ui);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-eyebrow);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.45);
+}
+.wcsTitle { margin: 0 0 12px; color: #fff; font-size: var(--fs-h4); }
+.wcsBody { margin: 0; color: rgba(255, 255, 255, 0.65); line-height: 1.65; max-width: 68ch; font-size: 0.98rem; }
+
+@media (max-width: 599px) {
+  .pscwCard { grid-template-columns: 1fr; justify-items: start; }
+}
+
+/* ---------- PHILOSOPHY quote ---------- */
+.philosophySection { padding: var(--section-pad) 0; background: var(--surface-tint); }
+.philosophyWrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: flex;
+  align-items: center;
+  gap: var(--space-l-xl);
+}
+.philosophyLeaf { width: clamp(120px, 60px + 12vw, 200px); flex-shrink: 0; opacity: 0.22; filter: grayscale(1) brightness(0); }
+.philosophyMark {
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--brand);
+  opacity: 0.35;
+  font-family: Georgia, serif;
+  display: block;
+  margin-bottom: 8px;
+}
+.philosophyQuote {
+  font-family: var(--font-display);
+  font-size: clamp(1.19rem, 1.0447rem + 0.6857vw, 1.55rem); /* ratio 1.30 ✓ */
+  line-height: 1.5;
+  color: var(--ink-900);
+  margin: 0 0 20px;
+}
+.philosophyBy {
+  margin: 0;
+  color: var(--text-muted);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-small);
+  letter-spacing: 0.02em;
+}
+@media (max-width: 599px) {
+  .philosophyLeaf { display: none; }
+}
+
+/* ---------- BOOK spotlight ---------- */
+.bookSection { padding: var(--section-pad-sm) 0; background: var(--brand-gradient-spicy); }
+.bookWrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-m-l);
+  align-items: center;
+}
+.bookCover {
+  width: clamp(120px, 90px + 6vw, 160px);
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+.bookCover img { width: 100%; height: 100%; object-fit: cover; }
+.bookKicker {
+  font-size: 0.72rem;
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 10px;
+}
+.bookTitle { margin: 0 0 14px; color: #fff; font-size: var(--fs-h4); }
+.bookBody { color: rgba(255, 255, 255, 0.75); margin: 0 0 22px; line-height: 1.65; }
+@media (max-width: 599px) {
+  .bookWrap { grid-template-columns: 1fr; }
+  .bookCover { margin: 0 auto; }
+  .bookWrap > div:last-child { text-align: center; }
+}
+
+/* ---------- TESTIMONIALS ---------- */
+.testimonialsSection { padding: var(--section-pad) 0; background: var(--cream); }
+.testimonialsNote {
+  margin-top: 20px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+  font-style: italic;
+}
+
+/* ---------- closing CTA ---------- */
+.ctaSection { padding: var(--section-pad-sm) 0; background: var(--cream); }

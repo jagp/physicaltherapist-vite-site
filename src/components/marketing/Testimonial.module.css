@@ -1,0 +1,53 @@
+/* Testimonial — module migration; hover mix from the injected string.
+   The figure is subgrid-ready: when placed in a `card-grid__list`, its
+   three blocks (stars / quote / attribution) align across the row. */
+
+.tmnl {
+  --_bg: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: 28px;
+  margin: 0;
+  height: 100%;
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-soft),
+    background var(--dur) var(--ease-soft), color var(--dur) var(--ease-soft);
+}
+.tmnl:hover {
+  transform: translateY(-3px);
+  background: color-mix(in srgb, var(--_bg) 90%, var(--plum-700));
+  color: color-mix(in srgb, var(--text-body) 80%, var(--plum-700));
+  box-shadow: inset 1px 0 0 0 var(--hover-edge), var(--shadow-lg);
+}
+
+.stars { display: flex; gap: 2px; }
+.star { font-size: 1.05rem; line-height: 1; color: var(--border-strong); }
+.starOn { color: #f5a623; }
+
+.quote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  line-height: 1.5;
+  color: var(--text-body);
+  flex: 1;
+}
+
+.who { display: flex; flex-direction: column; gap: 4px; }
+.name { font-family: var(--font-ui); font-size: 0.95rem; color: var(--text-heading); }
+.role { font-family: var(--font-ui); font-size: 0.82rem; color: var(--text-muted); }
+.category {
+  margin-top: 4px;
+  align-self: flex-start;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: var(--fw-semibold);
+  color: var(--indigo-700);
+  background: var(--indigo-100);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}

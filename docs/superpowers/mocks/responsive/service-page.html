@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup — Service Page reflow · Stephenson PT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#663399; --bg:#241546; --accent:#3A6EA5; --attention:#1FB6B6;
+  --cream:#FAF7F2; --text-dark:#2A2340; --text-light:#EFEBFF; --surface:#fff;
+  --surface-tint:color-mix(in srgb, var(--brand) 9%, var(--cream));
+  --text-muted:color-mix(in srgb, var(--text-dark) 58%, var(--cream));
+  --small-ink:color-mix(in srgb, var(--text-dark) 70%, var(--cream));
+  --border:color-mix(in srgb, var(--text-dark) 12%, var(--cream));
+  --brand-gradient-spicy:linear-gradient(120deg,var(--brand) 0%,var(--accent) 52%,var(--attention) 100%);
+  --font-display:'Fraunces',Georgia,serif; --font-ui:'Work Sans',system-ui,sans-serif;
+  --radius-sm:9px; --radius-md:14px; --radius-lg:20px; --radius-pill:999px;
+  --shadow-lg:0 24px 56px -22px rgba(40,30,70,.34);
+  /* fluid, rem-anchored, ≤1.5× */
+  --fs-body:clamp(1rem,.9583rem + .1852vw,1.0625rem);
+  --fs-lead:clamp(1.08rem,1.0067rem + .3259vw,1.19rem);
+  --fs-quote:clamp(1.6rem,1.2667rem + 1.4815vw,2.1rem);   /* hero display quote, 1.31× */
+  --fs-h2:clamp(1.45rem,1.2167rem + 1.037vw,1.8rem);
+  --gutter:clamp(1rem,.3333rem + 2.963vw,2rem);
+  --sect:clamp(3rem,1.6667rem + 5.926vw,5rem);
+  font-size:100%;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--text-dark);font-family:var(--font-ui);font-size:var(--fs-body);line-height:1.6}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.15;letter-spacing:-.01em;text-wrap:balance}
+p{text-wrap:pretty}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-ui);text-transform:uppercase;
+  letter-spacing:.16em;font-size:.78rem;font-weight:700;color:var(--brand);margin:0 0 14px}
+.leaf{width:15px;height:15px;flex:none;opacity:.7}
+.leaf::before{content:'❧';color:var(--brand)}
+
+/* =========== SERVICE HERO — split, image dissolves into cream =========== */
+.svc-hero{overflow:hidden}
+.svc-hero-grid{max-width:1180px;margin:0 auto;padding:var(--sect) var(--gutter) calc(var(--sect)*.7);
+  display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(1.5rem,3vw,3rem);align-items:center}
+.svc-hero-media{position:relative;aspect-ratio:5/4;border-radius:var(--radius-lg);overflow:hidden}
+.ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#fff;
+  font-weight:600;letter-spacing:.03em;padding:18px;
+  background:radial-gradient(120% 100% at 35% 30%, color-mix(in srgb,var(--brand) 45%, var(--bg)) 0%, var(--bg) 78%)}
+.ph small{display:block;font-weight:400;opacity:.7;margin-top:6px}
+/* the signature fade: horizontal on desktop… */
+.svc-fade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right, transparent 55%, var(--cream) 100%)}
+.svc-hero-quote .q-head{font-size:var(--fs-quote);margin:0 0 10px;color:var(--text-dark)}
+.svc-hero-quote .q-claim{font-family:var(--font-display);font-size:var(--fs-lead);color:var(--brand);margin:0 0 18px;font-style:italic}
+.svc-hero-quote .q-lede{color:var(--text-muted);max-width:48ch;margin:0}
+@media (max-width:767px){
+  .svc-hero-grid{grid-template-columns:1fr;gap:1.2rem}
+  .svc-hero-media{aspect-ratio:16/10;order:-1}
+  /* …vertical when stacked (mobile) — per spec §5.1 */
+  .svc-fade{background:linear-gradient(to bottom, transparent 55%, var(--cream) 100%)}
+}
+
+/* =========== EDITORIAL ARTICLE — one reading column =========== */
+.article{max-width:calc(700px + 2*var(--gutter));margin:0 auto;padding:0 var(--gutter) var(--sect)}
+.article > * + *{margin-top:clamp(1.4rem,2.4vw,2rem)}
+.article .lede{font-size:var(--fs-lead)}
+.inset{aspect-ratio:16/9;border-radius:var(--radius-md);overflow:hidden;position:relative;box-shadow:var(--shadow-lg)}
+.article a{color:var(--accent)}
+/* treatments panel: tinted, leaf-marked */
+.treatments{background:var(--surface-tint);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:clamp(1.2rem,2.6vw,2rem)}
+.treatments h2{font-size:var(--fs-h2);margin:0 0 14px}
+.treatments ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.treatments li{display:flex;gap:10px;align-items:flex-start}
+.treatments b{display:block}
+.treatments span{color:var(--small-ink);font-size:.94rem}
+
+/* =========== conditions (2-col → 1-col) — real service-page.css pattern =========== */
+.cond{max-width:1180px;margin:0 auto;padding:0 var(--gutter) var(--sect)}
+.cond-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(1.6rem,3vw,3rem)}
+.cond h3{font-family:var(--font-ui);text-transform:uppercase;letter-spacing:.16em;font-size:.78rem;
+  font-weight:700;color:var(--brand);margin:0 0 12px}
+.cond ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.cond li{display:flex;gap:10px}.cond .leaf{margin-top:4px}
+@media (max-width:767px){.cond-grid{grid-template-columns:1fr}}
+
+/* =========== CTA band =========== */
+.cta-band{background:var(--brand-gradient-spicy);color:#fff}
+.cta-inner{max-width:1180px;margin:0 auto;padding:calc(var(--sect)*.8) var(--gutter);
+  display:flex;flex-wrap:wrap;gap:1.4rem;align-items:center;justify-content:space-between}
+.cta-inner h2{color:#fff;font-size:var(--fs-h2);margin:0;max-width:24ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;
+  padding:15px 28px;border-radius:var(--radius-sm);text-decoration:none;background:#fff;color:var(--accent)}
+@media (max-width:600px){.cta-inner{justify-content:stretch}.cta-inner .btn{flex:1 1 100%}}
+
+.badge{position:fixed;right:12px;bottom:12px;z-index:200;background:var(--bg);color:var(--text-light);
+  font-size:.75rem;padding:6px 12px;border-radius:var(--radius-pill);opacity:.85}
+.badge::after{content:'≥768 — split hero, side fade, 2-col conditions'}
+@media (max-width:767px){.badge::after{content:'<768 — stacked, bottom fade, 1-col'}}
+</style>
+</head>
+<body>
+<!-- HERO -->
+<section class="svc-hero">
+  <div class="svc-hero-grid">
+    <div class="svc-hero-media">
+      <div class="ph">SERVICE HERO — pregnancy-landscape.png<small>AVIF/WebP/JPEG · srcset 3 widths · fetchpriority=high</small></div>
+      <div class="svc-fade"></div>
+    </div>
+    <div class="svc-hero-quote">
+      <p class="eyebrow"><span class="leaf"></span>Pregnancy &amp; Postpartum</p>
+      <h1 class="q-head">“I Don’t Just Treat You.”</h1>
+      <p class="q-claim">I bring long-lasting vitality to your whole family.</p>
+      <p class="q-lede">One-on-one care through every stage — from the aches of a changing pregnancy to a full return to strength postpartum.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE -->
+<article class="article">
+  <p class="lede">Pregnancy and the months after birth ask a lot of your body — and you deserve a provider who’s spent decades learning how to support it. As a Board-Certified Women’s Health Clinical Specialist, I work one-on-one with you through every stage.</p>
+  <div class="inset"><div class="ph">INSET — pregnancy-inset.png<small>loading=lazy · width/height set (no CLS) · 16:9</small></div></div>
+  <p>Pregnancy changes how your body moves, holds weight, and recovers — often faster than your prenatal care team has time to fully address. Working alongside your obstetric provider, I help you stay capable through pregnancy and rebuild safely afterward. For a broader look at what pelvic floor physical therapy addresses, <a href="#">Inova Health’s overview</a> is a solid starting point.</p>
+  <div class="treatments">
+    <h2>Specialized treatments</h2>
+    <ul>
+      <li><span class="leaf"></span><div><b>Prenatal Care</b><span>Pelvic girdle pain (PGP), pubic symphysis dysfunction, and lower back pain during pregnancy.</span></div></li>
+      <li><span class="leaf"></span><div><b>Postpartum Rehabilitation</b><span>Recovery from vaginal or C-section deliveries, including scar tissue management.</span></div></li>
+      <li><span class="leaf"></span><div><b>Diastasis Recti (DRA)</b><span>Separation of the abdominal muscles after pregnancy.</span></div></li>
+    </ul>
+  </div>
+</article>
+
+<!-- CONDITIONS -->
+<section class="cond">
+  <div class="cond-grid">
+    <div><h3>During pregnancy</h3><ul>
+      <li><span class="leaf"></span>Pelvic girdle pain (PGP)</li><li><span class="leaf"></span>Pubic symphysis dysfunction</li>
+      <li><span class="leaf"></span>Sacroiliac (SI) joint pain</li><li><span class="leaf"></span>Lower back pain in pregnancy</li></ul></div>
+    <div><h3>After birth</h3><ul>
+      <li><span class="leaf"></span>Diastasis recti (DRA)</li><li><span class="leaf"></span>Postpartum pelvic floor dysfunction</li>
+      <li><span class="leaf"></span>Painful scar tissue (perineal or cesarean)</li><li><span class="leaf"></span>Return to running postpartum</li></ul></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band"><div class="cta-inner">
+  <h2>You don’t have to white-knuckle your way through this.</h2>
+  <a class="btn" href="#">Schedule Your Evaluation</a>
+</div></section>
+<div class="badge"></div>
+</body>
+</html>

@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import type { RouteRecord } from 'vite-react-ssg';
 import { Layout } from './layout/Layout';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
@@ -7,19 +7,21 @@ import { ServiceDetail } from './pages/ServiceDetail';
 import { Faq } from './pages/Faq';
 import { Contact } from './pages/Contact';
 
-function App() {
-  return (
-    <Routes>
-      <Route element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="services" element={<Services />} />
-        <Route path="services/:slug" element={<ServiceDetail />} />
-        <Route path="faq" element={<Faq />} />
-        <Route path="contact" element={<Contact />} />
-      </Route>
-    </Routes>
-  );
-}
-
-export default App;
+/**
+ * Route table as a data-router array (required by vite-react-ssg so each
+ * path can be statically rendered at build time).
+ */
+export const routes: RouteRecord[] = [
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: 'about', element: <About /> },
+      { path: 'services', element: <Services /> },
+      { path: 'services/:slug', element: <ServiceDetail /> },
+      { path: 'faq', element: <Faq /> },
+      { path: 'contact', element: <Contact /> },
+    ],
+  },
+];

@@ -6,6 +6,14 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+/* Inherit the user's browser font-size preference — never a px root.
+   (Precondition for the fluid rem token scale being accessible at all.) */
+:root { font-size: 100%; }
+
+/* Media are fluid by default; width/height attributes still reserve
+   aspect-ratio so lazy images can't cause CLS. */
+img, svg, video { max-width: 100%; height: auto; }
+
 body {
   margin: 0;
   background: var(--cream);
@@ -53,3 +61,19 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
 }
 
 ::selection { background: var(--iris-100); color: var(--ink-900); }
+
+/* Headlines never strand a single word; prose gets a nicer rag where
+   supported (pretty: Chromium/Safari-only enhancement — fine). */
+h1, h2, h3, h4 { text-wrap: balance; }
+p { text-wrap: pretty; }
+
+/* Reduced-motion kill-switch (0.01ms, not 0, so JS animationend still
+   fires). Component motion should ALSO opt in via no-preference blocks. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

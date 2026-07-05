@@ -1,6 +1,8 @@
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '../components/core/Button';
 import logo from '../assets/logo_white_text_transparent_v2.png';
+import s from './Nav.module.css';
 
 const links: Array<[string, string]> = [
   ['/', 'Home'],
@@ -12,54 +14,83 @@ const links: Array<[string, string]> = [
 
 export function Nav() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const menuRef = useRef<HTMLDetailsElement>(null);
+
+  /* The <details> element is the menu state — CSS owns the layout.
+     JS only closes it on route change / Escape / outside click (a11y). */
+  useEffect(() => {
+    menuRef.current?.removeAttribute('open');
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const menu = menuRef.current;
+    if (!menu) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') menu.removeAttribute('open');
+    };
+    const onClick = (e: MouseEvent) => {
+      if (menu.open && !menu.contains(e.target as Node)) menu.removeAttribute('open');
+    };
+    document.addEventListener('keydown', onKey);
+    document.addEventListener('click', onClick);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.removeEventListener('click', onClick);
+    };
+  }, []);
 
   return (
-    <header
-      style={{
-        background: 'var(--bg)',
-        position: 'sticky',
-        top: 0,
-        zIndex: 100,
-        boxShadow: '0 1px 0 rgba(255,255,255,.08)',
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '24px',
-          maxWidth: 'var(--maxw)',
-          margin: '0 auto',
-          padding: '4px 40px',
-        }}
-      >
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-          <img src={logo} alt="Stephenson Physical Therapy" style={{ height: '80px', display: 'block' }} />
+    <header className={s.hdr}>
+      <div className={s.row}>
+        <Link to="/" className={s.brand}>
+          {/* intrinsic 870x424 — attributes reserve the ratio; CSS sets display size */}
+          <img src={logo} alt="Stephenson Physical Therapy" width={870} height={424} />
         </Link>
-        <nav style={{ display: 'flex', gap: '26px', alignItems: 'center', marginLeft: 'auto' }}>
+
+        <nav className={s.links} aria-label="Primary">
           {links.map(([to, label]) => (
             <NavLink
               key={to}
               to={to}
               end={to === '/'}
-              style={({ isActive }) => ({
-                fontFamily: 'var(--font-ui)',
-                fontSize: '0.9rem',
-                fontWeight: 500,
-                textDecoration: 'none',
-                color: isActive ? 'var(--text-light)' : 'rgba(255,255,255,.6)',
-                borderBottom: isActive ? '2px solid var(--accent)' : '2px solid transparent',
-                paddingBottom: '3px',
-                transition: 'color var(--dur) var(--ease-soft)',
-              })}
+              className={({ isActive }) => (isActive ? `${s.link} ${s.linkActive}` : s.link)}
             >
               {label}
             </NavLink>
           ))}
         </nav>
-        <Button variant="gradient" size="sm" onClick={() => navigate('/contact')}>
-          Book a Consultation
-        </Button>
+
+        <span className={s.desktopCta}>
+          <Button variant="gradient" size="sm" onClick={() => navigate('/contact')}>
+            Book a Consultation
+          </Button>
+        </span>
+
+        <details className={s.mnav} ref={menuRef}>
+          <summary aria-label="Menu">
+            <span className={s.burger} />
+          </summary>
+          <nav className={s.panel} aria-label="Primary mobile">
+            {links.map(([to, label]) => (
+              <NavLink
+                key={to}
+                to={to}
+                end={to === '/'}
+                className={({ isActive }) =>
+                  isActive ? `${s.panelLink} ${s.panelLinkActive}` : s.panelLink
+                }
+              >
+                {label}
+              </NavLink>
+            ))}
+            <span className={s.panelCta}>
+              <Button variant="gradient" size="md" fullWidth onClick={() => navigate('/contact')}>
+                Book a Consultation
+              </Button>
+            </span>
+          </nav>
+        </details>
       </div>
     </header>
   );

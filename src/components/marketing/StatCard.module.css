@@ -1,0 +1,51 @@
+/* StatCard — module migration; hover mixes from the injected string. */
+
+.stat {
+  border-radius: var(--radius-md);
+  padding: 22px 20px;
+  text-align: center;
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-soft),
+    background var(--dur) var(--ease-soft), color var(--dur) var(--ease-soft);
+}
+
+.light {
+  --_bg: var(--surface);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-xs);
+}
+.light:hover {
+  transform: translateY(-3px);
+  background: color-mix(in srgb, var(--_bg) 90%, var(--plum-700));
+  box-shadow: inset 1px 0 0 0 var(--hover-edge), var(--shadow-lg);
+}
+
+.dark {
+  --_bg: var(--plum-600);
+  background: var(--plum-600);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-md);
+}
+.dark:hover {
+  transform: translateY(-3px);
+  background: color-mix(in srgb, var(--_bg) 90%, var(--indigo-100));
+  box-shadow: inset 1px 0 0 0 var(--hover-edge), var(--shadow-lg);
+}
+
+.value {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--_ink, var(--brand));
+}
+.dark .value { color: #fff; }
+
+.label {
+  margin-top: 7px;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+.dark .label { color: rgba(244, 240, 252, 0.78); }

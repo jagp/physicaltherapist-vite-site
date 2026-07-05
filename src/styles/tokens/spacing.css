@@ -17,12 +17,18 @@
   --space-24: 96px;
   --space-32: 128px;
 
-  /* Section rhythm */
-  --section-pad: 104px;     /* vertical padding for full sections */
-  --section-pad-sm: 64px;
-  --gutter: 40px;           /* horizontal page gutter */
+  /* Section rhythm — FLUID (anchors 360→1200px; rem-anchored clamps).
+     Space may exceed the 1.5× type cap: WCAG 1.4.4 covers text, not spacing. */
+  --gutter:         clamp(1rem, 0.3571rem + 2.8571vw, 2.5rem);   /* 16→40px horizontal page gutter */
+  --section-pad:    clamp(3.5rem, 2.2143rem + 5.7143vw, 6.5rem); /* 56→104px full sections */
+  --section-pad-sm: clamp(2.5rem, 1.8571rem + 2.8571vw, 4rem);   /* 40→64px */
   --maxw: 1180px;           /* content max width */
   --maxw-narrow: 820px;
+
+  /* Fluid space pairs — gaps/margins that should contract hard on mobile */
+  --space-s-m:  clamp(1.125rem, 0.8036rem + 1.4286vw, 1.875rem); /* 18→30px */
+  --space-m-l:  clamp(1.5rem, 0.8571rem + 2.8571vw, 3rem);       /* 24→48px */
+  --space-l-xl: clamp(2rem, 1.1429rem + 3.8095vw, 4rem);         /* 32→64px */
 
   /* Radii — soft, rounded, never pill-everything */
   --radius-xs: 6px;

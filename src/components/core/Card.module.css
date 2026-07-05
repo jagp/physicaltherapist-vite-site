@@ -1,0 +1,47 @@
+/* Card — tones/hover moved from inline maps + injected hoverCSS (verbatim,
+   .spt-card-h → .hover, is-light/dark/grad → toneLight/toneDark/toneGrad). */
+
+.card {
+  position: relative;
+  overflow: hidden;
+}
+.cardInner { position: relative; }
+
+/* ---- radii ---- */
+.rSm { border-radius: var(--radius-sm); }
+.rMd { border-radius: var(--radius-md); }
+.rLg { border-radius: var(--radius-lg); }
+.rXl { border-radius: var(--radius-xl); }
+
+/* ---- tones (each sets --_cardbg for the hover mixes) ---- */
+.surface { --_cardbg: var(--surface); background: var(--surface); color: var(--text-body); border: 1px solid var(--border); box-shadow: var(--shadow-md); }
+.cream   { --_cardbg: var(--cream); background: var(--cream); color: var(--text-body); border: 1px solid var(--border); box-shadow: var(--shadow-xs); }
+.linen   { --_cardbg: var(--linen); background: var(--linen); color: var(--text-body); border: 1px solid var(--border); box-shadow: var(--shadow-xs); }
+.tint    { --_cardbg: var(--indigo-100); background: var(--indigo-100); color: var(--text-body); border: 1px solid transparent; box-shadow: var(--shadow-xs); }
+.plum    { --_cardbg: var(--plum-600); background: var(--plum-600); color: var(--text-on-brand-soft); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: var(--shadow-brand); }
+.brand   { --_cardbg: var(--brand); background: var(--brand); color: var(--text-on-brand-soft); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: var(--shadow-brand); }
+.gradient { background: var(--brand-gradient-spicy); color: var(--text-on-brand-soft); border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: var(--shadow-brand); }
+
+/* ---- hover lift ---- */
+.hover {
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-soft),
+    background var(--dur) var(--ease-soft), color var(--dur) var(--ease-soft);
+}
+.hover:hover { transform: translateY(-4px); box-shadow: inset 1px 0 0 0 var(--hover-edge), var(--shadow-lg); }
+.toneLight:hover { background: color-mix(in srgb, var(--_cardbg) 90%, var(--plum-700)); color: color-mix(in srgb, currentColor 80%, var(--plum-700)); }
+.toneDark:hover { background: color-mix(in srgb, var(--_cardbg) 90%, var(--indigo-100)); color: color-mix(in srgb, currentColor 80%, var(--indigo-100)); }
+.toneGrad:hover { filter: brightness(1.06); }
+
+/* ---- leaf watermark ---- */
+.leaf {
+  position: absolute;
+  top: -22px;
+  right: -18px;
+  height: 120px;
+  width: auto;
+  opacity: 0.08;
+  filter: grayscale(1) brightness(0);
+  transform: rotate(8deg);
+  pointer-events: none;
+}
+.leafDark { opacity: 0.12; filter: grayscale(1) brightness(8); }

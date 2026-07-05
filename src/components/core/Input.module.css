@@ -1,0 +1,38 @@
+/* Input — focus/placeholder from the injected string + error state.
+   Control font-size floors at 16px so iOS Safari never zoom-jumps on focus. */
+
+.field { display: flex; flex-direction: column; gap: 6px; }
+
+.label {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: var(--fw-semibold);
+  color: var(--text-heading);
+}
+.req { color: var(--danger); margin-left: 3px; }
+
+.control {
+  width: 100%;
+  font-family: var(--font-ui);
+  font-size: max(16px, 1rem);
+  color: var(--text-body);
+  background: var(--white);
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  line-height: 1.5;
+  outline: none;
+  transition: border-color var(--dur) var(--ease-soft), box-shadow var(--dur) var(--ease-soft);
+}
+.control:focus { border-color: var(--brand); box-shadow: 0 0 0 3px var(--focus-ring); }
+.control::placeholder { color: var(--text-faint); }
+
+.multiline { padding: 12px 14px; resize: vertical; }
+.invalid { border-color: var(--danger); }
+
+.hint {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.hintError { color: var(--danger); }

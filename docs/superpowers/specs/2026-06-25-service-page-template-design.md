@@ -2,7 +2,7 @@
 
 **Date:** 2026-06-25
 **Status:** Approved (brainstorm) — pending implementation plan
-**Source content:** [`docs/content/service-pages-source.md`](../../content/service-pages-source.md)
+**Source content:** [`docs/copy/service-pages-source.md`](../../copy/service-pages-source.md)
 
 ## 1. Goal
 

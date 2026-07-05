@@ -1,0 +1,17 @@
+/* ServiceDetail — page-level bits not covered by service-page.css. */
+
+.page { background: var(--cream); }
+.crumbs { padding-top: var(--space-8); }
+
+.ctaSection { padding: var(--section-pad-sm) var(--gutter) var(--section-pad); }
+.ctaWrap { max-width: var(--maxw); margin: 0 auto; }
+
+.calloutBody { margin: 0; line-height: var(--lh-relaxed); max-width: 58ch; }
+
+/* coming-soon fallback */
+.soonSection { padding: var(--section-pad-sm) 0 var(--section-pad); }
+.soonWrap { max-width: 760px; margin: 0 auto; padding: 0 var(--gutter); text-align: center; }
+.soonIcon { width: 64px; height: 64px; object-fit: contain; margin-bottom: 20px; }
+.soonTitle { margin: 0 0 12px; font-size: 1.4rem; }
+.soonBody { color: var(--text-muted); margin: 0 0 28px; }
+.soonActions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }

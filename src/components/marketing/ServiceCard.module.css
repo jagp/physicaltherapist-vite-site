@@ -1,0 +1,72 @@
+/* ServiceCard — module migration; hover from the injected string.
+   The card is subgrid-aware: inside a `card-grid__list` its four blocks
+   (icon / title / body / link) align across the row via the grid classes
+   in src/styles/grids.css; standalone it falls back to flex column. */
+
+.svc {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-md);
+  padding: 28px;
+  height: 100%;
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-soft),
+    background var(--dur) var(--ease-soft);
+}
+
+.light {
+  --_bg: var(--surface);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+}
+.light:hover {
+  transform: translateY(-3px);
+  background: color-mix(in srgb, var(--_bg) 90%, var(--brand));
+  box-shadow: inset 1px 0 0 0 var(--hover-edge), var(--shadow-lg);
+}
+
+.dark {
+  --_bg: color-mix(in srgb, var(--bg) 58%, var(--brand));
+  background: var(--_bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+}
+.dark:hover {
+  transform: translateY(-3px);
+  background: color-mix(in srgb, var(--_bg) 68%, var(--brand-light));
+  box-shadow: inset 1px 0 0 0 var(--hover-edge), var(--shadow-lg);
+}
+
+.iconBox {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-tint);
+  border-radius: var(--radius-md);
+}
+.dark .iconBox { background: var(--cream); }
+.iconBox img { width: 48px; height: 48px; object-fit: contain; }
+
+.title { font-size: 1.2rem; margin: 0 0 9px; color: var(--text-heading); }
+.dark .title { color: rgba(255, 255, 255, 0.94); }
+
+.desc { margin: 0 0 16px; color: var(--text-muted); font-size: 0.96rem; flex: 1; }
+.dark .desc { color: rgba(255, 255, 255, 0.62); }
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-link);
+  font-family: var(--font-ui);
+  font-weight: var(--fw-semibold);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: gap var(--dur) var(--ease-out);
+  align-self: start;
+}
+.dark .link { color: rgba(255, 255, 255, 0.55); }
+.svc:hover .link { gap: 9px; }

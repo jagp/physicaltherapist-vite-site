@@ -1,20 +1,33 @@
 # CLAUDE.md
 
-**Physical Therapist Vite Site** — the buildable implementation of the Stephenson Physical Therapy website.
+Stephenson Physical Therapy website
+Core: React/Node/Vite/vite-react-ssg
+PM: npm
+
+Commands:
+
+1.  `npm run dev` — start Vite dev server
+
+1.  `npm run build` — typecheck (`tsc -b`)
+    `vite-react-ssg` (each route → flat `dist/*.html` + `sitemap.xml`)
 
 ## Commands
 
-- `npm run dev` — start Vite dev server
-- `npm run build` — typecheck (`tsc -b`) then production build
-- `npm run lint` — lint with oxlint (not eslint)
-- `npm run preview` — preview the production build
+Project: React/Node app.
+Package manager: pnpm.
+Test command: pnpm test.
+Do not run broad formatters without asking.
+Prefer targeted tests before full suite.
+Use rg before opening files.
+
+**Install note pinned in `.npmrc` **
 
 ## Git workflow (critical)
 
 This repo uses **gitflow** — full rules in `docs/development.md`. Non-negotiables:
 
 - **`develop` is the integration branch.** Branch features off `develop`; PR them back into `develop` (`gh pr create --base develop`).
-- **Never push or merge directly to `main`.** `main` changes *only* via a human-reviewed PR from `develop`. A `PreToolUse` hook enforces this.
+- **Never push or merge directly to `main`.** `main` changes _only_ via a human-reviewed PR from `develop`. A `PreToolUse` hook enforces this.
 - **Commit all worktree work before exiting a worktree** — never strand uncommitted files in a `worktree-*` folder.
 - **Archive, don't delete:** superseded work → `archive/*` branch or tag.
 
@@ -24,32 +37,43 @@ This repo uses **gitflow** — full rules in `docs/development.md`. Non-negotiab
 
 ```md
 physicaltherapist-vite-site/
+
 - CLAUDE.md
+- AGENTS.md (per-model routing rules; git + worktree hygiene)
 - README.md
 - docs →
-- - scratch → X (IGNORE THIS & CONTENTS) 
 - - design-philosophy.md
 - - key-facts.md
-- - awards-and-more.md (awards, accreditations, and honors)
-- - development.md
-- - scholarship.md
-- - content → service-pages-source
+- - development.md (internal dev conventions + gitflow)
+- - deployment.md (build/SSG/hosting; roadmap in todo.md)
+- - todo.md (open items / roadmap)
+- - copy → (client-facing copy; formerly 'content')
+- - - bio → about-page, awards-and-more, scholarship
+- - - faq-copy, new-patients, service-pages-source, what-to-expect
+- - image-prompts-side-work → HOW-TO.md (API image-gen pipeline; entry point)
 - - superpowers →
-- - - mocks
+- - - mocks → (incl. responsive/ — Gate B mockups)
+- - - plans → (implementation plans; 2026-07-04-responsive-refactor)
 - - - specs
 - src →
-- - App, main  (app bootstrap + route table, at src root)
+- - App (route table as vite-react-ssg RouteRecord[]), main (ViteReactSSG bootstrap)
 - - assets → images, icons, service-page-images
 - - components →
-- - - core → Badge, Button, Card, Input
+- - - core → Badge, Button, Card, Input, ResponsiveImage (AVIF/WebP srcset <picture>; one `priority` LCP per page)
 - - - marketing →
 - - - - CTABand
 - - - - CredentialBand
 - - - - ServiceCard
 - - - - StatCard
 - - - - Testimonial
+- - - - CareerTimeline
+- - - - ServiceHero, ServiceArticle (service-page hero + editorial body)
+- - - - ConditionsSection, ExpectSteps, ServiceFaq, ServiceFeature, RelatedServices (composable service sections)
+- - - - SectionEyebrow, Breadcrumb
 - - - PageHeader
-- - data → services.ts
+- - - PageSeo, ServiceSeo (per-page <head> tags + JSON-LD; React 19 head hoisting)
+- - data → services.ts (services + SEO content schema), service-slugs.ts (asset-free slug source, shared with vite.config)
+- - lib → serviceJsonLd.ts (structured-data builders)
 - - hooks {}
 - - layout → Layout, Footer, Nav
 - - pages →
@@ -57,12 +81,17 @@ physicaltherapist-vite-site/
 - - - Contact
 - - - FAQ
 - - - Home
-- - - ServiceDetail
+- - - ServiceDetail (full template when service.content present; else "coming soon")
 - - - Services
 - - styles →
-- - - tokens → colors, typography, spacing, fonts, base
+- - - tokens → colors, typography (FLUID clamp scale), spacing (fluid rhythm), fonts (self-hosted @font-face), base
 - - - global.css
+- - - grids.css (container-query card grid, shared by pages)
+- - - service-page.css (service-page layout classes)
+- - types → imagetools.d.ts (ambient types for image query imports)
 ```
+
+**Styling:** CSS Modules co-located per component (`X.module.css`); responsive = media queries (1199/991/767/599) + container queries + fluid rem clamp() tokens (≤1.5× — WCAG 1.4.4). Full conventions in `docs/development.md`.
 
 ## Canonical project docs
 

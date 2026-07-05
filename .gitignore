@@ -25,3 +25,13 @@ docs/superpowers/mocks/state/
 *.njsproj
 *.sln
 *.sw?
+
+# Local git worktrees + scratch archives (never commit)
+.claude/worktrees/
+archive.zip
+
+# Local secrets — API keys live only on this machine (never commit)
+.env
+**/.env
+.env.*
+!.env.example

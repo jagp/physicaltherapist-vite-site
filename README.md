@@ -1,50 +1,23 @@
-# Physical Therapy Practice — Website Template
+# Physical Therapy Practice 
 
-A marketing site for a physical-therapy / allied-health practice, built as a
-single-page React application with client-side routing, a data-driven services
-section, and a CSS design-token system. It's structured to be reusable: content
-lives in data and branding lives in design tokens, so you can adapt it to a
-practice by editing data and styles rather than rewriting components.
+A marketing site for a physical-therapy / allied-health practice — statically
+pre-rendered React with a data-driven services section and a CSS design-token
+system. It's structured to be reusable.
 
 ## Tech stack
 
-| Concern        | Choice                                          |
-| -------------- | ----------------------------------------------- |
-| UI library     | React 19                                        |
-| Routing        | React Router 6 (`react-router-dom`)             |
-| Build / dev    | Vite 8 (`@vitejs/plugin-react`, Oxc under the hood) |
-| Language       | TypeScript 6                                    |
-| Linting        | oxlint                                          |
-| Styling        | Plain CSS with layered custom-property tokens   |
+| Concern     | Choice                                                |
+| ----------- | ----------------------------------------------------- |
+| UI library  | React 19                                              |
+| Routing     | React Router 6 (`react-router-dom`)                   |
+| Rendering   | `vite-react-ssg` — static HTML per route (+ sitemap)  |
+| Build / dev | Vite 8 (`@vitejs/plugin-react`, Oxc under the hood)   |
+| Language    | TypeScript 6                                          |
+| Linting     | oxlint                                                |
+| Styling     | CSS Modules + custom-prop tokens (fluid clamp scale)  |
+| Images      | `vite-imagetools` (AVIF/WebP/JPEG srcset at build)    |
 
-## Getting started
-
-### Prerequisites
-
-- **Node.js 20.19+ or 22.12+** (Vite 8's minimum; Node 18 is end-of-life and unsupported)
-- **npm** (the repo tracks a lockfile; other package managers work but aren't tracked)
-
-### Install
-
-```bash
-npm install
-```
-
-### Run the dev server
-
-```bash
-npm run dev
-```
-
-This starts Vite with hot-module replacement. By default it serves at:
-
-```
-http://localhost:5173/
-```
-
-To expose it on your local network, run `npm run dev -- --host`.
-
-## Available scripts
+## Quick Start
 
 | Command           | What it does                                                        |
 | ----------------- | ------------------------------------------------------------------- |
@@ -59,6 +32,7 @@ To expose it on your local network, run `npm run dev -- --host`.
 
 ## Project structure
 
+see CLAUDE.MD
 ```
 index.html              # Vite entry HTML; mounts #root and loads src/main.tsx
 vite.config.ts          # Vite config (just the React plugin)
@@ -104,71 +78,5 @@ and `<Outlet/>` pattern:
 URLs (not hash routing). When deploying, configure the host to fall back to
 `index.html` for unknown paths so deep links like `/services/<slug>` resolve.
 
-## The services data model
-
-The services section is **data-driven** from `src/data/services.ts`. That module
-exports a single array, `services: ServiceInfo[]`, where each entry is:
-
-```ts
-interface ServiceInfo {
-  slug: string;     // URL segment, e.g. "/services/<slug>"
-  icon: string;     // imported image asset (default, for light surfaces)
-  iconDark: string; // cream variant for dark (--bg) surfaces
-  title: string;
-  desc: string;
-}
-```
-
-- `Services.tsx` maps over `services` to render the services grid.
-- `ServiceDetail.tsx` reads the `:slug` route param and does
-  `services.find(s => s.slug === slug)`, redirecting to `/services` if there's
-  no match.
-
-To add a service, add one entry to the `services` array — no new routes or
-components required. Because every consumer imports the same named export, keep
-the export name and all import sites in sync when renaming.
-
-## Styling and design tokens
-
-`src/styles/global.css` is intentionally thin — it only `@import`s the token
-layers, **in order**:
-
-```
-fonts.css → colors.css → typography.css → spacing.css → base.css
-```
-
-Order matters: the token files define CSS custom properties
-(`--color-*`, `--space-*`, …) that `base.css` and component styles consume, so
-they must load first. Add or rebrand design tokens in the relevant file under
-`src/styles/tokens/` rather than hardcoding values in components.
-
-## Adapting this template to a practice
-
-The content and branding surfaces are deliberately isolated:
-
-- **Services & copy** — edit `src/data/services.ts` and the page components in `src/pages/`.
-- **Branding (colors, fonts, spacing, type scale)** — edit `src/styles/tokens/`.
-- **Imagery & icons** — replace files under `src/assets/`.
-- **Site title / metadata** — edit `index.html`.
-- **Nav, footer, and page structure** — edit `src/layout/` and `src/pages/`.
-
-## Linting
-
-```bash
-npm run lint
-```
-
-Linting uses [oxlint](https://oxc.rs) (fast, Rust-based). For a production build
-you can enable type-aware rules by installing `oxlint-tsgolint` and turning on
-`typeAware` in `.oxlintrc.json`; see the
-[oxlint rules docs](https://oxc.rs/docs/guide/usage/linter/rules).
-
-## Building for production
-
-```bash
-npm run build     # type-check + bundle into dist/
-npm run preview   # serve dist/ locally to verify
-```
-
-The output in `dist/` is a static site — deploy it to any static host (with the
-SPA fallback to `index.html` noted above).
+## Development
+See docs/development.md

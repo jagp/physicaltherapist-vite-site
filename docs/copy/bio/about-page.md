@@ -27,7 +27,7 @@ List your specific areas of expertise so patients know they are in the right pla
 **Section Title:** Who I Am
 
 **Main Copy:**
-I'm Dr. Rebecca G. Stephenson, a Board-Certified Women's Health Clinical Specialist (WCCS) with over 45 years of clinical experience dedicated to treating complex pelvic health, urogynecology, and obstetric concerns for all genders. Throughout my career, I've worked at world-class institutions including Brigham and Women's Hospital and Massachusetts General Hospital, where I gained extensive expertise in high-risk pregnancy, postpartum recovery, and complex pelvic floor dysfunction. Today, I bring that same level of clinical excellence to my private practice in South Natick, where I provide personalized, evidence-based care in a comfortable, confidential setting.
+I'm Dr. Rebecca G. Stephenson, a Board-Certified Pelvic & Women's Health Clinical Specialist (PWCS) with over 45 years of clinical experience dedicated to treating complex pelvic health, urogynecology, and obstetric concerns for all genders. Throughout my career, I've worked at world-class institutions including Brigham and Women's Hospital and Massachusetts General Hospital, where I gained extensive expertise in high-risk pregnancy, postpartum recovery, and complex pelvic floor dysfunction. Today, I bring that same level of clinical excellence to my private practice in South Natick, where I provide personalized, evidence-based care in a comfortable, confidential setting.
 
 My philosophy is simple: the personal touch is fundamental to overall well-being. Whether I'm working one-on-one with a patient, teaching the next generation of therapists, or mentoring colleagues internationally, my goal is to provide compassionate, evidence-based care that empowers individuals to reclaim their quality of life.
 
@@ -39,7 +39,7 @@ My philosophy is simple: the personal touch is fundamental to overall well-being
 
 **Copy:**
 
-- **Board Certification:** Women's Health Clinical Specialist (WCCS) — American Board of Physical Therapy Specialists
+- **Board Certification:** Pelvic & Women's Health Clinical Specialist (PWCS) — American Board of Physical Therapy Specialists
 - **Specialty Certification:** Certified Lymphedema Therapist (CLT)
 - **Additional Training:** Pilates Rehabilitation, Childbirth Education
 - **Education:** Doctor of Physical Therapy (DPT), MGH Institute of Health Professions
@@ -47,19 +47,19 @@ My philosophy is simple: the personal touch is fundamental to overall well-being
 
 ---
 
-## What is a Board-Certified WCS?
+## What is a Board-Certified PWCS?
 
 **Section Title:** Understanding Board Certification
 
 **Copy:**
-In the world of Physical Therapy, a **WCS** (Women's Health Clinical Specialist) is a specialist who has achieved the highest level of clinical certification in Women's and Pelvic Health. It's a distinction that matters.
+In the world of Physical Therapy, a **PWCS** (Pelvic & Women's Health Clinical Specialist) is a specialist who has achieved the highest level of clinical certification in Pelvic and Women's Health. It's a distinction that matters.
 
 **Why it matters:**
 
 - **Advanced Expertise:** Only a small percentage of physical therapists hold this board certification through the American Board of Physical Therapy Specialists.
 - **Rigorous Standards:** It requires thousands of hours of direct clinical practice and passing a comprehensive national board exam covering pelvic health across the lifespan.
-- **Evidence-Based Care:** Choosing a WCS ensures you are receiving care from a provider who is an expert in complex conditions like pelvic pain, pregnancy-related dysfunction, and bladder/bowel disorders.
-- **Specialized Knowledge:** Beyond standard orthopedics, a WCS understands the intricate relationship between pelvic health and overall wellness, including the impact of hormones, childbirth, aging, and surgical procedures.
+- **Evidence-Based Care:** Choosing a PWCS ensures you are receiving care from a provider who is an expert in complex conditions like pelvic pain, pregnancy-related dysfunction, and bladder/bowel disorders.
+- **Specialized Knowledge:** Beyond standard orthopedics, a PWCS understands the intricate relationship between pelvic health and overall wellness, including the impact of hormones, childbirth, aging, and surgical procedures.
 
 When you work with a board-certified specialist, you're working with someone who has dedicated thousands of hours to understanding the nuances of your condition.
 

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup — Container-query card grids + subgrid · Stephenson PT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#663399; --bg:#241546; --accent:#3A6EA5; --attention:#1FB6B6;
+  --cream:#FAF7F2; --text-dark:#2A2340; --text-light:#EFEBFF; --surface:#fff;
+  --surface-tint:color-mix(in srgb, var(--brand) 9%, var(--cream));
+  --text-muted:color-mix(in srgb, var(--text-dark) 58%, var(--cream));
+  --border:color-mix(in srgb, var(--text-dark) 12%, var(--cream));
+  --font-display:'Fraunces',Georgia,serif; --font-ui:'Work Sans',system-ui,sans-serif;
+  --radius-md:14px; --radius-pill:999px;
+  --shadow-sm:0 4px 12px -6px rgba(40,30,70,.18);
+  --shadow-md:0 14px 34px -18px rgba(40,30,70,.28);
+  --hover-edge:#3A6EA5;
+  font-size:100%;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--text-dark);font-family:var(--font-ui);line-height:1.6;padding:40px clamp(16px,3vw,48px) 80px}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.15;text-wrap:balance}
+.intro{max-width:76ch}
+.intro p{color:var(--text-muted)}
+
+/* ============ frames simulating page slots at 3 widths ============ */
+.frames{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start;margin-top:28px}
+.frame{border:1px dashed color-mix(in srgb,var(--text-dark) 25%,var(--cream));border-radius:16px;padding:16px;background:rgba(255,255,255,.4)}
+.frame > figcaption{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--brand);margin:0 0 12px}
+.frame-360{width:360px}.frame-768{width:768px}.frame-1180{width:1180px;max-width:100%}
+@media (max-width:1260px){.frame-1180{width:100%}}
+
+/* ============ THE PATTERN UNDER TEST ============ */
+/* the wrapper is the container — cards respond to their SLOT, not the viewport */
+.card-grid{container:cards / inline-size;}
+.card-grid ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:18px}
+/* container (not media!) queries drive the column count */
+@container cards (width > 560px){.card-grid ul{grid-template-columns:repeat(2,1fr)}}
+@container cards (width > 900px){.card-grid ul{grid-template-columns:repeat(3,1fr)}}
+
+/* subgrid rows: icon / title / body / cta all align across the row,
+   regardless of text length — no min-height hacks */
+.card-grid li{display:grid;grid-row:span 4;grid-template-rows:subgrid;row-gap:10px;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:22px;box-shadow:var(--shadow-sm);
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.card-grid li:hover{transform:translateY(-3px);box-shadow:inset 1px 0 0 0 var(--hover-edge),var(--shadow-md)}
+.ico{width:52px;height:52px;border-radius:12px;background:var(--surface-tint);display:grid;place-items:center;font-size:1.4rem}
+.card-grid h3{margin:0;font-size:1.12rem}
+.card-grid p{margin:0;color:var(--text-muted);font-size:.94rem}
+.card-grid a{color:var(--accent);text-decoration:none;font-weight:600;font-size:.9rem;align-self:end}
+/* container-scoped fluid title: tracks the CARD's column, via cqi */
+@container cards (width > 560px){.card-grid h3{font-size:clamp(1.05rem, .9rem + 1cqi, 1.3rem)}}
+
+@media (prefers-reduced-motion:reduce){.card-grid li{transition:none}}
+.note{background:var(--surface-tint);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:20px 24px;margin-top:34px;max-width:900px}
+.note p{margin:0;color:var(--text-muted)}
+</style>
+</head>
+<body>
+<div class="intro">
+  <h1>Card grids: container queries + subgrid</h1>
+  <p>The same <strong>identical markup</strong> is dropped into three different-width slots. Cards count their <em>container</em>, not the viewport — 1-up in a sidebar-narrow slot, 2-up at tablet, 3-up in the full content column. Row internals align via <strong>subgrid</strong> (watch the “Learn more” links line up even with different body lengths).</p>
+</div>
+
+<div class="frames">
+  <figure class="frame frame-360"><figcaption>360px slot → 1-up</figcaption>
+    <div class="card-grid"><ul>
+      <li><span class="ico">🌿</span><h3>Pelvic Floor &amp; Bladder Health</h3><p>Urinary leakage, urgency, frequency, and pelvic organ prolapse — for all genders.</p><a href="#">Learn more →</a></li>
+      <li><span class="ico">🤰</span><h3>Pregnancy &amp; Postpartum</h3><p>Lumbopelvic pain, diastasis recti, and recovery from vaginal or cesarean birth. Personalized, consent-forward care through every stage.</p><a href="#">Learn more →</a></li>
+      <li><span class="ico">💜</span><h3>Complex Pelvic Pain</h3><p>Chronic pelvic pain treated with compassion.</p><a href="#">Learn more →</a></li>
+    </ul></div>
+  </figure>
+
+  <figure class="frame frame-768"><figcaption>768px slot → 2-up</figcaption>
+    <div class="card-grid"><ul>
+      <li><span class="ico">🌿</span><h3>Pelvic Floor &amp; Bladder Health</h3><p>Urinary leakage, urgency, frequency, and pelvic organ prolapse — for all genders.</p><a href="#">Learn more →</a></li>
+      <li><span class="ico">🤰</span><h3>Pregnancy &amp; Postpartum</h3><p>Lumbopelvic pain, diastasis recti, and recovery from vaginal or cesarean birth. Personalized, consent-forward care through every stage.</p><a href="#">Learn more →</a></li>
+      <li><span class="ico">💜</span><h3>Complex Pelvic Pain</h3><p>Chronic pelvic pain treated with compassion.</p><a href="#">Learn more →</a></li>
+      <li><span class="ico">🎗️</span><h3>Oncology &amp; Breast Care</h3><p>Breast-cancer rehabilitation, lymphedema management (CLT), and scar-tissue therapy.</p><a href="#">Learn more →</a></li>
+    </ul></div>
+  </figure>
+
+  <figure class="frame frame-1180"><figcaption>1180px slot → 3-up (+ cqi-fluid titles)</figcaption>
+    <div class="card-grid"><ul>
+      <li><span class="ico">🌿</span><h3>Pelvic Floor &amp; Bladder Health</h3><p>Urinary leakage, urgency, frequency, and pelvic organ prolapse — for all genders.</p><a href="#">Learn more →</a></li>
+      <li><span class="ico">🤰</span><h3>Pregnancy &amp; Postpartum</h3><p>Lumbopelvic pain, diastasis recti, and recovery from vaginal or cesarean birth. Personalized, consent-forward care through every stage of your journey.</p><a href="#">Learn more →</a></li>
+      <li><span class="ico">💜</span><h3>Complex Pelvic Pain</h3><p>Chronic pelvic pain treated with compassion.</p><a href="#">Learn more →</a></li>
+      <li><span class="ico">🎗️</span><h3>Oncology &amp; Breast Care</h3><p>Breast-cancer rehabilitation, lymphedema management (CLT), and scar-tissue therapy.</p><a href="#">Learn more →</a></li>
+      <li><span class="ico">🦴</span><h3>Orthopedics &amp; Bone Health</h3><p>Osteoporosis and musculoskeletal care through pelvic-health and Pilates-based rehab.</p><a href="#">Learn more →</a></li>
+      <li><span class="ico">🏃</span><h3>Sports Medicine &amp; Active Recovery</h3><p>Return-to-sport rehab and movement optimization.</p><a href="#">Learn more →</a></li>
+    </ul></div>
+  </figure>
+</div>
+
+<div class="note"><p><strong>Why this matters:</strong> when the same <code>ServiceCard</code> later lands in a narrower “related services” rail or a wider feature band, it adapts with <em>zero new CSS</em> — the component owns its responsiveness. Both container queries and subgrid are Baseline <em>Widely available</em> (mid-2026); the ~7% legacy tail simply sees non-aligned rows, never broken layout.</p></div>
+</body>
+</html>
