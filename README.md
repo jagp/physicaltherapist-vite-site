@@ -10,19 +10,19 @@ styles rather than rewriting components.
 rem, WCAG 1.4.4 zoom-safe), container-query components, a CSS-first mobile
 nav, self-hosted preloaded fonts, AVIF/WebP responsive images generated at
 build time, and Speculation-Rules prefetch/prerender on the static pages.
-
+A
 ## Tech stack
 
-| Concern        | Choice                                          |
-| -------------- | ----------------------------------------------- |
-| UI library     | React 19                                        |
-| Routing        | React Router 6 (`react-router-dom`)             |
-| Rendering      | `vite-react-ssg` — every route emits static HTML (+ sitemap) |
-| Build / dev    | Vite 8 (`@vitejs/plugin-react`, Oxc under the hood) |
-| Language       | TypeScript 6                                    |
-| Linting        | oxlint                                          |
-| Styling        | CSS Modules + layered custom-property tokens (fluid clamp scale) |
-| Images         | `vite-imagetools` (AVIF/WebP/JPEG srcset at build time) |
+| Concern     | Choice                                                |
+| ----------- | ----------------------------------------------------- |
+| UI library  | React 19                                              |
+| Routing     | React Router 6 (`react-router-dom`)                   |
+| Rendering   | `vite-react-ssg` — static HTML per route (+ sitemap)  |
+| Build / dev | Vite 8 (`@vitejs/plugin-react`, Oxc under the hood)   |
+| Language    | TypeScript 6                                          |
+| Linting     | oxlint                                                |
+| Styling     | CSS Modules + custom-prop tokens (fluid clamp scale)  |
+| Images      | `vite-imagetools` (AVIF/WebP/JPEG srcset at build)    |
 
 ## Getting started
 
@@ -119,7 +119,7 @@ URLs (not hash routing). When deploying, configure the host to fall back to
 The services section is **data-driven** from `src/data/services.ts`. That module
 exports a single array, `services: ServiceInfo[]`, where each entry is:
 
-```ts
+```:
 interface ServiceInfo {
   slug: string;     // URL segment, e.g. "/services/<slug>"
   icon: string;     // imported image asset (default, for light surfaces)
@@ -171,14 +171,9 @@ npm run lint
 Linting uses [oxlint](https://oxc.rs) (fast, Rust-based). For a production build
 you can enable type-aware rules by installing `oxlint-tsgolint` and turning on
 `typeAware` in `.oxlintrc.json`; see the
-[oxlint rules docs](https://oxc.rs/docs/guide/usage/linter/rules).
+[docs](https://oxc.rs/docs/guide/usage/linter/rules).
 
 ## Building for production
-
-```bash
-npm run build     # type-check + bundle into dist/
-npm run preview   # serve dist/ locally to verify
-```
 
 The output in `dist/` is a static site — deploy it to any static host (with the
 SPA fallback to `index.html` noted above).
