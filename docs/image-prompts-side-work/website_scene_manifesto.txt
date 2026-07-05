@@ -1,0 +1,433 @@
+WEBSITE SCENE MANIFESTO — Stephenson Physical Therapy
+Generated from dalle-queue.md — do not hand-edit; re-run build-manifesto.mjs after queue revisions.
+24 scenes: 6 services x (hero + inset) x (Set A / Set B).
+Scene prompts already embed the studio world, style guardrails, and the verbatim
+text identity anchor for the therapist. The identity codex lives in
+rgspt-identiy-reference.txt and is merged at generation time.
+
+=== SCENE-01 ===
+Alias: pelvic-floor-bladder-health--hero-A
+Service: Pelvic Floor & Bladder Health (pelvic-floor-bladder-health)
+Slot: hero | Set: A | Size: 1536x1024 (wide landscape)
+Output: pelvic-floor-landscape.png
+Status: TODO
+Alt: Physical therapist in a relaxed one-on-one consultation with a patient about pelvic floor and bladder health.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio: cream walls, a large
+window with soft natural daylight, framed muted watercolor landscape art, light-wood shelving with books
+and a woven basket, a potted green plant, and pale-lavender accents including an upholstered treatment
+table and exercise balls. A kind, confident physical therapist in her senior years with short blonde
+hair and glasses, wearing a cream blouse with colorful floral-embroidered sleeves and silver jewelry,
+sits in a relaxed one-on-one consultation with a middle-aged man in a casual sweater; they face each
+other in comfortable chairs near a small light-wood table, the therapist listening attentively with a
+notebook resting on her lap, the patient at ease mid-conversation. Wide landscape composition with the
+two people in the left two-thirds of the frame and soft, uncluttered negative space on the right side.
+Softly muted warm color grade, shallow depth of field, authentic candid feel, no text, no logos, no
+medical machinery.
+
+=== SCENE-02 ===
+Alias: pelvic-floor-bladder-health--hero-B
+Service: Pelvic Floor & Bladder Health (pelvic-floor-bladder-health)
+Slot: hero | Set: B | Size: 1536x1024 (wide landscape)
+Output: pelvic-floor-landscape.png
+Status: TODO
+Alt: Patient smiling with relief during a warm consultation about bladder health.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio: cream walls, a large
+window with soft natural daylight, framed muted watercolor landscape art, light-wood shelving with books
+and a woven basket, a potted green plant, and pale-lavender accents including an upholstered treatment
+table and exercise balls. A kind, confident physical therapist in her senior years with short blonde
+hair and glasses, wearing a cream blouse with colorful floral-embroidered sleeves and silver jewelry,
+sits at a small light-wood desk in a warm consultation with a woman in her 50s; the patient is laughing
+softly with visible relief, a cup of tea beside her, the therapist smiling and making a gentle open-hand
+gesture as she explains. Wide landscape composition with the two women in the left two-thirds of the
+frame and soft, uncluttered negative space on the right side. Softly muted warm color grade, shallow
+depth of field, authentic candid feel, no text, no logos, no medical machinery.
+
+=== SCENE-03 ===
+Alias: pelvic-floor-bladder-health--inset-A
+Service: Pelvic Floor & Bladder Health (pelvic-floor-bladder-health)
+Slot: inset | Set: A | Size: 1024x1024 (square, crop to 4:3 after selection)
+Output: pelvic-floor-inset.png
+Status: TODO
+Alt: Therapist guiding a patient through gentle breathing work on the treatment table.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio with cream walls, soft
+natural window light, framed muted watercolor art, a potted green plant, and a pale-lavender upholstered
+treatment table. A kind, confident physical therapist in her senior years with short blonde hair and
+glasses, wearing a cream blouse with colorful floral-embroidered sleeves and silver jewelry, sits on a
+low stool beside the table gently coaching a woman in her 40s who lies comfortably on her back, fully
+clothed in soft activewear, one hand resting on her own ribcage as she practices a slow breathing
+exercise. Both are calm and focused. Softly muted warm color grade, shallow depth of field, authentic
+candid feel, no text, no logos, no medical machinery.
+
+=== SCENE-04 ===
+Alias: pelvic-floor-bladder-health--inset-B
+Service: Pelvic Floor & Bladder Health (pelvic-floor-bladder-health)
+Slot: inset | Set: B | Size: 1024x1024 (square, crop to 4:3 after selection)
+Output: pelvic-floor-inset.png
+Status: TODO
+Alt: Therapist guiding seated posture and core work on an exercise ball.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio with cream walls, soft
+natural window light, framed muted watercolor art, a potted green plant, and light-wood shelving. A
+woman in her 40s in soft activewear sits tall on a pale-lavender exercise ball, hands resting lightly on
+her thighs, while a kind, confident physical therapist in her senior years with short blonde hair and
+glasses, wearing a cream blouse with colorful floral-embroidered sleeves and silver jewelry, sits beside
+her guiding her upright posture with one hand hovering near the patient's lower back. Focused, easy
+mood. Softly muted warm color grade, shallow depth of field, authentic candid feel, no text, no logos,
+no medical machinery.
+
+=== SCENE-05 ===
+Alias: pregnancy-postpartum--hero-A
+Service: Pregnancy & Postpartum (pregnancy-postpartum)
+Slot: hero | Set: A | Size: 1536x1024 (wide landscape)
+Output: pregnancy-landscape.png
+Status: TODO
+Alt: Therapist reassuring an expectant mother during a consultation, her partner seated nearby.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio: cream walls, a large
+window with soft natural daylight, framed muted watercolor landscape art, light-wood shelving with books
+and a woven basket, a potted green plant, and pale-lavender accents including an upholstered treatment
+table and exercise balls. A kind, confident physical therapist in her senior years with short blonde
+hair and glasses, wearing a cream blouse with colorful floral-embroidered sleeves and silver jewelry,
+sits on a low stool gently holding the hands of a pregnant woman in a tank top and leggings who sits on
+the edge of the pale-lavender treatment table, her partner seated supportively in the soft-focus
+background. Reassuring, attentive mood. Wide landscape composition with the people in the left
+two-thirds of the frame and soft negative space on the right side. Softly muted warm color grade,
+shallow depth of field, authentic candid feel, no text, no logos, no medical machinery.
+
+=== SCENE-06 ===
+Alias: pregnancy-postpartum--hero-B
+Service: Pregnancy & Postpartum (pregnancy-postpartum)
+Slot: hero | Set: B | Size: 1536x1024 (wide landscape)
+Output: pregnancy-landscape.png
+Status: TODO
+Alt: New mother rebuilding core strength in a guided postpartum session, her baby beside her.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio: cream walls, a large
+window with soft natural daylight, framed muted watercolor landscape art, light-wood shelving, a potted
+green plant, and pale-lavender accents. A new mother in soft activewear performs a gentle supported core
+exercise on an exercise mat while her infant lies contentedly on a soft cream blanket beside her; a
+kind, confident physical therapist in her senior years with short blonde hair and glasses, wearing a
+cream blouse with colorful floral-embroidered sleeves and silver jewelry, kneels nearby coaching her
+with an encouraging smile. Tender, hopeful mood. Wide landscape composition with the people in the left
+two-thirds of the frame and soft, uncluttered negative space on the right side. Softly muted warm color
+grade, shallow depth of field, authentic candid feel, no text, no logos, no medical machinery.
+
+=== SCENE-07 ===
+Alias: pregnancy-postpartum--inset-A
+Service: Pregnancy & Postpartum (pregnancy-postpartum)
+Slot: inset | Set: A | Size: 1024x1024 (square, crop to 4:3 after selection)
+Output: pregnancy-inset.png
+Status: TODO
+Alt: Therapist holding an expectant mother's hands in a moment of reassurance.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio with cream walls, soft
+natural window light, framed muted watercolor art, a potted green plant, and pale-lavender accents. A
+kind, confident physical therapist in her senior years with short blonde hair and glasses, wearing a
+cream blouse with colorful floral-embroidered sleeves and silver jewelry, gently holds the hands of a
+pregnant woman in a tank top and leggings seated on the edge of a pale-lavender treatment table, making
+warm reassuring eye contact; the woman's partner sits supportively in the soft-focus background. Closer,
+more intimate framing on the two women's connected hands and faces. Softly muted warm color grade,
+shallow depth of field, authentic candid feel, no text, no logos, no medical machinery.
+
+=== SCENE-08 ===
+Alias: pregnancy-postpartum--inset-B
+Service: Pregnancy & Postpartum (pregnancy-postpartum)
+Slot: inset | Set: B | Size: 1024x1024 (square, crop to 4:3 after selection)
+Output: pregnancy-inset.png
+Status: TODO
+Alt: Therapist guiding gentle standing pelvic alignment work during pregnancy.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio with cream walls, soft
+natural window light, framed muted watercolor art, and pale-lavender accents. A pregnant woman in a
+fitted tank top and leggings stands in a relaxed posture while a kind, confident physical therapist in
+her senior years with short blonde hair and glasses, wearing a cream blouse with colorful
+floral-embroidered sleeves and silver jewelry, stands slightly behind her with hands resting lightly at
+the woman's hips, guiding a gentle pelvic tilt; both are calm and focused. Softly muted warm color
+grade, shallow depth of field, authentic candid feel, no text, no logos, no medical machinery.
+
+=== SCENE-09 ===
+Alias: complex-pelvic-pain--hero-A
+Service: Complex Pelvic Pain (complex-pelvic-pain)
+Slot: hero | Set: A | Size: 1536x1024 (wide landscape)
+Output: pelvic-pain-landscape.png
+Status: TODO
+Alt: Therapist offering compassionate, unhurried reassurance to a patient during a private consultation.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio: cream walls, a large
+window with soft natural daylight, framed muted watercolor landscape art, light-wood furniture, a potted
+green plant, a soft throw blanket over a chair, and pale-lavender accents. A kind, confident physical
+therapist in her senior years with short blonde hair and glasses, wearing a cream blouse with colorful
+floral-embroidered sleeves and silver jewelry, leans in with warm eye contact and gently rests her hand
+over the clasped hands of a woman in her 30s seated across from her in a comfortable armchair; the
+patient's expression is relieved and hopeful, as if finally feeling heard. A cup of tea sits on the
+small side table between them. Wide landscape composition with the two women in the left two-thirds of
+the frame and soft, uncluttered negative space on the right side. Softly muted warm color grade, shallow
+depth of field, authentic candid feel, no text, no logos, no medical machinery.
+
+=== SCENE-10 ===
+Alias: complex-pelvic-pain--hero-B
+Service: Complex Pelvic Pain (complex-pelvic-pain)
+Slot: hero | Set: B | Size: 1536x1024 (wide landscape)
+Output: pelvic-pain-landscape.png
+Status: TODO
+Alt: A quiet moment of hope and support by the window during pelvic pain care.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio: cream walls, a large
+window with soft natural daylight, framed muted watercolor landscape art, light-wood furniture, and a
+potted green plant. A kind, confident physical therapist in her senior years with short blonde hair and
+glasses, wearing a cream blouse with colorful floral-embroidered sleeves and silver jewelry, stands by
+the sunlit window with a woman in her 40s, one hand resting supportively on the woman's shoulder; the
+patient looks out toward the light with a faint, hopeful smile, as if a weight is beginning to lift.
+Quiet, dignified mood. Wide landscape composition with the two women in the left two-thirds of the
+frame and soft, uncluttered negative space on the right side. Softly muted warm color grade, shallow
+depth of field, authentic candid feel, no text, no logos, no medical machinery.
+
+=== SCENE-11 ===
+Alias: complex-pelvic-pain--inset-A
+Service: Complex Pelvic Pain (complex-pelvic-pain)
+Slot: inset | Set: A | Size: 1024x1024 (square, crop to 4:3 after selection)
+Output: pelvic-pain-inset.png
+Status: TODO
+Alt: Guided relaxation and breathing exercise during a pelvic pain therapy session.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio with cream walls, soft
+natural window light, framed muted watercolor art, a potted green plant, and pale-lavender accents. A
+woman in her 30s in soft activewear reclines comfortably on an exercise mat with her knees supported by
+a cushioned bolster, one hand on her belly and one on her ribs, practicing slow relaxed breathing; a
+kind, confident physical therapist in her senior years with short blonde hair and glasses, wearing a
+cream blouse with colorful floral-embroidered sleeves and silver jewelry, kneels alongside coaching her
+gently. Peaceful, unhurried mood. Softly muted warm color grade, shallow depth of field, authentic
+candid feel, no text, no logos, no medical machinery.
+
+=== SCENE-12 ===
+Alias: complex-pelvic-pain--inset-B
+Service: Complex Pelvic Pain (complex-pelvic-pain)
+Slot: inset | Set: B | Size: 1024x1024 (square, crop to 4:3 after selection)
+Output: pelvic-pain-inset.png
+Status: TODO
+Alt: Supported restorative stretch with gentle hands-on reassurance.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio with cream walls, soft
+natural window light, framed muted watercolor art, and pale-lavender accents. A woman in her 30s in soft
+activewear rests in a supported child's pose over a cushioned bolster on an exercise mat, her body
+relaxed and at ease; a kind, confident physical therapist in her senior years with short blonde hair and
+glasses, wearing a cream blouse with colorful floral-embroidered sleeves and silver jewelry, kneels
+beside her with a reassuring hand resting lightly on the woman's upper back. Deeply peaceful mood.
+Softly muted warm color grade, shallow depth of field, authentic candid feel, no text, no logos, no
+medical machinery.
+
+=== SCENE-13 ===
+Alias: oncology-breast-care--hero-A
+Service: Oncology & Breast Care (oncology-breast-care)
+Slot: hero | Set: A | Size: 1536x1024 (wide landscape)
+Output: oncology-landscape.png
+Status: TODO
+Alt: Therapist gently guiding a shoulder and arm stretch during breast-cancer rehabilitation.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio: cream walls, a large
+window with soft natural daylight, framed muted watercolor landscape art, light-wood shelving, a potted
+green plant, and pale-lavender accents including an upholstered treatment table. A kind, confident
+physical therapist in her senior years with short blonde hair and glasses, wearing a cream blouse with
+colorful floral-embroidered sleeves and silver jewelry, stands beside a woman in her 50s wearing a soft
+patterned headwrap and comfortable clothing who sits upright on the treatment table; the therapist
+gently supports the woman's raised arm at the wrist and elbow in a slow shoulder-mobility stretch. Both
+look calm and quietly encouraged. Wide landscape composition with the two women in the left two-thirds
+of the frame and soft, uncluttered negative space on the right side. Softly muted warm color grade,
+shallow depth of field, authentic candid feel, no text, no logos, no medical machinery.
+
+=== SCENE-14 ===
+Alias: oncology-breast-care--hero-B
+Service: Oncology & Breast Care (oncology-breast-care)
+Slot: hero | Set: B | Size: 1536x1024 (wide landscape)
+Output: oncology-landscape.png
+Status: TODO
+Alt: Guided overhead mobility exercise during oncology rehabilitation.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio: cream walls, a large
+window with soft natural daylight, framed muted watercolor landscape art, light-wood shelving, a potted
+green plant, and pale-lavender accents. A woman in her 50s with very short silver regrown hair and a
+serene, quietly proud expression sits upright on a wooden bench, slowly raising a light wooden dowel
+overhead with both hands; beside her, a kind, confident physical therapist in her senior years with
+short blonde hair and glasses, wearing a cream blouse with colorful floral-embroidered sleeves and
+silver jewelry, guides the movement with a gentle hand under the patient's elbow. Wide landscape
+composition with the two women in the left two-thirds of the frame and soft, uncluttered negative space
+on the right side. Softly muted warm color grade, shallow depth of field, authentic candid feel, no
+text, no logos, no medical machinery.
+
+=== SCENE-15 ===
+Alias: oncology-breast-care--inset-A
+Service: Oncology & Breast Care (oncology-breast-care)
+Slot: inset | Set: A | Size: 1024x1024 (square, crop to 4:3 after selection)
+Output: oncology-inset.png
+Status: TODO
+Alt: Gentle lymphedema massage therapy on a patient's arm.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio with cream walls, soft
+natural window light, framed muted watercolor art, and pale-lavender accents. Close, warm scene: a kind,
+confident physical therapist in her senior years with short blonde hair and glasses, wearing a cream
+blouse with colorful floral-embroidered sleeves and silver jewelry, uses both hands to perform a slow,
+gentle massage along the forearm and upper arm of a relaxed seated woman in her 50s with her sleeve
+rolled up, the patient's expression restful. Soft window light across their hands. Softly muted warm
+color grade, shallow depth of field, authentic candid feel, no text, no logos, no medical machinery.
+
+=== SCENE-16 ===
+Alias: oncology-breast-care--inset-B
+Service: Oncology & Breast Care (oncology-breast-care)
+Slot: inset | Set: B | Size: 1024x1024 (square, crop to 4:3 after selection)
+Output: oncology-inset.png
+Status: TODO
+Alt: Therapist fitting a compression sleeve during lymphedema care.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio with cream walls, soft
+natural window light, framed muted watercolor art, and pale-lavender accents. A kind, confident physical
+therapist in her senior years with short blonde hair and glasses, wearing a cream blouse with colorful
+floral-embroidered sleeves and silver jewelry, carefully smooths a soft beige compression sleeve onto
+the extended forearm of a seated woman in her 50s; both women share a small, easy smile, the mood
+practical and encouraging. Softly muted warm color grade, shallow depth of field, authentic candid
+feel, no text, no logos, no medical machinery.
+
+=== SCENE-17 ===
+Alias: orthopedics-bone-health--hero-A
+Service: Orthopedics & Bone Health (orthopedics-bone-health)
+Slot: hero | Set: A | Size: 1536x1024 (wide landscape)
+Output: ortho-landscape.png
+Status: TODO
+Alt: Therapist guiding an older adult through posture and balance training for bone health.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio: cream walls, a large
+window with soft natural daylight, framed muted watercolor landscape art, a potted green plant, and
+pale-lavender accents, with a light-wood Pilates reformer visible at the edge of the scene. A kind,
+confident physical therapist in her senior years with short blonde hair and glasses, wearing a cream
+blouse with colorful floral-embroidered sleeves and silver jewelry, guides a silver-haired woman in her
+late 60s wearing soft activewear through a standing posture-and-balance exercise, the therapist's hands
+resting lightly at the patient's shoulder and mid-back, both with small warm smiles. Wide landscape
+composition with the two women in the left two-thirds of the frame and soft, uncluttered negative space
+on the right side. Softly muted warm color grade, shallow depth of field, authentic candid feel, no
+text, no logos, no medical machinery.
+
+=== SCENE-18 ===
+Alias: orthopedics-bone-health--hero-B
+Service: Orthopedics & Bone Health (orthopedics-bone-health)
+Slot: hero | Set: B | Size: 1536x1024 (wide landscape)
+Output: ortho-landscape.png
+Status: TODO
+Alt: Older adult building functional strength in a guided bone-health session.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio: cream walls, a large
+window with soft natural daylight, framed muted watercolor landscape art, light-wood shelving, a potted
+green plant, and pale-lavender accents. A fit man in his early 70s with white hair, wearing a soft
+polo shirt and comfortable pants, performs a controlled sit-to-stand exercise from a sturdy wooden
+chair holding small light dumbbells, his expression focused and capable; beside him, a kind, confident
+physical therapist in her senior years with short blonde hair and glasses, wearing a cream blouse with
+colorful floral-embroidered sleeves and silver jewelry, coaches him with an approving nod. Wide
+landscape composition with the two people in the left two-thirds of the frame and soft, uncluttered
+negative space on the right side. Softly muted warm color grade, shallow depth of field, authentic
+candid feel, no text, no logos, no medical machinery.
+
+=== SCENE-19 ===
+Alias: orthopedics-bone-health--inset-A
+Service: Orthopedics & Bone Health (orthopedics-bone-health)
+Slot: inset | Set: A | Size: 1024x1024 (square, crop to 4:3 after selection)
+Output: ortho-inset.png
+Status: TODO
+Alt: Pilates reformer–based rehabilitation session for strength and bone health.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio with cream walls, soft
+natural window light, framed muted watercolor art, a potted green plant, and pale-lavender accents. A
+silver-haired woman in her late 60s in soft activewear lies on a light-wood Pilates reformer performing
+gentle, controlled footwork with the springs, while a kind, confident physical therapist in her senior
+years with short blonde hair and glasses, wearing a cream blouse with colorful floral-embroidered
+sleeves and silver jewelry, crouches beside the reformer guiding the alignment of the patient's legs.
+Focused, encouraging mood. Softly muted warm color grade, shallow depth of field, authentic candid feel,
+no text, no logos, no medical machinery.
+
+=== SCENE-20 ===
+Alias: orthopedics-bone-health--inset-B
+Service: Orthopedics & Bone Health (orthopedics-bone-health)
+Slot: inset | Set: B | Size: 1024x1024 (square, crop to 4:3 after selection)
+Output: ortho-inset.png
+Status: TODO
+Alt: Weight-bearing step training for bone strength with hands-on guidance.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio with cream walls, soft
+natural window light, framed muted watercolor art, and a potted green plant. A silver-haired woman in
+her late 60s in soft activewear steps up onto a low light-wood step with tall, confident posture, while
+a kind, confident physical therapist in her senior years with short blonde hair and glasses, wearing a
+cream blouse with colorful floral-embroidered sleeves and silver jewelry, stands close beside her with
+a light steadying hand near her shoulder. Focused, encouraging mood. Softly muted warm color grade,
+shallow depth of field, authentic candid feel, no text, no logos, no medical machinery.
+
+=== SCENE-21 ===
+Alias: sports-medicine-active-recovery--hero-A
+Service: Sports Medicine & Active Recovery (sports-medicine-active-recovery)
+Slot: hero | Set: A | Size: 1536x1024 (wide landscape)
+Output: sports-landscape.png
+Status: TODO
+Alt: Therapist coaching an athlete through return-to-sport strength training.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio: cream walls, a large
+window with soft natural daylight, framed muted watercolor landscape art, light-wood shelving, a potted
+green plant, and pale-lavender accents including exercise balls. An athletic woman in her late 20s in
+running tights and a fitted top performs a controlled single-leg lunge while holding a taut resistance
+band anchored low, her focus determined and confident; beside her, a kind, confident physical therapist
+in her senior years with short blonde hair and glasses, wearing a cream blouse with colorful
+floral-embroidered sleeves and silver jewelry, coaches her form with an encouraging gesture. A sense of
+controlled strength and energy. Wide landscape composition with the two women in the left two-thirds of
+the frame and soft, uncluttered negative space on the right side. Softly muted warm color grade, shallow
+depth of field, authentic candid feel, no text, no logos, no medical machinery.
+
+=== SCENE-22 ===
+Alias: sports-medicine-active-recovery--hero-B
+Service: Sports Medicine & Active Recovery (sports-medicine-active-recovery)
+Slot: hero | Set: B | Size: 1536x1024 (wide landscape)
+Output: sports-landscape.png
+Status: TODO
+Alt: Therapist assessing landing mechanics during return-to-sport rehabilitation.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio: cream walls, a large
+window with soft natural daylight, framed muted watercolor landscape art, light-wood shelving, a potted
+green plant, and pale-lavender accents. An athletic man in his 30s in a fitted athletic shirt and
+shorts performs a slow, controlled step-down from a low light-wood plyometric step, concentrating on
+his landing leg; a kind, confident physical therapist in her senior years with short blonde hair and
+glasses, wearing a cream blouse with colorful floral-embroidered sleeves and silver jewelry, crouches
+slightly to watch his knee alignment, one hand raised in a precise coaching gesture. Controlled,
+focused energy. Wide landscape composition with the two people in the left two-thirds of the frame and
+soft, uncluttered negative space on the right side. Softly muted warm color grade, shallow depth of
+field, authentic candid feel, no text, no logos, no medical machinery.
+
+=== SCENE-23 ===
+Alias: sports-medicine-active-recovery--inset-A
+Service: Sports Medicine & Active Recovery (sports-medicine-active-recovery)
+Slot: inset | Set: A | Size: 1024x1024 (square, crop to 4:3 after selection)
+Output: sports-inset.png
+Status: TODO
+Alt: Resistance-band hip strengthening during an active-recovery session.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio with cream walls, soft
+natural window light, framed muted watercolor art, and pale-lavender accents. An athletic woman in her
+late 20s in running tights lies on an exercise mat performing a band-resisted hip-strengthening bridge,
+a soft resistance loop around her thighs, while a kind, confident physical therapist in her senior years
+with short blonde hair and glasses, wearing a cream blouse with colorful floral-embroidered sleeves and
+silver jewelry, kneels beside her lightly guiding the alignment of her knee. Focused, energetic but
+calm mood. Softly muted warm color grade, shallow depth of field, authentic candid feel, no text, no
+logos, no medical machinery.
+
+=== SCENE-24 ===
+Alias: sports-medicine-active-recovery--inset-B
+Service: Sports Medicine & Active Recovery (sports-medicine-active-recovery)
+Slot: inset | Set: B | Size: 1024x1024 (square, crop to 4:3 after selection)
+Output: sports-inset.png
+Status: TODO
+Alt: Hands-on knee assessment during a return-to-sport evaluation.
+Prompt:
+Warm editorial photograph in a calm, upscale private physical-therapy studio with cream walls, soft
+natural window light, framed muted watercolor art, and pale-lavender accents including an upholstered
+treatment table. An athletic woman in her late 20s in running gear sits on the edge of the
+pale-lavender treatment table while a kind, confident physical therapist in her senior years with short
+blonde hair and glasses, wearing a cream blouse with colorful floral-embroidered sleeves and silver
+jewelry, gently assesses the woman's knee with both hands, the athlete watching with engaged, trusting
+attention. Professional, optimistic mood. Softly muted warm color grade, shallow depth of field,
+authentic candid feel, no text, no logos, no medical machinery.
