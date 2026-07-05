@@ -11,8 +11,12 @@ import iconPelvicSupportCream from '../assets/icons/icon-pelvic-support-cream.pn
 import iconOncologyCream from '../assets/icons/icon-oncology-cream.png';
 import iconSpineCream from '../assets/icons/icon-spine-cream.png';
 import iconSportsCream from '../assets/icons/icon-sports-cream.png';
-import pregnancyLandscape from '../assets/service-page-images/pregnancy-landscape.png';
-import pregnancyInset from '../assets/service-page-images/pregnancy-inset.png';
+import pregnancyLandscape from '../assets/service-page-images/pregnancy-landscape.png?w=1448&format=jpeg';
+import pregnancyLandscapeAvif from '../assets/service-page-images/pregnancy-landscape.png?w=480;960;1448&format=avif&as=srcset';
+import pregnancyLandscapeWebp from '../assets/service-page-images/pregnancy-landscape.png?w=480;960;1448&format=webp&as=srcset';
+import pregnancyInset from '../assets/service-page-images/pregnancy-inset.png?w=1240&format=jpeg';
+import pregnancyInsetAvif from '../assets/service-page-images/pregnancy-inset.png?w=480;960;1240&format=avif&as=srcset';
+import pregnancyInsetWebp from '../assets/service-page-images/pregnancy-inset.png?w=480;960;1240&format=webp&as=srcset';
 
 
 
@@ -21,6 +25,13 @@ export interface ServiceImage {
   src: string;
   /** Descriptive alt text; theme-based, fallback "picture of ▲". */
   alt: string;
+  /** Optional responsive-delivery variants (vite-imagetools srcsets).
+      When present, components render an AVIF/WebP/JPEG <picture>. */
+  avifSrcSet?: string;
+  webpSrcSet?: string;
+  /** Intrinsic px dims of the fallback asset (reserves aspect ratio). */
+  width?: number;
+  height?: number;
 }
 
 export interface ExternalLink {
@@ -142,6 +153,10 @@ export const services: ServiceInfo[] = [
       claim: 'I bring long-lasting vitality to your whole family.',
       heroImage: {
         src: pregnancyLandscape,
+        avifSrcSet: pregnancyLandscapeAvif,
+        webpSrcSet: pregnancyLandscapeWebp,
+        width: 1448,
+        height: 1086,
         alt: 'A physical therapist holds a pregnant patient’s hand during a supportive consultation, her partner seated nearby.',
       },
       heroImageSide: 'left',
@@ -149,6 +164,10 @@ export const services: ServiceInfo[] = [
         'Pregnancy and the months after birth ask a lot of your body — and you deserve a provider who’s spent decades learning how to support it. As a Board-Certified Women’s Health Clinical Specialist, I work one-on-one with you through every stage, from the aches of a changing pregnancy to a full return to strength postpartum.',
       insetImage: {
         src: pregnancyInset,
+        avifSrcSet: pregnancyInsetAvif,
+        webpSrcSet: pregnancyInsetWebp,
+        width: 1240,
+        height: 930,
         alt: 'A physical therapist talking with a pregnant patient during a consultation.',
       },
       mainBody:

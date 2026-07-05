@@ -1,10 +1,15 @@
 # Physical Therapy Practice — Website Template
 
-A marketing site for a physical-therapy / allied-health practice, built as a
-single-page React application with client-side routing, a data-driven services
-section, and a CSS design-token system. It's structured to be reusable: content
-lives in data and branding lives in design tokens, so you can adapt it to a
-practice by editing data and styles rather than rewriting components.
+A marketing site for a physical-therapy / allied-health practice — statically
+pre-rendered React with a data-driven services section and a CSS design-token
+system. It's structured to be reusable: content lives in data and branding
+lives in design tokens, so you can adapt it to a practice by editing data and
+styles rather than rewriting components.
+
+**Responsive & fast by construction:** fluid type/space tokens (`clamp()` on
+rem, WCAG 1.4.4 zoom-safe), container-query components, a CSS-first mobile
+nav, self-hosted preloaded fonts, AVIF/WebP responsive images generated at
+build time, and Speculation-Rules prefetch/prerender on the static pages.
 
 ## Tech stack
 
@@ -12,10 +17,12 @@ practice by editing data and styles rather than rewriting components.
 | -------------- | ----------------------------------------------- |
 | UI library     | React 19                                        |
 | Routing        | React Router 6 (`react-router-dom`)             |
+| Rendering      | `vite-react-ssg` — every route emits static HTML (+ sitemap) |
 | Build / dev    | Vite 8 (`@vitejs/plugin-react`, Oxc under the hood) |
 | Language       | TypeScript 6                                    |
 | Linting        | oxlint                                          |
-| Styling        | Plain CSS with layered custom-property tokens   |
+| Styling        | CSS Modules + layered custom-property tokens (fluid clamp scale) |
+| Images         | `vite-imagetools` (AVIF/WebP/JPEG srcset at build time) |
 
 ## Getting started
 
@@ -27,8 +34,11 @@ practice by editing data and styles rather than rewriting components.
 ### Install
 
 ```bash
-npm install
+npm install --legacy-peer-deps
 ```
+
+(The flag is pinned in `.npmrc` — `vite-react-ssg`'s declared peer range
+trails Vite 8; the combination is build-verified.)
 
 ### Run the dev server
 

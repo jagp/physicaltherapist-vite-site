@@ -87,6 +87,15 @@ A `PreToolUse` hook on `Bash` (in `.claude/settings.json`) blocks the bright-lin
 * **Known dependency risk (accepted, monitored):** `vite-react-ssg@0.9.1-beta.1` is a beta pin and declares a peer range of `vite ≤7`, while the project runs **Vite 8**. The combination is **build-verified** (renders all pages, lint clean), but `npm ci`/`npm install` hard-fails on `ERESOLVE` without `legacy-peer-deps`. This is pinned in **`.npmrc`** (`legacy-peer-deps=true`) so local + CI installs succeed. **Remove the flag once `vite-react-ssg` publishes a Vite 8 peer range** (or a stable ≥1.0 release). Node is pinned to **22** via `.node-version`.
 * Per-page `<head>` (title/description/canonical/OG/JSON-LD) is emitted by `PageSeo` / `ServiceSeo` components relying on **React 19 head hoisting**; under SSG these land in each page's static HTML for crawlers.
 
+### Styling conventions (post responsive-refactor, 7/4/26)
+
+* **CSS Modules, co-located** (`Component.module.css`). No runtime `<style>` injection (the old `ensure*CSS()` pattern is retired); no Tailwind; no `useMediaQuery`/`isMobile` JS layout flags.
+* **Three responsive layers:** (1) media queries at the canonical breakpoints — `1199px / 991px / 767px / 599px` max-width — for page *structure* only; (2) **container queries** for component adaptation (see `src/styles/grids.css` card grid, `CTABand`); (3) **fluid rem `clamp()` tokens** for type/space (`tokens/typography.css`, `tokens/spacing.css`, anchors 360→1200px).
+* **Fluid type rule (WCAG 1.4.4):** every font-size clamp is rem-anchored (min, max, and intercept) with **max ≤ 1.5×min**. Bare-vw font sizes are banned (WCAG F94). Space tokens are exempt.
+* **Fonts are self-hosted** (`public/fonts/*.woff2`, preloaded in `index.html` with `crossorigin`). Never reintroduce a Google Fonts `@import`/`<link>`.
+* **Images go through `<ResponsiveImage>`** (`components/core`) — AVIF/WebP/JPEG srcset via `vite-imagetools` query imports. Exactly one `priority` (LCP) image per page; everything below the fold lazy-loads; every image carries intrinsic `width`/`height`.
+* **Speculative loading:** `index.html` ships Speculation Rules (prefetch immediate / prerender moderate). Chromium-only progressive enhancement — never rely on it; gate on-load side effects with `document.prerendering` if any are added.
+
 ### Open items / TODO
 
 * **Testing suite in the PR step (planned):** stand up an automated test suite that runs on every PR into `develop`, so nothing merges without passing tests. Wire it as CI (GitHub Actions) triggered on `pull_request` targeting `develop`. Tracked here until built.

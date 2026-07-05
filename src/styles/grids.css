@@ -1,0 +1,33 @@
+/* ============================================================
+   Shared responsive card grids — CONTAINER QUERIES + SUBGRID.
+   The wrapper is the container: cards respond to their SLOT, not
+   the viewport, so the same grid works in a full-width section, a
+   narrow rail, or a split column with zero extra CSS.
+   Both features Baseline Widely available (mid-2026); the legacy
+   tail sees stacked, non-row-aligned cards — degraded, never broken.
+   ============================================================ */
+
+.card-grid { container: cards / inline-size; }
+
+.card-grid__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-s-m);
+}
+
+@container cards (width > 560px) {
+  .card-grid__list { grid-template-columns: repeat(2, 1fr); }
+}
+@container cards (width > 900px) {
+  .card-grid__list { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Equal-height rows: grid items stretch by default, and every card's body
+   block is flex:1, so titles align (uniform icon rows) and actions pin to
+   the bottom across a row. (display:contents on <li> was rejected — it can
+   strip list semantics from the a11y tree.) */
+.card-grid__list > li { margin: 0; padding: 0; }
+.card-grid__list > li > * { height: 100%; }

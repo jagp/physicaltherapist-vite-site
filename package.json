@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource-variable/fraunces": "^5.2.9",
+    "@fontsource-variable/work-sans": "^5.2.8",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-router-dom": "^6.30.4"
@@ -22,6 +24,7 @@
     "oxlint": "^1.69.0",
     "typescript": "~6.0.2",
     "vite": "^8.1.0",
+    "vite-imagetools": "^10.0.1",
     "vite-react-ssg": "^0.9.1-beta.1"
   }
 }

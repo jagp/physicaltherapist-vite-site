@@ -1,0 +1,46 @@
+/* PageHeader — fluid section padding + token type; leaf ornament shrinks
+   on phones instead of crowding the title. */
+
+.header {
+  background: var(--linen);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.leaf {
+  position: absolute;
+  top: -20px;
+  right: 40px;
+  height: 150px;
+  width: auto;
+  opacity: 0.08;
+  filter: grayscale(1) brightness(0);
+  pointer-events: none;
+}
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: var(--section-pad-sm) var(--gutter);
+  position: relative;
+}
+
+.eyebrow { margin: 0 0 14px; }
+
+.title {
+  margin: 0;
+  font-size: var(--fs-h1); /* fluid rem token (36→54px, zoom-safe) */
+  max-width: 18ch;
+}
+
+.lede {
+  margin: 18px 0 0;
+  color: var(--text-muted);
+  font-size: var(--fs-lead);
+  max-width: 60ch;
+}
+
+@media (max-width: 599px) {
+  .leaf { height: 96px; right: 12px; opacity: 0.06; }
+}

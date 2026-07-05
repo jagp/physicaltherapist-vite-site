@@ -2,6 +2,7 @@ import { writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { defineConfig, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
+import { imagetools } from 'vite-imagetools'
 import type {} from 'vite-react-ssg' // module augmentation: adds ssgOptions to UserConfig
 import { SERVICE_SLUGS } from './src/data/service-slugs.js'
 
@@ -28,7 +29,7 @@ function sitemapPlugin(): Plugin {
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), sitemapPlugin()],
+  plugins: [react(), imagetools(), sitemapPlugin()],
   ssgOptions: {
     // Flat output (services/<slug>.html): Cloudflare Pages serves these at
     // the extensionless URL with NO redirect, exactly matching our

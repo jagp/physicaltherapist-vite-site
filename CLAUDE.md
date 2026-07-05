@@ -37,13 +37,14 @@ physicaltherapist-vite-site/
 - - - bio → about-page, awards-and-more, scholarship
 - - - faq-copy, new-patients, service-pages-source, what-to-expect
 - - superpowers →
-- - - mocks
+- - - mocks → (incl. responsive/ — Gate B mockups)
+- - - plans → (implementation plans; 2026-07-04-responsive-refactor)
 - - - specs
 - src →
 - - App (route table as vite-react-ssg RouteRecord[]), main (ViteReactSSG bootstrap)
 - - assets → images, icons, service-page-images
 - - components →
-- - - core → Badge, Button, Card, Input
+- - - core → Badge, Button, Card, Input, ResponsiveImage (AVIF/WebP srcset <picture>; one `priority` LCP per page)
 - - - marketing →
 - - - - CTABand
 - - - - CredentialBand
@@ -68,10 +69,14 @@ physicaltherapist-vite-site/
 - - - ServiceDetail (full template when service.content present; else "coming soon")
 - - - Services
 - - styles →
-- - - tokens → colors, typography, spacing, fonts, base
+- - - tokens → colors, typography (FLUID clamp scale), spacing (fluid rhythm), fonts (self-hosted @font-face), base
 - - - global.css
+- - - grids.css (container-query card grid, shared by pages)
 - - - service-page.css (service-page layout classes)
+- - types → imagetools.d.ts (ambient types for image query imports)
 ```
+
+**Styling:** CSS Modules co-located per component (`X.module.css`); responsive = media queries (1199/991/767/599) + container queries + fluid rem clamp() tokens (≤1.5× — WCAG 1.4.4). Full conventions in `docs/development.md`.
 
 ## Canonical project docs
 

@@ -1,0 +1,36 @@
+/* Contact — form/aside split stacks below 768; name/phone pair stacks
+   below 480 inside the form. */
+
+.section { padding: var(--section-pad-sm) 0 var(--section-pad); }
+.grid {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-m-l);
+  align-items: start;
+}
+@media (max-width: 767px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+.form { display: flex; flex-direction: column; gap: 18px; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 479px) {
+  .pair { grid-template-columns: 1fr; }
+}
+
+.sent { text-align: center; padding: 40px 0; }
+.sentLeaf { height: 56px; width: auto; margin-bottom: 16px; }
+.sentTitle { margin: 0 0 8px; }
+.sentBody { color: var(--text-muted); margin: 0; }
+
+.visitCard { margin-bottom: 20px; }
+.visitTitle { margin: 0 0 16px; color: #fff; }
+.visitLine { margin: 0 0 6px; color: rgba(244, 240, 252, 0.9); }
+.visitPhone { margin: 14px 0 6px; color: rgba(244, 240, 252, 0.9); }
+.visitLast { margin: 0; color: rgba(244, 240, 252, 0.9); }
+
+.hoursTitle { font-family: var(--font-ui); font-weight: var(--fw-semibold); color: var(--text-heading); margin: 0 0 6px; }
+.hoursBody { color: var(--text-muted); margin: 0; }

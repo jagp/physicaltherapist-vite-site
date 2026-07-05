@@ -8,10 +8,18 @@ import { CTABand } from "../components/marketing/CTABand";
 import { CredentialBand } from "../components/marketing/CredentialBand";
 import { stephensonTrustItems } from "../components/marketing/CredentialBand.data";
 import { services } from "../data/services";
-import headshot2 from "../assets/headshot-2.jpg";
-import headshot3 from "../assets/headshot-3.jpg";
+import { ResponsiveImage } from "../components/core/ResponsiveImage";
+import headshot2Avif from "../assets/headshot-2.jpg?w=448;672;896&format=avif&as=srcset";
+import headshot2Webp from "../assets/headshot-2.jpg?w=448;672;896&format=webp&as=srcset";
+import headshot2 from "../assets/headshot-2.jpg?w=896&format=jpeg";
+import headshot3Avif from "../assets/headshot-3.jpg?w=448;672;896&format=avif&as=srcset";
+import headshot3Webp from "../assets/headshot-3.jpg?w=448;672;896&format=webp&as=srcset";
+import headshot3 from "../assets/headshot-3.jpg?w=896&format=jpeg";
+import bookAvif from "../assets/pt-guide-to-pelvic-health-book.jpg?w=320;640&format=avif&as=srcset";
+import bookWebp from "../assets/pt-guide-to-pelvic-health-book.jpg?w=320;640&format=webp&as=srcset";
+import bookCover from "../assets/pt-guide-to-pelvic-health-book.jpg?w=640&format=jpeg";
 import leafLeaves from "../assets/leaf-leaves.png";
-import bookCover from "../assets/pt-guide-to-pelvic-health-book.jpg";
+import s from "./Home.module.css";
 
 function SectionHead({
   eyebrow,
@@ -26,45 +34,18 @@ function SectionHead({
   center?: boolean;
   light?: boolean;
 }) {
+  const cls = [
+    s.sectionHead,
+    center && s.sectionHeadCenter,
+    light && s.sectionHeadLight,
+  ]
+    .filter(Boolean)
+    .join(" ");
   return (
-    <div
-      style={{
-        maxWidth: "680px",
-        marginBottom: "46px",
-        textAlign: center ? "center" : "left",
-        marginLeft: center ? "auto" : 0,
-        marginRight: center ? "auto" : 0,
-      }}
-    >
-      <p
-        className="ds-eyebrow"
-        style={{
-          margin: "0 0 14px",
-          color: light ? "rgba(255,255,255,.55)" : undefined,
-        }}
-      >
-        {eyebrow}
-      </p>
-      <h2
-        style={{
-          margin: 0,
-          fontSize: "clamp(28px,3.4vw,42px)",
-          color: light ? "#fff" : undefined,
-        }}
-      >
-        {title}
-      </h2>
-      {lede && (
-        <p
-          style={{
-            marginTop: "14px",
-            color: light ? "rgba(255,255,255,.65)" : "var(--text-muted)",
-            fontSize: "1.08rem",
-          }}
-        >
-          {lede}
-        </p>
-      )}
+    <div className={cls}>
+      <p className={`ds-eyebrow ${s.eyebrow}`}>{eyebrow}</p>
+      <h2>{title}</h2>
+      {lede && <p className={s.sectionLede}>{lede}</p>}
     </div>
   );
 }
@@ -72,100 +53,46 @@ function SectionHead({
 function Hero() {
   const navigate = useNavigate();
   return (
-    <section
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        background: "var(--cream)",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "var(--maxw)",
-          margin: "0 auto",
-          padding: "64px 40px 80px",
-        }}
-      >
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1.05fr .95fr",
-            gap: "54px",
-            alignItems: "center",
-          }}
-        >
-          <div style={{ minWidth: 0 }}>
-            <p className="ds-eyebrow" style={{ margin: "0 0 14px" }}>
-              Pelvic &amp; Women's Health · South Natick, MA
-            </p>
-            <h1
-              style={{
-                fontSize: "clamp(34px,4.4vw,56px)",
-                margin: "0 0 22px",
-                lineHeight: 1.08,
-                letterSpacing: "-0.02em",
-              }}
+    <section className={s.hero}>
+      <div className={s.heroWrap}>
+        <div className={s.heroCopy}>
+          <p className={`ds-eyebrow ${s.eyebrow}`}>
+            Pelvic &amp; Women's Health · South Natick, MA
+          </p>
+          <h1 className={s.heroTitle}>
+            Expert Pelvic &amp; Women's Health Care in South Natick
+          </h1>
+          <p className={s.heroLede}>
+            Rebecca G. Stephenson, PT, DPT, is a Board-Certified Specialist
+            treating pelvic and women's health concerns for all genders —
+            compassionate, evidence-based care in a private practice setting.
+          </p>
+          <div className={s.heroCtas}>
+            <Button variant="gradient" size="lg" onClick={() => navigate("/contact")}>
+              Book a Consultation
+            </Button>
+            <Button
+              variant="secondary"
+              size="lg"
+              iconRight={<span>→</span>}
+              onClick={() => navigate("/services")}
             >
-              Expert Pelvic &amp; Women's Health Care in South Natick
-            </h1>
-            <p
-              style={{
-                fontSize: "1.1rem",
-                color: "var(--text-muted)",
-                maxWidth: "52ch",
-                marginBottom: "32px",
-              }}
-            >
-              Rebecca G. Stephenson, PT, DPT, is a Board-Certified Specialist
-              treating pelvic and women's health concerns for all genders —
-              compassionate, evidence-based care in a private practice setting.
-            </p>
-            <div
-              style={{
-                display: "flex",
-                gap: "14px",
-                flexWrap: "wrap",
-                alignItems: "center",
-              }}
-            >
-              <Button
-                variant="gradient"
-                size="lg"
-                onClick={() => navigate("/contact")}
-              >
-                Book a Consultation
-              </Button>
-              <Button
-                variant="secondary"
-                size="lg"
-                iconRight={<span>→</span>}
-                onClick={() => navigate("/services")}
-              >
-                Explore Our Services
-              </Button>
-            </div>
+              Explore Our Services
+            </Button>
           </div>
-          <div
-            style={{
-              position: "relative",
-              aspectRatio: "4/4.4",
-              minHeight: "380px",
-              borderRadius: "var(--radius-lg)",
-              overflow: "hidden",
-              boxShadow: "var(--shadow-lg)",
-            }}
-          >
-            <img
-              src={headshot2}
-              alt="Dr. Rebecca Stephenson"
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: "50% 20%",
-              }}
-            />
-          </div>
+        </div>
+        <div className={s.heroMedia}>
+          {/* LCP image: AVIF/WebP/JPEG cascade, prioritized, never lazy */}
+          <ResponsiveImage
+            avifSrcSet={headshot2Avif}
+            webpSrcSet={headshot2Webp}
+            src={headshot2}
+            sizes="(max-width: 767px) 100vw, (max-width: 1199px) 46vw, 540px"
+            alt="Dr. Rebecca Stephenson"
+            width={896}
+            height={1152}
+            priority
+          />
         </div>
       </div>
     </section>
@@ -176,83 +103,42 @@ function TrustBar() {
   return <CredentialBand variant="plum" items={stephensonTrustItems} />;
 }
 
-const svcDarkCSS = `
-  .svc-dark .spt-svc { background: color-mix(in srgb, var(--bg) 58%, var(--brand)) !important; border-color: rgba(255,255,255,.1) !important; box-shadow: none !important; }
-  .svc-dark .spt-svc > div:first-child { background: var(--cream) !important; }
-  .svc-dark .spt-svc h3 { color: rgba(255,255,255,.94) !important; }
-  .svc-dark .spt-svc p  { color: rgba(255,255,255,.62) !important; }
-  .svc-dark .spt-svc a  { color: rgba(255,255,255,.55) !important; }
-  .svc-dark .spt-svc:hover { background: color-mix(in srgb, var(--bg) 45%, var(--brand-light)) !important; box-shadow: inset 1px 0 0 0 var(--hover-edge), var(--shadow-lg) !important; }
-`;
-
-let svcDarkInjected = false;
-function ensureSvcDarkCSS() {
-  if (svcDarkInjected || typeof document === "undefined") return;
-  const style = document.createElement("style");
-  style.setAttribute("data-spt", "home-svc-dark");
-  style.textContent = svcDarkCSS;
-  document.head.appendChild(style);
-  svcDarkInjected = true;
-}
-
 function Services() {
-  ensureSvcDarkCSS();
   const navigate = useNavigate();
   return (
-    <section style={{ padding: "104px 0", background: "var(--bg)" }}>
-      <div
-        style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "0 40px" }}
-      >
+    <section className={s.svcSection}>
+      <div className={s.wrap}>
         <SectionHead
           eyebrow="What we offer"
           title="Comprehensive care for every stage of life"
           lede="Specialized, evidence-based treatment grouped so you can quickly find yourself in the care we provide."
           light
         />
-        <div
-          className="svc-dark"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3,1fr)",
-            gap: "22px",
-          }}
-        >
-          {services.map((s) => (
-            <ServiceCard
-              key={s.slug}
-              icon={s.icon}
-              title={s.title}
-              description={s.desc}
-              dark
-              onClick={(e) => {
-                e.preventDefault();
-                navigate(`/services/${s.slug}`);
-              }}
-              href={`/services/${s.slug}`}
-            />
-          ))}
+        <div className="card-grid">
+          <ul className="card-grid__list">
+            {services.map((svc) => (
+              <li key={svc.slug}>
+                <ServiceCard
+                  icon={svc.icon}
+                  title={svc.title}
+                  description={svc.desc}
+                  dark
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate(`/services/${svc.slug}`);
+                  }}
+                  href={`/services/${svc.slug}`}
+                />
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
   );
 }
 
-const factCSS = `
-  .spt-chip:hover{ background:var(--accent) !important; color:#fff !important; border-color:var(--accent) !important; }
-`;
-
-let bioInjected = false;
-function ensureBioCSS() {
-  if (bioInjected || typeof document === "undefined") return;
-  const style = document.createElement("style");
-  style.setAttribute("data-spt", "home-bio");
-  style.textContent = factCSS;
-  document.head.appendChild(style);
-  bioInjected = true;
-}
-
 function Bio() {
-  ensureBioCSS();
   const navigate = useNavigate();
   const chips = [
     "PT, DPT, MS",
@@ -262,62 +148,24 @@ function Bio() {
     "Childbirth Educator",
   ];
   return (
-    <section style={{ padding: "104px 0 60px", background: "var(--bg)" }}>
-      <div
-        style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "0 40px" }}
-      >
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: ".85fr 1.15fr",
-            gap: "50px",
-            alignItems: "center",
-          }}
-        >
-          <div
-            style={{
-              position: "relative",
-              aspectRatio: "4/5",
-              borderRadius: "999px 999px var(--radius-lg) var(--radius-lg)",
-              overflow: "hidden",
-              boxShadow: "var(--shadow-lg)",
-            }}
-          >
-            <img
+    <section className={s.bioSection}>
+      <div className={s.wrap}>
+        <div className={s.bioGrid}>
+          <div className={s.bioMedia}>
+            <ResponsiveImage
+              avifSrcSet={headshot3Avif}
+              webpSrcSet={headshot3Webp}
               src={headshot3}
+              sizes="(max-width: 767px) 100vw, (max-width: 1199px) 40vw, 480px"
               alt="Dr. Rebecca Stephenson"
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: "50% 20%",
-              }}
+              width={896}
+              height={1152}
             />
           </div>
           <div>
-            <p
-              className="ds-eyebrow"
-              style={{ margin: "0 0 14px", color: "rgba(255,255,255,.5)" }}
-            >
-              About
-            </p>
-            <h2
-              style={{
-                margin: "0 0 18px",
-                fontSize: "clamp(28px,3.4vw,42px)",
-                color: "#fff",
-              }}
-            >
-              Meet Dr. Rebecca Stephenson
-            </h2>
-            <p
-              style={{
-                color: "rgba(255,255,255,.72)",
-                fontSize: "1.05rem",
-                marginBottom: "22px",
-                lineHeight: 1.65,
-              }}
-            >
+            <p className={`ds-eyebrow ${s.bioEyebrow}`}>About</p>
+            <h2 className={s.bioTitle}>Meet Dr. Rebecca Stephenson</h2>
+            <p className={s.bioBody}>
               Rebecca G. Stephenson, PT, DPT, MS, CLT, WCS, is a Board-Certified
               Women's &amp; Pelvic Health Clinical Specialist treating all
               genders. Across a career spanning four decades she built and led
@@ -329,32 +177,9 @@ function Bio() {
               </em>{" "}
               (Taylor &amp; Francis, 2025).
             </p>
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "9px",
-                marginBottom: "28px",
-              }}
-            >
+            <div className={s.chips}>
               {chips.map((c) => (
-                <span
-                  key={c}
-                  className="spt-chip"
-                  style={{
-                    fontFamily: "var(--font-ui)",
-                    fontSize: "0.78rem",
-                    fontWeight: 600,
-                    color: "rgba(255,255,255,.82)",
-                    background: "rgba(255,255,255,.12)",
-                    border: "1px solid rgba(255,255,255,.18)",
-                    padding: "5px 13px",
-                    borderRadius: "var(--radius-pill)",
-                    transition:
-                      "background var(--dur) var(--ease-soft), color var(--dur) var(--ease-soft)",
-                    cursor: "default",
-                  }}
-                >
+                <span key={c} className={s.chip}>
                   {c}
                 </span>
               ))}
@@ -376,79 +201,16 @@ function Bio() {
 
 function WCSCallout() {
   return (
-    <section style={{ background: "var(--bg)", padding: "0 0 104px" }}>
-      <div
-        style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "0 40px" }}
-      >
-        <div
-          style={{
-            background: "rgba(255,255,255,.06)",
-            border: "1px solid rgba(255,255,255,.1)",
-            borderRadius: "var(--radius-lg)",
-            padding: "44px 48px",
-            display: "grid",
-            gridTemplateColumns: "auto 1fr",
-            gap: "40px",
-            alignItems: "center",
-          }}
-        >
-          <div
-            style={{
-              width: "88px",
-              height: "88px",
-              flexShrink: 0,
-              borderRadius: "50%",
-              background: "var(--brand-gradient-spicy)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: "var(--shadow-accent)",
-            }}
-          >
-            <span
-              style={{
-                fontFamily: "var(--font-display)",
-                fontWeight: 700,
-                fontSize: "1.5rem",
-                color: "#fff",
-                letterSpacing: "-.02em",
-              }}
-            >
-              WCS
-            </span>
+    <section className={s.wcsSection}>
+      <div className={s.wrap}>
+        <div className={s.wcsCard}>
+          <div className={s.wcsSeal}>
+            <span>WCS</span>
           </div>
           <div>
-            <p
-              style={{
-                margin: "0 0 10px",
-                fontFamily: "var(--font-ui)",
-                fontWeight: 700,
-                fontSize: "0.78rem",
-                textTransform: "uppercase",
-                letterSpacing: ".14em",
-                color: "rgba(255,255,255,.45)",
-              }}
-            >
-              Board Certification
-            </p>
-            <h3
-              style={{
-                margin: "0 0 12px",
-                color: "#fff",
-                fontSize: "clamp(18px,2.2vw,24px)",
-              }}
-            >
-              What is a Board-Certified WCS?
-            </h3>
-            <p
-              style={{
-                margin: 0,
-                color: "rgba(255,255,255,.65)",
-                lineHeight: 1.65,
-                maxWidth: "68ch",
-                fontSize: "0.98rem",
-              }}
-            >
+            <p className={s.wcsKicker}>Board Certification</p>
+            <h3 className={s.wcsTitle}>What is a Board-Certified WCS?</h3>
+            <p className={s.wcsBody}>
               A Women's &amp; Pelvic Health Clinical Specialist (WCS) holds the
               highest board certification in the field, awarded through the
               American Physical Therapy Association. Fewer than 1% of PTs hold
@@ -465,67 +227,26 @@ function WCSCallout() {
 
 function Philosophy() {
   return (
-    <section style={{ padding: "104px 0", background: "var(--surface-tint)" }}>
-      <div
-        style={{
-          maxWidth: "960px",
-          margin: "0 auto",
-          padding: "0 40px",
-          display: "flex",
-          alignItems: "center",
-          gap: "56px",
-        }}
-      >
+    <section className={s.philosophySection}>
+      <div className={s.philosophyWrap}>
         <img
           src={leafLeaves}
           alt=""
           aria-hidden="true"
-          style={{
-            width: "200px",
-            flexShrink: 0,
-            opacity: 0.22,
-            filter: "grayscale(1) brightness(0)",
-          }}
+          className={s.philosophyLeaf}
+          width={400}
+          height={976}
+          loading="lazy"
         />
         <div>
-          <span
-            style={{
-              fontSize: "3rem",
-              lineHeight: 1,
-              color: "var(--brand)",
-              opacity: 0.35,
-              fontFamily: "Georgia,serif",
-              display: "block",
-              marginBottom: "8px",
-            }}
-          >
-            "
-          </span>
-          <p
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(19px,2.3vw,27px)",
-              lineHeight: 1.5,
-              color: "var(--ink-900)",
-              margin: "0 0 20px",
-            }}
-          >
+          <span className={s.philosophyMark}>"</span>
+          <p className={s.philosophyQuote}>
             My philosophy of care is the personal touch that is fundamental to
             overall well-being. Whether working one-on-one with a patient,
             teaching, or mentoring, my goal is evidence-based, compassionate
             care that empowers individuals to reclaim their quality of life.
           </p>
-          <p
-            style={{
-              margin: 0,
-              color: "var(--text-muted)",
-              fontWeight: 600,
-              fontSize: "0.9rem",
-              letterSpacing: ".02em",
-            }}
-          >
-            — Dr. Rebecca G. Stephenson, PT, DPT
-          </p>
+          <p className={s.philosophyBy}>— Dr. Rebecca G. Stephenson, PT, DPT</p>
         </div>
       </div>
     </section>
@@ -534,66 +255,25 @@ function Philosophy() {
 
 function BookSpotlight() {
   return (
-    <section
-      style={{ padding: "88px 0", background: "var(--brand-gradient-spicy)" }}
-    >
-      <div
-        style={{
-          maxWidth: "900px",
-          margin: "0 auto",
-          padding: "0 40px",
-          display: "grid",
-          gridTemplateColumns: "auto 1fr",
-          gap: "48px",
-          alignItems: "center",
-        }}
-      >
-        <div
-          style={{
-            width: "160px",
-            aspectRatio: "3/4",
-            borderRadius: "var(--radius-md)",
-            background: "rgba(255,255,255,.15)",
-            boxShadow: "var(--shadow-lg)",
-            border: "1px solid rgba(255,255,255,.2)",
-            overflow: "hidden",
-          }}
-        >
-          <img
+    <section className={s.bookSection}>
+      <div className={s.bookWrap}>
+        <div className={s.bookCover}>
+          <ResponsiveImage
+            avifSrcSet={bookAvif}
+            webpSrcSet={bookWebp}
             src={bookCover}
+            sizes="(max-width: 599px) 40vw, 160px"
             alt="The PT's Guide to Women's Pelvic, Perinatal & Reproductive Health"
-            style={{ width: "100%", height: "100%", objectFit: "fill" }}
+            width={640}
+            height={914}
           />
         </div>
         <div>
-          <p
-            style={{
-              fontSize: "0.72rem",
-              fontWeight: 700,
-              textTransform: "uppercase",
-              letterSpacing: ".15em",
-              color: "rgba(255,255,255,.7)",
-              margin: "0 0 10px",
-            }}
-          >
-            Lead Author · Taylor &amp; Francis, 2025
-          </p>
-          <h3
-            style={{
-              margin: "0 0 14px",
-              fontSize: "clamp(18px,2.3vw,26px)",
-              color: "#fff",
-            }}
-          >
+          <p className={s.bookKicker}>Lead Author · Taylor &amp; Francis, 2025</p>
+          <h3 className={s.bookTitle}>
             The definitive clinical reference for pelvic health
           </h3>
-          <p
-            style={{
-              color: "rgba(255,255,255,.75)",
-              margin: "0 0 22px",
-              lineHeight: 1.65,
-            }}
-          >
+          <p className={s.bookBody}>
             Dr. Stephenson is lead author of this landmark textbook —
             evidence-based care across the full lifespan, for pelvic health
             specialists. Available in print and digital editions.
@@ -629,40 +309,19 @@ function Testimonials() {
     },
   ];
   return (
-    <section style={{ padding: "104px 0", background: "var(--cream)" }}>
-      <div
-        style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "0 40px" }}
-      >
-        <SectionHead
-          eyebrow="Patient & mentee voices"
-          title="Care that people remember"
-          center
-        />
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3,1fr)",
-            gap: "22px",
-          }}
-        >
-          {t.map((x) => (
-            <Testimonial
-              key={x.name}
-              quote={x.quote}
-              name={x.name}
-              category={x.category}
-            />
-          ))}
+    <section className={s.testimonialsSection}>
+      <div className={s.wrap}>
+        <SectionHead eyebrow="Patient & mentee voices" title="Care that people remember" center />
+        <div className="card-grid">
+          <ul className="card-grid__list">
+            {t.map((x) => (
+              <li key={x.name}>
+                <Testimonial quote={x.quote} name={x.name} category={x.category} />
+              </li>
+            ))}
+          </ul>
         </div>
-        <p
-          style={{
-            marginTop: "20px",
-            fontSize: "0.8rem",
-            color: "var(--text-muted)",
-            textAlign: "center",
-            fontStyle: "italic",
-          }}
-        >
+        <p className={s.testimonialsNote}>
           Authentic experiences shared by patients and mentees, with permission,
           without compensation.
         </p>
@@ -688,14 +347,8 @@ export function Home() {
       <Philosophy />
       <BookSpotlight />
       <Testimonials />
-      <section style={{ padding: "80px 0", background: "var(--cream)" }}>
-        <div
-          style={{
-            maxWidth: "var(--maxw)",
-            margin: "0 auto",
-            padding: "0 40px",
-          }}
-        >
+      <section className={s.ctaSection}>
+        <div className={s.wrap}>
           <CTABand
             tone="gradient"
             eyebrow="Ready to take the first step?"
@@ -703,11 +356,7 @@ export function Home() {
             description="Schedule an initial evaluation — a private, 60-minute visit where we listen, assess, and build a plan together."
             leafSrc={leafLeaves}
           >
-            <Button
-              variant="onBand"
-              size="lg"
-              onClick={() => navigate("/contact")}
-            >
+            <Button variant="onBand" size="lg" onClick={() => navigate("/contact")}>
               Book a Consultation
             </Button>
             <Button

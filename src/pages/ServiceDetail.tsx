@@ -15,6 +15,7 @@ import { SectionEyebrow } from '../components/marketing/SectionEyebrow';
 import { ServiceSeo } from '../components/ServiceSeo';
 import { services, type ServiceSection } from '../data/services';
 import leafLeaves from '../assets/leaf-leaves.png';
+import s from './ServiceDetail.module.css';
 
 /** Render a single composable content block by its discriminated `kind`. */
 function renderSection(section: ServiceSection, key: number) {
@@ -45,7 +46,7 @@ function renderSection(section: ServiceSection, key: number) {
               radius="lg"
             >
               <SectionEyebrow light={section.tone === 'brand'}>{section.title}</SectionEyebrow>
-              <p style={{ margin: 0, lineHeight: 'var(--lh-relaxed)', maxWidth: '58ch' }}>{section.body}</p>
+              <p className={s.calloutBody}>{section.body}</p>
             </Card>
           </div>
         </section>
@@ -58,7 +59,7 @@ function renderSection(section: ServiceSection, key: number) {
 export function ServiceDetail() {
   const { slug } = useParams();
   const navigate = useNavigate();
-  const service = services.find((s) => s.slug === slug);
+  const service = services.find((svc) => svc.slug === slug);
 
   if (!service) return <Navigate to="/services" replace />;
 
@@ -66,9 +67,9 @@ export function ServiceDetail() {
 
   if (c) {
     return (
-      <div style={{ background: 'var(--cream)' }}>
+      <div className={s.page}>
         <ServiceSeo service={service} />
-        <div className="svc-wrap" style={{ paddingTop: 'var(--space-8)' }}>
+        <div className={`svc-wrap ${s.crumbs}`}>
           <Breadcrumb
             items={[
               { label: 'Home', to: '/' },
@@ -94,8 +95,8 @@ export function ServiceDetail() {
         />
         {c.sections?.map((section, i) => renderSection(section, i))}
         <RelatedServices currentSlug={service.slug} slugs={c.relatedSlugs} />
-        <section style={{ padding: '88px 40px 104px' }}>
-          <div style={{ maxWidth: 'var(--maxw)', margin: '0 auto' }}>
+        <section className={s.ctaSection}>
+          <div className={s.ctaWrap}>
             <CTABand
               tone="gradient"
               eyebrow={c.cta.phrase}
@@ -116,20 +117,16 @@ export function ServiceDetail() {
     <div>
       <ServiceSeo service={service} />
       <PageHeader eyebrow="What we offer" title={service.title} lede={service.desc} />
-      <section style={{ padding: '88px 0 104px' }}>
-        <div style={{ maxWidth: '760px', margin: '0 auto', padding: '0 40px', textAlign: 'center' }}>
+      <section className={s.soonSection}>
+        <div className={s.soonWrap}>
           <Card tone="surface" padding="40px">
-            <img
-              src={service.icon}
-              alt=""
-              style={{ width: '64px', height: '64px', objectFit: 'contain', marginBottom: '20px' }}
-            />
-            <h3 style={{ margin: '0 0 12px', fontSize: '1.4rem' }}>Detailed page coming soon</h3>
-            <p style={{ color: 'var(--text-muted)', margin: '0 0 28px' }}>
+            <img src={service.icon} alt="" className={s.soonIcon} width={64} height={64} />
+            <h3 className={s.soonTitle}>Detailed page coming soon</h3>
+            <p className={s.soonBody}>
               We're putting together a full overview of our {service.title.toLowerCase()} care. In the
               meantime, reach out and we'll answer any questions directly.
             </p>
-            <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <div className={s.soonActions}>
               <Button variant="primary" size="lg" onClick={() => navigate('/contact')}>
                 Book a Consultation
               </Button>

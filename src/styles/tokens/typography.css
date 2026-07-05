@@ -9,19 +9,22 @@
   --font-body:    'Work Sans', system-ui, -apple-system, Segoe UI, sans-serif;
   --font-ui:      'Work Sans', system-ui, -apple-system, Segoe UI, sans-serif;
 
-  /* Type scale (1.250 major-third-ish, tuned) */
-  --fs-eyebrow: 0.78rem;   /* 12.5px */
-  --fs-caption: 0.82rem;   /* 13px   */
-  --fs-small:   0.9rem;    /* 14.5px */
-  --fs-body:    1.0625rem; /* 17px — base reading size */
-  --fs-lead:    1.2rem;    /* 19px — lede paragraphs */
-  --fs-h6:      1.1rem;
-  --fs-h5:      1.3rem;
-  --fs-h4:      1.6rem;
-  --fs-h3:      2.0rem;
-  --fs-h2:      2.6rem;
-  --fs-h1:      3.4rem;
-  --fs-display: 4.4rem;
+  /* Type scale — FLUID (Utopia-style), anchors 360px→1200px (22.5rem→75rem).
+     Every step is rem-anchored (min, max, AND intercept) and max ≤ 1.5×min,
+     so the scale is WCAG 1.4.4 zoom-safe by construction (see responsive spec).
+     Formulas: slope_vw = 1.9048×(max−min); intercept = min − 0.42857×(max−min). */
+  --fs-eyebrow: clamp(0.78rem, 0.7629rem + 0.0762vw, 0.82rem);   /* 12.5→13px */
+  --fs-caption: clamp(0.82rem, 0.8029rem + 0.0762vw, 0.86rem);   /* 13→14px   */
+  --fs-small:   clamp(0.9rem, 0.8786rem + 0.0952vw, 0.95rem);    /* 14.5→15px */
+  --fs-body:    clamp(1.0625rem, 0.9821rem + 0.3571vw, 1.25rem); /* 17→20px — base reading size */
+  --fs-lead:    clamp(1.15rem, 1.0643rem + 0.381vw, 1.35rem);    /* lede paragraphs */
+  --fs-h6:      clamp(1.1rem, 1.0486rem + 0.2286vw, 1.22rem);
+  --fs-h5:      clamp(1.22rem, 1.1214rem + 0.4381vw, 1.45rem);
+  --fs-h4:      clamp(1.35rem, 1.1786rem + 0.7619vw, 1.75rem);
+  --fs-h3:      clamp(1.55rem, 1.3143rem + 1.0476vw, 2.1rem);
+  --fs-h2:      clamp(1.8rem, 1.4571rem + 1.5238vw, 2.6rem);     /* ratio 1.44 */
+  --fs-h1:      clamp(2.25rem, 1.7679rem + 2.1429vw, 3.375rem);  /* 36→54px, ratio 1.50 */
+  --fs-display: clamp(2.8rem, 2.2rem + 2.6667vw, 4.2rem);        /* ratio 1.50 */
 
   /* Weights */
   --fw-regular: 400; /* @kind other */
