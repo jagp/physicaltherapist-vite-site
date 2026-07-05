@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Set-A Contact Sheet</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+      line-height: 1.5;
+    }
+    .container { max-width: 1400px; margin: 0 auto; }
+    h1 { margin-bottom: 10px; font-size: 28px; color: #333; }
+    .meta { font-size: 13px; color: #666; margin-bottom: 30px; }
+    .scene-group { background: white; margin-bottom: 40px; border-radius: 4px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    .scene-header { background: #f9f9f9; padding: 16px; border-bottom: 1px solid #e5e5e5; }
+    .scene-header h2 { font-size: 16px; font-weight: 600; color: #222; margin: 0; }
+    .scene-header p { font-size: 12px; color: #666; margin: 4px 0 0; }
+    .variants { display: flex; gap: 20px; padding: 20px; flex-wrap: wrap; }
+    .variant { flex: 0 1 calc(33.333% - 14px); }
+    @media (max-width: 1000px) { .variant { flex: 0 1 calc(50% - 10px); } }
+    @media (max-width: 600px) { .variant { flex: 0 1 100%; } }
+    .variant img { width: 100%; height: auto; border-radius: 2px; display: block; }
+    .variant-label { font-size: 11px; color: #666; margin-top: 8px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Set-A Contact Sheet — Stephenson PT Service Pages</h1>
+    <div class="meta">
+      6 services × (hero landscape 1536×1024 + inset square 1024×1024) × 2 variants each = 24 images.
+      Identity reference: interim-rebecca-face-IMG_6163.jpg (replace with preferred-reference-headshot.png when ready).
+      Quality: medium (re-run at high for final picks). Prompt log: run-log.jsonl.
+    </div>
+
+    <div class="scene-group">
+      <div class="scene-header">
+        <h2>SCENE-01 — pelvic-floor-bladder-health</h2>
+        <p>HERO · Set A</p>
+      </div>
+      <div class="variants">
+        <div class="variant">
+          <img src="SCENE-01--pelvic-floor-bladder-health--hero-A--v1.png" alt="SCENE-01 variant 1">
+          <div class="variant-label">v1</div>
+        </div>
+        <div class="variant">
+          <img src="SCENE-01--pelvic-floor-bladder-health--hero-A--v2.png" alt="SCENE-01 variant 2">
+          <div class="variant-label">v2</div>
+        </div>
+        <div class="variant">
+          <img src="SCENE-01--pelvic-floor-bladder-health--hero-A--v3.png" alt="SCENE-01 variant 3">
+          <div class="variant-label">v3</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene-group">
+      <div class="scene-header">
+        <h2>SCENE-03 — pelvic-floor-bladder-health</h2>
+        <p>INSET · Set A</p>
+      </div>
+      <div class="variants">
+        <div class="variant">
+          <img src="SCENE-03--pelvic-floor-bladder-health--inset-A--v1.png" alt="SCENE-03 variant 1">
+          <div class="variant-label">v1</div>
+        </div>
+        <div class="variant">
+          <img src="SCENE-03--pelvic-floor-bladder-health--inset-A--v2.png" alt="SCENE-03 variant 2">
+          <div class="variant-label">v2</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene-group">
+      <div class="scene-header">
+        <h2>SCENE-05 — pregnancy-postpartum</h2>
+        <p>HERO · Set A</p>
+      </div>
+      <div class="variants">
+        <div class="variant">
+          <img src="SCENE-05--pregnancy-postpartum--hero-A--v1.png" alt="SCENE-05 variant 1">
+          <div class="variant-label">v1</div>
+        </div>
+        <div class="variant">
+          <img src="SCENE-05--pregnancy-postpartum--hero-A--v2.png" alt="SCENE-05 variant 2">
+          <div class="variant-label">v2</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene-group">
+      <div class="scene-header">
+        <h2>SCENE-07 — pregnancy-postpartum</h2>
+        <p>INSET · Set A</p>
+      </div>
+      <div class="variants">
+        <div class="variant">
+          <img src="SCENE-07--pregnancy-postpartum--inset-A--v1.png" alt="SCENE-07 variant 1">
+          <div class="variant-label">v1</div>
+        </div>
+        <div class="variant">
+          <img src="SCENE-07--pregnancy-postpartum--inset-A--v2.png" alt="SCENE-07 variant 2">
+          <div class="variant-label">v2</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene-group">
+      <div class="scene-header">
+        <h2>SCENE-09 — complex-pelvic-pain</h2>
+        <p>HERO · Set A</p>
+      </div>
+      <div class="variants">
+        <div class="variant">
+          <img src="SCENE-09--complex-pelvic-pain--hero-A--v1.png" alt="SCENE-09 variant 1">
+          <div class="variant-label">v1</div>
+        </div>
+        <div class="variant">
+          <img src="SCENE-09--complex-pelvic-pain--hero-A--v2.png" alt="SCENE-09 variant 2">
+          <div class="variant-label">v2</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene-group">
+      <div class="scene-header">
+        <h2>SCENE-11 — complex-pelvic-pain</h2>
+        <p>INSET · Set A</p>
+      </div>
+      <div class="variants">
+        <div class="variant">
+          <img src="SCENE-11--complex-pelvic-pain--inset-A--v1.png" alt="SCENE-11 variant 1">
+          <div class="variant-label">v1</div>
+        </div>
+        <div class="variant">
+          <img src="SCENE-11--complex-pelvic-pain--inset-A--v2.png" alt="SCENE-11 variant 2">
+          <div class="variant-label">v2</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene-group">
+      <div class="scene-header">
+        <h2>SCENE-13 — oncology-breast-care</h2>
+        <p>HERO · Set A</p>
+      </div>
+      <div class="variants">
+        <div class="variant">
+          <img src="SCENE-13--oncology-breast-care--hero-A--v1.png" alt="SCENE-13 variant 1">
+          <div class="variant-label">v1</div>
+        </div>
+        <div class="variant">
+          <img src="SCENE-13--oncology-breast-care--hero-A--v2.png" alt="SCENE-13 variant 2">
+          <div class="variant-label">v2</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene-group">
+      <div class="scene-header">
+        <h2>SCENE-15 — oncology-breast-care</h2>
+        <p>INSET · Set A</p>
+      </div>
+      <div class="variants">
+        <div class="variant">
+          <img src="SCENE-15--oncology-breast-care--inset-A--v1.png" alt="SCENE-15 variant 1">
+          <div class="variant-label">v1</div>
+        </div>
+        <div class="variant">
+          <img src="SCENE-15--oncology-breast-care--inset-A--v2.png" alt="SCENE-15 variant 2">
+          <div class="variant-label">v2</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene-group">
+      <div class="scene-header">
+        <h2>SCENE-17 — orthopedics-bone-health</h2>
+        <p>HERO · Set A</p>
+      </div>
+      <div class="variants">
+        <div class="variant">
+          <img src="SCENE-17--orthopedics-bone-health--hero-A--v1.png" alt="SCENE-17 variant 1">
+          <div class="variant-label">v1</div>
+        </div>
+        <div class="variant">
+          <img src="SCENE-17--orthopedics-bone-health--hero-A--v2.png" alt="SCENE-17 variant 2">
+          <div class="variant-label">v2</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene-group">
+      <div class="scene-header">
+        <h2>SCENE-19 — orthopedics-bone-health</h2>
+        <p>INSET · Set A</p>
+      </div>
+      <div class="variants">
+        <div class="variant">
+          <img src="SCENE-19--orthopedics-bone-health--inset-A--v1.png" alt="SCENE-19 variant 1">
+          <div class="variant-label">v1</div>
+        </div>
+        <div class="variant">
+          <img src="SCENE-19--orthopedics-bone-health--inset-A--v2.png" alt="SCENE-19 variant 2">
+          <div class="variant-label">v2</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene-group">
+      <div class="scene-header">
+        <h2>SCENE-21 — sports-medicine-active-recovery</h2>
+        <p>HERO · Set A</p>
+      </div>
+      <div class="variants">
+        <div class="variant">
+          <img src="SCENE-21--sports-medicine-active-recovery--hero-A--v1.png" alt="SCENE-21 variant 1">
+          <div class="variant-label">v1</div>
+        </div>
+        <div class="variant">
+          <img src="SCENE-21--sports-medicine-active-recovery--hero-A--v2.png" alt="SCENE-21 variant 2">
+          <div class="variant-label">v2</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene-group">
+      <div class="scene-header">
+        <h2>SCENE-23 — sports-medicine-active-recovery</h2>
+        <p>INSET · Set A</p>
+      </div>
+      <div class="variants">
+        <div class="variant">
+          <img src="SCENE-23--sports-medicine-active-recovery--inset-A--v1.png" alt="SCENE-23 variant 1">
+          <div class="variant-label">v1</div>
+        </div>
+        <div class="variant">
+          <img src="SCENE-23--sports-medicine-active-recovery--inset-A--v2.png" alt="SCENE-23 variant 2">
+          <div class="variant-label">v2</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

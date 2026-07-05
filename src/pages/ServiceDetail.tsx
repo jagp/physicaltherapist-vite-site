@@ -5,7 +5,18 @@ import { Card } from '../components/core/Card';
 import { CTABand } from '../components/marketing/CTABand';
 import { ServiceHero } from '../components/marketing/ServiceHero';
 import { ServiceArticle } from '../components/marketing/ServiceArticle';
+<<<<<<< Updated upstream
 import { services } from '../data/services';
+=======
+import { ConditionsSection } from '../components/marketing/ConditionsSection';
+import { ServiceFaq } from '../components/marketing/ServiceFaq';
+import { ServiceFeature } from '../components/marketing/ServiceFeature';
+import { ExpectSteps } from '../components/marketing/ExpectSteps';
+import { RelatedServices } from '../components/marketing/RelatedServices';
+import { SectionEyebrow } from '../components/marketing/SectionEyebrow';
+import { ServiceSeo } from '../components/ServiceSeo';
+import { services, type ServiceSection } from '../data/services';
+>>>>>>> Stashed changes
 import leafLeaves from '../assets/leaf-leaves.png';
 
 export function ServiceDetail() {
@@ -19,9 +30,18 @@ export function ServiceDetail() {
 
   if (c) {
     return (
+<<<<<<< Updated upstream
       <div style={{ background: 'var(--cream)' }}>
+=======
+      <div className={s.page}>
+        <ServiceSeo service={service} />
+>>>>>>> Stashed changes
         <ServiceHero
-          eyebrow={service.title}
+          crumbs={[
+            { label: 'Home', to: '/' },
+            { label: 'Services', to: '/services' },
+            { label: service.title },
+          ]}
           headline={c.headline}
           claim={c.claim}
           image={c.heroImage}

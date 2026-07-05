@@ -1,0 +1,60 @@
+/* ServiceHero — split hero (image | first-person quote), the image
+   dissolving into the cream ground toward the text side. Full-bleed
+   layout with 33% text / 66% image; breadcrumbs float over image.
+   Collapses at 767 to stacked with a bottom fade. */
+
+.hero { background: var(--cream); padding: var(--section-pad-sm) 0; position: relative; }
+
+.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 0;
+  align-items: center;
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+}
+.media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.fade { position: absolute; inset: 0; pointer-events: none; }
+/* fade always toward the text side */
+.imgLeft .media { order: -1; }
+.imgLeft .txt { order: 1; }
+.imgLeft .fade { background: linear-gradient(to right, transparent 66%, var(--cream) 100%); }
+.imgRight .media { order: 1; }
+.imgRight .txt { order: -1; }
+.imgRight .fade { background: linear-gradient(to left, transparent 66%, var(--cream) 100%); }
+
+.txt { padding: 0 var(--gutter); }
+
+.headline {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  /* 36→54px (2.25→3.375rem), ratio 1.5, larger than 2rem→3rem baseline */
+  font-size: clamp(2.25rem, 1.75rem + 2.2vw, 3.375rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text-heading);
+}
+
+.claim {
+  margin: 0;
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  color: var(--text-muted);
+  max-width: 38ch;
+}
+
+@media (max-width: 767px) {
+  .grid { grid-template-columns: 1fr; }
+  .imgLeft .media,
+  .imgRight .media { order: -1; aspect-ratio: 16 / 10; }
+  .imgLeft .txt,
+  .imgRight .txt { order: 1; }
+  .imgLeft .fade,
+  .imgRight .fade { background: linear-gradient(to bottom, transparent 55%, var(--cream) 100%); }
+}

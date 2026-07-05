@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import type { ServiceImage } from '../../data/services';
+<<<<<<< Updated upstream
 
 const heroCSS = `
   @media (max-width: 768px) {
@@ -19,13 +20,18 @@ function ensureHeroCSS() {
   document.head.appendChild(style);
   heroInjected = true;
 }
+=======
+import { Breadcrumb, type Crumb } from './Breadcrumb';
+import { ResponsiveImage } from '../core/ResponsiveImage';
+import s from './ServiceHero.module.css';
+>>>>>>> Stashed changes
 
 interface ServiceHeroProps {
   headline: ReactNode;
   claim: ReactNode;
   image: ServiceImage;
   imageSide?: 'left' | 'right';
-  eyebrow?: ReactNode;
+  crumbs?: Crumb[];
 }
 
 export function ServiceHero({
@@ -33,12 +39,13 @@ export function ServiceHero({
   claim,
   image,
   imageSide = 'left',
-  eyebrow,
+  crumbs,
 }: ServiceHeroProps) {
   ensureHeroCSS();
   const isLeft = imageSide === 'left';
 
   return (
+<<<<<<< Updated upstream
     <section style={{ background: 'var(--cream)', paddingTop: '72px', paddingBottom: '72px' }}>
       <div
         className="spt-hero-grid"
@@ -114,6 +121,31 @@ export function ServiceHero({
           >
             {claim}
           </p>
+=======
+    <section className={s.hero}>
+      <div className={`${s.grid} ${imageSide === 'left' ? s.imgLeft : s.imgRight}`}>
+        <div className={s.media}>
+          {image.avifSrcSet && image.webpSrcSet ? (
+            <ResponsiveImage
+              avifSrcSet={image.avifSrcSet}
+              webpSrcSet={image.webpSrcSet}
+              src={image.src}
+              sizes="(max-width: 767px) 100vw, 66vw"
+              alt={image.alt}
+              width={image.width ?? 1448}
+              height={image.height ?? 1086}
+              priority
+            />
+          ) : (
+            <img src={image.src} alt={image.alt} width={image.width} height={image.height} fetchPriority="high" />
+          )}
+          <div className={s.fade} aria-hidden="true" />
+        </div>
+        <div className={s.txt}>
+          {crumbs && <Breadcrumb items={crumbs} />}
+          <h1 className={s.headline}>{headline}</h1>
+          <p className={s.claim}>{claim}</p>
+>>>>>>> Stashed changes
         </div>
       </div>
     </section>
