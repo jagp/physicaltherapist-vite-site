@@ -26,12 +26,12 @@ export function About() {
           </div>
           <div>
             <p className={s.lede}>
-              Rebecca G. Stephenson, PT, DPT, MS, CLT, WCS, is a Board-Certified Women's &amp; Pelvic Health Clinical Specialist treating all genders. Her care blends deep clinical expertise with a personal, compassionate approach.
+              Rebecca G. Stephenson, PT, DPT, MS, CLT, PWCS, is a Board-Certified Pelvic &amp; Women's Health Clinical Specialist treating all genders. Her care blends deep clinical expertise with a personal, compassionate approach.
             </p>
             <Card tone="tint" padding="26px" className={s.wcsCard}>
-              <h4 className={s.wcsTitle}>What is a Board-Certified WCS?</h4>
+              <h4 className={s.wcsTitle}>What is a Board-Certified PWCS?</h4>
               <p className={s.wcsBody}>
-                A Women's Health Clinical Specialist holds the highest board certification in pelvic and women's health — earned through thousands of supervised clinical hours and a rigorous national exam. Only a small percentage of physical therapists achieve it.
+                A Pelvic &amp; Women's Health Clinical Specialist holds the highest board certification in pelvic and women's health — earned through thousands of supervised clinical hours and a rigorous national exam. Only a small percentage of physical therapists achieve it.
               </p>
             </Card>
           </div>

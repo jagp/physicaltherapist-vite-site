@@ -142,7 +142,7 @@ function Bio() {
   const navigate = useNavigate();
   const chips = [
     "PT, DPT, MS",
-    "Board-Certified WCS",
+    "Board-Certified PWCS",
     "Lymphedema · CLT",
     "Pilates Rehab",
     "Childbirth Educator",
@@ -166,8 +166,8 @@ function Bio() {
             <p className={`ds-eyebrow ${s.bioEyebrow}`}>About</p>
             <h2 className={s.bioTitle}>Meet Dr. Rebecca Stephenson</h2>
             <p className={s.bioBody}>
-              Rebecca G. Stephenson, PT, DPT, MS, CLT, WCS, is a Board-Certified
-              Women's &amp; Pelvic Health Clinical Specialist treating all
+              Rebecca G. Stephenson, PT, DPT, MS, CLT, PWCS, is a Board-Certified
+              Pelvic &amp; Women's Health Clinical Specialist treating all
               genders. Across a career spanning four decades she built and led
               pelvic and women's health practices at Brigham and Women's
               Hospital and Mass General, and is lead author of{" "}
@@ -201,17 +201,17 @@ function Bio() {
 
 function WCSCallout() {
   return (
-    <section className={s.wcsSection}>
+    <section className={s.pwcsSection}>
       <div className={s.wrap}>
         <div className={s.wcsCard}>
           <div className={s.wcsSeal}>
-            <span>WCS</span>
+            <span>PWCS</span>
           </div>
           <div>
             <p className={s.wcsKicker}>Board Certification</p>
-            <h3 className={s.wcsTitle}>What is a Board-Certified WCS?</h3>
+            <h3 className={s.wcsTitle}>What is a Board-Certified PWCS?</h3>
             <p className={s.wcsBody}>
-              A Women's &amp; Pelvic Health Clinical Specialist (WCS) holds the
+              A Pelvic &amp; Women's Health Clinical Specialist (PWCS) holds the
               highest board certification in the field, awarded through the
               American Physical Therapy Association. Fewer than 1% of PTs hold
               this credential — it signifies advanced clinical expertise,

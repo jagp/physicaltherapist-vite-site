@@ -578,9 +578,9 @@ One commit per page. Pattern per page: create `PageName.module.css`; every `styl
   .heroCtas > * { flex: 1 1 100%; }
 }
 
-/* BIO split (.85/1.15) and WCS callout (auto 1fr) — same collapse */
+/* BIO split (.85/1.15) and PWCS callout (auto 1fr) — same collapse */
 .bioGrid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: var(--space-m-l); align-items: center; }
-.wcsGrid { display: grid; grid-template-columns: auto 1fr; gap: var(--space-m-l); align-items: center; }
+.pwcsGrid { display: grid; grid-template-columns: auto 1fr; gap: var(--space-m-l); align-items: center; }
 .bookGrid { display: grid; grid-template-columns: auto 1fr; gap: var(--space-m-l); align-items: center; }
 @media (max-width: 767px) {
   .bioGrid, .wcsGrid, .bookGrid { grid-template-columns: 1fr; }

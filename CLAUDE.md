@@ -1,21 +1,33 @@
 # CLAUDE.md
 
-**Physical Therapist Vite Site** — the buildable implementation of the Stephenson Physical Therapy website.
+Stephenson Physical Therapy website
+Core: React/Node/Vite/vite-react-ssg
+PM: npm
+
+Commands:
+
+1.  `npm run dev` — start Vite dev server
+
+1.  `npm run build` — typecheck (`tsc -b`)
+    `vite-react-ssg` (each route → flat `dist/*.html` + `sitemap.xml`)
 
 ## Commands
 
-- `npm run dev` — start Vite dev server
-- `npm run build` — typecheck (`tsc -b`) then **static-render** the site with `vite-react-ssg` (each route → flat `dist/*.html` + `sitemap.xml`)
-- `npm run lint` — lint with oxlint (not eslint)
-- `npm run preview` — preview the production build
-- **Install note:** deps require `npm install --legacy-peer-deps` (pinned in `.npmrc`) — `vite-react-ssg@0.9.1-beta.1` declares a `vite ≤7` peer range but is build-verified on Vite 8. See `docs/development.md`.
+Project: React/Node app.
+Package manager: pnpm.
+Test command: pnpm test.
+Do not run broad formatters without asking.
+Prefer targeted tests before full suite.
+Use rg before opening files.
+
+**Install note pinned in `.npmrc` **
 
 ## Git workflow (critical)
 
 This repo uses **gitflow** — full rules in `docs/development.md`. Non-negotiables:
 
 - **`develop` is the integration branch.** Branch features off `develop`; PR them back into `develop` (`gh pr create --base develop`).
-- **Never push or merge directly to `main`.** `main` changes *only* via a human-reviewed PR from `develop`. A `PreToolUse` hook enforces this.
+- **Never push or merge directly to `main`.** `main` changes _only_ via a human-reviewed PR from `develop`. A `PreToolUse` hook enforces this.
 - **Commit all worktree work before exiting a worktree** — never strand uncommitted files in a `worktree-*` folder.
 - **Archive, don't delete:** superseded work → `archive/*` branch or tag.
 
@@ -25,17 +37,20 @@ This repo uses **gitflow** — full rules in `docs/development.md`. Non-negotiab
 
 ```md
 physicaltherapist-vite-site/
+
 - CLAUDE.md
+- AGENTS.md (per-model routing rules; git + worktree hygiene)
 - README.md
 - docs →
-- - scratch → X (IGNORE THIS & CONTENTS) 
 - - design-philosophy.md
 - - key-facts.md
 - - development.md (internal dev conventions + gitflow)
-- - dalle-queue.md
+- - deployment.md (build/SSG/hosting; roadmap in todo.md)
+- - todo.md (open items / roadmap)
 - - copy → (client-facing copy; formerly 'content')
 - - - bio → about-page, awards-and-more, scholarship
 - - - faq-copy, new-patients, service-pages-source, what-to-expect
+- - image-prompts-side-work → HOW-TO.md (API image-gen pipeline; entry point)
 - - superpowers →
 - - - mocks → (incl. responsive/ — Gate B mockups)
 - - - plans → (implementation plans; 2026-07-04-responsive-refactor)
