@@ -39,16 +39,18 @@ This repo uses **gitflow** — full rules in `docs/development.md`. Non-negotiab
 physicaltherapist-vite-site/
 
 - CLAUDE.md
+- AGENTS.md (per-model routing rules; git + worktree hygiene)
 - README.md
 - docs →
-- - scratch → X (IGNORE THIS & CONTENTS)
 - - design-philosophy.md
 - - key-facts.md
 - - development.md (internal dev conventions + gitflow)
-- - dalle-queue.md
+- - deployment.md (build/SSG/hosting; roadmap in todo.md)
+- - todo.md (open items / roadmap)
 - - copy → (client-facing copy; formerly 'content')
 - - - bio → about-page, awards-and-more, scholarship
 - - - faq-copy, new-patients, service-pages-source, what-to-expect
+- - image-prompts-side-work → HOW-TO.md (API image-gen pipeline; entry point)
 - - superpowers →
 - - - mocks → (incl. responsive/ — Gate B mockups)
 - - - plans → (implementation plans; 2026-07-04-responsive-refactor)
