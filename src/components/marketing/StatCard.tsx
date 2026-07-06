@@ -4,7 +4,7 @@ import s from './StatCard.module.css';
 export type StatCardTone = 'surface' | 'plum';
 
 export interface StatCardProps extends Omit<HTMLAttributes<HTMLDivElement>, 'style'> {
-  /** The large number or short value, e.g. "40+" or "WCS". */
+  /** The large number or short value, e.g. "40+" or "PWCS". */
   value?: ReactNode;
   /** Supporting label below the value. */
   label?: ReactNode;
