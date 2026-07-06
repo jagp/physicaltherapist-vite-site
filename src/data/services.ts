@@ -250,6 +250,18 @@ export const services: ServiceInfo[] = [
           title: 'Common questions',
           items: [
             {
+              q: 'Is pelvic-floor physical therapy safe during pregnancy?',
+              a: 'Yes. I work one-on-one with you through every stage and alongside your obstetric provider, tailoring gentle, appropriate care to exactly where you are — from the aches of a changing body toward a strong recovery after birth.',
+            },
+            {
+              q: 'Can you help with diastasis recti (abdominal separation)?',
+              a: 'Yes — rebuilding the abdominal wall after diastasis recti (DRA) is a core part of postpartum recovery, using breathing and progressive, well-sequenced loading rather than generic “ab” work.',
+            },
+            {
+              q: 'Do you treat recovery after a cesarean birth?',
+              a: 'Absolutely. Postpartum rehabilitation includes recovery from both vaginal and C-section deliveries, including gentle scar-tissue management once you are healing well.',
+            },
+            {
               q: 'What happens during the first visit?',
               a: 'Your initial evaluation is a 60-minute session in a private, quiet room. We start with a thorough conversation about your medical history and goals. If appropriate, a physical assessment is performed to check your posture, breathing, and pelvic floor muscle function. We will always discuss every step before proceeding.',
             },
