@@ -142,7 +142,7 @@ const MILESTONES: Milestone[] = [
     track: 'author',
     impact: 'xl',
     short: 'Routledge textbook',
-    title: 'The Physical Therapists’ Guide to Pelvic, Perinatal & Reproductive Health',
+    title: 'The Physical Therapist’s Guide to Women’s Pelvic, Perinatal, and Reproductive Health',
     body: 'Lead author and editor (Routledge) — the field’s comprehensive clinical text, distilling a career of practice, advocacy, and teaching.',
     capstone: true,
   },

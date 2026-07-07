@@ -172,10 +172,10 @@ function Bio() {
               pelvic and women's health practices at Brigham and Women's
               Hospital and Mass General, and is lead author of{" "}
               <em>
-                The Physical Therapy Guide to Women's, Pelvic, Reproductive and
-                Perinatal Health
+                The Physical Therapist's Guide to Women's Pelvic, Perinatal, and
+                Reproductive Health
               </em>{" "}
-              (Taylor &amp; Francis, 2025).
+              (Routledge, 2025).
             </p>
             <div className={s.chips}>
               {chips.map((c) => (
@@ -263,13 +263,13 @@ function BookSpotlight() {
             webpSrcSet={bookWebp}
             src={bookCover}
             sizes="(max-width: 599px) 40vw, 160px"
-            alt="The PT's Guide to Women's Pelvic, Perinatal & Reproductive Health"
+            alt="The Physical Therapist's Guide to Women's Pelvic, Perinatal, and Reproductive Health"
             width={640}
             height={914}
           />
         </div>
         <div>
-          <p className={s.bookKicker}>Lead Author · Taylor &amp; Francis, 2025</p>
+          <p className={s.bookKicker}>Lead Author · Routledge, 2025</p>
           <h3 className={s.bookTitle}>
             The definitive clinical reference for pelvic health
           </h3>
@@ -291,27 +291,21 @@ function Testimonials() {
   const t = [
     {
       quote:
-        "After two births I finally feel like myself again. Rebecca’s expertise is simply unmatched.",
-      name: "Postpartum patient",
-      category: "Postpartum recovery",
+        "After my C-section, Rebecca’s support made a meaningful difference in my recovery. She helped me rebuild strength and confidence, always with knowledge, patience, and care.",
+      name: "Alexandra",
+      category: "Pregnancy & postpartum",
     },
     {
       quote:
-        "She explained every step and never once rushed me. I felt safe and respected the entire time.",
-      name: "Pelvic-pain patient",
-      category: "Chronic pelvic pain",
-    },
-    {
-      quote:
-        "Mentoring with Rebecca reshaped how I practice. She truly is a teacher of teachers.",
-      name: "PT mentee",
-      category: "Clinical mentorship",
+        "Rebecca goes so far beyond just treating pelvic floor issues — her whole approach is rooted in quality of life. I don’t just feel like my problems are managed; I feel truly well.",
+      name: "Ari",
+      category: "Pelvic floor therapy",
     },
   ];
   return (
     <section className={s.testimonialsSection}>
       <div className={s.wrap}>
-        <SectionHead eyebrow="Patient & mentee voices" title="Care that people remember" center />
+        <SectionHead eyebrow="In patients’ words" title="Care that people remember" center />
         <div className="card-grid">
           <ul className="card-grid__list">
             {t.map((x) => (
@@ -322,8 +316,8 @@ function Testimonials() {
           </ul>
         </div>
         <p className={s.testimonialsNote}>
-          Authentic experiences shared by patients and mentees, with permission,
-          without compensation.
+          Authentic experiences shared by patients, with permission and without
+          compensation.
         </p>
       </div>
     </section>

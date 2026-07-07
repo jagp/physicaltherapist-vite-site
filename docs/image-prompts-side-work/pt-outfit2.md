@@ -1,0 +1,1 @@
+“mature clinician in colorful polished clinical-casual attire: tailored stretch trousers, refined knit top, short structured washable jacket, supportive clean sneakers, tasteful color accents, no lab coat, no scrubs.
