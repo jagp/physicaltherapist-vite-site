@@ -4,4 +4,10 @@
 
 - Per-page `<head>` (title/description/canonical/OG/JSON-LD) is emitted by `PageSeo` / `ServiceSeo` components relying on **React 19 head hoisting**; under SSG these land in each page's static HTML for crawlers.
 
+## Analytics (Google Tag Manager)
+
+- GTM is injected at **build time** by `gtmPlugin` in `vite.config.ts`, gated on the `VITE_GTM_ID` env var. A valid `GTM-XXXXXXX` value emits the loader (high in `<head>`) and the `<noscript>` fallback (right after `<body>`) into the shared `index.html` shell, so `vite-react-ssg` carries them onto **every** pre-rendered page. **No/blank/malformed ID → nothing is injected** (so local dev is GTM-free by default, and the container ID stays out of tracked source).
+- **Local:** put `VITE_GTM_ID=GTM-XXXXXXX` in `.env.local` (gitignored). See `.env.example`. **Production:** set `VITE_GTM_ID` in **Cloudflare Pages → Settings → Environment variables → Production**; `loadEnv` picks it up from the build environment.
+- **SPA caveat:** this is an SSG-hydrated React Router app, so a stock GTM container only fires on the initial document load — **client-side route changes aren't tracked by default.** Handle route-change pageviews in the GTM UI once the container exists (a History Change trigger / GA4 Enhanced Measurement "history events"), not in code.
+
 see the todo.md for deployment releveant roadmap
