@@ -31,6 +31,26 @@ const faqs: Array<[string, string]> = [
     'Pelvic-floor and bladder health (leakage, urgency, frequency, prolapse), pregnancy and postpartum recovery, chronic pelvic pain and sexual health, lymphedema and cancer rehabilitation, osteoporosis and bone health, and menopause and midlife changes.',
   ],
   [
+    'Can you treat bladder leakage or urgency without surgery?',
+    'Often, yes. For stress, urge, and mixed urinary incontinence — and for the pressure of pelvic organ prolapse — conservative pelvic-floor therapy can retrain the muscles that support your bladder, frequently without surgery or medication. This care is for all genders, including men after prostate surgery.',
+  ],
+  [
+    'Can pelvic-floor therapy help pelvic pain or painful intimacy?',
+    'Yes. Chronic pelvic pain and painful intimacy often stem from muscle tension, nerve irritation, or scar tissue. With gentle manual therapy, desensitization, and neuromuscular retraining, I treat conditions such as vulvodynia, pudendal neuralgia, vaginismus, and painful intercourse — always at your pace.',
+  ],
+  [
+    'Do you provide rehabilitation after cancer treatment?',
+    'Yes. As a Certified Lymphedema Therapist (CLT), I help survivors with manual lymphatic drainage, compression-garment fitting, scar-tissue and range-of-motion work after breast-cancer surgery, and care for the bladder, bowel, and sexual side effects of surgery, radiation, or chemotherapy.',
+  ],
+  [
+    'Can physical therapy help with osteoporosis or bone health?',
+    'Yes. I offer safe, Pilates-based strength, posture, and balance training designed to be appropriate for lower bone density — building the kind of strength that helps protect your bones as you age.',
+  ],
+  [
+    'Do you help with menopause and midlife changes?',
+    'Yes. Midlife and menopause can bring changes to the bladder, pelvic floor, comfort, and intimacy. I provide judgment-free, specialist pelvic-health care to help you navigate them with confidence.',
+  ],
+  [
     'What are your qualifications?',
     'I’m Dr. Rebecca G. Stephenson, a Board-Certified Pelvic & Women’s Health Clinical Specialist (PWCS) and Certified Lymphedema Therapist (CLT) with over 45 years of clinical experience, including years at Brigham and Women’s Hospital and Massachusetts General Hospital.',
   ],
