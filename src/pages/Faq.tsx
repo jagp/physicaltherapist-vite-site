@@ -3,7 +3,7 @@ import { PageSeo } from '../components/PageSeo';
 import { useNavigate } from 'react-router-dom';
 import { PageHeader } from '../components/PageHeader';
 import { Button } from '../components/core/Button';
-import s from './Faq.module.css';
+import s from '../data/Faq.module.css';
 
 const faqs: Array<[string, string]> = [
   [
