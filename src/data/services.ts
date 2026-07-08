@@ -205,7 +205,7 @@ export const services: ServiceInfo[] = [
         url: 'https://my.clevelandclinic.org/health/diseases/14459-pelvic-floor-dysfunction',
         label: 'Cleveland Clinic’s overview',
         before:
-          'For a plain-language look at how these muscles affect bladder and bowel control, ',
+          'For more on how these muscles affect bladder and bowel control, ',
         after: ' is a good place to start.',
       },
       specializedTreatments: [
@@ -325,7 +325,7 @@ export const services: ServiceInfo[] = [
         url: '#',
         label: 'Inova Health’s overview',
         before:
-          'For a broader look at what pelvic floor physical therapy addresses during and after pregnancy, ',
+          'For more on what pelvic floor physical therapy addresses during and after pregnancy, ',
         after: ' is a solid starting point.',
       },
       specializedTreatments: [
@@ -466,7 +466,7 @@ export const services: ServiceInfo[] = [
         url: 'https://www.hopkinsmedicine.org/health/treatment-tests-and-therapies/pelvic-floor-therapy',
         label: 'Johns Hopkins Medicine',
         before:
-          'For a plain-language overview of what pelvic floor therapy addresses, ',
+          'For more on what pelvic floor therapy addresses, ',
         after: ' is a helpful outside resource.',
       },
       specializedTreatments: [
