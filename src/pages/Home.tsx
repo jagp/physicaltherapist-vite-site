@@ -283,6 +283,7 @@ function BookSpotlight() {
             size="sm"
             iconRight={<span>→</span>}
             href="https://www.routledge.com/The-Physical-Therapists-Guide-to-Womens-Pelvic-Perinatal-and-Reproductive-Health/Stephenson-Cathcart/p/book/9781630917869"
+            target="_blank"
           >
             View at Routledge
           </Button>

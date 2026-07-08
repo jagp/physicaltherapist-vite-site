@@ -42,6 +42,8 @@ export function Button({
   variant = "primary",
   size = "md",
   href,
+  target,
+  rel,
   type = "button",
   disabled = false,
   iconRight,
@@ -74,6 +76,8 @@ export function Button({
     return (
       <a
         href={href}
+        target={target}
+        rel={rel ?? (target === "_blank" ? "noopener noreferrer" : undefined)}
         className={cls}
         style={style}
         aria-disabled={disabled || undefined}
