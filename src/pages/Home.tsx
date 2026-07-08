@@ -278,8 +278,13 @@ function BookSpotlight() {
             evidence-based care across the full lifespan, for pelvic health
             specialists. Available in print and digital editions.
           </p>
-          <Button variant="onBand" size="sm" iconRight={<span>→</span>}>
-            View on VitalSource
+          <Button
+            variant="onBand"
+            size="sm"
+            iconRight={<span>→</span>}
+            href="https://www.routledge.com/The-Physical-Therapists-Guide-to-Womens-Pelvic-Perinatal-and-Reproductive-Health/Stephenson-Cathcart/p/book/9781630917869"
+          >
+            View at Routledge
           </Button>
         </div>
       </div>
