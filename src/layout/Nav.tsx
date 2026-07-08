@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '../components/core/Button';
+import { services } from '../data/services';
 import logo from '../assets/logo_white_text_transparent_v2.png';
 import s from './Nav.module.css';
 
@@ -11,6 +12,10 @@ const links: Array<[string, string]> = [
   ['/faq', 'FAQ'],
   ['/contact', 'Contact'],
 ];
+
+/* Single source of truth for the Services dropdown / accordion — derived from
+   the services data so new services flow through automatically. */
+const SERVICE_NAV = services.map(({ slug, title }) => ({ slug, title }));
 
 export function Nav() {
   const navigate = useNavigate();
@@ -49,16 +54,62 @@ export function Nav() {
         </Link>
 
         <nav className={s.links} aria-label="Primary">
-          {links.map(([to, label]) => (
-            <NavLink
-              key={to}
-              to={to}
-              end={to === '/'}
-              className={({ isActive }) => (isActive ? `${s.link} ${s.linkActive}` : s.link)}
-            >
-              {label}
-            </NavLink>
-          ))}
+          {links.map(([to, label]) =>
+            to === '/services' ? (
+              /* Hover/focus dropdown — CSS-only (:hover + :focus-within).
+                 The trigger stays a real link to /services, so click still works. */
+              <div key={to} className={s.hasMenu}>
+                <NavLink
+                  to={to}
+                  className={({ isActive }) =>
+                    isActive
+                      ? `${s.link} ${s.svcTrigger} ${s.linkActive}`
+                      : `${s.link} ${s.svcTrigger}`
+                  }
+                >
+                  {label}
+                  <span className={s.caret} aria-hidden="true" />
+                </NavLink>
+                <div className={s.menu}>
+                  <div className={s.menuCard} role="menu" aria-label="Services">
+                    <NavLink
+                      to="/services"
+                      end
+                      role="menuitem"
+                      className={({ isActive }) =>
+                        isActive
+                          ? `${s.menuLink} ${s.menuAll} ${s.menuLinkActive}`
+                          : `${s.menuLink} ${s.menuAll}`
+                      }
+                    >
+                      All Services
+                    </NavLink>
+                    {SERVICE_NAV.map(({ slug, title }) => (
+                      <NavLink
+                        key={slug}
+                        to={`/services/${slug}`}
+                        role="menuitem"
+                        className={({ isActive }) =>
+                          isActive ? `${s.menuLink} ${s.menuLinkActive}` : s.menuLink
+                        }
+                      >
+                        {title}
+                      </NavLink>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <NavLink
+                key={to}
+                to={to}
+                end={to === '/'}
+                className={({ isActive }) => (isActive ? `${s.link} ${s.linkActive}` : s.link)}
+              >
+                {label}
+              </NavLink>
+            ),
+          )}
         </nav>
 
         <span className={s.desktopCta}>
@@ -72,18 +123,51 @@ export function Nav() {
             <span className={s.burger} />
           </summary>
           <nav className={s.panel} aria-label="Primary mobile">
-            {links.map(([to, label]) => (
-              <NavLink
-                key={to}
-                to={to}
-                end={to === '/'}
-                className={({ isActive }) =>
-                  isActive ? `${s.panelLink} ${s.panelLinkActive}` : s.panelLink
-                }
-              >
-                {label}
-              </NavLink>
-            ))}
+            {links.map(([to, label]) =>
+              to === '/services' ? (
+                /* Nested disclosure — same <details>-is-state pattern as the
+                   outer menu, one level down. */
+                <details key={to} className={s.panelGroup}>
+                  <summary className={s.panelSummary}>
+                    <span>Services</span>
+                    <span className={s.panelChevron} aria-hidden="true" />
+                  </summary>
+                  <div className={s.panelSub}>
+                    <NavLink
+                      to="/services"
+                      end
+                      className={({ isActive }) =>
+                        isActive ? `${s.panelSubLink} ${s.panelSubLinkActive}` : s.panelSubLink
+                      }
+                    >
+                      All Services
+                    </NavLink>
+                    {SERVICE_NAV.map(({ slug, title }) => (
+                      <NavLink
+                        key={slug}
+                        to={`/services/${slug}`}
+                        className={({ isActive }) =>
+                          isActive ? `${s.panelSubLink} ${s.panelSubLinkActive}` : s.panelSubLink
+                        }
+                      >
+                        {title}
+                      </NavLink>
+                    ))}
+                  </div>
+                </details>
+              ) : (
+                <NavLink
+                  key={to}
+                  to={to}
+                  end={to === '/'}
+                  className={({ isActive }) =>
+                    isActive ? `${s.panelLink} ${s.panelLinkActive}` : s.panelLink
+                  }
+                >
+                  {label}
+                </NavLink>
+              ),
+            )}
             <span className={s.panelCta}>
               <Button variant="gradient" size="md" fullWidth onClick={() => navigate('/contact')}>
                 Book a Consultation
