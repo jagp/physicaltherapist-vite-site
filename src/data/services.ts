@@ -5,7 +5,6 @@ import iconPelvicSupport from '../assets/icons/icon-pelvic-support.png';
 import iconOncology from '../assets/icons/icon-oncology.png';
 import iconSpine from '../assets/icons/icon-spine.png';
 import iconSports from '../assets/icons/icon-sports.png';
-<<<<<<< HEAD
 import iconPelvicFloorCream from '../assets/icons/icon-pelvic-floor-cream.png';
 import iconPregnancyCream from '../assets/icons/icon-pregnancy-cream.png';
 import iconPelvicSupportCream from '../assets/icons/icon-pelvic-support-cream.png';
@@ -18,15 +17,10 @@ import pregnancyLandscapeWebp from '../assets/service-page-images/pregnancy-land
 import pregnancyInset from '../assets/service-page-images/pregnancy-inset.png?w=1240&format=jpeg';
 import pregnancyInsetAvif from '../assets/service-page-images/pregnancy-inset.png?w=480;960;1240&format=avif&as=srcset';
 import pregnancyInsetWebp from '../assets/service-page-images/pregnancy-inset.png?w=480;960;1240&format=webp&as=srcset';
-=======
-import pregnancyLandscape from '../assets/service-page-images/pregnancy-landscape.png';
-import pregnancyInset from '../assets/service-page-images/pregnancy-inset.png';
->>>>>>> feature/new_service_page_layout
 
 
 
 
-<<<<<<< HEAD
 export interface ServiceImage {
   src: string;
   /** Descriptive alt text; theme-based, fallback "picture of ▲". */
@@ -40,8 +34,6 @@ export interface ServiceImage {
   height?: number;
 }
 
-=======
->>>>>>> feature/new_service_page_layout
 export interface ExternalLink {
   url: string;
   /** Linked label text, rendered as the <a>. */
@@ -57,7 +49,6 @@ export interface SpecializedTreatment {
   desc: string;
 }
 
-<<<<<<< HEAD
 /* ---- Optional, composable content blocks ("reach / double-reach") ----
    Each service opts into any mix of these; array order is render order.
    Boutique per-service blocks (e.g. a pregnancy-only "Home Visits" feature)
@@ -106,9 +97,6 @@ export interface ServiceSeo {
 export interface ServiceContent {
   /** Small label above the headline (e.g. the service title). */
   eyebrow?: string;
-=======
-export interface ServiceContent {
->>>>>>> feature/new_service_page_layout
   /** First-person headline in Rebecca's voice. */
   headline: string;
   /** Punchy claim under the headline. */
@@ -127,15 +115,12 @@ export interface ServiceContent {
   /** Land-the-pitch closing paragraph. */
   closer: string;
   cta: { phrase: string; button: string };
-<<<<<<< HEAD
   /** Per-page SEO/head overrides; every field falls back to a sensible default. */
   seo?: ServiceSeo;
   /** Ordered, optional content blocks rendered between the article and the CTA. */
   sections?: ServiceSection[];
   /** Slugs of sibling services to cross-link; defaults to the other services. */
   relatedSlugs?: string[];
-=======
->>>>>>> feature/new_service_page_layout
 }
 
 export interface ServiceInfo {
@@ -168,13 +153,10 @@ export const services: ServiceInfo[] = [
       claim: 'I bring long-lasting vitality to your whole family.',
       heroImage: {
         src: pregnancyLandscape,
-<<<<<<< HEAD
         avifSrcSet: pregnancyLandscapeAvif,
         webpSrcSet: pregnancyLandscapeWebp,
         width: 1448,
         height: 1086,
-=======
->>>>>>> feature/new_service_page_layout
         alt: 'A physical therapist holds a pregnant patient’s hand during a supportive consultation, her partner seated nearby.',
       },
       heroImageSide: 'left',
@@ -182,13 +164,10 @@ export const services: ServiceInfo[] = [
         'Pregnancy and the months after birth ask a lot of your body — and you deserve a provider who’s spent decades learning how to support it. As a Board-Certified Women’s Health Clinical Specialist, I work one-on-one with you through every stage, from the aches of a changing pregnancy to a full return to strength postpartum.',
       insetImage: {
         src: pregnancyInset,
-<<<<<<< HEAD
         avifSrcSet: pregnancyInsetAvif,
         webpSrcSet: pregnancyInsetWebp,
         width: 1240,
         height: 930,
-=======
->>>>>>> feature/new_service_page_layout
         alt: 'A physical therapist talking with a pregnant patient during a consultation.',
       },
       mainBody:
@@ -220,7 +199,6 @@ export const services: ServiceInfo[] = [
         phrase: 'You don’t have to white-knuckle your way through this.',
         button: 'Schedule Your Evaluation',
       },
-<<<<<<< HEAD
       sections: [
         {
           kind: 'conditions',
@@ -302,8 +280,6 @@ export const services: ServiceInfo[] = [
           ],
         },
       ],
-=======
->>>>>>> feature/new_service_page_layout
     },
   },
   {

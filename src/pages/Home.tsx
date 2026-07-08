@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import type { ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import { PageSeo } from "../components/PageSeo";
@@ -21,22 +20,6 @@ import bookWebp from "../assets/pt-guide-to-pelvic-health-book.jpg?w=320;640&for
 import bookCover from "../assets/pt-guide-to-pelvic-health-book.jpg?w=640&format=jpeg";
 import leafLeaves from "../assets/leaf-leaves.png";
 import s from "./Home.module.css";
-=======
-import type { ReactNode } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Button } from '../components/core/Button';
-import { ServiceCard } from '../components/marketing/ServiceCard';
-import { Testimonial } from '../components/marketing/Testimonial';
-import { CTABand } from '../components/marketing/CTABand';
-import { CredentialBand } from '../components/marketing/CredentialBand';
-import { stephensonTrustItems } from '../components/marketing/CredentialBand.data';
-import { services } from '../data/services';
-import headshot2 from '../assets/headshot-2.jpg';
-import headshot3 from '../assets/headshot-3.jpg';
-import leafLeaves from '../assets/leaf-leaves.png';
-import leafMark from '../assets/leaf-mark.png';
-import bookCover from '../assets/pt-guide-to-pelvic-health-book.jpg';
->>>>>>> feature/new_service_page_layout
 
 function SectionHead({
   eyebrow,
@@ -118,28 +101,6 @@ function Hero() {
 
 function TrustBar() {
   return <CredentialBand variant="plum" items={stephensonTrustItems} />;
-<<<<<<< HEAD
-=======
-}
-
-const svcDarkCSS = `
-  .svc-dark .spt-svc { background: color-mix(in srgb, var(--bg) 58%, var(--brand)) !important; border-color: rgba(255,255,255,.1) !important; box-shadow: none !important; }
-  .svc-dark .spt-svc > div:first-child { background: var(--surface-tint) !important; }
-  .svc-dark .spt-svc h3 { color: rgba(255,255,255,.94) !important; }
-  .svc-dark .spt-svc p  { color: rgba(255,255,255,.62) !important; }
-  .svc-dark .spt-svc a  { color: rgba(255,255,255,.55) !important; }
-  .svc-dark .spt-svc:hover { background: color-mix(in srgb, var(--bg) 45%, var(--brand-light)) !important; box-shadow: inset 1px 0 0 0 var(--hover-edge), var(--shadow-lg) !important; }
-`;
-
-let svcDarkInjected = false;
-function ensureSvcDarkCSS() {
-  if (svcDarkInjected || typeof document === 'undefined') return;
-  const style = document.createElement('style');
-  style.setAttribute('data-spt', 'home-svc-dark');
-  style.textContent = svcDarkCSS;
-  document.head.appendChild(style);
-  svcDarkInjected = true;
->>>>>>> feature/new_service_page_layout
 }
 
 function Services() {
@@ -153,7 +114,6 @@ function Services() {
           lede="Specialized, evidence-based treatment grouped so you can quickly find yourself in the care we provide."
           light
         />
-<<<<<<< HEAD
         <div className="card-grid">
           <ul className="card-grid__list">
             {services.map((svc) => (
@@ -172,46 +132,12 @@ function Services() {
               </li>
             ))}
           </ul>
-=======
-        <div className="svc-dark" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '22px' }}>
-          {services.map((s) => (
-            <ServiceCard
-              key={s.slug}
-              icon={s.icon}
-              title={s.title}
-              description={s.desc}
-              dark
-              onClick={(e) => {
-                e.preventDefault();
-                navigate(`/services/${s.slug}`);
-              }}
-              href={`/services/${s.slug}`}
-            />
-          ))}
->>>>>>> feature/new_service_page_layout
         </div>
       </div>
     </section>
   );
 }
 
-<<<<<<< HEAD
-=======
-const factCSS = `
-  .spt-chip:hover{ background:var(--accent) !important; color:#fff !important; border-color:var(--accent) !important; }
-`;
-
-let bioInjected = false;
-function ensureBioCSS() {
-  if (bioInjected || typeof document === 'undefined') return;
-  const style = document.createElement('style');
-  style.setAttribute('data-spt', 'home-bio');
-  style.textContent = factCSS;
-  document.head.appendChild(style);
-  bioInjected = true;
-}
-
->>>>>>> feature/new_service_page_layout
 function Bio() {
   const navigate = useNavigate();
   const chips = [
@@ -304,17 +230,13 @@ function Philosophy() {
     <section className={s.philosophySection}>
       <div className={s.philosophyWrap}>
         <img
-          src={leafMark}
+          src={leafLeaves}
           alt=""
           aria-hidden="true"
-<<<<<<< HEAD
           className={s.philosophyLeaf}
           width={400}
           height={976}
           loading="lazy"
-=======
-          style={{ width: '200px', flexShrink: 0, opacity: 0.9 }}
->>>>>>> feature/new_service_page_layout
         />
         <div>
           <span className={s.philosophyMark}>"</span>
@@ -367,7 +289,6 @@ function BookSpotlight() {
 
 function Testimonials() {
   const t = [
-<<<<<<< HEAD
     {
       quote:
         "After my C-section, Rebecca’s support made a meaningful difference in my recovery. She helped me rebuild strength and confidence, always with knowledge, patience, and care.",
@@ -380,11 +301,6 @@ function Testimonials() {
       name: "Ari",
       category: "Pelvic floor therapy",
     },
-=======
-    { quote: 'After two births I finally feel like myself again. Rebecca's expertise is simply unmatched.', name: 'Postpartum patient', category: 'Postpartum recovery' },
-    { quote: 'She explained every step and never once rushed me. I felt safe and respected the entire time.', name: 'Pelvic-pain patient', category: 'Chronic pelvic pain' },
-    { quote: 'Mentoring with Rebecca reshaped how I practice. She truly is a teacher of teachers.', name: 'PT mentee', category: 'Clinical mentorship' },
->>>>>>> feature/new_service_page_layout
   ];
   return (
     <section className={s.testimonialsSection}>
@@ -418,15 +334,11 @@ export function Home() {
         businessJsonLd
       />
       <Hero />
-<<<<<<< HEAD
       <Services />
-=======
->>>>>>> feature/new_service_page_layout
       <Bio />
       <TrustBar />
       <WCSCallout />
       <Philosophy />
-      <Services />
       <BookSpotlight />
       <Testimonials />
       <section className={s.ctaSection}>
