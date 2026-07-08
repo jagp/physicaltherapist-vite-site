@@ -7,9 +7,9 @@ export const SERVICE_SLUGS = [
   'pelvic-floor-bladder-health',
   'pregnancy-postpartum',
   'complex-pelvic-pain',
-  'oncology-breast-care',
-  'orthopedics-bone-health',
-  'sports-medicine-active-recovery',
+  'lymphedema-cancer-rehab',
+  'osteoporosis-bone-health',
+  'menopause-midlife-health',
 ] as const;
 
 export type ServiceSlug = (typeof SERVICE_SLUGS)[number];

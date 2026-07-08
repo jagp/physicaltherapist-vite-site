@@ -9,6 +9,8 @@ interface ServiceHeroProps {
   image: ServiceImage;
   imageSide?: 'left' | 'right';
   eyebrow?: ReactNode;
+  /** Breadcrumb trail floated over the image (top corner on the image side). */
+  breadcrumb?: ReactNode;
 }
 
 export function ServiceHero({
@@ -17,9 +19,15 @@ export function ServiceHero({
   image,
   imageSide = 'left',
   eyebrow,
+  breadcrumb,
 }: ServiceHeroProps) {
   return (
     <section className={s.hero}>
+      {breadcrumb && (
+        <div className={`${s.crumbs} ${imageSide === 'left' ? s.crumbsLeft : s.crumbsRight}`}>
+          {breadcrumb}
+        </div>
+      )}
       <div className={`${s.grid} ${imageSide === 'left' ? s.imgLeft : s.imgRight}`}>
         <div className={s.media}>
           {image.avifSrcSet && image.webpSrcSet ? (

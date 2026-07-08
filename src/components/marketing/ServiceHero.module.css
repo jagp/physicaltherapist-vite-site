@@ -1,13 +1,17 @@
 /* ServiceHero — split hero (image | first-person quote), the image
-   dissolving into the cream ground toward the text side. Full-bleed
-   layout with 33% text / 66% image; breadcrumbs float over image.
-   Collapses at 767 to stacked with a bottom fade. */
+   dissolving into the cream ground toward the text side. Edge-to-edge
+   full-bleed: the image column bleeds to the viewport edge and butts
+   against the nav (no top gap, no container), ~40% text / 60% image;
+   breadcrumbs float over the image. Collapses at 767 to stacked with a
+   bottom fade. */
 
-.hero { background: var(--cream); padding: var(--section-pad-sm) 0; position: relative; }
+/* No top padding: the image meets the header directly. Bottom padding
+   keeps the article below from crowding the hero text. */
+.hero { background: var(--cream); padding: 0 0 var(--section-pad-sm); position: relative; }
 
+/* No max-width / no auto margins → true full-bleed across the viewport. */
 .grid {
-  max-width: var(--maxw);
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
@@ -22,7 +26,20 @@
 }
 .media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-.fade { position: absolute; inset: 0; pointer-events: none; }
+/* Soft top scrim so the floated breadcrumbs stay legible over any photo,
+   bright or dark. Sits above the image but below the cream dissolve. */
+.media::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 38%;
+  background: linear-gradient(to bottom, rgba(24, 34, 28, 0.42), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* z-index 2 keeps the cream dissolve above the breadcrumb scrim (z-index 1). */
+.fade { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
 /* fade always toward the text side */
 .imgLeft .media { order: -1; }
 .imgLeft .txt { order: 1; }
@@ -30,6 +47,23 @@
 .imgRight .media { order: 1; }
 .imgRight .txt { order: -1; }
 .imgRight .fade { background: linear-gradient(to left, transparent 50%, var(--cream) 100%); }
+
+/* Full-bleed means the gutter the old container gave for free now lives
+   on the text column itself, so copy never kisses the viewport edge. */
+.txt { padding: clamp(24px, 4vw, 48px) clamp(24px, 5vw, 64px); }
+
+/* Floating breadcrumbs — over the top corner on the image side. */
+.crumbs { position: absolute; top: clamp(16px, 2.4vw, 28px); z-index: 3; }
+.crumbsLeft { left: clamp(16px, 3vw, 40px); }
+.crumbsRight { right: clamp(16px, 3vw, 40px); }
+/* Light ink + halo for legibility over the scrimmed photo (overrides the
+   dark global .svc-crumbs colors only while floating). */
+.crumbs :global(.svc-crumbs),
+.crumbs :global(.svc-crumbs) a,
+.crumbs :global(.svc-crumbs__current),
+.crumbs :global(.svc-crumbs__sep) { color: rgba(255, 255, 255, 0.94); }
+.crumbs :global(.svc-crumbs) { text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45); }
+.crumbs :global(.svc-crumbs) a:hover { color: #fff; }
 
 .eyebrow { margin: 0 0 12px; }
 

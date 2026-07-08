@@ -69,21 +69,21 @@ export function ServiceDetail() {
     return (
       <div className={s.page}>
         <ServiceSeo service={service} />
-        <div className={`svc-wrap ${s.crumbs}`}>
-          <Breadcrumb
-            items={[
-              { label: 'Home', to: '/' },
-              { label: 'Services', to: '/services' },
-              { label: service.title },
-            ]}
-          />
-        </div>
         <ServiceHero
           eyebrow={service.title}
           headline={c.headline}
           claim={c.claim}
           image={c.heroImage}
           imageSide={c.heroImageSide}
+          breadcrumb={
+            <Breadcrumb
+              items={[
+                { label: 'Home', to: '/' },
+                { label: 'Services', to: '/services' },
+                { label: service.title },
+              ]}
+            />
+          }
         />
         <ServiceArticle
           intro={c.intro}

@@ -1,7 +1,6 @@
 /* ServiceDetail — page-level bits not covered by service-page.css. */
 
 .page { background: var(--cream); }
-.crumbs { padding-top: var(--space-8); }
 
 .ctaSection { padding: var(--section-pad-sm) var(--gutter) var(--section-pad); }
 .ctaWrap { max-width: var(--maxw); margin: 0 auto; }

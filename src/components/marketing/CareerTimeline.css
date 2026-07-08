@@ -1,19 +1,20 @@
 /* ============================================================
    CareerTimeline — "Four distinctions, one career"
-   A single shared timeline (product-roadmap style): every
-   distinction is a large translucent CIRCLE on one line,
-   coloured by strand and sized by its overall impact on
-   women's health internationally. Neighbouring circles overlap;
-   where different colours overlap, two strands are held at once.
+   A single shared timeline (product-roadmap style): every moment
+   is a large translucent CIRCLE on one line, coloured by its
+   primary strand and SIZED by its overall impact on women's health
+   internationally. Each circle is WOVEN from concentric rings — one
+   per strand, ring width proportional to how much that strand
+   composes the moment — that come to life (rotate) on hover. Click
+   a circle to open its full record in a lightbox.
 
-   Palette stays calm (design-philosophy): translucent purple/blue
-   family that deepens where circles overlap, with teal (--attention)
-   used only as the small node accent — the "a distinction happened
-   here" dot on the shared line.
+   Neighbouring circles overlap; where different colours overlap,
+   two strands are held at once. Palette stays calm (design-philosophy):
+   the purple/blue/teal family, deepening where circles overlap.
 
-   Division of labour: the chart carries the SHAPE (circles + callouts);
-   the list beneath carries the FACTS and is the real, scrapeable,
-   keyboard-reachable content (the chart is aria-hidden).
+   Division of labour: the chart carries the SHAPE (circles + rings);
+   the itemized list beneath carries the FACTS — every publication,
+   award, and role as its own entry.
    ============================================================ */
 
 .rm {
@@ -33,7 +34,7 @@
 .rm-lede {
   color: var(--text-muted);
   font-size: var(--fs-lead);
-  max-width: 60ch;
+  max-width: 62ch;
   margin: 0;
 }
 
@@ -79,13 +80,12 @@
   overflow-x: auto;
   overflow-y: hidden;
   margin: var(--space-10) 0 var(--space-12);
-  /* fade hint that content scrolls on narrow screens */
   scrollbar-width: thin;
 }
 
 .rm-stage {
   position: relative;
-  min-width: 1000px;
+  min-width: 1200px;
   height: 400px;
   padding: 0 var(--space-2);
 }
@@ -102,22 +102,36 @@
   border-radius: var(--radius-pill);
 }
 
-/* each milestone lives on a zero-width vertical guide at left:x% */
+/* Each milestone is a BUTTON living on a zero-width vertical guide at left:x%.
+   Reset the native button chrome but keep it a real, focusable control. */
 .rm-node {
   position: absolute;
   top: 0;
   bottom: 0;
   width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  overflow: visible;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  /* focus/dim recede for non-active nodes */
+  transition: opacity var(--dur-fast) var(--ease-out), filter var(--dur-fast) var(--ease-out);
 }
 
-/* per-track colour: --rm-c drives the circle, --rm-ink drives text */
+/* per-track colour: --rm-c drives the disc fill, --rm-ink drives text */
 .rm-node[data-track='clinic']   { --rm-c: var(--brand);         --rm-ink: var(--brand); }
 .rm-node[data-track='author']   { --rm-c: var(--bg);            --rm-ink: var(--bg); }
 .rm-node[data-track='advocate'] { --rm-c: var(--accent);        --rm-ink: var(--accent); }
 .rm-node[data-track='educator'] { --rm-c: color-mix(in srgb, var(--brand-offset) 72%, #ffffff);
                                    --rm-ink: var(--brand-offset); }
 
-/* the translucent circle, centred on the axis */
+/* the circle wrapper — carries the size tier and the entrance bloom */
 .rm-circle {
   position: absolute;
   top: var(--rm-axis-y);
@@ -125,9 +139,6 @@
   width: var(--d, 96px);
   height: var(--d, 96px);
   transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--rm-c) 34%, transparent);
-  border: 1.5px solid color-mix(in srgb, var(--rm-c) 58%, transparent);
   transform-origin: center;
 }
 
@@ -137,14 +148,53 @@
 .rm-node[data-size='lg'] .rm-circle { --d: 130px; }
 .rm-node[data-size='xl'] .rm-circle { --d: 158px; }
 
+/* the translucent disc — the calm "combined impact" blob, denser at its core,
+   deepening where circles overlap */
+.rm-disc {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 42%,
+    color-mix(in srgb, var(--rm-c) 46%, transparent) 0%,
+    color-mix(in srgb, var(--rm-c) 30%, transparent) 62%,
+    color-mix(in srgb, var(--rm-c) 22%, transparent) 100%);
+  border: 1.5px solid color-mix(in srgb, var(--rm-c) 58%, transparent);
+  transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+
 /* the capstone gets a soft outer halo; the cluster a faint dashed rim */
-.rm-circle.is-capstone {
+.rm-circle.is-capstone .rm-disc {
   box-shadow: 0 0 0 6px color-mix(in srgb, var(--rm-accent) 14%, transparent);
 }
-.rm-circle.is-cluster {
+.rm-circle.is-cluster .rm-disc {
   border-style: dashed;
   border-color: color-mix(in srgb, var(--rm-c) 70%, transparent);
 }
+
+/* the woven rings — one per strand, faint at rest, alive on hover */
+.rm-rings {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.rm-ring {
+  opacity: 0.22;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: rm-spin var(--spin, 24s) linear infinite;
+  animation-play-state: paused;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+.rm-ring[data-reverse] { animation-direction: reverse; }
+.rm-ring[data-track='clinic']   { stroke: var(--brand); }
+.rm-ring[data-track='author']   { stroke: var(--bg); }
+.rm-ring[data-track='advocate'] { stroke: var(--accent); }
+.rm-ring[data-track='educator'] { stroke: color-mix(in srgb, var(--brand-offset) 74%, #ffffff); }
+
+@keyframes rm-spin { to { transform: rotate(1turn); } }
 
 /* node dot on the shared line — teal-ringed, the consistent accent */
 .rm-dot {
@@ -158,6 +208,7 @@
   background: var(--rm-ink);
   box-shadow: 0 0 0 2px var(--cream), 0 0 0 3px var(--rm-accent);
   z-index: 3;
+  transition: box-shadow var(--dur-fast) var(--ease-out);
 }
 
 /* connector stem from the line out to the callout */
@@ -186,6 +237,7 @@
   line-height: var(--lh-snug);
   color: var(--text-muted);
   z-index: 2;
+  transition: color var(--dur-fast) var(--ease-out);
 }
 .rm-node[data-pos='above'] .rm-callout { bottom: calc(var(--rm-axis-y) + var(--rm-stem)); }
 .rm-node[data-pos='below'] .rm-callout { top: calc(var(--rm-axis-y) + var(--rm-stem)); }
@@ -201,10 +253,43 @@
   margin-bottom: 4px;
 }
 
+/* ============================================================
+   INTERACTION — hover / focus brings a circle forward, wakes its
+   rings, and dims the rest of the timeline so one strand can be
+   traced out of the overlap. Bi-directional with the list below.
+   ============================================================ */
+
+/* while one circle is "hot", the others recede */
+.rm-stage[data-focus] .rm-node:not([data-hot]) {
+  opacity: 0.32;
+  filter: saturate(0.55);
+}
+
+/* the hot circle: forward, its rings running and bright, its label darkened */
+.rm-node[data-hot] { z-index: 6; }
+.rm-node[data-hot] .rm-disc {
+  transform: scale(1.05);
+  box-shadow: 0 10px 34px -8px color-mix(in srgb, var(--rm-c) 42%, transparent);
+}
+.rm-node[data-hot] .rm-ring {
+  opacity: 0.92;
+  animation-play-state: running;
+}
+.rm-node[data-hot] .rm-dot {
+  box-shadow: 0 0 0 2px var(--cream), 0 0 0 4px var(--rm-accent);
+}
+.rm-node[data-hot] .rm-callout { color: var(--text-body); }
+
+/* keyboard focus: no outline on the zero-width button — ring the disc instead */
+.rm-node:focus-visible { outline: none; }
+.rm-node:focus-visible .rm-disc {
+  box-shadow: 0 0 0 3px var(--cream), 0 0 0 6px var(--focus-ring);
+}
+
 /* Today terminus at the right end of the line */
 .rm-today {
   position: absolute;
-  left: 96%;
+  left: 97%;
   top: 0;
   bottom: 0;
   width: 0;
@@ -236,7 +321,8 @@
 }
 
 /* ============================================================
-   MILESTONE LIST — the facts (real content, always legible)
+   ITEMIZED LIST — the facts (real content, always legible).
+   Every publication, award, and role is its own entry.
    ============================================================ */
 .rm-list {
   list-style: none;
@@ -244,36 +330,46 @@
   padding: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-6) var(--space-10);
+  gap: var(--space-5) var(--space-8);
   max-width: var(--maxw-narrow);
 }
 .rm-item {
+  --rm-lc: var(--brand);
   display: grid;
   grid-template-columns: auto 1fr;
   gap: var(--space-4);
   align-items: start;
+  padding: var(--space-2) var(--space-2) var(--space-2) 0;
+  border-radius: var(--radius-sm);
+  transition: background var(--dur-fast) var(--ease-out);
 }
+.rm-item[data-track='author']   { --rm-lc: var(--bg); }
+.rm-item[data-track='advocate'] { --rm-lc: var(--accent); }
+.rm-item[data-track='educator'] { --rm-lc: var(--brand-offset); }
+
+/* highlight the entry whose circle is hot (and vice-versa) */
+.rm-item[data-linked] {
+  background: color-mix(in srgb, var(--rm-lc) 8%, transparent);
+}
+
 .rm-item-year {
   font-family: var(--font-display);
   font-weight: var(--fw-semibold);
-  font-size: var(--fs-h5);
-  line-height: 1;
-  color: var(--brand);
+  font-size: var(--fs-h6);
+  line-height: 1.1;
+  color: var(--rm-lc);
   padding-top: 2px;
   padding-left: var(--space-3);
-  border-left: 3px solid var(--brand);
+  border-left: 3px solid var(--rm-lc);
   white-space: nowrap;
+  min-width: 4ch;
 }
-.rm-item[data-track='author'] .rm-item-year { color: var(--bg); border-color: var(--bg); }
-.rm-item[data-track='advocate'] .rm-item-year { color: var(--accent); border-color: var(--accent); }
-.rm-item[data-track='educator'] .rm-item-year { color: var(--brand-offset); border-color: var(--brand-offset); }
 .rm-item h3 {
   font-size: var(--fs-h6);
   font-weight: var(--fw-semibold);
   margin: 0 0 var(--space-2);
   line-height: var(--lh-snug);
 }
-.rm-item.is-capstone h3 { font-style: italic; }
 .rm-item p {
   margin: 0;
   color: var(--text-muted);
@@ -292,8 +388,178 @@
 }
 
 /* ============================================================
-   MOTION — additive; no-JS / reduced-motion shows everything.
-   Circles bloom in gently in career order.
+   LIGHTBOX — native <dialog>, top layer, focus-trapped.
+   ============================================================ */
+.rm-modal {
+  border: none;
+  padding: 0;
+  background: transparent;
+  width: min(660px, 92vw);
+  max-width: 92vw;
+  color: var(--text-body);
+}
+.rm-modal::backdrop {
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
+  backdrop-filter: blur(3px);
+}
+.rm-modal[open]::backdrop { animation: rm-fade-in var(--dur-fast) var(--ease-out); }
+.rm-modal[open] .rm-modal-panel { animation: rm-modal-in var(--dur-fast) var(--ease-out); }
+
+@keyframes rm-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes rm-modal-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.98); }
+  to   { opacity: 1; transform: none; }
+}
+
+.rm-modal-panel {
+  --rm-c: var(--brand);
+  --rm-ink: var(--brand);
+  position: relative;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 30px 80px -20px color-mix(in srgb, var(--bg) 60%, transparent);
+  padding: clamp(var(--space-6), 5vw, var(--space-9));
+  max-height: 88vh;
+  overflow-y: auto;
+}
+.rm-modal-panel[data-track='clinic']   { --rm-c: var(--brand);  --rm-ink: var(--brand); }
+.rm-modal-panel[data-track='author']   { --rm-c: var(--bg);     --rm-ink: var(--bg); }
+.rm-modal-panel[data-track='advocate'] { --rm-c: var(--accent); --rm-ink: var(--accent); }
+.rm-modal-panel[data-track='educator'] { --rm-c: color-mix(in srgb, var(--brand-offset) 72%, #ffffff);
+                                         --rm-ink: var(--brand-offset); }
+
+.rm-modal-close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+}
+.rm-modal-close:hover { color: var(--text-body); border-color: var(--border-strong); }
+
+.rm-modal-head {
+  display: flex;
+  gap: var(--space-6);
+  align-items: center;
+  margin-bottom: var(--space-7);
+  padding-right: var(--space-8);
+}
+.rm-modal-art {
+  position: relative;
+  width: 132px;
+  height: 132px;
+  flex: none;
+}
+.rm-modal-art .rm-disc { position: absolute; inset: 0; }
+.rm-modal-art .rm-ring { opacity: 0.92; animation-play-state: running; }
+
+.rm-modal-year {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-h5);
+  line-height: 1;
+  color: var(--rm-ink);
+  margin-bottom: var(--space-2);
+}
+.rm-modal-title {
+  font-size: var(--fs-h5);
+  margin: 0 0 var(--space-3);
+  line-height: var(--lh-snug);
+}
+.rm-modal-body {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+  line-height: var(--lh-normal);
+}
+
+/* section labels */
+.rm-modal-weave-label {
+  font-family: var(--font-ui);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 var(--space-3);
+}
+
+/* the woven-composition bars */
+.rm-modal-weave { margin-bottom: var(--space-7); }
+.rm-weave-bars { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); }
+.rm-weave-bars li {
+  display: grid;
+  grid-template-columns: 9rem 1fr auto;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-ui);
+  font-size: var(--fs-small);
+}
+.rm-weave-name { color: var(--text-body); font-weight: var(--fw-semibold); }
+.rm-weave-bar {
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--text-dark) 10%, var(--cream));
+  overflow: hidden;
+}
+.rm-weave-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  transform-origin: left center;
+  animation: rm-weave-grow var(--dur) var(--ease-out);
+}
+@keyframes rm-weave-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.rm-weave-pct { color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.rm-weave-bars li[data-track='clinic']   .rm-weave-fill { background: var(--brand); }
+.rm-weave-bars li[data-track='author']   .rm-weave-fill { background: var(--bg); }
+.rm-weave-bars li[data-track='advocate'] .rm-weave-fill { background: var(--accent); }
+.rm-weave-bars li[data-track='educator'] .rm-weave-fill { background: var(--brand-offset); }
+
+/* the itemized records */
+.rm-modal-records ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-4); }
+.rm-modal-records li {
+  --rm-rc: var(--brand);
+  border-left: 3px solid var(--rm-rc);
+  padding-left: var(--space-4);
+}
+.rm-modal-records li[data-track='author']   { --rm-rc: var(--bg); }
+.rm-modal-records li[data-track='advocate'] { --rm-rc: var(--accent); }
+.rm-modal-records li[data-track='educator'] { --rm-rc: var(--brand-offset); }
+.rm-modal-records h4 {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-semibold);
+  margin: 0 0 4px;
+  line-height: var(--lh-snug);
+}
+.rm-rec-year {
+  font-family: var(--font-display);
+  color: var(--rm-rc);
+  margin-right: 0.6ch;
+}
+.rm-modal-records p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+  line-height: var(--lh-normal);
+}
+
+/* ============================================================
+   ENTRANCE MOTION — additive; circles bloom in gently in career
+   order. (Hover / ring / lightbox motion is intentionally left
+   running for everyone — the calm, living motion IS the brand.)
    ============================================================ */
 .rm-motion .rm-circle,
 .rm-motion .rm-dot,
@@ -317,7 +583,7 @@
   opacity: 1;
   transition: opacity var(--dur) var(--ease-out) 0.25s;
 }
-/* bloom left-to-right */
+/* bloom left-to-right (nth-child: axis is 1, nodes are 2…14) */
 .rm-motion.is-in .rm-node:nth-child(2) .rm-circle { transition-delay: 0.00s; }
 .rm-motion.is-in .rm-node:nth-child(3) .rm-circle { transition-delay: 0.05s; }
 .rm-motion.is-in .rm-node:nth-child(4) .rm-circle { transition-delay: 0.10s; }
@@ -330,8 +596,11 @@
 .rm-motion.is-in .rm-node:nth-child(11) .rm-circle { transition-delay: 0.45s; }
 .rm-motion.is-in .rm-node:nth-child(12) .rm-circle { transition-delay: 0.50s; }
 .rm-motion.is-in .rm-node:nth-child(13) .rm-circle { transition-delay: 0.55s; }
+.rm-motion.is-in .rm-node:nth-child(14) .rm-circle { transition-delay: 0.60s; }
 
 @media (prefers-reduced-motion: reduce) {
+  /* The entrance bloom still resolves to the shown state instantly. The
+     living hover/ring/lightbox motion is deliberately NOT disabled here. */
   .rm-motion .rm-circle,
   .rm-motion .rm-dot,
   .rm-motion .rm-today-dot { transform: translate(-50%, -50%) scale(1); }
@@ -349,14 +618,21 @@
 /* ============================================================
    RESPONSIVE
    The stage keeps its min-width and scrolls horizontally on narrow
-   screens (with the readable list below as the non-scroll fallback).
+   screens (with the readable itemized list below as the fallback).
    ============================================================ */
 @media (max-width: 767px) {
   .rm-list {
     grid-template-columns: 1fr;
-    gap: var(--space-6);
+    gap: var(--space-5);
   }
   .rm-lede {
     font-size: var(--fs-body);
   }
+  .rm-modal-head {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding-right: 0;
+  }
+  .rm-weave-bars li { grid-template-columns: 7rem 1fr auto; }
 }
