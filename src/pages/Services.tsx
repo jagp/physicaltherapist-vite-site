@@ -83,7 +83,11 @@ export function Services() {
             tone="gradient"
             leafSrc={leafLeaves}
           >
-            <Button variant="onBand" size="lg" onClick={() => navigate("/contact")}>
+            <Button
+              variant="onBand"
+              size="lg"
+              onClick={() => navigate("/contact")}
+            >
               Book a Consultation
             </Button>
           </CTABand>

@@ -4,9 +4,7 @@
 > → human "middle layer" plus-up (Jared: psychological motivation, brand-promise story, H1→CTA thread,
 > bounce control) → SEO copy plugin → `content` block in `src/data/services.ts`.
 > `narrative_arc` / `brand_promise` are **scaffold for the human layer — yours to own or replace.**
-> ⚠ LARGEST SOURCE GAP — net-new keyword pivot, no dedicated upstream source. Built from standard
-> menopause pelvic-health scope (GSM). Rebecca must confirm the scope she treats before publish.
-
+> 
 ```yaml
 service: Menopause & Midlife Health
 slug: menopause-midlife-health
