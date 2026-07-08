@@ -59,7 +59,7 @@ export function Contact() {
                 South Natick, MA 01760
               </p>
               <p className={s.visitPhone}>508-740-0663</p>
-              <p className={s.visitLast}>rgspt1@gmail.com</p>
+              <p className={s.visitLast}>rstephensonpt@gmail.com</p>
             </Card>
             <Card tone="cream" padding="24px">
               <p className={s.hoursTitle}>By appointment</p>
