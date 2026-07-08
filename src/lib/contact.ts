@@ -7,8 +7,11 @@
  * payload to that endpoint — the call site (Contact page) does not change.
  */
 
-/** Where consultation requests are delivered. Matches the address in the footer. */
-export const CONTACT_EMAIL = 'rstephensonpt@gmail.com';
+/** Recipients for consultation requests: primary (Rebecca) and CC (site manager). */
+export const CONTACT_EMAILS = {
+  primary: 'rstephensonpt@gmail.com',
+  cc: 'for.jbot@gmail.com',
+};
 
 export interface ContactMessage {
   name: string;
@@ -52,7 +55,8 @@ function composeEmail(data: ContactMessage): { subject: string; body: string } {
  */
 export async function sendContactMessage(data: ContactMessage): Promise<SendResult> {
   const { subject, body } = composeEmail(data);
-  const href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const to = `${CONTACT_EMAILS.primary},${CONTACT_EMAILS.cc}`;
+  const href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
   if (typeof window === 'undefined') {
     // SSG/prerender guard — never runs during a real submit.
