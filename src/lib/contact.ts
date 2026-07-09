@@ -1,14 +1,12 @@
 /**
  * Contact form delivery.
  *
- * Single seam for sending a consultation request. Today it generates an email
- * client-side via a `mailto:` draft (no backend required). When the Cloudflare
- * email Worker is ready, swap ONLY the body of `sendContactMessage` to POST the
- * payload to that endpoint — the call site (Contact page) does not change.
+ * Single seam for sending a consultation request. It POSTs the form data to the
+ * `/api/contact` Cloudflare Pages Function (see `functions/api/contact.ts`),
+ * which emails the practice. Recipients and the email body live server-side so
+ * they never ship in the client bundle. The call site (Contact page) only cares
+ * about the returned {@link SendResult}.
  */
-
-/** Where consultation requests are delivered. Matches the address in the footer. */
-export const CONTACT_EMAIL = 'rstephensonpt@gmail.com';
 
 export interface ContactMessage {
   name: string;
@@ -23,42 +21,33 @@ export interface SendResult {
   error?: string;
 }
 
-/** Build the standard subject + body for a consultation request. */
-function composeEmail(data: ContactMessage): { subject: string; body: string } {
-  const subject = `New consultation request — ${data.name}`;
-  const body = [
-    'A new consultation request came in through the website contact form.',
-    '',
-    `Name:  ${data.name}`,
-    `Email: ${data.email}`,
-    `Phone: ${data.phone?.trim() || '(not provided)'}`,
-    '',
-    'How can we help?',
-    data.message?.trim() || '(no message provided)',
-  ].join('\n');
-  return { subject, body };
-}
-
 /**
- * Deliver a consultation request.
+ * Deliver a consultation request by POSTing to the `/api/contact` Pages Function.
  *
- * Interim (React-only) implementation: opens the visitor's mail client with a
- * pre-filled draft addressed to {@link CONTACT_EMAIL}. Because a `mailto:` draft
- * cannot be confirmed as sent, this resolves `ok: true` once the draft is opened.
- *
- * FUTURE (Cloudflare email Worker): replace the body with
- *   const res = await fetch('/api/contact', { method: 'POST', body: JSON.stringify(data) });
- *   return { ok: res.ok, error: res.ok ? undefined : 'Something went wrong.' };
+ * Resolves `ok: true` only when the server confirms the email was accepted. Any
+ * network failure or non-OK response resolves `ok: false` with a user-facing
+ * message, so the form can show an honest error rather than a false success.
  */
 export async function sendContactMessage(data: ContactMessage): Promise<SendResult> {
-  const { subject, body } = composeEmail(data);
-  const href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-  if (typeof window === 'undefined') {
-    // SSG/prerender guard — never runs during a real submit.
-    return { ok: false, error: 'Email can only be sent from the browser.' };
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    const result = (await res.json().catch(() => null)) as SendResult | null;
+    if (res.ok && result?.ok) {
+      return { ok: true };
+    }
+    return {
+      ok: false,
+      error:
+        result?.error ?? 'Something went wrong. Please try again or email us directly.',
+    };
+  } catch {
+    return {
+      ok: false,
+      error: 'Could not send your message. Please check your connection and try again.',
+    };
   }
-
-  window.location.href = href;
-  return { ok: true };
 }

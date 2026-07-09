@@ -10,4 +10,13 @@
 - **Local:** put `VITE_GTM_ID=GTM-XXXXXXX` in `.env.local` (gitignored). See `.env.example`. **Production:** set `VITE_GTM_ID` in **Cloudflare Pages → Settings → Environment variables → Production**; `loadEnv` picks it up from the build environment.
 - **SPA caveat:** this is an SSG-hydrated React Router app, so a stock GTM container only fires on the initial document load — **client-side route changes aren't tracked by default.** Handle route-change pageviews in the GTM UI once the container exists (a History Change trigger / GA4 Enhanced Measurement "history events"), not in code.
 
+## Contact form email delivery
+
+- The contact form POSTs to a **Cloudflare Pages Function** at `functions/api/contact.ts` (served at `/api/contact`). The Function emails the practice via **Resend** (interim provider). Frontend seam: `src/lib/contact.ts` → `sendContactMessage`.
+- **Required secret:** set `RESEND_API_KEY` in **Cloudflare Pages → Settings → Environment variables** (Production _and_ Preview). Without it the Function returns a 500 and the form shows an honest error — it never fakes success.
+- **Sender:** until `stephensonpt.com` is verified in Resend, the Function sends from Resend's shared `onboarding@resend.dev`, which only delivers to the Resend account owner's address. Once the domain is verified (Resend gives DKIM/SPF records — trivial to add since DNS is on Cloudflare), set the optional `CONTACT_FROM` var (e.g. `Stephenson PT <no-reply@stephensonpt.com>`) to send to anyone.
+- **Local testing:** plain `npm run dev` (Vite) does **not** run Pages Functions, so form submits 404 there. Use `npx wrangler pages dev` after a build, with `RESEND_API_KEY` in a gitignored `.dev.vars`.
+- **Recipients** (`PRIMARY_CLIENT_EMAIL` + CC) live server-side in the Function, not the client bundle.
+- **Future (native Cloudflare Email Sending):** requires the **Workers Paid** plan (~$5/mo); the `send_email` binding is Workers-only (not Pages Functions), so a Pages site sends via the Email Sending **REST API** with a Cloudflare API-token secret. Migration is a localized change to the one `fetch()` in `functions/api/contact.ts`.
+
 see the todo.md for deployment releveant roadmap
