@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { useEffect, useState } from "react";
 import { PageSeo } from "../components/PageSeo";
 import { PageHeader } from "../components/PageHeader";
@@ -7,6 +8,17 @@ import { Button } from "../components/core/Button";
 import { sendContactMessage } from "../lib/contact";
 import leafLeaves from "../assets/leaf-leaves.png";
 import s from "./Contact.module.css";
+=======
+import { useEffect, useState } from 'react';
+import { PageSeo } from '../components/PageSeo';
+import { PageHeader } from '../components/PageHeader';
+import { Card } from '../components/core/Card';
+import { Input } from '../components/core/Input';
+import { Button } from '../components/core/Button';
+import { sendContactMessage } from '../lib/contact';
+import leafLeaves from '../assets/leaf-leaves.png';
+import s from './Contact.module.css';
+>>>>>>> Stashed changes
 
 const emptyForm = { name: "", email: "", phone: "", message: "" };
 
