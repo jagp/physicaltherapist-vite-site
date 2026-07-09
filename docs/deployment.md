@@ -7,16 +7,14 @@
 ## Analytics (Google Tag Manager)
 
 - GTM is injected at **build time** by `gtmPlugin` in `vite.config.ts`, gated on the `VITE_GTM_ID` env var. A valid `GTM-XXXXXXX` value emits the loader (high in `<head>`) and the `<noscript>` fallback (right after `<body>`) into the shared `index.html` shell, so `vite-react-ssg` carries them onto **every** pre-rendered page. **No/blank/malformed ID → nothing is injected** (so local dev is GTM-free by default, and the container ID stays out of tracked source).
-- **Local:** put `VITE_GTM_ID=GTM-XXXXXXX` in `.env.local` (gitignored). See `.env.example`. **Production:** set `VITE_GTM_ID` in **Cloudflare Pages → Settings → Environment variables → Production**; `loadEnv` picks it up from the build environment.
+- **Local:** put `VITE_GTM_ID=GTM-XXXXXXX` in `.env.local` (gitignored).`. **Production:** set `VITE_GTM_ID` in **Cloudflare Pages → Settings → Environment variables → Production**; `loadEnv` picks it up from the build environment.
 - **SPA caveat:** this is an SSG-hydrated React Router app, so a stock GTM container only fires on the initial document load — **client-side route changes aren't tracked by default.** Handle route-change pageviews in the GTM UI once the container exists (a History Change trigger / GA4 Enhanced Measurement "history events"), not in code.
 
 ## Contact form email delivery
 
-- The contact form POSTs to a **Cloudflare Pages Function** at `functions/api/contact.ts` (served at `/api/contact`). The Function emails the practice via **Resend** (interim provider). Frontend seam: `src/lib/contact.ts` → `sendContactMessage`.
-- **Required secret:** set `RESEND_API_KEY` in **Cloudflare Pages → Settings → Environment variables** (Production _and_ Preview). Without it the Function returns a 500 and the form shows an honest error — it never fakes success.
-- **Sender:** until `stephensonpt.com` is verified in Resend, the Function sends from Resend's shared `onboarding@resend.dev`, which only delivers to the Resend account owner's address. Once the domain is verified (Resend gives DKIM/SPF records — trivial to add since DNS is on Cloudflare), set the optional `CONTACT_FROM` var (e.g. `Stephenson PT <no-reply@stephensonpt.com>`) to send to anyone.
-- **Local testing:** plain `npm run dev` (Vite) does **not** run Pages Functions, so form submits 404 there. Use `npx wrangler pages dev` after a build, with `RESEND_API_KEY` in a gitignored `.dev.vars`.
-- **Recipients** (`PRIMARY_CLIENT_EMAIL` + CC) live server-side in the Function, not the client bundle.
-- **Future (native Cloudflare Email Sending):** requires the **Workers Paid** plan (~$5/mo); the `send_email` binding is Workers-only (not Pages Functions), so a Pages site sends via the Email Sending **REST API** with a Cloudflare API-token secret. Migration is a localized change to the one `fetch()` in `functions/api/contact.ts`.
+- **Active: EmailJS** (client-side, no backend). The contact form calls EmailJS directly from the browser via `src/lib/contact.ts` → `sendContactMessage` (dynamic `import('@emailjs/browser')`, so the SDK stays out of the SSG prerender and initial bundle). Suits a static Pages site — no serverless function needed.
+- **Config (all required):** set `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, `VITE_EMAILJS_PUBLIC_KEY` in `.env.local` for dev and in **Cloudflare Pages → Settings → Environment variables** for production (see `.env.example`). These are `VITE_*` build-time vars, inlined into the client bundle; the EmailJS public key is safe to expose. If any is missing, the form fails honestly ("Email is not configured yet") rather than faking success.
+- **Recipient + template:** the destination address is configured in the **EmailJS template** (dashboard), never in this repo — so no client email ships in the bundle. The template must reference `{{name}}`, `{{email}}`, `{{phone}}`, `{{message}}`, and set Reply-To to `{{reply_to}}` (the visitor's email).
+- **Local testing:** works under plain `npm run dev` (it's client-side) once the three `VITE_EMAILJS_*` vars are in `.env.local`.
 
 see the todo.md for deployment releveant roadmap
