@@ -23,7 +23,7 @@ This project follows **gitflow**. These rules are enforced both here and by a `P
 
 ### Token considerations
 
-- subagents PREVENT CONTEXT BLOAT by keeping output for 1-off taskls out of the main conversation thread
+- subagents PREVENT CONTEXT BLOAT by keeping output for 1-off tasks out of the main conversation thread
 - utilize hooks to reduce overhead
 - especially for routine testing, filterdown to the actual ERROR, WARNING, or PASS messages for brevity:
 

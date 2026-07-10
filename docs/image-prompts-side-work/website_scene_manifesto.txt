@@ -54,8 +54,7 @@ Alt: Therapist guiding a patient through gentle breathing work on the treatment 
 Prompt:
 Warm editorial photograph in a calm, upscale private physical-therapy studio with cream walls, soft
 natural window light, framed muted watercolor art, a potted green plant, and a pale-lavender upholstered
-treatment table. A kind, confident physical therapist in her senior years with short blonde hair and
-glasses, wearing a cream blouse with colorful floral-embroidered sleeves and silver jewelry, sits on a
+treatment table. A kind, middle aged woman in professional medical leggings and colorful sweater (pictured in REF 1 and attached headshots), sits on a
 low stool beside the table gently coaching a woman in her 40s who lies comfortably on her back, fully
 clothed in soft activewear, one hand resting on her own ribcage as she practices a slow breathing
 exercise. Both are calm and focused. Softly muted warm color grade, shallow depth of field, authentic
@@ -72,8 +71,7 @@ Prompt:
 Warm editorial photograph in a calm, upscale private physical-therapy studio with cream walls, soft
 natural window light, framed muted watercolor art, a potted green plant, and light-wood shelving. A
 woman in her 40s in soft activewear sits tall on a pale-lavender exercise ball, hands resting lightly on
-her thighs, while a kind, confident physical therapist in her senior years with short blonde hair and
-glasses, wearing a cream blouse with colorful floral-embroidered sleeves and silver jewelry, sits beside
+her thighs, while a kind, middle aged woman in professional medical leggings and colorful sweater (pictured in ref 1 and attached headshots), sits beside
 her guiding her upright posture with one hand hovering near the patient's lower back. Focused, easy
 mood. Softly muted warm color grade, shallow depth of field, authentic candid feel, no text, no logos,
 no medical machinery.
@@ -88,7 +86,7 @@ Alt: Therapist reassuring an expectant mother during a consultation, her partner
 Prompt:
 Warm editorial photograph in a calm, upscale private physical-therapy studio: cream walls, a large
 window with soft natural daylight, framed muted watercolor landscape art, light-wood shelving with books
-and a woven basket, a potted green plant, and pale-lavender accents including an upholstered treatment
+and a woven basket, a potted green plant, and pale-lavender accents including an upholstered treketamine'atment
 table and exercise balls. A kind, confident physical therapist in her senior years with short blonde
 hair and glasses, wearing a cream blouse with colorful floral-embroidered sleeves and silver jewelry,
 sits on a low stool gently holding the hands of a pregnant woman in a tank top and leggings who sits on
@@ -158,9 +156,7 @@ Alt: Therapist offering compassionate, unhurried reassurance to a patient during
 Prompt:
 Warm editorial photograph in a calm, upscale private physical-therapy studio: cream walls, a large
 window with soft natural daylight, framed muted watercolor landscape art, light-wood furniture, a potted
-green plant, a soft throw blanket over a chair, and pale-lavender accents. A kind, confident physical
-therapist in her senior years with short blonde hair and glasses, wearing a cream blouse with colorful
-floral-embroidered sleeves and silver jewelry, leans in with warm eye contact and gently rests her hand
+green plant, a soft throw blanket over a chair, and pale-lavender accents. a kind, middle aged woman in professional medical leggings and colorful sweater (pictured in REF 1 and attached headshots), leans in with warm eye contact and gently rests her hand
 over the clasped hands of a woman in her 30s seated across from her in a comfortable armchair; the
 patient's expression is relieved and hopeful, as if finally feeling heard. A cup of tea sits on the
 small side table between them. Wide landscape composition with the two women in the left two-thirds of
@@ -177,8 +173,7 @@ Alt: A quiet moment of hope and support by the window during pelvic pain care.
 Prompt:
 Warm editorial photograph in a calm, upscale private physical-therapy studio: cream walls, a large
 window with soft natural daylight, framed muted watercolor landscape art, light-wood furniture, and a
-potted green plant. A kind, confident physical therapist in her senior years with short blonde hair and
-glasses, wearing a cream blouse with colorful floral-embroidered sleeves and silver jewelry, stands by
+potted green plant. A kind, middle aged woman in professional medical leggings and colorful sweater (pictured in REF 1 and attached headshots), stands by
 the sunlit window with a woman in her 40s, one hand resting supportively on the woman's shoulder; the
 patient looks out toward the light with a faint, hopeful smile, as if a weight is beginning to lift.
 Quiet, dignified mood. Wide landscape composition with the two women in the left two-thirds of the
@@ -197,8 +192,7 @@ Warm editorial photograph in a calm, upscale private physical-therapy studio wit
 natural window light, framed muted watercolor art, a potted green plant, and pale-lavender accents. A
 woman in her 30s in soft activewear reclines comfortably on an exercise mat with her knees supported by
 a cushioned bolster, one hand on her belly and one on her ribs, practicing slow relaxed breathing; a
-kind, confident physical therapist in her senior years with short blonde hair and glasses, wearing a
-cream blouse with colorful floral-embroidered sleeves and silver jewelry, kneels alongside coaching her
+a kind, middle aged woman in professional medical leggings and colorful sweater (pictured in REF 1 and attached headshots), , kneels alongside coaching her
 gently. Peaceful, unhurried mood. Softly muted warm color grade, shallow depth of field, authentic
 candid feel, no text, no logos, no medical machinery.
 
@@ -213,8 +207,7 @@ Prompt:
 Warm editorial photograph in a calm, upscale private physical-therapy studio with cream walls, soft
 natural window light, framed muted watercolor art, and pale-lavender accents. A woman in her 30s in soft
 activewear rests in a supported child's pose over a cushioned bolster on an exercise mat, her body
-relaxed and at ease; a kind, confident physical therapist in her senior years with short blonde hair and
-glasses, wearing a cream blouse with colorful floral-embroidered sleeves and silver jewelry, kneels
+relaxed and at ease; a kind, middle aged woman in professional medical leggings and colorful sweater (pictured in ref 1 and attached headshots), kneels
 beside her with a reassuring hand resting lightly on the woman's upper back. Deeply peaceful mood.
 Softly muted warm color grade, shallow depth of field, authentic candid feel, no text, no logos, no
 medical machinery.
@@ -229,9 +222,7 @@ Alt: Therapist gently guiding a shoulder and arm stretch during breast-cancer re
 Prompt:
 Warm editorial photograph in a calm, upscale private physical-therapy studio: cream walls, a large
 window with soft natural daylight, framed muted watercolor landscape art, light-wood shelving, a potted
-green plant, and pale-lavender accents including an upholstered treatment table. A kind, confident
-physical therapist in her senior years with short blonde hair and glasses, wearing a cream blouse with
-colorful floral-embroidered sleeves and silver jewelry, stands beside a woman in her 50s wearing a soft
+green plant, and pale-lavender accents including an upholstered treatment table. A kind, middle aged woman in professional medical leggings and colorful sweater (pictured in REF 1 and attached headshots),stands beside a woman in her 50s wearing a soft
 patterned headwrap and comfortable clothing who sits upright on the treatment table; the therapist
 gently supports the woman's raised arm at the wrist and elbow in a slow shoulder-mobility stretch. Both
 look calm and quietly encouraged. Wide landscape composition with the two women in the left two-thirds
@@ -250,9 +241,7 @@ Warm editorial photograph in a calm, upscale private physical-therapy studio: cr
 window with soft natural daylight, framed muted watercolor landscape art, light-wood shelving, a potted
 green plant, and pale-lavender accents. A woman in her 50s with very short silver regrown hair and a
 serene, quietly proud expression sits upright on a wooden bench, slowly raising a light wooden dowel
-overhead with both hands; beside her, a kind, confident physical therapist in her senior years with
-short blonde hair and glasses, wearing a cream blouse with colorful floral-embroidered sleeves and
-silver jewelry, guides the movement with a gentle hand under the patient's elbow. Wide landscape
+overhead with both hands; beside her, a kind, middle aged woman in professional medical leggings and colorful sweater (pictured in REF 1 and attached headshots), guides the movement with a gentle hand under the patient's elbow. Wide landscape
 composition with the two women in the left two-thirds of the frame and soft, uncluttered negative space
 on the right side. Softly muted warm color grade, shallow depth of field, authentic candid feel, no
 text, no logos, no medical machinery.
@@ -266,10 +255,7 @@ Status: TODO
 Alt: Gentle lymphedema massage therapy on a patient's arm.
 Prompt:
 Warm editorial photograph in a calm, upscale private physical-therapy studio with cream walls, soft
-natural window light, framed muted watercolor art, and pale-lavender accents. Close, warm scene: a kind,
-confident physical therapist in her senior years with short blonde hair and glasses, wearing a cream
-blouse with colorful floral-embroidered sleeves and silver jewelry, uses both hands to perform a slow,
-gentle massage along the forearm and upper arm of a relaxed seated woman in her 50s with her sleeve
+natural window light, framed muted watercolor art, and pale-lavender accents. Close, warm scene:a kind, middle aged woman in professional medical leggings and colorful sweater (pictured in REF 1 and attached headshots), woman in her 50s with her sleeve
 rolled up, the patient's expression restful. Soft window light across their hands. Softly muted warm
 color grade, shallow depth of field, authentic candid feel, no text, no logos, no medical machinery.
 
@@ -282,9 +268,7 @@ Status: TODO
 Alt: Therapist fitting a compression sleeve during lymphedema care.
 Prompt:
 Warm editorial photograph in a calm, upscale private physical-therapy studio with cream walls, soft
-natural window light, framed muted watercolor art, and pale-lavender accents. A kind, confident physical
-therapist in her senior years with short blonde hair and glasses, wearing a cream blouse with colorful
-floral-embroidered sleeves and silver jewelry, carefully smooths a soft beige compression sleeve onto
+natural window light, framed muted watercolor art, and pale-lavender accents. a kind, middle aged woman in professional medical leggings and colorful sweater (pictured in REF 1 and attached headshots), carefully smooths a soft beige compression sleeve onto
 the extended forearm of a seated woman in her 50s; both women share a small, easy smile, the mood
 practical and encouraging. Softly muted warm color grade, shallow depth of field, authentic candid
 feel, no text, no logos, no medical machinery.
@@ -299,9 +283,7 @@ Alt: Therapist guiding an older adult through posture and balance training for b
 Prompt:
 Warm editorial photograph in a calm, upscale private physical-therapy studio: cream walls, a large
 window with soft natural daylight, framed muted watercolor landscape art, a potted green plant, and
-pale-lavender accents, with a light-wood Pilates reformer visible at the edge of the scene. A kind,
-confident physical therapist in her senior years with short blonde hair and glasses, wearing a cream
-blouse with colorful floral-embroidered sleeves and silver jewelry, guides a silver-haired woman in her
+pale-lavender accents, with a light-wood Pilates reformer visible at the edge of the scene. a kind, middle aged woman in professional medical leggings and colorful sweater (pictured in REF 1 and attached headshots), guides a silver-haired woman in her
 late 60s wearing soft activewear through a standing posture-and-balance exercise, the therapist's hands
 resting lightly at the patient's shoulder and mid-back, both with small warm smiles. Wide landscape
 composition with the two women in the left two-thirds of the frame and soft, uncluttered negative space
@@ -320,9 +302,7 @@ Warm editorial photograph in a calm, upscale private physical-therapy studio: cr
 window with soft natural daylight, framed muted watercolor landscape art, light-wood shelving, a potted
 green plant, and pale-lavender accents. A fit man in his early 70s with white hair, wearing a soft
 polo shirt and comfortable pants, performs a controlled sit-to-stand exercise from a sturdy wooden
-chair holding small light dumbbells, his expression focused and capable; beside him, a kind, confident
-physical therapist in her senior years with short blonde hair and glasses, wearing a cream blouse with
-colorful floral-embroidered sleeves and silver jewelry, coaches him with an approving nod. Wide
+chair holding small light dumbbells, his expression focused and capable; beside him, a kind, middle aged woman in professional medical leggings and colorful sweater (pictured in ref 1 and attached headshots),coaches him with an approving nod. Wide
 landscape composition with the two people in the left two-thirds of the frame and soft, uncluttered
 negative space on the right side. Softly muted warm color grade, shallow depth of field, authentic
 candid feel, no text, no logos, no medical machinery.
@@ -338,27 +318,24 @@ Prompt:
 Warm editorial photograph in a calm, upscale private physical-therapy studio with cream walls, soft
 natural window light, framed muted watercolor art, a potted green plant, and pale-lavender accents. A
 silver-haired woman in her late 60s in soft activewear lies on a light-wood Pilates reformer performing
-gentle, controlled footwork with the springs, while a kind, confident physical therapist in her senior
-years with short blonde hair and glasses, wearing a cream blouse with colorful floral-embroidered
-sleeves and silver jewelry, crouches beside the reformer guiding the alignment of the patient's legs.
+gentle, controlled footwork with the springs, while a kind, middle aged woman in professional medical leggings and colorful sweater (pictured in REF 1 and attached headshots),crouches beside the reformer guiding the alignment of the patient's legs.
 Focused, encouraging mood. Softly muted warm color grade, shallow depth of field, authentic candid feel,
 no text, no logos, no medical machinery.
 
 === SCENE-20 ===
-Alias: orthopedics-bone-health--inset-B
-Service: Orthopedics & Bone Health (orthopedics-bone-health)
-Slot: inset | Set: B | Size: 1024x1024 (square, crop to 4:3 after selection)
-Output: ortho-inset.png
-Status: TODO
-Alt: Weight-bearing step training for bone strength with hands-on guidance.
-Prompt:
-Warm editorial photograph in a calm, upscale private physical-therapy studio with cream walls, soft
-natural window light, framed muted watercolor art, and a potted green plant. A silver-haired woman in
-her late 60s in soft activewear steps up onto a low light-wood step with tall, confident posture, while
-a kind, confident physical therapist in her senior years with short blonde hair and glasses, wearing a
-cream blouse with colorful floral-embroidered sleeves and silver jewelry, stands close beside her with
-a light steadying hand near her shoulder. Focused, encouraging mood. Softly muted warm color grade,
-shallow depth of field, authentic candid feel, no text, no logos, no medical machinery.
+    Alias: orthopedics-bone-health--inset-B
+    Service: Orthopedics & Bone Health (orthopedics-bone-health)
+    Slot: inset | Set: B | Size: 1024x1024 (square, crop to 4:3 after selection)
+    Output: ortho-inset.png
+    Status: TODO
+    Alt: Weight-bearing step training for bone strength with hands-on guidance.
+    Prompt:
+    Warm editorial photograph in a calm, upscale private physical-therapy studio with cream walls, soft
+    natural window light, framed muted watercolor art, and a potted green plant. A silver-haired woman in
+    her late 60s in soft activewear steps up onto a low light-wood step with tall, confident posture, while
+    a kind, middle aged woman in professional medical leggings and colorful sweater (pictured in REF 1 and attached headshots),stands close beside her with
+    a light steadying hand near her shoulder. Focused, encouraging mood. Softly muted warm color grade,
+    shallow depth of field, authentic candid feel, no text, no logos, no medical machinery.
 
 === SCENE-21 ===
 Alias: sports-medicine-active-recovery--hero-A
@@ -372,9 +349,7 @@ Warm editorial photograph in a calm, upscale private physical-therapy studio: cr
 window with soft natural daylight, framed muted watercolor landscape art, light-wood shelving, a potted
 green plant, and pale-lavender accents including exercise balls. An athletic woman in her late 20s in
 running tights and a fitted top performs a controlled single-leg lunge while holding a taut resistance
-band anchored low, her focus determined and confident; beside her, a kind, confident physical therapist
-in her senior years with short blonde hair and glasses, wearing a cream blouse with colorful
-floral-embroidered sleeves and silver jewelry, coaches her form with an encouraging gesture. A sense of
+band anchored low, her focus determined and confident; beside her, a kind, middle aged woman in professional medical leggings and colorful sweater (pictured in REF 1 and attached headshots),, coaches her form with an encouraging gesture. A sense of
 controlled strength and energy. Wide landscape composition with the two women in the left two-thirds of
 the frame and soft, uncluttered negative space on the right side. Softly muted warm color grade, shallow
 depth of field, authentic candid feel, no text, no logos, no medical machinery.
@@ -391,8 +366,7 @@ Warm editorial photograph in a calm, upscale private physical-therapy studio: cr
 window with soft natural daylight, framed muted watercolor landscape art, light-wood shelving, a potted
 green plant, and pale-lavender accents. An athletic man in his 30s in a fitted athletic shirt and
 shorts performs a slow, controlled step-down from a low light-wood plyometric step, concentrating on
-his landing leg; a kind, confident physical therapist in her senior years with short blonde hair and
-glasses, wearing a cream blouse with colorful floral-embroidered sleeves and silver jewelry, crouches
+his landing leg; a kind, middle aged woman in professional medical leggings and colorful sweater (pictured in ref 1 and attached headshots), crouches
 slightly to watch his knee alignment, one hand raised in a precise coaching gesture. Controlled,
 focused energy. Wide landscape composition with the two people in the left two-thirds of the frame and
 soft, uncluttered negative space on the right side. Softly muted warm color grade, shallow depth of

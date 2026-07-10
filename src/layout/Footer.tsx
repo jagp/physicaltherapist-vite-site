@@ -1,13 +1,13 @@
-import { Link } from 'react-router-dom';
-import logo from '../assets/logo_white_text_transparent_v2.png';
-import s from './Footer.module.css';
+import { Link } from "react-router-dom";
+import logo from "../assets/logo_white_text_transparent_v2.png";
+import s from "./Footer.module.css";
 
 const exploreLinks: Array<[string, string]> = [
-  ['/', 'Home'],
-  ['/about', 'About'],
-  ['/services', 'Services'],
-  ['/faq', 'FAQ'],
-  ['/contact', 'Contact'],
+  ["/", "Home"],
+  ["/about", "About"],
+  ["/services", "Services"],
+  ["/faq", "FAQ"],
+  ["/contact", "Contact"],
 ];
 
 export function Footer() {
@@ -16,7 +16,13 @@ export function Footer() {
       <div className={s.grid}>
         <div>
           <div className={s.logo}>
-            <img src={logo} alt="Stephenson Physical Therapy" width={870} height={424} loading="lazy" />
+            <img
+              src={logo}
+              alt="Stephenson Physical Therapy"
+              width={870}
+              height={424}
+              loading="lazy"
+            />
           </div>
           <p className={s.line}>
             8 Pleasant St, Unit 8E
@@ -24,7 +30,7 @@ export function Footer() {
             South Natick, MA 01760
           </p>
           <p className={s.line}>508-740-0663</p>
-          <p className={`${s.line} ${s.lineLast}`}>rstephensonpt@gmail.com</p>
+          <p className={`${s.line} ${s.lineLast}`}>PRIMARY_CLIENT_EMAIL</p>
         </div>
         <div>
           <h4 className={s.colTitle}>Explore</h4>
@@ -44,7 +50,10 @@ export function Footer() {
         </div>
       </div>
       <div className={s.legal}>
-        <span>© 2026 Stephenson Physical Therapy · Built with care in South Natick, MA</span>
+        <span>
+          © 2026 Stephenson Physical Therapy · Built with care in South Natick,
+          MA
+        </span>
         <span>Accessibility · Privacy · HIPAA Notice</span>
       </div>
     </footer>

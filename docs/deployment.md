@@ -7,7 +7,14 @@
 ## Analytics (Google Tag Manager)
 
 - GTM is injected at **build time** by `gtmPlugin` in `vite.config.ts`, gated on the `VITE_GTM_ID` env var. A valid `GTM-XXXXXXX` value emits the loader (high in `<head>`) and the `<noscript>` fallback (right after `<body>`) into the shared `index.html` shell, so `vite-react-ssg` carries them onto **every** pre-rendered page. **No/blank/malformed ID → nothing is injected** (so local dev is GTM-free by default, and the container ID stays out of tracked source).
-- **Local:** put `VITE_GTM_ID=GTM-XXXXXXX` in `.env.local` (gitignored). See `.env.example`. **Production:** set `VITE_GTM_ID` in **Cloudflare Pages → Settings → Environment variables → Production**; `loadEnv` picks it up from the build environment.
+- **Local:** put `VITE_GTM_ID=GTM-XXXXXXX` in `.env.local` (gitignored).`. **Production:** set `VITE_GTM_ID` in **Cloudflare Pages → Settings → Environment variables → Production**; `loadEnv` picks it up from the build environment.
 - **SPA caveat:** this is an SSG-hydrated React Router app, so a stock GTM container only fires on the initial document load — **client-side route changes aren't tracked by default.** Handle route-change pageviews in the GTM UI once the container exists (a History Change trigger / GA4 Enhanced Measurement "history events"), not in code.
+
+## Contact form email delivery
+
+- **Active: EmailJS** (client-side, no backend). The contact form calls EmailJS directly from the browser via `src/lib/contact.ts` → `sendContactMessage` (dynamic `import('@emailjs/browser')`, so the SDK stays out of the SSG prerender and initial bundle). Suits a static Pages site — no serverless function needed.
+- **Config (all required):** set `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, `VITE_EMAILJS_PUBLIC_KEY` in `.env.local` for dev and in **Cloudflare Pages → Settings → Environment variables** for production (see `.env.example`). These are `VITE_*` build-time vars, inlined into the client bundle; the EmailJS public key is safe to expose. If any is missing, the form fails honestly ("Email is not configured yet") rather than faking success.
+- **Recipient + template:** the destination address is configured in the **EmailJS template** (dashboard), never in this repo — so no client email ships in the bundle. The template must reference `{{name}}`, `{{email}}`, `{{phone}}`, `{{message}}`, and set Reply-To to `{{reply_to}}` (the visitor's email).
+- **Local testing:** works under plain `npm run dev` (it's client-side) once the three `VITE_EMAILJS_*` vars are in `.env.local`.
 
 see the todo.md for deployment releveant roadmap
