@@ -21,12 +21,14 @@ export interface SendResult {
   error?: string;
 }
 
-// EmailJS credentials — public by design. Set in `.env.local` for dev and in the
-// Cloudflare Pages build environment for production. Vite inlines `VITE_*` vars
-// at build time.
-const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+// EmailJS credentials — public by design (the public key is meant to ship in the
+// client bundle; the service/template IDs are non-sensitive). We read the
+// `VITE_*` build-time env var when present, but fall back to the live account's
+// values so the form works with zero deploy-time config. Overriding via env stays
+// possible for a future reuse of this codebase against a different EmailJS account.
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_xe6rrsk';
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_eg62ikg';
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'QxOscM8cPSoV5xAna';
 
 /**
  * Deliver a consultation request via EmailJS.
