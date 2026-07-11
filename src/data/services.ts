@@ -4,13 +4,13 @@ import iconPregnancy from '../assets/icons/icon-pregnancy.png';
 import iconPelvicSupport from '../assets/icons/icon-pelvic-support.png';
 import iconOncology from '../assets/icons/icon-oncology.png';
 import iconSpine from '../assets/icons/icon-spine.png';
-import iconSports from '../assets/icons/icon-sports.png';
+import iconMenopause from'../assets/icons/icon-menopause.png';
 import iconPelvicFloorCream from '../assets/icons/icon-pelvic-floor-cream.png';
 import iconPregnancyCream from '../assets/icons/icon-pregnancy-cream.png';
 import iconPelvicSupportCream from '../assets/icons/icon-pelvic-support-cream.png';
 import iconOncologyCream from '../assets/icons/icon-oncology-cream.png';
 import iconSpineCream from '../assets/icons/icon-spine-cream.png';
-import iconSportsCream from '../assets/icons/icon-sports-cream.png';
+import iconMenopauseCream from '../assets/icons/icon-menopause-cream.png';
 import pregnancyLandscape from '../assets/service-page-images/pregnancy-landscape.png?w=1448&format=jpeg';
 import pregnancyLandscapeAvif from '../assets/service-page-images/pregnancy-landscape.png?w=480;960;1448&format=avif&as=srcset';
 import pregnancyLandscapeWebp from '../assets/service-page-images/pregnancy-landscape.png?w=480;960;1448&format=webp&as=srcset';
@@ -322,7 +322,7 @@ export const services: ServiceInfo[] = [
       mainBody:
         'Pregnancy changes how your body moves, holds weight, and recovers — often faster than your prenatal care team has time to fully address. Limited movement late in pregnancy, shifting nutrition needs, and a drop in activity level can all compound into pain or dysfunction that doesn’t resolve on its own. Working alongside your obstetric provider, I help you stay capable through pregnancy and rebuild safely afterward, with care tailored to exactly where you are.',
       externalLink: {
-        url: '#',
+        url: 'https://www.inova.org/our-services/inova-womens-services/gynecology/conditions-and-treatments/pelvic-floor-health/physical-therapy',
         label: 'Inova Health’s overview',
         before:
           'For more on what pelvic floor physical therapy addresses during and after pregnancy, ',
@@ -783,8 +783,8 @@ export const services: ServiceInfo[] = [
     slug: SERVICE_SLUGS[5],
     // TODO: needs a dedicated menopause icon — reusing the sports icon as a
     // placeholder until the image pipeline (docs/image-prompts-side-work) ships one.
-    icon: iconSports,
-    iconDark: iconSportsCream,
+    icon: iconMenopause,
+    iconDark: iconMenopauseCream,
     title: 'Menopause & Midlife Health',
     desc: 'Menopause and midlife pelvic health — bladder changes, dryness and comfort, and intimacy.',
     content: {

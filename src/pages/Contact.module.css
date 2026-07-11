@@ -16,6 +16,7 @@
 }
 
 .form { display: flex; flex-direction: column; gap: 18px; }
+.formError { color: var(--danger); font-size: var(--fs-small); margin: 0; }
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 @media (max-width: 479px) {
   .pair { grid-template-columns: 1fr; }
