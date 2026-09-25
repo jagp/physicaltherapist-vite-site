@@ -35,3 +35,5 @@ archive.zip
 **/.env
 .env.*
 !.env.example
+docs/superpowers/mocks/creative-heat/component-lab.html
+docs/superpowers/mocks/creative-heat/homepage-remix.html
