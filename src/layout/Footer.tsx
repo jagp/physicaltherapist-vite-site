@@ -30,7 +30,7 @@ export function Footer() {
             South Natick, MA 01760
           </p>
           <p className={s.line}>508-740-0663</p>
-          <p className={`${s.line} ${s.lineLast}`}>PRIMARY_CLIENT_EMAIL</p>
+          <p className={`${s.line} ${s.lineLast}`}>rstephensonpt@gmail.com</p>
         </div>
         <div>
           <h4 className={s.colTitle}>Explore</h4>
