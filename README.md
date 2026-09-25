@@ -1,6 +1,6 @@
 # Physical Therapy Practice
 
-v1.0.0
+v1.0.1
 
 A marketing site for a physical-therapy / allied-health practice — statically
 pre-rendered React with a data-driven services section and a CSS design-token
