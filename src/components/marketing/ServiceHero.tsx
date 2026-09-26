@@ -35,7 +35,7 @@ export function ServiceHero({
               avifSrcSet={image.avifSrcSet}
               webpSrcSet={image.webpSrcSet}
               src={image.src}
-              sizes="(max-width: 767px) 100vw, 50vw"
+              sizes="(max-width: 767px) 100vw, 66vw"
               alt={image.alt}
               width={image.width ?? 1448}
               height={image.height ?? 1086}
