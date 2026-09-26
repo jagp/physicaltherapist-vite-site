@@ -57,3 +57,7 @@ Inconsistent subject match on servivce page images
 set up tom e tracking softwarde
 stg rram]trnailer
 set mom up in a opafypfurTrim planning docs / Fork main project to PII agnostic version?
+
+develop a waqy for the worktrees to get trimmewd when a session is terminated (or simjiioplar function)_: klook at commit-commands:clean_gone
+
+make this concept of intents -> copy a reusable workflow 
