@@ -3,6 +3,8 @@ import { PageSeo } from '../components/PageSeo';
 import { PageHeader } from '../components/PageHeader';
 import { Card } from '../components/core/Card';
 import { Button } from '../components/core/Button';
+import { CredentialBand } from '../components/marketing/CredentialBand';
+import { stephensonTrustItems } from '../components/marketing/CredentialBand.data';
 import { CTABand } from '../components/marketing/CTABand';
 import { CareerTimeline } from '../components/marketing/CareerTimeline';
 import headshot2 from '../assets/headshot-2.jpg';
@@ -37,6 +39,11 @@ export function About() {
           </div>
         </div>
       </section>
+      <CredentialBand
+        variant="tint"
+        items={stephensonTrustItems}
+        title="Credentials & Recognition"
+      />
       <section className={s.timelineSection}>
         <div className={s.wrap}>
           <CareerTimeline />
