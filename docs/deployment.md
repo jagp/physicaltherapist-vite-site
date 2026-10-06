@@ -4,11 +4,11 @@
 
 - Per-page `<head>` (title/description/canonical/OG/JSON-LD) is emitted by `PageSeo` / `ServiceSeo` components relying on **React 19 head hoisting**; under SSG these land in each page's static HTML for crawlers.
 
-## Analytics (Google Tag Manager)
+## Analytics (Google Analytics 4 / gtag.js)
 
-- GTM is injected at **build time** by `gtmPlugin` in `vite.config.ts`, gated on the `VITE_GTM_ID` env var. A valid `GTM-XXXXXXX` value emits the loader (high in `<head>`) and the `<noscript>` fallback (right after `<body>`) into the shared `index.html` shell, so `vite-react-ssg` carries them onto **every** pre-rendered page. **No/blank/malformed ID → nothing is injected** (so local dev is GTM-free by default, and the container ID stays out of tracked source).
-- **Local:** put `VITE_GTM_ID=GTM-XXXXXXX` in `.env.local` (gitignored).`. **Production:** set `VITE_GTM_ID` in **Cloudflare Pages → Settings → Environment variables → Production**; `loadEnv` picks it up from the build environment.
-- **SPA caveat:** this is an SSG-hydrated React Router app, so a stock GTM container only fires on the initial document load — **client-side route changes aren't tracked by default.** Handle route-change pageviews in the GTM UI once the container exists (a History Change trigger / GA4 Enhanced Measurement "history events"), not in code.
+- The GA4 tag (`gtag.js`) is injected at **build time** by `gaPlugin` in `vite.config.ts`, gated on the `VITE_GA_ID` env var. A valid `G-XXXXXXXXXX` measurement ID emits the async library loader plus the inline `gtag('config', …)` bootstrap (high in `<head>`) into the shared `index.html` shell, so `vite-react-ssg` carries them onto **every** pre-rendered page. **No/blank/malformed ID → nothing is injected** (so local dev is analytics-free by default, and the measurement ID stays out of tracked source).
+- **Local:** put `VITE_GA_ID=G-XXXXXXXXXX` in `.env.local` (gitignored). **Production:** set `VITE_GA_ID` in **Cloudflare Pages → Settings → Environment variables → Production**; `loadEnv` picks it up from the build environment.
+- **SPA caveat:** this is an SSG-hydrated React Router app, so the `config` hit only fires on the initial document load. Client-side route changes are picked up by GA4 **Enhanced Measurement → "Page changes based on browser history events"** (on by default for web streams) — verify it's enabled in **GA4 Admin → Data Streams → Enhanced measurement** rather than adding pageview code.
 
 ## Contact form email delivery
 
