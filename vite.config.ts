@@ -27,42 +27,45 @@ function sitemapPlugin(): Plugin {
   }
 }
 
-/** Inject the two Google Tag Manager snippets at build time, gated on a valid
- *  VITE_GTM_ID. transformIndexHtml runs once against the shared index.html shell;
+/** Inject the Google Analytics 4 tag (gtag.js) at build time, gated on a valid
+ *  VITE_GA_ID. transformIndexHtml runs once against the shared index.html shell;
  *  vite-react-ssg then reuses that built HTML as the template for every route, so
- *  GTM lands on all pre-rendered pages (loader high in <head>, <noscript> right
- *  after <body>). No ID / malformed ID → nothing is injected, so local dev and the
- *  reusable template both stay GTM-free without extra config. */
-function gtmPlugin(containerId: string | undefined): Plugin {
-  const id = containerId?.trim()
-  // Gate: only inject for a real container. A set-but-malformed value is almost
-  // always a typo in .env.local or the Cloudflare dashboard — warn rather than
-  // silently ship a broken/empty container.
-  const enabled = !!id && /^GTM-[A-Z0-9]+$/.test(id)
+ *  the tag lands on all pre-rendered pages, high in <head>. Two scripts, in order:
+ *    1. the async gtag.js library loader
+ *    2. the inline bootstrap — create dataLayer, define gtag(), send the config hit
+ *       (calls queue in dataLayer until the library arrives, so order is safe)
+ *  gtag.js has no <noscript> fallback (unlike GTM), so nothing goes in <body>.
+ *  No ID / malformed ID → nothing is injected, so local dev and the reusable
+ *  template both stay analytics-free without extra config. */
+function gaPlugin(measurementId: string | undefined): Plugin {
+  const id = measurementId?.trim()
+  // Gate: only inject for a real GA4 measurement ID (G-XXXXXXXXXX). A set-but-
+  // malformed value is almost always a typo in .env.local or the Cloudflare
+  // dashboard — warn rather than silently ship a broken tag.
+  const enabled = !!id && /^G-[A-Z0-9]+$/.test(id)
   if (id && !enabled) {
-    console.warn(`[gtm] VITE_GTM_ID="${id}" is not a valid GTM-XXXXXXX id — GTM not injected.`)
+    console.warn(`[ga] VITE_GA_ID="${id}" is not a valid G-XXXXXXXXXX id — GA not injected.`)
   }
   return {
-    name: 'inject-gtm',
+    name: 'inject-ga',
     transformIndexHtml() {
       if (!enabled) return
       return [
         {
+          // 1. library loader — async so it never blocks first paint
+          tag: 'script',
+          injectTo: 'head-prepend',
+          attrs: { async: true, src: `https://www.googletagmanager.com/gtag/js?id=${id}` },
+        },
+        {
+          // 2. bootstrap + config hit (Google's install snippet, minus whitespace)
           tag: 'script',
           injectTo: 'head-prepend',
           children:
-            `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':` +
-            `new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],` +
-            `j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=` +
-            `'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);` +
-            `})(window,document,'script','dataLayer','${id}');`,
-        },
-        {
-          tag: 'noscript',
-          injectTo: 'body-prepend',
-          children:
-            `<iframe src="https://www.googletagmanager.com/ns.html?id=${id}"` +
-            ` height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+            `window.dataLayer = window.dataLayer || [];` +
+            `function gtag(){dataLayer.push(arguments);}` +
+            `gtag('js', new Date());` +
+            `gtag('config', '${id}');`,
         },
       ]
     },
@@ -72,10 +75,10 @@ function gtmPlugin(containerId: string | undefined): Plugin {
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   // Default VITE_ prefix: loadEnv reads both .env.local (local testing) AND
-  // process.env.VITE_GTM_ID injected by the Cloudflare Pages build.
+  // process.env.VITE_GA_ID injected by the Cloudflare Pages build.
   const env = loadEnv(mode, process.cwd())
   return {
-    plugins: [react(), imagetools(), sitemapPlugin(), gtmPlugin(env.VITE_GTM_ID)],
+    plugins: [react(), imagetools(), sitemapPlugin(), gaPlugin(env.VITE_GA_ID)],
     ssgOptions: {
       // Flat output (services/<slug>.html): Cloudflare Pages serves these at
       // the extensionless URL with NO redirect, exactly matching our
