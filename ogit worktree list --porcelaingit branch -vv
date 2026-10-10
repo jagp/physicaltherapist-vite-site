@@ -1,0 +1,382 @@
+*   [33m71cf892[m[33m ([m[1;31morigin/develop[m[33m, [m[1;32mdevelop[m[33m)[m Merge branch 'feature/fix-cicd' into develop
+[31m|[m[32m\[m  
+[31m|[m * [33m8e38e40[m Chore: Tidying up from plugin work
+[31m|[m * [33m8895eb1[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m fix(contact): hardcode public EmailJS IDs as env fallbacks
+[31m|[m *   [33me490b57[m[33m ([m[1;33mtag: [m[1;33mrelease/v1.0.0[m[33m)[m Merge pull request #49 from jagp/develop
+[31m|[m [33m|[m[31m\[m  
+[31m|[m [33m|[m[31m/[m  
+[31m|[m[31m/[m[33m|[m   
+* [33m|[m [33m5548c2a[m tweaking icons
+* [33m|[m [33md50a1b6[m removing misrendered constant in sidebar
+* [33m|[m [33mec1e216[m Remove stash-conflict markers committed in Contact.tsx and scholarship.md
+* [33m|[m   [33m7838ed6[m Merge feature/contact-form-mail into develop (EmailJS contact delivery)
+[35m|[m[36m\[m [33m\[m  
+[35m|[m * [33m|[m [33m35029d6[m trying a different email provider
+[35m|[m [36m|[m [33m|[m * [33mf477dc3[m[33m ([m[1;35mrefs/stash[m[33m)[m WIP on develop: d408b99 Add Jared's email to contact form
+[35m|[m [36m|[m[35m_[m[33m|[m[35m/[m[1;32m|[m 
+[35m|[m[35m/[m[36m|[m [33m|[m [1;32m|[m 
+[35m|[m [36m|[m [33m|[m * [33mc35cafe[m index on develop: d408b99 Add Jared's email to contact form
+[35m|[m [36m|[m[35m_[m[33m|[m[35m/[m  
+[35m|[m[35m/[m[36m|[m [33m|[m   
+[35m|[m * [33m|[m [33mf04d0f7[m trying a different email provider
+[35m|[m * [33m|[m [33mb763172[m 3rd party emails via Resend
+* [1;32m|[m [33m|[m [33md408b99[m Add Jared's email to contact form
+* [1;32m|[m [33m|[m [33m56ada9c[m Merge feature/contact-form-mail into develop
+[33m|[m[1;32m\[m[1;32m|[m [33m|[m 
+[33m|[m [1;32m|[m[33m/[m  
+[33m|[m[33m/[m[1;32m|[m   
+[33m|[m * [33m1ca13a5[m Add contact form email delivery via mailto
+[33m|[m[33m/[m  
+*   [33m8b697a4[m Merge branch 'main' of https://github.com/jagp/physicaltherapist-vite-site
+[1;35m|[m[1;36m\[m  
+* [1;36m|[m [33mecc3ea1[m adding changelog
+[1;36m|[m * [33mb2b936f[m adding changelog
+[1;36m|[m[1;36m/[m  
+* [33m0cc6b1c[m Resolving old rushed merge issues & client feedback
+*   [33m41ac811[m Merge pull request #41 from jagp/develop
+[31m|[m[32m\[m  
+[31m|[m *   [33m104353a[m Merge branch 'main' into develop
+[31m|[m [33m|[m[31m\[m  
+[31m|[m [33m|[m[31m/[m  
+[31m|[m[31m/[m[33m|[m   
+[31m|[m *   [33mdcd71b2[m Merge branch 'main' into develop
+[31m|[m [35m|[m[36m\[m  
+[31m|[m [35m|[m *   [33m502e6e0[m Merge branch 'develop'
+[31m|[m [35m|[m [1;31m|[m[35m\[m  
+[31m|[m [35m|[m [1;31m|[m[35m/[m  
+[31m|[m [35m|[m[35m/[m[1;31m|[m   
+* [35m|[m [1;31m|[m [33m8297afa[m Merge branch 'develop'
+[1;31m|[m[35m\[m[35m|[m [1;31m|[m 
+[1;31m|[m [35m|[m[1;31m/[m  
+[1;31m|[m[1;31m/[m[35m|[m   
+[1;31m|[m * [33ma5c1f87[m Fixing book link -> publisher
+[1;31m|[m * [33m83b3699[m changing email
+* [1;34m|[m   [33m87a8429[m Merge pull request #39 from jagp/develop
+[1;35m|[m[1;36m\[m [1;34m\[m  
+[1;35m|[m [1;36m|[m * [33md6e66d1[m Wire 5 service pages into services.ts (full template content)
+[1;35m|[m [1;36m|[m[1;36m/[m  
+[1;35m|[m * [33mff5ab72[m removing this awful warning
+[1;35m|[m * [33m2641871[m Resolve conflict markers committed in botched service-page merge
+[1;35m|[m *   [33meb714f6[m Merge remote-tracking branch 'origin/develop' into develop
+[1;35m|[m [31m|[m[32m\[m  
+[1;35m|[m * [32m\[m   [33m39d313b[m Merge branch 'feature/new_service_page_layout' into develop
+[1;35m|[m [33m|[m[34m\[m [32m\[m  
+* [33m|[m [34m\[m [32m\[m   [33m06ce214[m Merge pull request #36 from jagp/develop
+[35m|[m[32m\[m [33m\[m [34m\[m [32m\[m  
+[35m|[m [32m|[m [33m|[m[32m_[m[34m|[m[32m/[m  
+[35m|[m [32m|[m[32m/[m[33m|[m [34m|[m   
+[35m|[m * [33m|[m [34m|[m   [33m089500b[m Merge pull request #37 from jagp/feature/services-nav-dropdown
+[35m|[m [33m|[m[1;32m\[m [33m\[m [34m\[m  
+[35m|[m [33m|[m [1;32m|[m[33m/[m [34m/[m  
+[35m|[m [33m|[m[33m/[m[1;32m|[m [34m|[m   
+[35m|[m * [1;32m|[m [34m|[m   [33m0b616a1[m Merge branch 'feature/new_site_copy_pass' into develop
+[35m|[m [1;33m|[m[1;34m\[m [1;32m\[m [34m\[m  
+[35m|[m * [1;34m|[m [1;32m|[m [34m|[m [33mc6e13af[m hotfix: lymphedema
+[35m|[m [1;34m|[m [1;34m|[m * [34m|[m [33m19389e7[m[33m ([m[1;31morigin/feature/services-nav-dropdown[m[33m, [m[1;32mfeature/services-nav-dropdown[m[33m)[m Add hover/focus Services dropdown + mobile accordion to nav
+[35m|[m * [1;34m|[m [1;34m|[m [34m|[m [33m239285d[m Fix Faq.tsx import after Faq.module.css moved to src/data/
+[35m|[m * [1;34m|[m [1;34m|[m [34m|[m [33m6b28492[m Make CareerTimeline interactive: woven rings, hover focus, lightbox
+[35m|[m * [1;34m|[m [1;34m|[m [34m|[m [33m407ea7c[m adding serivce images/tweaks and intents based copy targets
+[35m|[m * [1;34m|[m [1;34m|[m [34m|[m   [33mc57cbaf[m Merge pull request #35 from jagp/feature/faq-service-content
+[35m|[m [1;35m|[m[1;34m\[m [1;34m\[m [1;34m\[m [34m\[m  
+[35m|[m [1;35m|[m [1;34m|[m [1;34m|[m[1;34m/[m [34m/[m  
+[35m|[m [1;35m|[m [1;34m|[m[1;34m/[m[1;34m|[m [34m|[m   
+[35m|[m [1;35m|[m * [1;34m|[m [34m|[m [33m78028ac[m[33m ([m[1;31morigin/feature/faq-service-content[m[33m, [m[1;32mfeature/faq-service-content[m[33m)[m Add per-service FAQ entries to the main FAQ page
+[35m|[m [1;35m|[m[1;35m/[m [1;34m/[m [34m/[m  
+[35m|[m [1;35m|[m [1;34m|[m [34m|[m *   [33m2b09c0b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/final-design-pass[m[33m)[m Merge branch 'develop' into feature/final-design-pass
+[35m|[m [1;35m|[m [1;34m|[m [34m|[m [31m|[m[1;35m\[m  
+[35m|[m [1;35m|[m [1;34m|[m[1;35m_[m[34m|[m[1;35m_[m[31m|[m[1;35m/[m  
+[35m|[m [1;35m|[m[1;35m/[m[1;34m|[m [34m|[m [31m|[m   
+[35m|[m * [1;34m|[m [34m|[m [31m|[m   [33m73682c7[m Merge pull request #34 from jagp/feature/faq-content-expansion
+[35m|[m [33m|[m[34m\[m [1;34m\[m [34m\[m [31m\[m  
+[35m|[m * [34m\[m [1;34m\[m [34m\[m [31m\[m   [33m26b6d5f[m Merge pull request #33 from jagp/feature/service-seo-intents
+[35m|[m [35m|[m[36m\[m [34m\[m [1;34m\[m [34m\[m [31m\[m  
+[35m|[m * [36m\[m [34m\[m [1;34m\[m [34m\[m [31m\[m   [33m0057803[m Merge pull request #32 from jagp/develop-worktree
+[35m|[m [1;31m|[m[1;32m\[m [36m\[m [34m\[m [1;34m\[m [34m\[m [31m\[m  
+[35m|[m [1;31m|[m [1;32m|[m [36m|[m * [1;34m|[m [34m|[m [31m|[m [33mff99bcb[m[33m ([m[1;31morigin/feature/faq-content-expansion[m[33m, [m[1;32mfeature/faq-content-expansion[m[33m)[m Expand FAQ page and Pregnancy service FAQ with grounded content
+[35m|[m [1;31m|[m [1;32m|[m[1;31m_[m[36m|[m[1;31m/[m [1;34m/[m [34m/[m [31m/[m  
+[35m|[m [1;31m|[m[1;31m/[m[1;32m|[m [36m|[m [1;34m|[m [34m|[m [31m|[m   
+[35m|[m [1;31m|[m [1;32m|[m * [1;34m|[m [34m|[m [31m|[m [33m386d20a[m Add SEO service-page intent briefs for five approved-keyword services
+[35m|[m [1;31m|[m [1;32m|[m[1;31m/[m [1;34m/[m [34m/[m [31m/[m  
+[35m|[m [1;31m|[m[1;31m/[m[1;32m|[m [1;34m|[m [34m|[m [31m|[m   
+[35m|[m [1;31m|[m * [1;34m|[m [34m|[m [31m|[m [33mb70a4a7[m[33m ([m[1;31morigin/develop-worktree[m[33m, [m[1;32marchive/develop-worktree[m[33m)[m Add SEO service-page intent briefs for five approved-keyword services
+[35m|[m [1;31m|[m * [1;34m|[m [34m|[m [31m|[m [33me18e457[m Expand FAQ page and Pregnancy service FAQ with grounded content
+[35m|[m [1;31m|[m * [1;34m|[m [34m|[m [31m|[m [33mc7c5afa[m Integrate final-design-pass: motion fix + About/StatCard polish (collision-free subset)
+[35m|[m [1;31m|[m * [1;34m|[m [34m|[m [31m|[m [33mb5c238d[m[33m ([m[1;32mfeature/service-seo-architecture[m[33m)[m Rename service slugs + swap Sports for Menopause (approved SEO architecture)
+[35m|[m [1;31m|[m[1;31m/[m [1;34m/[m [34m/[m [31m/[m  
+[35m|[m [1;31m|[m [1;34m|[m [34m|[m * [33m9cfb770[m Homepage design pass (partial): rhythm start, pointOfInterest rename, motion + book fixes
+[35m|[m [1;31m|[m [1;34m|[m * [1;32m|[m [33m9d95ccf[m[33m ([m[1;31morigin/archive/new_service_page_layout[m[33m, [m[1;32mfeature/new_service_page_layout[m[33m)[m no message
+[35m|[m [1;31m|[m * [1;32m|[m [1;32m|[m [33ma1ad993[m new copy proposal for client
+* [1;31m|[m [1;32m|[m [1;32m|[m [1;32m|[m [33m1572a01[m Merge pull request #31 from jagp/develop
+[1;33m|[m[1;31m\[m[1;31m|[m [1;32m|[m [1;32m|[m [1;32m|[m 
+[1;33m|[m * [1;32m|[m [1;32m|[m [1;32m|[m   [33m3698d88[m Merge pull request #30 from jagp/feature/gtm
+[1;33m|[m [1;32m|[m[1;36m\[m [1;32m\[m [1;32m\[m [1;32m\[m  
+[1;33m|[m [1;32m|[m [1;36m|[m[1;32m_[m[1;32m|[m[1;32m_[m[1;32m|[m[1;32m/[m  
+[1;33m|[m [1;32m|[m[1;32m/[m[1;36m|[m [1;32m|[m [1;32m|[m   
+[1;33m|[m [1;32m|[m [1;36m|[m * [1;32m|[m [33m436e0e5[m addingh ion the testimonials recevied by text
+[1;33m|[m [1;32m|[m [1;36m|[m[1;32m/[m [1;32m/[m  
+[1;33m|[m [1;32m|[m[1;32m/[m[1;36m|[m [1;32m|[m   
+[1;33m|[m [1;32m|[m * [1;32m|[m [33ma658201[m Add Google Tag Manager via env-gated build-time injection
+[1;33m|[m [1;32m|[m[1;32m/[m [1;32m/[m  
+* [1;32m|[m [1;32m|[m [33m0560a8b[m Merge pull request #29 from jagp/develop
+[31m|[m[1;32m\[m[1;32m|[m [1;32m|[m 
+[31m|[m * [1;32m|[m [33m031db2d[m first batch of images just ok
+[31m|[m * [1;32m|[m   [33maef0167[m Merge branch 'feature/misc-rough-edges' into develop
+[31m|[m [33m|[m[34m\[m [1;32m\[m  
+[31m|[m [33m|[m * [1;32m|[m [33m7362174[m tweaking service page template in an unfortunate branch but should be fine
+[31m|[m [33m|[m * [1;32m|[m [33m11381cc[m wrappimg up
+[31m|[m [33m|[m * [1;32m|[m [33md140d85[m Clarifying new development practices & airing out some code smells
+[31m|[m [33m|[m * [1;32m|[m [33me1ec87f[m Tidying docs
+[31m|[m [33m|[m * [1;32m|[m [33md7bb7bc[m Sitewide WSC -> PWSC credentials modernization
+[31m|[m [33m|[m[33m/[m [1;32m/[m  
+[31m|[m * [1;32m|[m   [33mb531e0d[m Merge branch 'feature/readme-wip-rescued' into develop
+[31m|[m [35m|[m[36m\[m [1;32m\[m  
+[31m|[m * [36m\[m [1;32m\[m   [33m1147b3b[m Merge pull request #28 from jagp/archive/dalle-queue-done
+[31m|[m [1;31m|[m[1;32m\[m [36m\[m [1;32m\[m  
+[31m|[m * [1;32m|[m [36m|[m [1;32m|[m [33m992f50b[m refactor(service-article): CSS Module; fluid gutter (was fixed 40px, cramped 280px content on phones)
+[31m|[m * [1;32m|[m [36m|[m [1;32m|[m   [33m9a288ac[m Merge pull request #27 from jagp/worktree-career-timeline-v2
+[31m|[m [1;33m|[m[31m\[m [1;32m\[m [36m\[m [1;32m\[m  
+[31m|[m [1;33m|[m[31m/[m [1;32m/[m [36m/[m [1;32m/[m  
+[31m|[m[31m/[m[1;33m|[m [1;32m|[m [36m|[m [1;32m|[m   
+[31m|[m * [1;32m|[m [36m|[m [1;32m|[m   [33m220a06e[m Merge pull request #26 from jagp/feature/responsive-refactor
+[31m|[m [1;35m|[m[1;36m\[m [1;32m\[m [36m\[m [1;32m\[m  
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33m6a53e3c[m chore(security): gitignore .env files (untracked OPENAI key found in .github/workflows/.env)
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33m763010f[m docs: responsive styling conventions + map/README updates
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33m5ae48a1[m feat(perf): speculation rules — prefetch immediate + prerender moderate (Chromium progressive enhancement)
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33m4d7d532[m chore: untrack image-prompt side-work (parallel session's in-progress files; still on disk)
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33m9bc5462[m feat(images): vite-imagetools AVIF/WebP srcset pipeline behind ResponsiveImage
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33m5f7662e[m refactor(service-hero): CSS Module; rem-anchored 1.5x headline clamp (was px 1.63x), no injection
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33m8a8b964[m refactor(services,service-detail): CSS Modules; container-query card grid on Services
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33ma30e7ad[m refactor(faq): CSS Module; aria-expanded on accordion trigger
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33mc0c17ea[m refactor(contact): CSS Module; form/aside split stacks at 768, field pair at 480
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33m186b585[m refactor(about): CSS Module migration; intro split stacks below 768
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33maacf324[m refactor(footer): CSS Module; 3-col grid steps to 2-col/1-col on phones
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33mefbc8d9[m fix(card): merge caller className instead of letting rest-spread clobber tone classes
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33ma7ead19[m refactor(home): responsive CSS-module migration — svh hero, image-first mobile, container-query grids
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33mb8f1c2b[m feat(cards): container-query card grid; ServiceCard module with dark variant
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33m702a6c9[m refactor(credential-band): CSS Module; honors wrap centered on phones
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33maef6ec7[m refactor(cta-band): CSS Module + container query — actions stack in narrow slots
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33maac1afb[m refactor(stat-card): CSS Module migration, tone hover mixes
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33m92fe88a[m refactor(testimonial): CSS Module migration; subgrid-ready blocks
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33m9c8f6d4[m refactor(page-header): CSS Module; fluid padding + token h1 (drops px clamp)
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33m8099cd4[m refactor(input): CSS Module migration; 16px floor kills iOS focus-zoom
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33m4f4bf3c[m refactor(badge): CSS Module migration via per-tone custom-prop palette
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33ma4a6b13[m refactor(card): CSS Module migration, tone/hover matrix, no runtime injection
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33ma3565ba[m refactor(button): migrate to CSS Module, drop runtime style injection
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33m9406b31[m feat(nav): responsive CSS-module nav — <details> hamburger below 768, zero-JS layout
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33meac7b1d[m feat(fonts): self-host Fraunces+Work Sans variable woff2 with preload; drop Google @import chain
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33m87b8fa6[m feat(tokens): fluid rem-anchored type+space scale (360-1200 anchors, <=1.5x), base hygiene
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33m4b6d449[m docs(plan): responsive refactor implementation plan (11 tasks, TDD-style verify gates)
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33maab7250[m docs(mocks): Gate B responsive mockups — nav, home hero, service page, card grids
+[31m|[m [1;35m|[m * [1;32m|[m [36m|[m [1;32m|[m [33m41baa24[m docs(responsive): design spec for the responsive refactor
+[31m|[m [1;35m|[m[1;35m/[m [1;32m/[m [36m/[m [1;32m/[m  
+[31m|[m * [1;32m|[m [36m|[m [1;32m|[m   [33m69dab85[m Merge pull request #25 from jagp/feature/ssg-services-integration
+[31m|[m [31m|[m[32m\[m [1;32m\[m [36m\[m [1;32m\[m  
+[31m|[m [31m|[m * [1;32m|[m [36m|[m [1;32m|[m [33mea51e38[m feat(ssg): reconcile services redesign + SSG/SEO layer onto develop
+[31m|[m [31m|[m[31m/[m [1;32m/[m [36m/[m [1;32m/[m  
+[31m|[m * [1;32m|[m [36m|[m [1;32m|[m   [33m01a131b[m Merge pull request #24 from jagp/feature/career-timeline-scholarship
+[31m|[m [33m|[m[34m\[m [1;32m\[m [36m\[m [1;32m\[m  
+[31m|[m [33m|[m * [1;32m|[m [36m|[m [1;32m|[m [33md347517[m[33m ([m[1;31morigin/feature/career-timeline-scholarship[m[33m, [m[1;32mfeature/career-timeline-scholarship[m[33m)[m feat(about): single-timeline career roadmap with impact-sized bubbles
+[31m|[m [33m|[m[33m/[m [1;32m/[m [36m/[m [1;32m/[m  
+* [33m|[m [1;32m|[m [36m|[m [1;32m|[m [33m8ea775d[m[33m ([m[1;31morigin/worktree-services-seo-taxonomy[m[33m, [m[1;31morigin/worktree-career-timeline-v2[m[33m, [m[1;32mworktree-services-seo-taxonomy[m[33m, [m[1;32mworktree-career-timeline-v2[m[33m)[m Disable main.yml workflow file
+[34m|[m * [1;32m|[m [36m|[m [1;32m|[m [33mc1bbaf5[m Merge pull request #23 from jagp/feature/reconcile-ghost-docs
+[34m|[m[34m/[m[36m|[m [1;32m|[m [36m|[m [1;32m|[m 
+[34m|[m * [1;32m|[m [36m|[m [1;32m|[m [33madd1216[m docs: consolidate ghost duplicate docs; add PR-testing + merge-queue TODOs
+[34m|[m[34m/[m [1;32m/[m [36m/[m [1;32m/[m  
+* [1;32m|[m [36m|[m [1;32m|[m   [33m5180395[m Merge pull request #22 from jagp/develop
+[1;31m|[m[1;32m\[m [1;32m\[m [36m\[m [1;32m\[m  
+[1;31m|[m * [1;32m\[m [36m\[m [1;32m\[m   [33m3547512[m Merge pull request #15 from jagp/feature/career-timeline
+[1;31m|[m [1;33m|[m[1;34m\[m [1;32m\[m [36m\[m [1;32m\[m  
+* [1;33m|[m [1;34m\[m [1;32m\[m [36m\[m [1;32m\[m   [33m6c19f93[m Merge pull request #9 from jagp/worktree-velvety-doodling-reddy
+[1;35m|[m[1;36m\[m [1;33m\[m [1;34m\[m [1;32m\[m [36m\[m [1;32m\[m  
+[1;35m|[m [1;36m|[m * [1;34m\[m [1;32m\[m [36m\[m [1;32m\[m   [33m32be871[m Merge pull request #19 from jagp/feature/dev-standards
+[1;35m|[m [1;36m|[m [31m|[m[32m\[m [1;34m\[m [1;32m\[m [36m\[m [1;32m\[m  
+[1;35m|[m [1;36m|[m * [32m\[m [1;34m\[m [1;32m\[m [36m\[m [1;32m\[m   [33m7147156[m Merge pull request #14 from jagp/worktree-velvety-doodling-reddy
+[1;35m|[m [1;36m|[m [33m|[m[1;36m\[m [32m\[m [1;34m\[m [1;32m\[m [36m\[m [1;32m\[m  
+[1;35m|[m [1;36m|[m [33m|[m[1;36m/[m [32m/[m [1;34m/[m [1;32m/[m [36m/[m [1;32m/[m  
+[1;35m|[m [1;36m|[m[1;36m/[m[33m|[m [32m|[m [1;34m|[m [1;32m|[m [36m|[m [1;32m|[m   
+* [1;36m|[m [33m|[m [32m|[m [1;34m|[m [1;32m|[m [36m|[m [1;32m|[m   [33m4d9822f[m Merge pull request #11 from jagp/develop
+[35m|[m[33m\[m [1;36m\[m [33m\[m [32m\[m [1;34m\[m [1;32m\[m [36m\[m [1;32m\[m  
+[35m|[m [33m|[m [1;36m|[m[33m/[m [32m/[m [1;34m/[m [1;32m/[m [36m/[m [1;32m/[m  
+[35m|[m [33m|[m[33m/[m[1;36m|[m [32m|[m [1;34m|[m [1;32m|[m [36m|[m [1;32m|[m   
+[35m|[m [33m|[m [1;36m|[m * [1;34m|[m [1;32m|[m [36m|[m [1;32m|[m [33m695c91a[m docs: codify gitflow development standards (develop as integration branch)
+[35m|[m [33m|[m [1;36m|[m[33m/[m [1;34m/[m [1;32m/[m [36m/[m [1;32m/[m  
+[35m|[m [33m|[m[33m/[m[1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [1;32m|[m   
+* [33m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [1;32m|[m [33m25d0f2d[m trunk
+[36m|[m * [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [1;32m|[m   [33m6251ce1[m Merge remote-tracking branch 'origin/main' into develop
+[36m|[m [1;31m|[m[36m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [1;32m\[m  
+[36m|[m [1;31m|[m[36m/[m [1;36m/[m [1;34m/[m [1;32m/[m [36m/[m [1;32m/[m  
+[36m|[m[36m/[m[1;31m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [1;32m|[m   
+[36m|[m [1;31m|[m [1;36m|[m [1;34m|[m * [36m|[m [1;32m|[m [33mc6e4f7c[m[33m ([m[1;31morigin/archive/dalle-queue-done[m[33m, [m[1;32marchive/dalle-queue-done[m[33m)[m Rescue WIP: dalle-queue.md tweak
+[36m|[m [1;31m|[m [1;36m|[m [1;34m|[m [1;32m|[m * [1;32m|[m [33m551b8f7[m[33m ([m[1;31morigin/archive/readme-wip-rescued[m[33m)[m Rescue WIP: README rewrite (+155/-22)
+[36m|[m [1;31m|[m [1;36m|[m * [1;32m|[m [1;32m|[m [1;32m|[m [33mfb823be[m Rescue WIP: CareerTimeline component + About.tsx wiring
+[36m|[m * [1;36m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;32m|[m [33me8eb05a[m docs tidying up
+[36m|[m [1;32m|[m [1;36m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;32m|[m * [33m88580d3[m[33m ([m[1;33mtag: [m[1;33marchive/stash/00-main-docs-temp[m[33m)[m On main: docs temp
+[36m|[m [1;32m|[m[36m_[m[1;36m|[m[36m_[m[1;32m|[m[36m_[m[1;32m|[m[36m_[m[1;32m|[m[36m_[m[1;32m|[m[36m/[m[1;34m|[m 
+[36m|[m[36m/[m[1;32m|[m [1;36m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;34m|[m 
+[36m|[m [1;32m|[m [1;36m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;32m|[m * [33m3e1fc8f[m index on main: 6c66750 Merge pull request #10 from jagp/docs-map-readme-followup
+[36m|[m [1;32m|[m[36m_[m[1;36m|[m[36m_[m[1;32m|[m[36m_[m[1;32m|[m[36m_[m[1;32m|[m[36m_[m[1;32m|[m[36m/[m  
+[36m|[m[36m/[m[1;32m|[m [1;36m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;32m|[m   
+[36m|[m * [1;36m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;32m|[m [33mdb62be5[m reorganizing docs; content -> copy
+[36m|[m [1;34m|[m [1;36m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;32m|[m * [33me611dda[m[33m ([m[1;31morigin/feature/seo-service-template[m[33m, [m[1;32mfeature/seo-service-template[m[33m)[m [fix] Flat SSG output so canonicals resolve without redirects on CF
+[36m|[m [1;34m|[m [1;36m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;32m|[m * [33m9a97161[m [fix] Commit CredentialBand build shim — CI clone must be self-contained
+[36m|[m [1;34m|[m [1;36m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;32m|[m * [33m10184b0[m [fix] Unbreak Cloudflare Pages CI build
+* [1;34m|[m [1;36m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;35m|[m   [33m6c66750[m Merge pull request #10 from jagp/docs-map-readme-followup
+[1;36m|[m[31m\[m [1;34m\[m [1;36m\[m [1;32m\[m [1;32m\[m [1;32m\[m [1;32m\[m [1;35m\[m  
+[1;36m|[m * [1;34m|[m [1;36m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;35m|[m [33m1797311[m[33m ([m[1;31morigin/archive/markdown-audit-done[m[33m, [m[1;32marchive/markdown-audit-done[m[33m)[m Correct map: place development.md under docs/, dedupe scratch entry
+* [31m|[m [1;34m|[m [1;36m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;35m|[m [33m0cd91f8[m reloacting new docs
+[31m|[m * [1;34m|[m [1;36m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;35m|[m [33m6f5abd9[m Fix unambiguous heading typo in awards-and-more.md
+[31m|[m * [1;34m|[m [1;36m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;35m|[m [33m0df0b00[m Fix unambiguous typos in CLAUDE.md project map
+[31m|[m [31m|[m [1;34m|[m * [1;32m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;35m|[m [33m3b60f3e[m [feat] Botanical honors credentials band, fact-checked
+[31m|[m * [1;34m|[m [31m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;35m|[m [33m00f6663[m Reconcile docs with source: map structure, README interface + Node req
+[31m|[m[31m/[m [1;34m/[m [31m/[m [1;32m/[m [1;32m/[m [1;32m/[m [1;32m/[m [1;35m/[m  
+[31m|[m [1;34m|[m [31m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;32m|[m * [33m8c05c5e[m [fix] Apply adversarial-review findings (SEO + a11y + responsive)
+[31m|[m [1;34m|[m [31m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;32m|[m * [33m4674eb3[m [feat] SSG + structured-data SEO layer (Increment B)
+[31m|[m [1;34m|[m [31m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;32m|[m * [33m0108cbf[m [feat] Composable service-page sections (Increment A)
+[31m|[m [1;34m|[m [31m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;32m|[m [31m|[m * [33m9cf518a[m[33m ([m[1;33mtag: [m[1;33marchive/orphan/worktree-markdown-audit[m[33m)[m Reconcile docs with source: map structure, README interface + Node req
+[31m|[m [1;34m|[m [31m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;32m|[m * [32m|[m [33md5ea443[m [feat] Evolve service content schema for SEO-rich template
+* [1;34m|[m [31m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;32m|[m [32m|[m [32m|[m   [33m59c98f2[m Merge pull request #6 from jagp/worktree-dalle-prompts-queue
+[33m|[m[1;32m\[m [1;34m\[m [31m\[m [1;32m\[m [1;32m\[m [1;32m\[m [1;32m\[m [32m\[m [32m\[m  
+[33m|[m [1;32m|[m [1;34m|[m[1;32m_[m[31m|[m[1;32m_[m[1;32m|[m[1;32m/[m [1;32m/[m [1;32m/[m [32m/[m [32m/[m  
+[33m|[m [1;32m|[m[1;32m/[m[1;34m|[m [31m|[m [1;32m|[m [1;32m|[m [1;32m|[m [32m|[m [32m|[m   
+* [1;32m|[m [1;34m|[m [31m|[m [1;32m|[m [1;32m|[m [1;32m|[m [32m|[m [32m|[m   [33m4ea85e4[m Merge pull request #7 from jagp/worktree-markdown-audit
+[1;32m|[m[32m\[m [1;32m\[m [1;34m\[m [31m\[m [1;32m\[m [1;32m\[m [1;32m\[m [32m\[m [32m\[m  
+[1;32m|[m [32m|[m[1;32m_[m[1;32m|[m[1;32m_[m[1;34m|[m[1;32m_[m[31m|[m[1;32m/[m [1;32m/[m [1;32m/[m [32m/[m [32m/[m  
+[1;32m|[m[1;32m/[m[32m|[m [1;32m|[m [1;34m|[m [31m|[m [1;32m|[m [1;32m|[m [32m|[m [32m/[m   
+[1;32m|[m [32m|[m [1;32m|[m[32m_[m[1;34m|[m[32m_[m[31m|[m[32m_[m[1;32m|[m[32m_[m[1;32m|[m[32m_[m[32m|[m[32m/[m    
+[1;32m|[m [32m|[m[32m/[m[1;32m|[m [1;34m|[m [31m|[m [1;32m|[m [1;32m|[m [32m|[m     
+[1;32m|[m * [1;32m|[m [1;34m|[m [31m|[m [1;32m|[m [1;32m|[m [32m|[m [33m0e9bc8d[m Fix unambiguous typos in internal markdown docs
+[1;32m|[m [36m|[m [1;32m|[m [1;34m|[m [31m|[m [1;32m|[m [1;32m|[m [32m|[m *   [33md8cdce3[m[33m ([m[1;33mtag: [m[1;33marchive/stash/01-credentials-wip[m[33m)[m WIP on feature/new_credentials_comoponent: bfb08af refreshing credentials class
+[1;32m|[m [36m|[m [1;32m|[m [1;34m|[m [31m|[m [1;32m|[m [1;32m|[m [32m|[m [1;31m|[m[1;32m\[m  
+[1;32m|[m [36m|[m [1;32m|[m [1;34m|[m [31m|[m [1;32m|[m [1;32m|[m [32m|[m [1;31m|[m * [33m5d77e7f[m index on feature/new_credentials_comoponent: bfb08af refreshing credentials class
+[1;32m|[m [36m|[m [1;32m|[m [1;34m|[m [31m|[m [1;32m|[m [1;32m|[m [32m|[m [1;31m|[m[1;31m/[m  
+[1;32m|[m [36m|[m [1;32m|[m [1;34m|[m [31m|[m [1;32m|[m [1;32m|[m * [1;31m/[m [33m6b8519f[m [docs] SEO service-page template design spec
+[1;32m|[m [36m|[m [1;32m|[m [1;34m|[m [31m|[m [1;32m|[m [1;32m|[m[1;32m/[m [1;31m/[m  
+[1;32m|[m [36m|[m * [1;34m|[m [31m|[m [1;32m|[m [1;32m/[m [1;31m/[m [33m20085c7[m Add DALL·E prompt queue for all service page imagery (6 services × 2 sets)
+[1;32m|[m [36m|[m[1;32m/[m [1;34m/[m [31m/[m [1;32m/[m [1;32m/[m [1;31m/[m  
+[1;32m|[m[1;32m/[m[36m|[m [1;34m|[m [31m|[m [1;32m|[m [1;32m|[m [1;31m|[m   
+[1;32m|[m * [1;34m|[m [31m|[m [1;32m|[m [1;32m|[m [1;31m|[m [33m7716d3b[m Re-sync CLAUDE.md with Jared's latest in-flight edits
+* [1;32m|[m [1;34m|[m [31m|[m [1;32m|[m [1;32m|[m [1;31m|[m   [33mc48bfe3[m Merge branch 'develop'
+[31m|[m[1;34m\[m [1;32m\[m [1;34m\[m [31m\[m [1;32m\[m [1;32m\[m [1;31m\[m  
+[31m|[m [1;34m|[m [1;32m|[m[1;34m/[m [31m/[m [1;32m/[m [1;32m/[m [1;31m/[m  
+[31m|[m [1;34m|[m[1;34m/[m[1;32m|[m [31m/[m [1;32m/[m [1;32m/[m [1;31m/[m   
+[31m|[m [1;34m|[m[31m_[m[1;32m|[m[31m/[m [1;32m/[m [1;32m/[m [1;31m/[m    
+[31m|[m[31m/[m[1;34m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;31m|[m     
+[31m|[m * [1;32m|[m [1;32m|[m [1;32m|[m [1;31m|[m [33mf1cd8b9[m updating core markdown and collected research
+[31m|[m [1;34m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;31m|[m * [33mf09f697[m[33m ([m[1;33mtag: [m[1;33marchive/stash/02-main-wip[m[33m)[m WIP on main: ca07060 Merge pull request #4 from jagp/develop
+[31m|[m [1;34m|[m[31m_[m[1;32m|[m[31m_[m[1;32m|[m[31m_[m[1;32m|[m[31m_[m[1;31m|[m[31m/[m[1;36m|[m 
+[31m|[m[31m/[m[1;34m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;31m|[m [1;36m|[m 
+[31m|[m [1;34m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;31m|[m * [33m38371fe[m index on main: ca07060 Merge pull request #4 from jagp/develop
+[31m|[m [1;34m|[m[31m_[m[1;32m|[m[31m_[m[1;32m|[m[31m_[m[1;32m|[m[31m_[m[1;31m|[m[31m/[m  
+[31m|[m[31m/[m[1;34m|[m [1;32m|[m [1;32m|[m [1;32m|[m [1;31m|[m   
+[31m|[m [1;34m|[m * [1;32m|[m [1;32m|[m [1;31m|[m [33m07cd24c[m Baseline: import in-flight working versions of CLAUDE.md and key-facts.md
+[31m|[m [1;34m|[m[31m/[m [1;32m/[m [1;32m/[m [1;31m/[m  
+[31m|[m[31m/[m[1;34m|[m [1;32m|[m [1;32m|[m [1;31m|[m   
+* [1;34m|[m [1;32m|[m [1;32m|[m [1;31m|[m   [33mca07060[m Merge pull request #4 from jagp/develop
+[31m|[m[32m\[m [1;34m\[m [1;32m\[m [1;32m\[m [1;31m\[m  
+[31m|[m [32m|[m * [1;32m|[m [1;32m|[m [1;31m|[m [33m1daadb6[m Merge branch 'feature/safety_check_-_cleanup_post-interruptions' into develop
+[31m|[m [32m|[m[32m/[m[34m|[m [1;32m|[m [1;32m|[m [1;31m|[m 
+[31m|[m [32m|[m * [1;32m|[m [1;32m|[m [1;31m|[m   [33mffb7bf3[m Merge branch 'develop' into feature/safety_check_-_cleanup_post-interruptions
+[31m|[m [32m|[m [35m|[m[32m\[m [1;32m\[m [1;32m\[m [1;31m\[m  
+[31m|[m [32m|[m [35m|[m[32m/[m [1;32m/[m [1;32m/[m [1;31m/[m  
+[31m|[m [32m|[m[32m/[m[35m|[m [1;32m|[m [1;32m|[m [1;31m|[m   
+[31m|[m * [35m|[m [1;32m|[m [1;32m|[m [1;31m|[m [33me4b9725[m updating servie and homepage icons
+[31m|[m [36m|[m [35m|[m [1;32m|[m [1;32m|[m * [33mbfb08af[m[33m ([m[1;33mtag: [m[1;33marchive/branch/credentials-EARLIER[m[33m, [m[1;31morigin/feature/new_credentials_comoponent[m[33m, [m[1;32mfeature/new_credentials_comoponent[m[33m)[m refreshing credentials class
+[31m|[m [36m|[m [35m|[m [1;32m|[m [1;32m|[m *   [33mbdcd87f[m Merge branch 'develop' into feature/new_credentials_comoponent
+[31m|[m [36m|[m [35m|[m [1;32m|[m [1;32m|[m [1;31m|[m[36m\[m  
+[31m|[m [36m|[m [35m|[m[36m_[m[1;32m|[m[36m_[m[1;32m|[m[36m_[m[1;31m|[m[36m/[m  
+[31m|[m [36m|[m[36m/[m[35m|[m [1;32m|[m [1;32m|[m [1;31m|[m   
+[31m|[m * [35m|[m [1;32m|[m [1;32m|[m [1;31m|[m   [33mb223f3c[m[33m ([m[1;33mtag: [m[1;33mprincipled-design-realignment[m[33m)[m Merge branch 'hotfix/principled-design-realignment' into develop
+[31m|[m [1;33m|[m[1;34m\[m [35m\[m [1;32m\[m [1;32m\[m [1;31m\[m  
+[31m|[m [1;33m|[m [1;34m|[m [35m|[m [1;32m|[m [1;32m|[m [1;31m|[m * [33m4ac2a47[m[33m ([m[1;33mtag: [m[1;33marchive/stash/03-responsive-bootstrap-media[m[33m)[m WIP on hotfix/principled-design-realignment: fa4c9f7 new claudfe with routing new services icons new design doc
+[31m|[m [1;33m|[m [1;34m|[m [35m|[m[1;34m_[m[1;32m|[m[1;34m_[m[1;32m|[m[1;34m_[m[1;31m|[m[1;34m/[m[1;36m|[m 
+[31m|[m [1;33m|[m [1;34m|[m[1;34m/[m[35m|[m [1;32m|[m [1;32m|[m [1;31m|[m [1;36m|[m 
+[31m|[m [1;33m|[m [1;34m|[m [35m|[m [1;32m|[m [1;32m|[m [1;31m|[m * [33m6248e0b[m index on hotfix/principled-design-realignment: fa4c9f7 new claudfe with routing new services icons new design doc
+[31m|[m [1;33m|[m [1;34m|[m [35m|[m[1;34m_[m[1;32m|[m[1;34m_[m[1;32m|[m[1;34m_[m[1;31m|[m[1;34m/[m  
+[31m|[m [1;33m|[m [1;34m|[m[1;34m/[m[35m|[m [1;32m|[m [1;32m|[m [1;31m|[m   
+[31m|[m [1;33m|[m * [35m|[m [1;32m|[m [1;32m|[m [1;31m|[m [33mfa4c9f7[m new claudfe with routing new services icons new design doc
+[31m|[m [1;33m|[m [1;36m|[m [35m|[m [1;32m|[m [1;32m|[m [1;31m|[m *   [33m7a19b4c[m[33m ([m[1;33mtag: [m[1;33marchive/stash/04-hotfix-wip[m[33m)[m WIP on hotfix/principled-design-realignment: 00761e6 Realigning planning sessions docs with current SOP
+[31m|[m [1;33m|[m [1;36m|[m [35m|[m[1;36m_[m[1;32m|[m[1;36m_[m[1;32m|[m[1;36m_[m[1;31m|[m[1;36m/[m[32m|[m[33m\[m  
+[31m|[m [1;33m|[m [1;36m|[m[1;36m/[m[35m|[m [1;32m|[m [1;32m|[m [1;31m|[m [32m|[m [33m|[m 
+[31m|[m [1;33m|[m [1;36m|[m [35m|[m [1;32m|[m [1;32m|[m [1;31m|[m * [33m|[m [33meef3979[m index on hotfix/principled-design-realignment: 00761e6 Realigning planning sessions docs with current SOP
+[31m|[m [1;33m|[m [1;36m|[m [35m|[m[1;36m_[m[1;32m|[m[1;36m_[m[1;32m|[m[1;36m_[m[1;31m|[m[1;36m/[m [33m/[m  
+[31m|[m [1;33m|[m [1;36m|[m[1;36m/[m[35m|[m [1;32m|[m [1;32m|[m [1;31m|[m [33m|[m   
+[31m|[m [1;33m|[m [1;36m|[m [35m|[m [1;32m|[m [1;32m|[m [1;31m|[m * [33m7b4f972[m untracked files on hotfix/principled-design-realignment: 00761e6 Realigning planning sessions docs with current SOP
+[31m|[m [1;33m|[m [1;36m|[m [35m|[m [1;32m|[m [1;32m|[m [1;31m|[m *   [33m3c22597[m[33m ([m[1;33mtag: [m[1;33marchive/stash/05-hotfix-wip-dup[m[33m)[m WIP on hotfix/principled-design-realignment: 00761e6 Realigning planning sessions docs with current SOP
+[31m|[m [1;33m|[m [1;36m|[m [35m|[m[1;36m_[m[1;32m|[m[1;36m_[m[1;32m|[m[1;36m_[m[1;31m|[m[1;36m/[m[35m|[m[36m\[m  
+[31m|[m [1;33m|[m [1;36m|[m[1;36m/[m[35m|[m [1;32m|[m [1;32m|[m [1;31m|[m [35m|[m [36m|[m 
+[31m|[m [1;33m|[m [1;36m|[m [35m|[m [1;32m|[m [1;32m|[m [1;31m|[m * [36m|[m [33m81e0563[m index on hotfix/principled-design-realignment: 00761e6 Realigning planning sessions docs with current SOP
+[31m|[m [1;33m|[m [1;36m|[m [35m|[m[1;36m_[m[1;32m|[m[1;36m_[m[1;32m|[m[1;36m_[m[1;31m|[m[1;36m/[m [36m/[m  
+[31m|[m [1;33m|[m [1;36m|[m[1;36m/[m[35m|[m [1;32m|[m [1;32m|[m [1;31m|[m [36m|[m   
+[31m|[m [1;33m|[m [1;36m|[m [35m|[m [1;32m|[m [1;32m|[m [1;31m|[m * [33ma2c1ca6[m untracked files on hotfix/principled-design-realignment: 00761e6 Realigning planning sessions docs with current SOP
+[31m|[m [1;33m|[m * [35m|[m [1;32m|[m [1;32m|[m [1;31m|[m [33m00761e6[m Realigning planning sessions docs with current SOP
+[31m|[m [1;33m|[m[1;33m/[m [35m/[m [1;32m/[m [1;32m/[m [1;31m/[m  
+[31m|[m [1;33m|[m [35m|[m [1;32m|[m [1;32m|[m [1;31m|[m * [33m5371569[m[33m ([m[1;31morigin/wip/v1-worktree-checkpoint[m[33m, [m[1;32mwip/v1-worktree-checkpoint[m[33m)[m wip: superseded v1 checkpoint before editorial redesign
+[31m|[m [1;33m|[m [35m|[m [1;32m|[m [1;32m|[m[1;32m_[m[1;31m|[m[1;32m/[m  
+[31m|[m [1;33m|[m [35m|[m [1;32m|[m[1;32m/[m[1;32m|[m [1;31m|[m   
+* [1;33m|[m [35m|[m [1;32m|[m [1;32m|[m [1;31m|[m   [33m9b31c71[m Merge pull request #3 from jagp/feature/safety_check_-_cleanup_post-interruptions
+[1;32m|[m[35m\[m [1;33m\[m [35m\[m [1;32m\[m [1;32m\[m [1;31m\[m  
+[1;32m|[m [35m|[m [1;33m|[m[35m/[m [1;32m/[m [1;32m/[m [1;31m/[m  
+[1;32m|[m [35m|[m[35m/[m[1;33m|[m [1;32m/[m [1;32m/[m [1;31m/[m   
+[1;32m|[m [35m|[m[1;32m_[m[1;33m|[m[1;32m/[m [1;32m/[m [1;31m/[m    
+[1;32m|[m[1;32m/[m[35m|[m [1;33m|[m [1;32m|[m [1;31m|[m     
+[1;32m|[m * [1;33m|[m [1;32m|[m [1;31m|[m [33m83c54ca[m undoing local settiongs integration accidentally
+[1;32m|[m * [1;33m|[m [1;32m|[m [1;31m|[m [33m7457ffa[m fixing services gap
+[1;32m|[m * [1;33m|[m [1;32m|[m [1;31m|[m [33mfe6c4d0[m admin concerns: readme
+[1;32m|[m * [1;33m|[m [1;32m|[m [1;31m|[m [33m8d9dc4b[m adding back credentials for now
+[1;32m|[m [1;33m|[m[1;33m/[m [1;32m/[m [1;31m/[m  
+[1;32m|[m [1;33m|[m [1;32m|[m [1;31m|[m * [33m6eff362[m[33m ([m[1;33mtag: [m[1;33marchive/stash/06-credentials-wip[m[33m)[m WIP on feature/new_credentials_comoponent: b47d1e6 moving around the credentials bar, adding to about
+[1;32m|[m [1;33m|[m [1;32m|[m [1;31m|[m[1;31m/[m[1;35m|[m 
+[1;32m|[m [1;33m|[m [1;32m|[m [1;31m|[m * [33mbdf741c[m index on feature/new_credentials_comoponent: b47d1e6 moving around the credentials bar, adding to about
+[1;32m|[m [1;33m|[m [1;32m|[m [1;31m|[m[1;31m/[m  
+[1;32m|[m [1;33m|[m [1;32m|[m [1;31m|[m * [33m56c232b[m[33m ([m[1;33mtag: [m[1;33marchive/stash/07-service-layout-wip[m[33m)[m WIP on feature/new_service_page_layout: ded3980 temp checkpointing the new services design - may be scrapped
+[1;32m|[m [1;33m|[m [1;32m|[m [1;31m|[m[1;32m/[m[31m|[m 
+[1;32m|[m [1;33m|[m [1;32m|[m[1;32m/[m[1;31m|[m [31m|[m 
+[1;32m|[m [1;33m|[m [1;32m|[m [1;31m|[m * [33m5d18372[m index on feature/new_service_page_layout: ded3980 temp checkpointing the new services design - may be scrapped
+[1;32m|[m [1;33m|[m [1;32m|[m [1;31m|[m[1;32m/[m  
+[1;32m|[m [1;33m|[m [1;32m|[m[1;32m/[m[1;31m|[m   
+[1;32m|[m [1;33m|[m * [1;31m|[m [33mded3980[m[33m ([m[1;33mtag: [m[1;33marchive/branch/service-page-layout-OLD[m[33m, [m[1;31morigin/feature/new_service_page_layout[m[33m)[m temp checkpointing the new services design - may be scrapped
+[1;32m|[m [1;33m|[m [31m|[m [1;31m|[m *   [33m563b0ed[m[33m ([m[1;33mtag: [m[1;33marchive/stash/08-responsive-home-wip[m[33m)[m On feature/new_service_page_layout: responsive-home-wip
+[1;32m|[m [1;33m|[m [31m|[m [1;31m|[m[31m/[m[33m|[m[34m\[m  
+[1;32m|[m [1;33m|[m [31m|[m[31m/[m[1;31m|[m [33m|[m [34m|[m 
+[1;32m|[m [1;33m|[m [31m|[m [1;31m|[m * [34m|[m [33m1e19846[m index on feature/new_service_page_layout: 7efb96d new services mocks
+[1;32m|[m [1;33m|[m [31m|[m [1;31m|[m[31m/[m [34m/[m  
+[1;32m|[m [1;33m|[m [31m|[m[31m/[m[1;31m|[m [34m|[m   
+[1;32m|[m [1;33m|[m [31m|[m [1;31m|[m * [33mae80a51[m untracked files on feature/new_service_page_layout: 7efb96d new services mocks
+[1;32m|[m [1;33m|[m [31m|[m [1;31m|[m * [33m193a551[m[33m ([m[1;33mtag: [m[1;33marchive/stash/09-responsive-REJECTED-jsflags[m[33m)[m On feature/new_service_page_layout: responsive-redesign-wip
+[1;32m|[m [1;33m|[m [31m|[m [1;31m|[m[31m/[m[36m|[m 
+[1;32m|[m [1;33m|[m [31m|[m[31m/[m[1;31m|[m [36m|[m 
+[1;32m|[m [1;33m|[m [31m|[m [1;31m|[m * [33m4cb59eb[m index on feature/new_service_page_layout: 7efb96d new services mocks
+[1;32m|[m [1;33m|[m [31m|[m [1;31m|[m[31m/[m  
+[1;32m|[m [1;33m|[m [31m|[m[31m/[m[1;31m|[m   
+[1;32m|[m * [31m|[m [1;31m|[m [33m2f4c6fe[m more linting reworks
+[1;32m|[m [36m|[m [31m|[m * [33mb47d1e6[m moving around the credentials bar, adding to about
+[1;32m|[m [36m|[m [31m|[m[31m/[m  
+[1;32m|[m [36m|[m * [33m7efb96d[m new services mocks
+[1;32m|[m [36m|[m * [33m98de0db[m assets needed for new service pages
+[1;32m|[m [36m|[m * [33m13af0db[m First pass at services update in progress, needs wrangling
+[1;32m|[m [36m|[m[36m/[m  
+[1;32m|[m * [33mdefd245[m [Chore] Linting concerns
+[1;32m|[m * [33m4a22053[m adding the split data p1
+[1;32m|[m * [33mb748268[m [feat] new Credentials row for homepage (this should be a feature bnranch)
+[1;32m|[m * [33mbc1996e[m Service pages copy moving towars final with this pregnancy copy
+* [36m|[m [33m2e46c72[m Merge branch 'develop'
+[1;31m|[m[36m\[m[36m|[m 
+[1;31m|[m * [33m7f7756f[m Smooth and clean up leaf-leaves motif asset
+[1;31m|[m *   [33m7cb6b33[m Merge branch 'main' into develop
+[1;31m|[m [1;33m|[m[1;31m\[m  
+[1;31m|[m [1;33m|[m[1;31m/[m  
+[1;31m|[m[1;31m/[m[1;33m|[m   
+* [1;33m|[m   [33m0d107b2[m Merge pull request #2 from jagp/feature/fixing-nav-transparency
+[1;35m|[m[1;36m\[m [1;33m\[m  
+[1;35m|[m * [1;33m|[m [33maec9cee[m Increase footer logo size by 25%
+[1;35m|[m * [1;33m|[m [33m6b827c3[m Use real logo and book cover images in layout and home
+[1;35m|[m * [1;33m|[m   [33m6f68940[m Merge branch 'main' into feature/fixing-nav-transparency
+[1;35m|[m [1;33m|[m[1;35m\[m [1;33m\[m  
+[1;35m|[m [1;33m|[m[1;35m/[m [1;33m/[m  
+[1;35m|[m[1;35m/[m[1;33m|[m [1;33m/[m   
+[1;35m|[m [1;33m|[m[1;33m/[m    
+* [1;33m|[m [33m8426404[m Merge pull request #1 from jagp/develop
+[33m|[m[1;33m\[m[1;33m|[m 
+[33m|[m * [33ma29e760[m changing architecture & color system
+[33m|[m[33m/[m  
+* [33mc7319c1[m init from transpile
