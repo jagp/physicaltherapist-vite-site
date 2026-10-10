@@ -97,3 +97,21 @@
 [26-09-19 11:02] response - 12 tool call(s) <Stop:11674>
 [26-09-19 11:02] Subagent finished (#a117941d) <SubagentStop>
 [26-09-19 11:31] Subagent finished (#a6377852) <SubagentStop>
+[26-10-06 11:38] Show branch state, history graph, tags, remotes <Bash>
+[26-10-06 11:38] Inspect how v1.0.1 was bumped, merged, tagged <Bash>
+[26-10-06 11:38] Find every 1.0.1 reference and current version fields <Bash>
+[26-10-06 11:39] Check live site for GA4 vs GTM tags <Bash>
+[26-10-06 11:39] Broad re-check of live site for any Google tag <Bash>
+[26-10-06 11:56] <AskUserQuestion>
+[26-10-06 11:57] Create detached worktree at release/v1.0.2 tip <Bash>
+[26-10-06 11:57] CHANGELOG.md <Read>
+[26-10-06 11:57] README.md <Read>
+[26-10-06 11:57] README.md <Edit>
+[26-10-06 11:57] CHANGELOG.md <Edit>
+[26-10-06 11:57] Commit bump, re-grep old and new version refs <Bash>
+[26-10-06 11:57] Fast-forward release/v1.0.2 in main checkout <Bash>
+[26-10-06 11:57] Remove the scratch release worktree <PowerShell>
+[26-10-06 11:57] Remove empty folder, re-check live site tags <PowerShell>
+[26-10-06 11:58] Check plain URLs (as visitors get them) for GA4 <Bash>
+[26-10-06 11:59] response - 17 tool call(s) <Stop:17579>
+[26-10-06 12:02] Subagent finished (#aa70905e) claude <SubagentStop>
